@@ -1,6 +1,6 @@
 [submodule "best-practices"]
 	path = best-practices
 	url = https://github.com/rocky-mountain-institute/gtfs-best-practices
-[submodule "reference"]
-	path = reference
+[submodule "_reference"]
+	path = _reference
 	url = https://github.com/rocky-mountain-institute/gtfs-reference

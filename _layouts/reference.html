@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    {% include nav.html %}
+    <section class="page">
+      <div id="best-practices" class="page-content clearfix">
+        <div class="col-md-3 col-xs-12">
+          <ul class="list-group sidenav">
+            <li class="list-group-item"><a href="#term-definitions">Term Definitions</a></li>
+            <li class="list-group-item"><a href="#feed-files">Feed Files</a></li>
+            <li class="list-group-item"><a href="#file-requirements">File Requirements</a></li>
+            <li class="list-group-item"><a href="#field-definitions">Field Definitions</a></li>
+            <ul>
+              <li><a href="#agencytxt">agency.txt</a></li>
+              <li><a href="#stopstxt">stops.txt</a></li>
+              <li><a href="#routestxt">routes.txt</a></li>
+              <li><a href="#tripstxt">trips.txt</a></li>
+              <li><a href="#stop_timestxt">stop_times.txt</a></li>
+              <li><a href="#calendartxt">calendar.txt</a></li>
+              <li><a href="#calendar_datestxt">calendar_dates.txt</a></li>
+              <li><a href="#fare_attributestxt">fare_attributes.txt</a></li>
+              <li><a href="#fare_rulestxt">fare_rules.txt</a></li>
+              <li><a href="#shapestxt">shapes.txt</a></li>
+              <li><a href="#frequenciestxt">frequencies.txt</a></li>
+              <li><a href="#transferstxt">transfers.txt</a></li>
+              <li><a href="#feed_infotxt">feed_info.txt</a></li>
+            </ul>
+          </ul>
+        </div>
+        <div class="col-lg-8 col-md-9 col-xs-12">
+          {{ content }}
+        </div>
+      </div>
+    </section> <!-- page -->
+    {% include footer.html %}
+  </body>
+</html>

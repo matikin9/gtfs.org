@@ -1,14 +1,17 @@
-#best-practices {
+#document {
 
   .sidenav {
     background-color: #f5f5f5;
     font-size: 10pt;
     padding: 10px 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
 
       .list-group-item {
         background-color: transparent;
         border: none;
-        padding: 5px 15px;
+        padding: 0 15px 5px 15px;
       }
 
       a {
@@ -29,7 +32,7 @@
       li {
         list-style: none;
         margin: 0 0 0 10px;
-        padding: 2px 0;
+        padding: 0 0 2px 0;
         text-indent: -10px;
       }
   }
@@ -37,8 +40,8 @@
   figure {
     margin: 10px 0;
     padding: 5px 0;
-    border-top: 2px solid $color-yellow-bright;
-    border-bottom: 2px solid $color-yellow-bright;
+    border-top: 2px solid $accent-color;
+    border-bottom: 2px solid $accent-color;
 
     figcaption {
       text-align: center;
@@ -212,40 +215,44 @@ table {
 
   // customer thead color
   > thead > tr {
-    background-color: #999;
-    color: #fff;
+    background-color: #bbb;
+    color: black;
   }
 
   > thead > tr > th {
     font-weight: normal;
   }
 
-}
-
-table.example {
-
-  border: 1px solid $color-yellow-light;
-
-  margin-top: 10px;
-
-  > thead > tr {
-    background: $color-yellow-deep;
+  > tbody > tr.highlight {
+    background-color: rgba(19, 138, 150, 0.3);
   }
 
-  > tbody > tr:nth-of-type(odd) {
-    background-color: $color-yellow-light;
-  }
-
-  // > thead > tr > th, > tbody > tr > td {
-  //   text-align: center;
-  // }
-
 }
+
+// table.example {
+//
+//   border: 1px solid $color-yellow-light;
+//
+//   margin-top: 10px;
+//
+//   > thead > tr {
+//     background: $color-yellow-deep;
+//   }
+//
+//   > tbody > tr:nth-of-type(odd) {
+//     background-color: $color-yellow-light;
+//   }
+//
+//   // > thead > tr > th, > tbody > tr > td {
+//   //   text-align: center;
+//   // }
+//
+// }
 
 table.recommendation {
 
   > thead > tr {
-    background-color: $color-green-deep;
+    background-color: $table-color;
   }
 
   > tbody > tr {
@@ -258,7 +265,13 @@ table.recommendation {
   }
 
   .field-row {
-    border-top: 2px solid $color-green-deep;
+    border-top: 2px solid $table-color;
   }
 
+}
+
+@media only screen and (max-width: 991px) {
+  #document .sidenav {
+    position: relative;
+  }
 }

@@ -3,13 +3,16 @@ html {
 }
 
 body {
-  font-family: "Source Sans Pro";
   padding-bottom: 60px;
   min-height: 100%;
   position: relative;
   font-family: $font-sans;
   line-height: 1.3em;
   @include copy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-header;
 }
 
 .page {
@@ -33,11 +36,10 @@ code {
 
 h1 {
   padding-bottom: 5px;
-  border-bottom: 2px solid $color-green;
+  border-bottom: 2px solid $accent-color;
 }
 
 p {
-  // margin: 10px 0;
   line-height: 1.3em;
 }
 
@@ -49,6 +51,15 @@ img, svg {
   display: block;
   margin: 0 auto;
   max-width: 50%;
+}
+
+.img-link {
+  text-decoration: none;
+  border: none;
+
+  &:hover {
+    background-color: transparent;
+  }
 }
 
 //homepage-only styles
@@ -93,21 +104,21 @@ a, a:hover, a:visited, a:active {
 }
 
 a {
-  border-bottom: 2px solid $color-green;
+  border-bottom: 2px solid $link-color;
 }
 
 a:visited {
-  border-color: $color-green;
+  border-color: $link-color;
 }
 
 a:hover {
-  background-color: $color-green;
-  border-color: $color-green;
+  background-color: $link-color;
+  border-color: $link-color;
 }
 
 a:active {
-  border-color: $color-green;
-  background-color: $color-green;
+  border-color: $link-color;
+  background-color: $link-color;
   text-decoration: none;
   position: relative;
   top: 1px;

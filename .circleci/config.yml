@@ -15,4 +15,7 @@ jobs:
           name: Clone Realtime Reference repo
           command: git clone git@github.com:itd-consortium/gtfs-realtime.git realtime/
       - run: bundle exec jekyll build
+      - deploy:
+          name: Deploy to S3
+          command: aws s3 sync _site s3://gtfs.org/ --delete
 

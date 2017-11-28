@@ -1,4 +1,4 @@
-#document {
+.document {
 
   .sidenav {
     background-color: #f5f5f5;
@@ -6,6 +6,8 @@
     padding: 10px 0;
     position: -webkit-sticky;
     position: sticky;
+    max-height: 95vh;
+    overflow: scroll;
     top: 1rem;
 
       .list-group-item {
@@ -63,10 +65,10 @@
   }
 
   // page title "GTFS Data Best Practices"
-  h1 {
-    color: #666;
-    border: none;
-  }
+  // h1 {
+  //   color: #666;
+  //   border: none;
+  // }
 
   // section headline
   h2 {
@@ -78,13 +80,6 @@
   //subsection headline
   h3 {
     margin: 20px 0 10px 0;
-  }
-
-  // GTFS field headline
-  h4 {
-    font-family: "Source Code Pro";
-    margin-top: 20px;
-    font-weight: bold;
   }
 
   // system tags (Trip Planners, Human Readability, etc)
@@ -249,10 +244,15 @@ table {
 //
 // }
 
+a.anchor-link {
+  padding: 10px;
+}
+
 table.recommendation {
 
   > thead > tr {
     background-color: $table-color;
+    color: white;
   }
 
   > tbody > tr {
@@ -270,8 +270,35 @@ table.recommendation {
 
 }
 
+.system-tag-interface {
+  position: sticky;
+  bottom: 0;
+}
+
+tr.highlight,
+button.highlight {
+  background-color: #ffbbcc !important;
+}
+
+#realtime {
+
+  .sidenav {
+
+    ul {
+      li {
+        text-indent: 0;
+        list-style: initial;
+      }
+      ul {
+        padding-left: 28px;
+      }
+    }
+
+  }
+}
+
 @media only screen and (max-width: 991px) {
-  #document .sidenav {
+  .document .sidenav {
     position: relative;
   }
 }

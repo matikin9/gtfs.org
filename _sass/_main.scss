@@ -11,8 +11,20 @@ body {
   @include copy;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-header;
+h1,h2,h3,h4,h5,h6, .nav {
+    font-family: "Proxima Nova", "Nunito Sans";
+    font-weight: 700;
+}
+
+
+h1 {
+  // text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 2px solid $accent-color;
+}
+
+ol {
+  margin-bottom: 20px;
 }
 
 .page {
@@ -28,15 +40,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code {
-  color: #333;
+  color: inherit;
   background-color: transparent;
   font-family: "Source Code Pro";
   font-weight: bold;
-}
-
-h1 {
-  padding-bottom: 5px;
-  border-bottom: 2px solid $accent-color;
+  padding: 0;
 }
 
 p {
@@ -62,6 +70,12 @@ img, svg {
   }
 }
 
+
+#homepage #gtfs-overview, .nav {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 //homepage-only styles
 
 #homepage {
@@ -71,6 +85,8 @@ img, svg {
     color: white;
     margin-bottom: 0;
     padding-bottom: 50px;
+    z-index: 150;
+    position: relative;
 
     h1 {
       border: none;
@@ -105,6 +121,7 @@ a, a:hover, a:visited, a:active {
 
 a {
   border-bottom: 2px solid $link-color;
+  transition: 0.2s all;
 }
 
 a:visited {
@@ -113,12 +130,14 @@ a:visited {
 
 a:hover {
   background-color: $link-color;
+  color: white;
   border-color: $link-color;
 }
 
 a:active {
   border-color: $link-color;
   background-color: $link-color;
+  color: white;
   text-decoration: none;
   position: relative;
   top: 1px;
@@ -128,6 +147,32 @@ a:active {
 a:focus {
   text-decoration: none;
 }
+
+// text link styles
+
+// a {
+//   overflow: hidden;
+//   position: relative;
+//   display: inline-block;
+//   vertical-align: bottom;
+// }
+//
+// a:before {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: -1;
+//   width: 100%;
+//   height: 100%;
+//   content: '';
+//   background-color: $link-color;
+//   transform: translateY(95%);
+//   transition: 0.2s transform;
+// }
+//
+// a:hover:before {
+//   transform: translateY(0);
+// }
 
 // blockquotes (so far, unused)
 

@@ -18,7 +18,7 @@ jobs:
       - deploy:
           name: If master, deploy to S3
           command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            aws s3 sync _site s3://gtfs.org/ --delete
-          fi
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              aws s3 sync _site s3://gtfs.org/ --delete
+            fi
 

@@ -1,7 +1,8 @@
 # Site settings
 title: GTFS.org
 email: gtfs-wg@rmi.org
-description: > # Resources for the General Transit Feed Specification
+description: >
+  Resources for the General Transit Feed Specification
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gtfs.org" # the base hostname & protocol for your site
 

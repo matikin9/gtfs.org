@@ -16,6 +16,9 @@ jobs:
           command: git clone git@github.com:itd-consortium/gtfs-realtime.git realtime/
       - run: bundle exec jekyll build
       - deploy:
-          name: Deploy to S3
-          command: aws s3 sync _site s3://gtfs.org/ --delete
+          name: If master, deploy to S3
+          command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            aws s3 sync _site s3://gtfs.org/ --delete
+          fi
 

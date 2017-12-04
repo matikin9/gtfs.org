@@ -9,16 +9,16 @@ body {
   font-family: $font-sans;
   line-height: 1.3em;
   @include copy;
+  overflow-x: auto;
 }
 
-h1,h2,h3,h4,h5,h6, .nav {
-    font-family: "Proxima Nova", "Nunito Sans";
+h1,h2,h3,h4,h5,h6, .nav, .system-tag-info, .system-tag-button {
+    font-family: $font-header;
     font-weight: 700;
 }
 
 
 h1 {
-  // text-transform: uppercase;
   padding-bottom: 5px;
   border-bottom: 2px solid $accent-color;
 }
@@ -34,8 +34,6 @@ ol {
 .page-content {
   margin-right: auto;
   margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
   max-width: 1400px;
 }
 
@@ -69,7 +67,6 @@ img, svg {
     background-color: transparent;
   }
 }
-
 
 #homepage #gtfs-overview, .nav {
 	-webkit-font-smoothing: antialiased;
@@ -122,77 +119,28 @@ a, a:hover, a:visited, a:active {
 a {
   border-bottom: 2px solid $link-color;
   transition: 0.2s all;
-}
 
-a:visited {
-  border-color: $link-color;
-}
-
-a:hover {
-  background-color: $link-color;
-  color: white;
-  border-color: $link-color;
-}
-
-a:active {
-  border-color: $link-color;
-  background-color: $link-color;
-  color: white;
-  text-decoration: none;
-  position: relative;
-  top: 1px;
-  right: -1px;
-}
-
-a:focus {
-  text-decoration: none;
-}
-
-// text link styles
-
-// a {
-//   overflow: hidden;
-//   position: relative;
-//   display: inline-block;
-//   vertical-align: bottom;
-// }
-//
-// a:before {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   z-index: -1;
-//   width: 100%;
-//   height: 100%;
-//   content: '';
-//   background-color: $link-color;
-//   transform: translateY(95%);
-//   transition: 0.2s transform;
-// }
-//
-// a:hover:before {
-//   transform: translateY(0);
-// }
-
-// blockquotes (so far, unused)
-
-blockquote {
-  margin: 0;
-  margin-left: 1px;
-  padding: 0;
-  margin-bottom: $copy-line;
-  font-size: initial;
-  border-color: $color-green;
-
-  figcaption {
-    text-align: right;
-    font-size: initial;
+  &:visited {
+    border-color: $link-color;
   }
 
-  figure {
-    margin: 0;
-    padding: 0;
-    padding-left: 1.5em;
-    font-style: italic;
+  &:hover {
+    background-color: $link-color;
+    color: white;
+    border-color: $link-color;
+  }
+
+  &:active {
+    border-color: $link-color;
+    background-color: $link-color;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    top: 1px;
+    right: -1px;
+  }
+
+  &:focus {
+    text-decoration: none;
   }
 }

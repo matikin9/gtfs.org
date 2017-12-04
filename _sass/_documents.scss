@@ -1,8 +1,8 @@
 .document {
 
   .sidenav {
-    background-color: #f5f5f5;
-    font-size: 10pt;
+    background-color: transparent;
+    font-size: 14px;
     padding: 10px 0;
     position: -webkit-sticky;
     position: sticky;
@@ -10,20 +10,37 @@
     overflow: scroll;
     top: 1rem;
 
-      .list-group-item {
+      .nav .nav {
+        display: none;
+      }
+
+      .nav > .active > .nav {
+        display: block;
+      }
+
+      .active > a {
+        // background-color: $nav-color;
+        // color: white;
+        border-bottom: 3px solid $nav-color;
+      }
+
+      li {
         background-color: transparent;
         border: none;
-        padding: 0 15px 5px 15px;
+        padding: 0 15px;
+        margin: 0;
+      }
+
+      .nav .nav li {
+        padding: 0;
       }
 
       a {
         color: #222;
-        border: none;
+        border-bottom: 3px solid transparent;
 
         &:hover {
           text-decoration: none;
-          color: $color-blue-deep;
-          background-color: transparent;
         }
 
         &:focus {
@@ -31,11 +48,14 @@
         }
       }
 
-      li {
-        list-style: none;
-        margin: 0 0 0 10px;
-        padding: 0 0 2px 0;
-        text-indent: -10px;
+      ul ul {
+        padding-left: 20px;
+      }
+
+      .nav > li > a {
+        padding: 0;
+        padding-top: 4px;
+        padding-left: 10px;
       }
   }
 
@@ -82,57 +102,6 @@
     margin: 20px 0 10px 0;
   }
 
-  // system tags (Trip Planners, Human Readability, etc)
-
-  .tag {
-    -webkit-padding-start: 0;
-    white-space: nowrap;
-    display: inline-block;
-    margin: 0.2em 0.1em;
-    padding: 0 0.5em 0.15em;
-    @include small-caps;
-    @include meta;
-    background-color: #ececec;
-
-    a {padding: 0.15em 0;}
-
-    a, a:hover, a:visited, a:active {
-      background-color: inherit;
-      border: none;
-      text-decoration: none;
-    }
-
-    &:hover {
-      background-color: $color-red-deep;
-      color: white;
-      text-decoration: none;
-    }
-
-    &:active {
-      color: white;
-      background-color: black;
-      text-decoration: none;
-    }
-
-    &:before {content: none;}
-  }
-
-  .tag.trip-planners::before {
-    content: "Trip Planners";
-  }
-
-  .tag.arrival-predictions::before {
-    content: "Arrival Predictions";
-  }
-
-  .tag.timetables::before {
-    content: "Timetables";
-  }
-
-  .tag.human-readability::before {
-    content: "Human Readability";
-  }
-
   ul > li {
     margin: 5px 0 10px 0;
   }
@@ -157,6 +126,10 @@
     width: 25%;
   }
 
+}
+
+.table-wrapper {
+  overflow: auto;
 }
 
 // imported from Bootstrap and applied to all tables
@@ -208,9 +181,13 @@ table {
     background-color: #f9f9f9;
   }
 
-  // customer thead color
+  > tbody > tr {
+    border-color: #ddd;
+  }
+
+  // custom thead color
   > thead > tr {
-    background-color: #bbb;
+    background-color: #ddd;
     color: black;
   }
 
@@ -218,34 +195,6 @@ table {
     font-weight: normal;
   }
 
-  > tbody > tr.highlight {
-    background-color: rgba(19, 138, 150, 0.3);
-  }
-
-}
-
-// table.example {
-//
-//   border: 1px solid $color-yellow-light;
-//
-//   margin-top: 10px;
-//
-//   > thead > tr {
-//     background: $color-yellow-deep;
-//   }
-//
-//   > tbody > tr:nth-of-type(odd) {
-//     background-color: $color-yellow-light;
-//   }
-//
-//   // > thead > tr > th, > tbody > tr > td {
-//   //   text-align: center;
-//   // }
-//
-// }
-
-a.anchor-link {
-  padding: 10px;
 }
 
 table.recommendation {
@@ -257,7 +206,7 @@ table.recommendation {
 
   > tbody > tr {
     background-color: white;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
   }
 
   > tbody > tr:nth-of-type(odd) {
@@ -270,15 +219,127 @@ table.recommendation {
 
 }
 
+// System Tag Feature
+
 .system-tag-interface {
+  position: -webkit-sticky;
   position: sticky;
-  bottom: 0;
+  top: -1px;
+  z-index: 999;
+  background-color: hsla(0, 0%, 95%, 1);
+  border: 1px lightgray solid;
+  display: inline-block;
+  float: right;
+  padding: 7px;
+  border-bottom-left-radius: 8px;
+
+  .system-tag-buttons {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+
+    .system-tag-info {
+      display: block;
+      text-align: center;
+      margin: 2px 0;
+      cursor: help;
+
+      &:hover {
+        background-color: transparent;
+        color: black;
+      }
+    }
+  }
+}
+
+// Some System Tag buttons are not in the interface
+
+.system-tag-button {
+  margin: 2px 0;
+  font-size: 14px;
+
+  &:hover {
+    background-color: $nav-color;
+    color: white;
+  }
+
+  &.highlight:hover {
+    color: black;
+  }
 }
 
 tr.highlight,
 button.highlight {
-  background-color: #ffbbcc !important;
+  background-color: #ffdd0080 !important;
 }
+
+// .tag {
+//   -webkit-padding-start: 0;
+//   white-space: nowrap;
+//   display: inline-block;
+//   margin: 0.2em 0.1em;
+//   padding: 0 0.5em 0.15em;
+//   @include small-caps;
+//   @include meta;
+//   background-color: #ececec;
+//
+//   a {padding: 0.15em 0;}
+//
+//   a, a:hover, a:visited, a:active {
+//     background-color: inherit;
+//     border: none;
+//     text-decoration: none;
+//   }
+//
+//   &:hover {
+//     background-color: $color-red-deep;
+//     color: white;
+//     text-decoration: none;
+//   }
+//
+//   &:active {
+//     color: white;
+//     background-color: black;
+//     text-decoration: none;
+//   }
+//
+//   &:before {content: none;}
+// }
+
+.anchor-node {
+  position: relative;
+
+  p {
+    transition: 0s all;
+    margin: 0;
+    padding: 0 4px;
+  }
+
+  .anchor-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    transition: 0s all;
+    border: none;
+    padding: 0 5px;
+
+    &:hover {
+      background-color: transparent;
+      color: black;
+    }
+  }
+}
+
+table tr:hover {
+  .anchor-link {
+    visibility: visible;
+  }
+  .anchor-node > p {
+    visibility: hidden;
+  }
+}
+
 
 #realtime {
 
@@ -293,12 +354,20 @@ button.highlight {
         padding-left: 28px;
       }
     }
-
   }
 }
 
 @media only screen and (max-width: 991px) {
   .document .sidenav {
     position: relative;
+    display: none;
+  }
+
+  .document .sidenav .nav .nav {
+    display: block;
+  }
+
+  .system-tag-interface {
+    display: none;
   }
 }

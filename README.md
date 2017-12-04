@@ -17,5 +17,5 @@ For full site functionality, documents must be cloned into the file tree. After 
 The site may be built with or without the above documents, using the following steps:
 
 1. Ensure you have a recent version of Ruby
-2. 'bundle install'
-3. 'bundle exec jekyll serve'
+2. `bundle install`
+3. `bundle exec jekyll serve`

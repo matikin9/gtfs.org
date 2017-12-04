@@ -10,93 +10,95 @@ This document contains sequential information from both the GTFS Core Reference 
 * **Core Reference**: The Specification Reference (or Core Reference) identifies the requirements for GTFS data. There is a higher threshold of agreement necessary for requirements to be added to the Specification Reference than the Best Practices.
 * **Best Practices**: The Best Practices document represents the agreement of a broad group of GTFS-consuming applications on what constitutes high-quality GTFS data.
 
-## agency.txt {#agency}
+## Field Definitions {#field-definitions}
 
-### Core Reference
+### agency.txt {#agency}
+
+#### Core Reference
 {{ site.reference | where: "slug", "agency" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "agency" }}
 
-## stops.txt {#stops}
+### stops.txt {#stops}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "stops" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "stops" }}
 
-## routes.txt {#routes}
+### routes.txt {#routes}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "routes" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "routes" }}
 
-## trips.txt {#trips}
+### trips.txt {#trips}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "trips" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "trips" }}
 
-## stop_times.txt {#stop_times}
+### stop_times.txt {#stop_times}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "stop_times" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "stop_times" }}
 
-## calendar.txt {#calendar}
+### calendar.txt {#calendar}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "calendar" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "calendar" }}
 
-## calendar_dates.txt {#calendar_dates}
+### calendar_dates.txt {#calendar_dates}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "calendar_dates" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "calendar_dates" }}
 
-## fare_attributes.txt {#fare_attributes}
+### fare_attributes.txt {#fare_attributes}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "fare_attributes" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "fare_attributes" }}
 
-## fare_rules.txt {#fare_rules}
+### fare_rules.txt {#fare_rules}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "fare_rules" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "fare_rules" }}
 
-## shapes.txt {#shapes}
+### shapes.txt {#shapes}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "shapes" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "shapes" }}
 
-## frequencies.txt {#frequencies}
+### frequencies.txt {#frequencies}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "frequencies" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "frequencies" }}
 
-## transfers.txt {#transfers}
+### transfers.txt {#transfers}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "transfers" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "transfers" }}
 
-## feed_info.txt {#feed_info}
+### feed_info.txt {#feed_info}
 
-### Core Reference
+#### Core Reference
 {{ site.reference | where: "slug", "feed_info" }}
-### Best Practices
+#### Best Practices
 {{ site.best-practices | where: "slug", "feed_info" }}

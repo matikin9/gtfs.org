@@ -14,8 +14,7 @@ collections:
   best-practices:
     output: true
 
-gems:
-  - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock
+  - README.md

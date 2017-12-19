@@ -36,10 +36,6 @@
   }
 }
 
-a.no-link {
-  cursor: pointer;
-}
-
 .nav a {
   color: white;
   border: none;
@@ -65,8 +61,12 @@ a.no-link {
 
     margin: 0;
 
-    & > a {
-      border-bottom: none;
+    & > a,
+    & > button {
+      display: block;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
       padding: 20px 25px 15px 25px;
       color: white;
       font-size: 18px;
@@ -125,12 +125,14 @@ a.no-link {
 
     &:hover {
 
-      & > a {
+      & > a,
+      & > button {
         background-color: $nav-color;
         color: white;
       }
 
-      & > a:before {
+      & > a:before,
+      & > button:before {
         border-right-color: $nav-color;
       }
 
@@ -144,16 +146,19 @@ a.no-link {
     }
   }
 
-  & > li > a {
+  & > li > a,
+  & > li > button {
     position: relative;
     font-size: 18px;
     color: black;
     padding: 10px 10px 10px 0;
+    border-radius: 0;
     display: inline-block;
     vertical-align: middle;
     background-color: #ddd;
     margin-left: 15px;
     white-space: nowrap;
+    transition: 0.2s all;
 
     &:before {
       content: '';
@@ -195,15 +200,6 @@ a.no-link {
 }
 
 .dropdown-link {
-
-  button {
-    color: white;
-    font-size: 18px;
-    padding: 20px 25px 15px 25px;
-    display: block;
-    background-color: transparent;
-    border: none;
-  }
 
   &:hover > .dropdown-list {
     transform: translateY(0);

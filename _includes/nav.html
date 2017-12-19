@@ -20,15 +20,15 @@
   <div id="main-nav" class="waypoints navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li><a href="{{ "/" | prepend: site.baseurl }}">GTFS HOME</a><div class="dot"></div></li>
-      <li class="dropdown-link"><a href="{{ "/getting-started/" | prepend: site.baseurl }}">GETTING STARTED</a><div class="dot"></div>
+      <li class="dropdown-link"><a href="{{ "/getting-started/" | prepend: site.baseurl }}">GETTING STARTED<span class="caret"></span></a><div class="dot"></div>
         <ul class="dropdown-list">
           <li><div class="dot"></div><a href="{{ "/examples/" | prepend: site.baseurl }}">EXAMPLES</a></li>
         </ul>
       </li>
-      <li class="dropdown-link"><a href="#void">SPEC DOCUMENTATION<span class="caret"></span></a><div class="dot"></div>
+      <li class="dropdown-link"><button>SPEC DOCUMENTATION<span class="caret"></span></button><div class="dot"></div>
         <ul class="dropdown-list">
           <li><div class="dot"></div><a href="{{ "/realtime/" | prepend: site.baseurl }}">GTFS REALTIME</a></li>
-          <li class="dropdown-link"><div class="dot"></div><a href="#void" class="no-link">GTFS (STATIC)<span class="caret"></span></a>
+          <li class="dropdown-link"><div class="dot"></div><button>GTFS (STATIC)<span class="caret"></span></button>
             <ul class="dropdown-list sub-dropdown-list">
               <li><div class="dot"></div><a href="{{ "/reference/" | prepend: site.baseurl }}">CORE REFERENCE</a></li>
               <li><div class="dot"></div><a href="{{ "/best-practices/" | prepend: site.baseurl }}">BEST PRACTICES</a></li>

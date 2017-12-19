@@ -18,7 +18,7 @@ layout: homepage
 
         <p>GTFS data is available for more than 1350 public transportation providers, and hundreds of applications utilize interoperable GTFS data. This site contains GTFS documentation, best practices, and links to tools.</p>
 
-        <small><a href="{{ "/gtfs-background" | prepend: site.baseurl }} ">More GTFS background</a></small>
+        <small><a href="{{ "/gtfs-background" | prepend: site.baseurl }}">More GTFS background</a></small>
 
       </div>
     </div>

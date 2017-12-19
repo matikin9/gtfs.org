@@ -1,7 +1,11 @@
 # gtfs.org
 Content for gtfs.org - Landing page for General Transit Feed Specification and GTFS Best Practices
 
-## Editing site content
+# License
+
+Except as otherwise noted, the content of this repository is licensed under the [Creative Commons Attribution 3.0 License](https://creativecommons.org/licenses/by/3.0/), and code samples are licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
+
+# Editing site content
 Data for the Best Practices, Core Reference, Merged View, and Realtime Reference documents are in separate repositories. To edit information in those documents, see the corresponding repository:
 
 * [GTFS Core Reference](https://github.com/itd-consortium/gtfs-reference)

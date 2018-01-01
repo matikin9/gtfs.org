@@ -1,5 +1,7 @@
 ---
 layout: default
+permalink: /getting-started/
+lang: en
 ---
 # Getting Started
 

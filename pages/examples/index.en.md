@@ -1,5 +1,7 @@
 ---
 layout: default
+permalink: /examples/
+lang: en
 ---
 # GTFS Examples
 

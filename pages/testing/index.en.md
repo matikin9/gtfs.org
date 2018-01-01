@@ -1,5 +1,7 @@
 ---
 layout: default
+permalink: /testing/
+lang: en
 ---
 # Testing GTFS Feeds
 

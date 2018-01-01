@@ -1,5 +1,7 @@
 ---
 layout: homepage
+permalink: /
+lang: en
 ---
 <section id="gtfs-overview" class="jumbotron">
   <div class="container">

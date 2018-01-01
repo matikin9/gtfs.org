@@ -1,5 +1,7 @@
 ---
 layout: merged-view
+permalink: /merged-view/
+lang: fr
 ---
 # GTFS Merged View
 

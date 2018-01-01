@@ -10,6 +10,15 @@ var main = function() {
   //   window.location = '#' + this.id;
   // });
 
+  $(document).click(function(e) {
+    $('.language-bubble:visible').hide();
+  });
+
+  $('button.language-help').click(function(e) {
+    e.stopPropagation();
+    $('.language-bubble').show();
+  });
+
   // System Tag Feature
 
   $('.system-tag-button').click(function(e) {

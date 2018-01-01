@@ -1,5 +1,7 @@
 ---
 layout: default
+permalink: /about/
+lang: en
 ---
 
 # About GTFS.org & Site Credits

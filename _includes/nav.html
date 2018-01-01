@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div id="main-nav" class="waypoints navbar-collapse collapse">
+  <div id="main-nav" class="waypoints">
     <ul class="nav navbar-nav">
       <li><a href="{{ "/" | prepend: site.baseurl }}">GTFS HOME</a><div class="dot"></div></li>
       <li class="dropdown-link"><a href="{{ "/getting-started/" | prepend: site.baseurl }}">GETTING STARTED<span class="caret"></span></a><div class="dot"></div>
@@ -40,5 +40,44 @@
       </li>
       <li><a href="{{ "/testing/" | prepend: site.baseurl }}">TESTING FEEDS</a><div class="dot"></div></li>
     </ul>
+
+    <div class="language-menu">
+      <select onchange="window.location = this.options[this.selectedIndex].value;">
+        {% for language in site.languages %}
+        <option value="{% if language == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{language}}{{page.url}}{% endif %}" {% if language == site.active_lang %}selected="selected"{% endif %}>
+          {% case language %}
+            {% when "en" %}
+              English
+            {% when "de" %}
+              Deutsch
+            {% when "fr" %}
+              Français
+            {% when "es" %}
+              Español
+            {% else %}
+              {{ language }}
+          {% endcase %}
+        </option>
+        {% endfor %}
+      </select>
+      <button class="language-help">
+        <i class="fa fa-question"></i>
+      </button>
+      <div class="language-bubble">
+        <span>
+        {% case site.active_lang %}
+          {% when "de" %}
+            Schlechte oder fehlende Übersetzung? <a href="https://github.com/itd-consortium/gtfs.org" target="_blank">Helfen Sie uns, es zu verbessern.</a>
+          {% when "fr" %}
+            Traduction incorrecte ou manquante? <a href="https://github.com/itd-consortium/gtfs.org" target="_blank">Aidez-nous à l'améliorer.</a>
+          {% when "es" %}
+            ¿Mala o falta traducción? <a href="https://github.com/itd-consortium/gtfs.org" target="_blank">Ayúdanos a mejorarlo.</a>
+          {% else %}
+            Can you speak French, German, or Spanish? <a href="https://github.com/itd-consortium/gtfs.org" target="_blank">Help us improve our translations!</a>
+        {% endcase %}
+        </span>
+      </div>
+    </div>
+
   </div>
 </nav>

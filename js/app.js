@@ -4,12 +4,6 @@ var main = function() {
 
   $('body').scrollspy({ target: '.sidenav', offset: 150 });
 
-  // Anchor Row Feature
-
-  // $('.anchor-row').click(function() {
-  //   window.location = '#' + this.id;
-  // });
-
   $(document).click(function(e) {
     $('.language-bubble:visible').hide();
   });

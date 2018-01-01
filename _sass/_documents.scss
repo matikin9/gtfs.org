@@ -114,7 +114,8 @@
     line-height: 2.0;
     background-color: #e1f5fe;
     color: #333;
-    margin: 10px 0;
+    margin: 0 0 10px 0;
+    border: 1px solid #999;
   }
 
   q:before,
@@ -206,7 +207,7 @@ table.recommendation {
 
   > tbody > tr {
     background-color: white;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #999;
   }
 
   > tbody > tr:nth-of-type(odd) {
@@ -215,6 +216,24 @@ table.recommendation {
 
   .field-row {
     border-top: 2px solid $table-color;
+  }
+
+}
+
+table.example {
+
+  > thead {
+
+    border: 1px solid #999;
+
+    > tr {
+      background-color: #138a9650;
+    }
+
+  }
+
+  > tbody > tr {
+    border: 1px solid #999;
   }
 
 }
@@ -257,6 +276,9 @@ table.recommendation {
 .system-tag-button {
   margin: 2px 0;
   font-size: 14px;
+  padding: 3px;
+  border: 4px solid $nav-color;
+  border-radius: 10px;
 
   &:hover {
     background-color: $nav-color;
@@ -270,7 +292,11 @@ table.recommendation {
 
 tr.highlight,
 button.highlight {
-  background-color: #ffdd0080 !important;
+  background-color: #ffff0099 !important;
+}
+
+hr {
+  border-color: #ccc;
 }
 
 // .tag {
@@ -322,7 +348,6 @@ button.highlight {
     visibility: hidden;
     transition: 0s all;
     border: none;
-    padding: 0 5px;
 
     &:hover {
       background-color: transparent;

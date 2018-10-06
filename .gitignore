@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 _site
 .sass-cache
 .jekyll-metadata
@@ -7,3 +8,13 @@ _reference
 gtfs-reference
 _best-practices
 gtfs-best-practices
+=======
+# Project dependencies
+.cache
+node_modules
+yarn-error.log
+
+# Build directory
+/public
+.DS_Store
+>>>>>>> initial commit

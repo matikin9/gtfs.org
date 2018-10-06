@@ -3,6 +3,26 @@ module.exports = {
     title: 'Gatsby Default Starter',
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-github',
+      options: {
+        headers: {
+          Authorization: `Bearer 74fa69c63f5027d8900c485b274a171ba8fa4184`
+        },
+        queries: [
+          `{
+            repository(owner:"MobilityData", name:"gtfs-reference"){
+              description
+              readme: object(expression:"master:README.md"){
+                ... on Blob{
+                  text
+                }
+              }
+            }
+          }`,
+        ],
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,

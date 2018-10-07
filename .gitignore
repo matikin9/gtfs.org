@@ -17,4 +17,10 @@ yarn-error.log
 # Build directory
 /public
 .DS_Store
+<<<<<<< HEAD
 >>>>>>> initial commit
+=======
+
+
+.env*
+>>>>>>> setup for using local copies of markdown files

@@ -1,17 +1,35 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
   },
   plugins: [
     {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [], // just in case those previously mentioned remark plugins sound cool :)
+      },
+    },   
+    {
       resolve: 'gatsby-source-github',
       options: {
         headers: {
-          Authorization: `Bearer 74fa69c63f5027d8900c485b274a171ba8fa4184`
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
         },
         queries: [
           `{
             repository(owner:"MobilityData", name:"gtfs-reference"){
+              description
+              readme: object(expression:"master:README.md"){
+                ... on Blob{
+                  text
+                }
+              }
+            }
+          }`,
+          `{
+            repository(owner:"MobilityData", name:"gtfs-best-practices"){
               description
               readme: object(expression:"master:README.md"){
                 ... on Blob{

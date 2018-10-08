@@ -36,7 +36,7 @@ const IndexPage = () => (
           <h2>How do I start?</h2>
           <ol>
             <li>Take a look at the <a href="">GTFS data examples</a>.</li>
-            <li>Create your own feeds using the <a href="">reference</a> and <a href="">best practices</a> as a guide. <a href="">GTFS Best Practices</a> supplement the GTFS reference to provide clear directions to feed publishers and improve consistency of data structure across feeds.</li>
+            <li>Create your own feeds using the <a href="/reference">reference</a> and <a href="">best practices</a> as a guide. <a href="">GTFS Best Practices</a> supplement the GTFS reference to provide clear directions to feed publishers and improve consistency of data structure across feeds.</li>
             <li>Test your feed using <a href="">validation tools</a>.</li>
             <li><a href="">Publish your feed</a>, as described in the Help Center.</li>
           </ol>

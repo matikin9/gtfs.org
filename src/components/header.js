@@ -15,7 +15,7 @@ const Header = ({ siteTitle }) => (
         padding: '1.45rem 1.0875rem',
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <h3 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -23,9 +23,19 @@ const Header = ({ siteTitle }) => (
             textDecoration: 'none',
           }}
         >
-          {siteTitle}
+          GTFS Home
         </Link>
-      </h1>
+
+        <Link
+          to="/reference"
+          style={{
+            color: 'white',
+            textDecoration: 'none',
+          }}
+        >
+          GTFS Core Reference
+        </Link>
+      </h3>
     </div>
   </div>
 )

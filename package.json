@@ -18,6 +18,7 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
+    "rehype-react": "^3.0.3",
     "typography": "^0.16.17",
     "typography-theme-fairy-gates": "^0.15.11"
   },

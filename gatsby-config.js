@@ -19,6 +19,13 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/reference-examples`,
+        name: "english-reference-examples"
+      }
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [], // some interesting plugins available to use with

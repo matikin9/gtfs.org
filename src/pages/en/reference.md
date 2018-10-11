@@ -3,7 +3,6 @@ lang: en
 
 ---
 
-<nested-table content="with some content"></nested-table>
 
 # General Transit Feed Specification Reference
 

@@ -19,7 +19,7 @@ export const homeQuery = graphql`
       allFile(
           filter: {
             internal: {mediaType: {eq: "text/markdown"}},
-            # sourceInstanceName: {eq: "reference"},
+            sourceInstanceName: {eq: "local"},
             name: {eq: "best-practices"},
             # relativePath: {regex: "/en\//"}
           }

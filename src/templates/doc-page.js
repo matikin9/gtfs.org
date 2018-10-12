@@ -9,7 +9,7 @@ const renderAst = new rehypeReact({
   components: { "nested-table": NestedTable },
 }).Compiler
 
-export default ( { data }) => {
+export default ({ data }) => {
   return (
     <Layout>
       <div>This is the doc-page template</div>
@@ -20,10 +20,10 @@ export default ( { data }) => {
   )
 }
 
-export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      htmlAst
-    }
-  }
-`
+// export const query = graphql`
+//   query($slug: String!) {
+//     markdownRemark(fields: { slug: { eq: $slug } }) {
+//       htmlAst
+//     }
+//   }
+// `

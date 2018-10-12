@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 
-const IndexPage = ({ data }) => {
+const BestPracticesPage = ({ data }) => {
   console.log(data);
   return(
     <Layout>
@@ -12,7 +12,7 @@ const IndexPage = ({ data }) => {
   )
 }
 
-export default IndexPage
+export default BestPracticesPage
 
 export const homeQuery = graphql`
     query {
@@ -20,7 +20,7 @@ export const homeQuery = graphql`
           filter: {
             internal: {mediaType: {eq: "text/markdown"}},
             # sourceInstanceName: {eq: "reference"},
-            name: {eq: "home"},
+            name: {eq: "best-practices"},
             # relativePath: {regex: "/en\//"}
           }
         ){

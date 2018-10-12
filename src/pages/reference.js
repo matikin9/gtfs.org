@@ -20,7 +20,6 @@ export const query = graphql`
     allFile(
       filter: {
         internal: {mediaType: {eq: "text/markdown"}},
-        sourceInstanceName: {eq: "reference"},
         name: {ne: "README"},
         relativePath: {regex: "/en\//"}
       }
@@ -31,10 +30,7 @@ export const query = graphql`
           relativePath
           childMarkdownRemark {
             html
-            frontmatter {
-              title
-              lang
-            }
+
           }
         }
       }

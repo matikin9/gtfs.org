@@ -17,17 +17,17 @@ const NestedTablesPage = ({ data }) => {
 
 export default NestedTablesPage
 
-export const pageQuery = graphql`
-  query NestedTablesPageQuery {
-    allFile {
-      edges {
-        node {
-          sourceInstanceName
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
-    }
-  }
-  `
+// export const pageQuery = graphql`
+//   query NestedTablesPageQuery {
+//     allFile {
+//       edges {
+//         node {
+//           sourceInstanceName
+//           childMarkdownRemark {
+//             html
+//           }
+//         }
+//       }
+//     }
+//   }
+//   `

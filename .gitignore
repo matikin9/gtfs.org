@@ -23,4 +23,9 @@ yarn-error.log
 
 
 .env*
+<<<<<<< HEAD
 >>>>>>> setup for using local copies of markdown files
+=======
+
+/src/content
+>>>>>>> update page queries for home and best-practices

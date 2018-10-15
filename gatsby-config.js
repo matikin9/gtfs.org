@@ -28,7 +28,7 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: [], // some interesting plugins available to use with
+        plugins: ['gatsby-remark-autolink-headers'], // some interesting plugins available to use with
       },
     },
     'gatsby-plugin-react-helmet',

@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  /* justify-content: center; */
+}
+
+.navContainer {
+  width: 250px;
+  background-color: #efefef;
+  padding: 50px 15px 15px 15px;
+  margin-right: 50px;
+
+}
+
+.contentContainer {
+  margin-top: 50px;
+  flex: 1;
+}

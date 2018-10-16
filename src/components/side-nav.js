@@ -1,15 +1,9 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
+import styles from "./side-nav.module.css";
 
 const SideNav = ({ content }) => (
-  <div>
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 80,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
+    <div className={styles.container}>
       <h3 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -21,14 +15,13 @@ const SideNav = ({ content }) => (
           {content.sections.map((section,index) =>
             <div key={index}>
               <h5>{section.name}</h5>
-              {section.children.map(childSection => <h6>{childSection.name}</h6>)}
+              {section.children.lengh > 0 ? section.children.map(childSection => <h6>{childSection.name}</h6>) : null}
             </div>
             )
           }
         </Link>
       </h3>
     </div>
-  </div>
 )
 
 export default SideNav

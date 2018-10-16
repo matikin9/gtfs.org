@@ -1,0 +1,62 @@
+{
+	"sections": [{
+			"name": "Term Definitions",
+      "children": []
+		},
+		{
+			"name": "Field Types",
+      "children": []
+		},
+		{
+			"name": "Feed Files",
+      "children": []
+		},
+		{
+			"name": "File Requirements",
+      "children": []
+		},
+		{
+			"name": "Field Definitions",
+			"children": [{
+					"name": "agency.txt"
+				},
+				{
+					"name": "stops.txt"
+				},
+				{
+					"name": "routes.txt"
+				},
+				{
+					"name": "trips.txt"
+				},
+				{
+					"name": "stop_times.txt"
+				},
+				{
+					"name": "calendar.txt"
+				},
+				{
+					"name": "calendar_dates.txt"
+				},
+				{
+					"name": "fare_attributes.txt"
+				},
+				{
+					"name": "fare_rules.txt"
+				},
+				{
+					"name": "shapes.txt"
+				},
+				{
+					"name": "frequencies.txt"
+				},
+				{
+					"name": "transfers.txt"
+				},
+				{
+					"name": "feed_info.txt"
+				}
+			]
+		}
+	]
+}

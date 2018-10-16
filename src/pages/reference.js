@@ -1,14 +1,18 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+import SideNav from "../components/side-nav";
+import pageContents from "../../ref-contents.json";
 
 export default ({ data }) => {
   console.log(data)
+  console.log(pageContents)
   return (
     <Layout>
+      <SideNav content={pageContents}/>
       {
           data.allFile.edges.map(({ node }) => {
-            if (node.name != "README") {
+            if (node.name !== "README") {
               return(
                 <div
                   key={node.id}

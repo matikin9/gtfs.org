@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const SideNav = ({ pageContents }) => (
+const SideNav = ({ content }) => (
   <div
     style={{
       background: '#172f50',
@@ -23,7 +23,13 @@ const SideNav = ({ pageContents }) => (
             textDecoration: 'none',
           }}
         >
-          Page Contents
+          {content.sections.map((section,index) =>
+            <div key={index}>
+              <h5>{section.name}</h5>
+              {section.children.map(childSection => <h6>{childSection.name}</h6>)}
+            </div>
+            )
+          }
         </Link>
       </h3>
     </div>

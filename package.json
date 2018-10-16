@@ -21,7 +21,8 @@
     "react-typography": "^0.16.13",
     "rehype-react": "^3.0.3",
     "typography": "^0.16.17",
-    "typography-theme-fairy-gates": "^0.15.11"
+    "typography-theme-fairy-gates": "^0.15.11",
+    "typography-theme-moraga": "^0.15.10"
   },
   "keywords": [
     "gatsby"

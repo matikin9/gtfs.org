@@ -9,7 +9,9 @@ export default ({ data }) => {
   console.log(pageContents)
   return (
     <Layout>
-      <SideNav content={pageContents}/>
+      <div className="sidebar">
+        <SideNav content={pageContents}/>
+      </div>
       {
           data.allFile.edges.map(({ node }) => {
             if (node.name !== "README") {

@@ -2,12 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 const SideNav = ({ content }) => (
-  <div
-    style={{
-      background: '#172f50',
-      marginLeft: '1.45rem',
-    }}
-  >
+  <div>
     <div
       style={{
         margin: '0 auto',
@@ -19,7 +14,7 @@ const SideNav = ({ content }) => (
         <Link
           to="/"
           style={{
-            color: 'white',
+            color: 'black',
             textDecoration: 'none',
           }}
         >

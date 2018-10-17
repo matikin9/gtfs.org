@@ -12,10 +12,13 @@
 }
 
 .logo {
-  flex: 1;
-  padding: 25px;
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+  opacity: .8;
 }
-
 
 .links {
   flex: 2;
@@ -28,16 +31,36 @@
 .github {
   flex: 1;
   padding-top: 25px;
-  opacity: .8;
+  /* opacity: .8; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.github:hover {
-  opacity: 1;
+.github:hover::before {
+  position: relative;
+  content: "Visit on GitHub";
+  transition: width .3s .3s,
+            left .3s .3s,
+            padding-left .3s .3s,
+            font-size 0s .3s,
+            color .3s,
+            top .15s .45s,
+            height .15s .45s;
+}
+
+img {
+  opacity: .7;
+}
+
+img:hover {
+  opacity: .9;
 }
 
 .spacer {
   flex: 1;
+}
+
+.active-page {
+  color: whitesmoke;
 }

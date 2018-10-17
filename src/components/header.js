@@ -6,43 +6,32 @@ import githubLogo from '../images/github-logo.png';
 const Header = ({ siteTitle }) => (
   <div className={styles.container}>
     <div className={styles.logo}>
-      <h1>GTFS</h1>
+      <h2>GTFS.org</h2>
     </div>
 
     <div className={styles.links}>
         <Link
           to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
+          activeClassName={styles.activePage}
         >
           Home
         </Link>
         <Link
           to="/reference"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
+          activeClassName={styles.activePage}
         >
           Docs
         </Link>
         <Link
-          to="/reference"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
+          to="/examples"
+          activeClassName={styles.activePage}
         >
           Examples
         </Link>
         <Link
-          to="/reference"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
+          to="/testing"
+          activeClassName={styles.activePage}
+
         >
           Testing Feeds
         </Link>
@@ -50,6 +39,7 @@ const Header = ({ siteTitle }) => (
     </div>
     <div className={styles.spacer}></div>
     <div className={styles.github}>
+
       <img src={githubLogo} width="40" height="40"/>
     </div>
 

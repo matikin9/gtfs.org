@@ -33,7 +33,7 @@ class Dropdown extends React.Component {
           className={styles.title}
           onMouseEnter={() => this.toggleList()}
           >
-          {title}
+          <a>{title}</a>
         </div>
         <div className={styles.items}>
           {open && <ul>

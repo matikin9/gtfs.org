@@ -7,7 +7,17 @@ const IndexPage = ({ data }) => {
   console.log(data);
   return(
     <Layout>
-      <div dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}></div>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: '80vw',
+        marginLeft: '10vw',
+        position: 'absolute',
+        top: '150px'
+      }}>
+        <div dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}></div>
+      </div>
     </Layout>
   )
 }

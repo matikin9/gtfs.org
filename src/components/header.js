@@ -1,7 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Dropdown from './dropdown';
 import styles from './header.module.css';
 import githubLogo from '../images/github-logo.png';
+
+const docDropdown = {
+  items: [
+    {
+      id: 0,
+      title: 'Static'
+    },
+    {
+      id: 1,
+      title: 'Realtime'
+    }
+  ]
+}
 
 const Header = ({ siteTitle }) => (
   <div className={styles.container}>
@@ -35,6 +49,7 @@ const Header = ({ siteTitle }) => (
         >
           Testing Feeds
         </Link>
+        <Dropdown title="Docs" list={docDropdown.items}></Dropdown>
 
     </div>
     <div className={styles.spacer}></div>

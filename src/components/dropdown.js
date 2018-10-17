@@ -1,49 +1,49 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import styles from './header.module.css';
-import githubLogo from '../images/github-logo.png';
+// import { Link } from 'gatsby';
+import onClickOutside from 'react-onclickoutside';
+import styles from './dropdown.module.css';
 
-const Header = ({ siteTitle }) => (
-  <div className={styles.container}>
-    <div className={styles.logo}>
-      <h2>GTFS.org</h2>
-    </div>
+class Dropdown extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false,
+      title: this.props.title
+    }
+  }
 
-    <div className={styles.links}>
-        <Link
-          to="/"
-          activeClassName={styles.activePage}
-        >
-          Home
-        </Link>
-        <Link
-          to="/reference"
-          activeClassName={styles.activePage}
-        >
-          Docs
-        </Link>
-        <Link
-          to="/examples"
-          activeClassName={styles.activePage}
-        >
-          Examples
-        </Link>
-        <Link
-          to="/testing"
-          activeClassName={styles.activePage}
+  handleClickOutside() {
+    this.setState({
+      open: false
+    })
+  }
 
-        >
-          Testing Feeds
-        </Link>
+  toggleList() {
+    this.setState(prevState => ({
+      open: !prevState.open
+    }))
+  }
 
-    </div>
-    <div className={styles.spacer}></div>
-    <div className={styles.github}>
+  render() {
+    const {list} = this.props;
+    const {title, open} = this.state;
+    return(
+      <div className={styles.container}>
+        <div className={styles.title} onClick={() => this.toggleList()}>
+          {title}
+        </div>
+        <div className={styles.items}>
+          {open && <ul>
+            {list.map((item) => (
+              <li key={item.id}>{item.title}</li>
+            ))}
+          </ul>}
+        </div>
+      </div>
+    )
+  }
 
-      <img src={githubLogo} width="40" height="40"/>
-    </div>
 
-  </div>
-)
+}
 
-export default Header
+export default onClickOutside(Dropdown);

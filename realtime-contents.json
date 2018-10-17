@@ -1,0 +1,80 @@
+{
+	"sections": [{
+			"name": "Term Definitions",
+      "anchor": "reference/#term-definitions",
+      "children": []
+		},
+		{
+			"name": "Field Types",
+      "anchor": "reference/#field-types",
+      "children": []
+		},
+		{
+			"name": "Feed Files",
+      "anchor": "reference/#feed-files",
+      "children": []
+		},
+		{
+			"name": "File Requirements",
+      "anchor": "reference/#file-requirements",
+      "children": []
+		},
+		{
+			"name": "Field Definitions",
+      "anchor": "reference/#field-definitions",
+			"children": [{
+					"name": "agency.txt",
+          "anchor": "reference/#agencytxt"
+				},
+				{
+					"name": "stops.txt",
+          "anchor": "reference/#stopstxt"
+				},
+				{
+					"name": "routes.txt",
+          "anchor": "reference/#routestxt"
+				},
+				{
+					"name": "trips.txt",
+          "anchor": "reference/#tripstxt"
+				},
+				{
+					"name": "stop_times.txt",
+          "anchor": "reference/#stop_timestxt"
+				},
+				{
+					"name": "calendar.txt",
+          "anchor": "reference/#calendartxt"
+				},
+				{
+					"name": "calendar_dates.txt",
+          "anchor": "reference/#calendar_datestxt"
+				},
+				{
+					"name": "fare_attributes.txt",
+          "anchor": "reference/#fare_attributestxt"
+				},
+				{
+					"name": "fare_rules.txt",
+          "anchor": "reference/#fare_rulestxt"
+				},
+				{
+					"name": "shapes.txt",
+          "anchor": "reference/#shapestxt"
+				},
+				{
+					"name": "frequencies.txt",
+          "anchor": "reference/#frequenciestxt"
+				},
+				{
+					"name": "transfers.txt",
+          "anchor": "reference/#transferstxt"
+				},
+				{
+					"name": "feed_info.txt",
+          "anchor": "reference/#feed_infotxt"
+				}
+			]
+		}
+	]
+}

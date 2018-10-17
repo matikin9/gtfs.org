@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  background: #172f50;
+  position: fixed;
+  padding: 15px;
+}
+
+.logo {
+  float: right;
+  opacity: .8;
+}
+
+.logo:hover {
+  opacity: 1;
+}

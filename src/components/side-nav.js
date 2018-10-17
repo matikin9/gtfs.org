@@ -14,8 +14,8 @@ const SideNav = ({ content }) => (
         >
           {content.sections.map((section,index) =>
             <div key={index}>
-              <h5>{section.name}</h5>
-              {section.children.lengh > 0 ? section.children.map(childSection => <h6>{childSection.name}</h6>) : null}
+              <Link to={section.anchor}>{section.name}</Link>
+              {section.children.map(childSection => <h6>{childSection.name}</h6>)}
             </div>
             )
           }
@@ -23,5 +23,9 @@ const SideNav = ({ content }) => (
       </h3>
     </div>
 )
+
+function formatAnchor(sectionName) {
+
+}
 
 export default SideNav

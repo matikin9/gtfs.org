@@ -8,10 +8,12 @@
   background-color: #efefef;
   padding: 50px 15px 15px 15px;
   margin-right: 50px;
-
+  overflow-y: auto;
 }
 
 .contentContainer {
-  margin-top: 50px;
+  margin-top: 200px;
+  padding-left: 100px;
+  padding-right: 100px;
   flex: 1;
 }

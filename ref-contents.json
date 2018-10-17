@@ -1,22 +1,27 @@
 {
 	"sections": [{
 			"name": "Term Definitions",
+      "anchor": "reference/#term-definitions",
       "children": []
 		},
 		{
 			"name": "Field Types",
+      "anchor": "reference/#field-types",
       "children": []
 		},
 		{
 			"name": "Feed Files",
+      "anchor": "reference/#feed-files",
       "children": []
 		},
 		{
 			"name": "File Requirements",
+      "anchor": "reference/#file-requirements",
       "children": []
 		},
 		{
 			"name": "Field Definitions",
+      "anchor": "reference/#field-definitions",
 			"children": [{
 					"name": "agency.txt"
 				},

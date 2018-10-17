@@ -4,25 +4,25 @@ import styles from "./side-nav.module.css";
 
 const SideNav = ({ content }) => (
     <div className={styles.container}>
-      <h3 style={{ margin: 0 }}>
+      {/* <h3 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
             color: 'black',
             textDecoration: 'none',
           }}
-        >
+        > */}
           {content.sections.map((section,index) =>
             <div key={index}>
               <li><Link to={section.anchor}>{section.name}</Link></li>
               <div style={{ marginLeft: 10 }}>
-                {section.children.map(childSection => <li><Link to="" className={styles.subcategory}>{childSection.name}</Link></li>)}
+                {section.children.map(childSection => <li><Link to={childSection.anchor} className={styles.subcategory}>{childSection.name}</Link></li>)}
               </div>
             </div>
             )
           }
-        </Link>
-      </h3>
+        {/* </Link>
+      </h3> */}
     </div>
 )
 

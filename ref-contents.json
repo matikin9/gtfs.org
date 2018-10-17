@@ -23,43 +23,56 @@
 			"name": "Field Definitions",
       "anchor": "reference/#field-definitions",
 			"children": [{
-					"name": "agency.txt"
+					"name": "agency.txt",
+          "anchor": "reference/#agencytxt"
 				},
 				{
-					"name": "stops.txt"
+					"name": "stops.txt",
+          "anchor": "reference/#stopstxt"
 				},
 				{
-					"name": "routes.txt"
+					"name": "routes.txt",
+          "anchor": "reference/#routestxt"
 				},
 				{
-					"name": "trips.txt"
+					"name": "trips.txt",
+          "anchor": "reference/#tripstxt"
 				},
 				{
-					"name": "stop_times.txt"
+					"name": "stop_times.txt",
+          "anchor": "reference/#stop_timestxt"
 				},
 				{
-					"name": "calendar.txt"
+					"name": "calendar.txt",
+          "anchor": "reference/#calendartxt"
 				},
 				{
-					"name": "calendar_dates.txt"
+					"name": "calendar_dates.txt",
+          "anchor": "reference/#calendar_datestxt"
 				},
 				{
-					"name": "fare_attributes.txt"
+					"name": "fare_attributes.txt",
+          "anchor": "reference/#fare_attributestxt"
 				},
 				{
-					"name": "fare_rules.txt"
+					"name": "fare_rules.txt",
+          "anchor": "reference/#fare_rulestxt"
 				},
 				{
-					"name": "shapes.txt"
+					"name": "shapes.txt",
+          "anchor": "reference/#shapestxt"
 				},
 				{
-					"name": "frequencies.txt"
+					"name": "frequencies.txt",
+          "anchor": "reference/#frequenciestxt"
 				},
 				{
-					"name": "transfers.txt"
+					"name": "transfers.txt",
+          "anchor": "reference/#transferstxt"
 				},
 				{
-					"name": "feed_info.txt"
+					"name": "feed_info.txt",
+          "anchor": "reference/#feed_infotxt"
 				}
 			]
 		}

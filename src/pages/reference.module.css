@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  flex-direction: row;
   position: absolute;
   top: 100px;
   /* justify-content: center; */
@@ -8,15 +9,22 @@
 
 
 .navContainer {
-  width: 250px;
+  flex: 1;
+  max-width: 350px;
   background-color: #efefef;
-  padding: 50px 15px 15px 15px;
+  padding: 50px 15px 15px 30px;
   margin-right: 50px;
   overflow-y: auto;
 }
 
+.navContainer li {
+  list-style: none;
+}
+
 .contentContainer {
-  padding-left: 100px;
-  padding-right: 100px;
-  flex: 1;
+  padding-top: 50px;
+  padding-left: 75px;
+  padding-right: 75px;
+  flex: 3;
+  /* overflow-x: scroll; */
 }

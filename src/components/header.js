@@ -5,19 +5,11 @@ import githubLogo from '../images/github-logo.png';
 
 const Header = ({ siteTitle }) => (
   <div className={styles.container}>
-    GTFS
     <div className={styles.logo}>
-      <img src={githubLogo} width="40" height="40"/>
+      <h1>GTFS</h1>
     </div>
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.45rem',
-      }}
-    >
 
-      <h3 style={{ margin: 0 }}>
+    <div className={styles.links}>
         <Link
           to="/"
           style={{
@@ -27,7 +19,6 @@ const Header = ({ siteTitle }) => (
         >
           Home
         </Link>
-
         <Link
           to="/reference"
           style={{
@@ -35,9 +26,31 @@ const Header = ({ siteTitle }) => (
             textDecoration: 'none',
           }}
         >
-          Core Reference
+          Docs
         </Link>
-      </h3>
+        <Link
+          to="/reference"
+          style={{
+            color: 'white',
+            textDecoration: 'none',
+          }}
+        >
+          Examples
+        </Link>
+        <Link
+          to="/reference"
+          style={{
+            color: 'white',
+            textDecoration: 'none',
+          }}
+        >
+          Testing Feeds
+        </Link>
+
+    </div>
+    <div className={styles.spacer}></div>
+    <div className={styles.github}>
+      <img src={githubLogo} width="40" height="40"/>
     </div>
 
   </div>

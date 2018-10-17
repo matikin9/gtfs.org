@@ -5,14 +5,39 @@
   color: whitesmoke;
   position: fixed;
   z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   /* padding: 20px; */
 }
 
 .logo {
-  float: right;
-  opacity: .8;
+  flex: 1;
+  padding: 25px;
 }
 
-.logo:hover {
+
+.links {
+  flex: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* padding-top: 20px; */
+}
+
+.github {
+  flex: 1;
+  padding-top: 25px;
+  opacity: .8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.github:hover {
   opacity: 1;
+}
+
+.spacer {
+  flex: 1;
 }

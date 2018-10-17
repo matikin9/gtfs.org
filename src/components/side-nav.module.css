@@ -9,12 +9,9 @@
 
 .container a {
   font-size: 20px;
+  /* text-decoration: none !important; */
 }
 
 li {
   margin-bottom: 2px;
-}
-
-a:active {
-  color: red;
 }

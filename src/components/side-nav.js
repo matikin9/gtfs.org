@@ -26,8 +26,5 @@ const SideNav = ({ content }) => (
     </div>
 )
 
-function formatAnchor(sectionName) {
-
-}
 
 export default SideNav

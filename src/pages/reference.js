@@ -40,6 +40,7 @@ export const query = graphql`
         internal: {mediaType: {eq: "text/markdown"}},
         sourceInstanceName: {eq: "remote"},
         relativePath: {regex: "/gtfs\/spec\/en/"},
+        name: {eq: "reference"}
       }
     ){
       edges {

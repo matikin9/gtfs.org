@@ -8,11 +8,18 @@ const docDropdown = {
   items: [
     {
       id: 0,
-      title: 'Static'
+      title: 'Static',
+      link: '/reference'
     },
     {
       id: 1,
-      title: 'Realtime'
+      title: 'Realtime',
+      link: '/realtime'
+    },
+    {
+      id: 1,
+      title: 'Best Practices',
+      link: '/best-practices'
     }
   ]
 }
@@ -30,12 +37,7 @@ const Header = ({ siteTitle }) => (
         >
           Home
         </Link>
-        <Link
-          to="/reference"
-          activeClassName={styles.activePage}
-        >
-          Docs
-        </Link>
+        <Dropdown title="Docs" list={docDropdown.items}></Dropdown>
         <Link
           to="/examples"
           activeClassName={styles.activePage}
@@ -49,7 +51,7 @@ const Header = ({ siteTitle }) => (
         >
           Testing Feeds
         </Link>
-        <Dropdown title="Docs" list={docDropdown.items}></Dropdown>
+
 
     </div>
     <div className={styles.spacer}></div>

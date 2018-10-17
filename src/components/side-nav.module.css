@@ -1,4 +1,14 @@
 .container {
   position: fixed;
   padding-top: 100px;
+
+}
+
+.subcategory {
+  font-size: 18px !important;
+}
+
+
+.container a {
+  font-size: 22px;
 }

@@ -14,8 +14,10 @@ const SideNav = ({ content }) => (
         >
           {content.sections.map((section,index) =>
             <div key={index}>
-              <Link to={section.anchor}>{section.name}</Link>
-              {section.children.map(childSection => <h6>{childSection.name}</h6>)}
+              <li><Link to={section.anchor}>{section.name}</Link></li>
+              <div style={{ marginLeft: 10 }}>
+                {section.children.map(childSection => <li><Link to="" className={styles.subcategory}>{childSection.name}</Link></li>)}
+              </div>
             </div>
             )
           }

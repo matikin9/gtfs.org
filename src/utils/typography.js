@@ -6,6 +6,7 @@ fairyGatesTheme.overrideThemeStyles = ({ rhythm }, options ) => ({
   'a': {
     textShadow: 'none',
     color: '#61b5d9',
+    textDecoration: 'none'
   }
 });
 

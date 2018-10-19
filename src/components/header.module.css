@@ -6,15 +6,35 @@
 .container {
   width: 100%;
   height: 100px;
-  background: #172f50;
+
   color: whitesmoke;
   position: fixed;
   z-index: 1;
   display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+filter: drop-shadow(0px 0px 5px #dbdbdb);
+  /* padding: 20px; */
+}
+
+.upper-row {
+  /* filter: drop-shadow(0px 0px 2px black); */
+  background: #172f50;
+  width: 100%;
+  height: 30px;
   flex-direction: row;
   justify-content: space-between;
-  filter: drop-shadow(0px 0px 2px black);
-  /* padding: 20px; */
+}
+
+.lower-row {
+  width: 100%;
+  height: 70px;
+  background-color: white; /*#232323;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .logo {
@@ -29,11 +49,15 @@
 .links {
   flex: 3;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   font-size: 20px !important;
 
   /* padding-top: 20px; */
+}
+
+.links > * {
+  margin-right: 20px;
 }
 
 .github {

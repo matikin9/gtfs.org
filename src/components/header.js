@@ -30,54 +30,60 @@ const docDropdown = {
 
 const Header = ({ siteTitle }) => (
   <div className={styles.container}>
-    <div className={styles.logo}>
-      <h2>GTFS</h2>
+    <div className={styles.upperRow}>
+      <h5>Mobility<strong>Data</strong></h5>
+      <div className={styles.github}>
+        <img src={githubLogo} width="25" height="25"/>
+      </div>
     </div>
+    <div className={styles.lowerRow}>
+      <div className={styles.logo}>
+        <h2>GTFS</h2>
+      </div>
 
-    <div className={styles.links}>
+      <div className={styles.links}>
         <Link
           to="/"
           activeClassName={styles.activePage}
           style={{ textDecoration: 'none' }}
-        >
-          <div className={styles.linkText}>Home</div>
-        </Link>
-        <NavDropdown title="Docs" list={docDropdown.items}></NavDropdown>
-        <Link
-          to="/examples"
-          activeClassName={styles.activePage}
-        >
-          Examples
-        </Link>
-        <Link
-          to="/testing"
-          activeClassName={styles.activePage}
+          >
+            <div className={styles.linkText}>Home</div>
+          </Link>
+          <NavDropdown title="Docs" list={docDropdown.items}></NavDropdown>
+          <Link
+            to="/examples"
+            activeClassName={styles.activePage}
+            >
+              Examples
+            </Link>
+            <Link
+              to="/testing"
+              activeClassName={styles.activePage}
 
-        >
-          Testing Feeds
-        </Link>
+              >
+                Testing Feeds
+              </Link>
 
+
+            </div>
+            <div className={styles.language}>
+              <Dropdown
+                button
+                className='icon'
+                floating
+                labeled
+                icon='world'
+                options={languageOptions}
+                search
+                text='Select Language'
+              />
+            </div>
+
+
+
+          </div>
 
     </div>
-    <div className={styles.language}>
-      <Dropdown
-        button
-        className='icon'
-        floating
-        labeled
-        icon='world'
-        options={languageOptions}
-        search
-        text='Select Language'
-      />
-    </div>
-
-    <div className={styles.github}>
-
-      <img src={githubLogo} width="40" height="40"/>
-    </div>
-
-  </div>
 )
 
 export default Header

@@ -1,14 +1,6 @@
 import Typography from "typography"
-import fairyGatesTheme from "typography-theme-fairy-gates"
+import githubTheme from "typography-theme-github"
 
-fairyGatesTheme.overrideThemeStyles = ({ rhythm }, options ) => ({
-  // 'a': {
-  //   textShadow: 'none',
-  //   color: '#61b5d9',
-  //   textDecoration: 'none'
-  // }
-});
-
-const typography = new Typography(fairyGatesTheme)
+const typography = new Typography(githubTheme)
 
 export default typography

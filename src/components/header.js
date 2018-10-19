@@ -4,7 +4,7 @@ import NavDropdown from './dropdown';
 import styles from './header.module.css';
 import githubLogo from '../images/github-logo.png';
 import { Dropdown } from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css';
+// import 'semantic-ui-css/semantic.min.css';
 
 const languageOptions = [{ key: 'English', text: 'English', value: 'English' }];
 

@@ -4,10 +4,16 @@ import Layout from "../components/layout";
 import SideNav from "../components/side-nav";
 import pageContents from "../../ref-contents.json";
 import styles from "./reference.module.css";
+// import rehypeReact from 'rehype-react';
+// import Accordion from 'semantic-ui-react';
+//
+// const renderAst = new rehypeReact({
+//   createElement: React.createElement,
+//   components: { "accordion": Accordion },
+// }).Compiler
 
 export default ({ data }) => {
-  console.log(data)
-  console.log(pageContents)
+  console.log(data);
   return (
     <Layout>
       <div className={styles.container}>
@@ -49,7 +55,7 @@ export const query = graphql`
           relativePath
           childMarkdownRemark {
             html
-
+            htmlAst
           }
         }
       }

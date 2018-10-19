@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 
 
 const NestedTablesPage = ({ data }) => {
-  console.log(data);
   return (
     <div>
       {

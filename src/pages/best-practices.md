@@ -77,6 +77,8 @@ This section shows practices organized by file and field, aligning with the [GTF
 | Mixed Case | All customer-facing text strings (including stop names, route names, and headsigns) should use Mixed Case (not ALL CAPS), following local conventions for capitalization of place names on displays capable of displaying lower case characters, such as: <table class="example"><thead><tr><th>Examples</th></tr></thead><tbody><tr><td>Brighton Churchill Square</td></tr><tr><td>Villiers-sur-Marne</td></tr><tr><td>Market Street</td></tr></tbody></table>
 | Abbreviations | Avoid use of abbreviations throughout the feed for names and other text (e.g. St. for Street) unless a location is called by its abbreviated name (e.g. “JFK Airport”). Abbreviations may be problematic for accessibility by screen reader software and voice user interfaces. Consuming software can be engineered to reliably convert full words to abbreviations for display, but converting from abbreviations to full words is prone to more risk of error.
 
+<accordion>
+
 ### agency.txt
 | Field Name | Recommendation |
 | --- | --- |
@@ -85,6 +87,8 @@ This section shows practices organized by file and field, aligning with the [GTF
 | agency_phone | Should be included unless no such customer service phone exists.
 | agency_email | Should be included unless no such customer service email exists. |
 | agency_fare_url | Should be included unless the agency is fully fare-free. |
+
+</accordion>
 
 ### stops.txt
 | Field Name | Recommendation |
@@ -97,5 +101,4 @@ This section shows practices organized by file and field, aligning with the [GTF
         example_table: |
 
 <nested-table filepath="best-practices-examples/parent-station-location-type-example.md"></nested-table>
-
----
+#reformat table here

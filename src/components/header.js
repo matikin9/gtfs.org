@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Dropdown from './dropdown';
+import NavDropdown from './dropdown';
 import styles from './header.module.css';
 import githubLogo from '../images/github-logo.png';
+import { Dropdown } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
+
+const languageOptions = [{ key: 'English', text: 'English', value: 'English' }];
 
 const docDropdown = {
   items: [
@@ -22,22 +26,23 @@ const docDropdown = {
       link: '/best-practices'
     }
   ]
-}
+};
 
 const Header = ({ siteTitle }) => (
   <div className={styles.container}>
     <div className={styles.logo}>
-      <h2>GTFS.org</h2>
+      <h2>GTFS</h2>
     </div>
 
     <div className={styles.links}>
         <Link
           to="/"
           activeClassName={styles.activePage}
+          style={{ textDecoration: 'none' }}
         >
-          Home
+          <div className={styles.linkText}>Home</div>
         </Link>
-        <Dropdown title="Docs" list={docDropdown.items}></Dropdown>
+        <NavDropdown title="Docs" list={docDropdown.items}></NavDropdown>
         <Link
           to="/examples"
           activeClassName={styles.activePage}
@@ -54,7 +59,19 @@ const Header = ({ siteTitle }) => (
 
 
     </div>
-    <div className={styles.spacer}></div>
+    <div className={styles.language}>
+      <Dropdown
+        button
+        className='icon'
+        floating
+        labeled
+        icon='world'
+        options={languageOptions}
+        search
+        text='Select Language'
+      />
+    </div>
+
     <div className={styles.github}>
 
       <img src={githubLogo} width="40" height="40"/>

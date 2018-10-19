@@ -6,8 +6,6 @@ import pageContents from "../../realtime-contents.json";
 import styles from "./reference.module.css";
 
 export default ({ data }) => {
-  console.log(data)
-  console.log(pageContents)
   return (
     <Layout>
       <div className={styles.container}>

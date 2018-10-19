@@ -1,5 +1,6 @@
 .container {
   position: fixed;
+
 }
 
 .subcategory {
@@ -9,7 +10,8 @@
 
 .container a {
   font-size: 20px;
-  /* text-decoration: none !important; */
+  text-decoration: none !important;
+  color: black !important;
 }
 
 li {

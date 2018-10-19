@@ -31,14 +31,23 @@ const docDropdown = {
 const Header = ({ siteTitle }) => (
   <div className={styles.container}>
     <div className={styles.upperRow}>
-      <h5>Mobility<strong>Data</strong></h5>
-      <div className={styles.github}>
-        <img src={githubLogo} width="25" height="25"/>
+      <div className={styles.mobilityData}>
+        <a href="https://www.mobilitydata.org">
+          <h5>Mobility<strong>Data</strong></h5>
+        </a>
+      </div>
+      <div style={{flex: '2', color: '#61b5d9', marginLeft: '25px'}}>
+        Travelers need mobility apps. <strong>Mobility apps need high-quality data</strong>
+      </div>
+
+      <div className={styles.github} onClick={() => window.location = "https://github.com/MobilityData"}>
+        <span>Data specs on GitHub</span>
+        <img src={githubLogo} width="20" height="20"/>
       </div>
     </div>
     <div className={styles.lowerRow}>
       <div className={styles.logo}>
-        <h2>GTFS</h2>
+        <h1>GTFS</h1>
       </div>
 
       <div className={styles.links}>

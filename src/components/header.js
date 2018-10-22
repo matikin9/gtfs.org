@@ -1,28 +1,30 @@
 import React from 'react';
 import { Link } from 'gatsby';
-// import NavDropdown from './dropdown';
 import styles from './header.module.css';
 import githubLogo from '../images/github-logo.png';
 import { Dropdown, Transition } from 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min.css';
+import DocsOption from './docs-option';
 
 const languageOptions = [{ key: 'English', text: 'English', value: 'English' }];
 
-const docDropdown = {
+const docsOptions = {
   items: [
     {
       id: 0,
       title: 'Static',
+      blurb: 'Static blurb.',
       link: '/reference'
     },
     {
       id: 1,
       title: 'Realtime',
+      blurb: 'Realtime blurb.',
       link: '/realtime'
     },
     {
       id: 1,
       title: 'Best Practices',
+      blurb: 'Best Practices blurb.',
       link: '/best-practices'
     }
   ]
@@ -66,52 +68,51 @@ export default class Header extends React.Component {
           <div className={styles.logo}>
             <h1>GTFS</h1>
           </div>
-
           <div className={styles.links}>
             <Link
               to="/"
               activeClassName={styles.activePage}
               style={{ textDecoration: 'none' }}
               >
-                <div className={styles.linkText}>Home</div>
-              </Link>
-              {/* <NavDropdown title="Docs" list={docDropdown.items}></NavDropdown> */}
-              <div onClick={() => this.toggleDocs()}>Docs</div>
-              <Link
-                to="/examples"
-                activeClassName={styles.activePage}
-                >
-                  Examples
-                </Link>
-                <Link
-                  to="/testing"
-                  activeClassName={styles.activePage}
+              Home
+            </Link>
+            <div onClick={() => this.toggleDocs()}>Docs</div>
+            <Link
+              to="/examples"
+              activeClassName={styles.activePage}
+              >
+              Examples
+            </Link>
+            <Link
+              to="/testing"
+              activeClassName={styles.activePage}
+              >
+              Testing Feeds
+            </Link>
+          </div>
+          <div className={styles.language}>
+            <Dropdown
+              button
+              className='icon'
+              floating
+              labeled
+              icon='world'
+              options={languageOptions}
+              search
+              text='Select Language'
+            />
+          </div>
+          </div>
+          <Transition.Group animation='slide down' duration='500'>
+            {open &&
+              <div className={styles.docsOptions}>
+                {docsOptions.items.map((option) => (
+                  <DocsOption key={option.id} content={option}></DocsOption>
+                ))}
 
-                  >
-                    Testing Feeds
-                  </Link>
-
-
-                </div>
-                <div className={styles.language}>
-                  <Dropdown
-                    button
-                    className='icon'
-                    floating
-                    labeled
-                    icon='world'
-                    options={languageOptions}
-                    search
-                    text='Select Language'
-                  />
-                </div>
               </div>
-              <Transition.Group animation='slide down' duration='500'>
-                {open &&
-                  <div className={styles.docsOptions}>
-                  </div>
-                }
-              </Transition.Group>
+            }
+          </Transition.Group>
         </div>
       )
   }

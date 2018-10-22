@@ -6,7 +6,7 @@ import { Accordion, Icon, Button } from 'semantic-ui-react';
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { "accordion": Accordion },
+  // components: { "accordion": Accordion },
 }).Compiler
 
 class BestPracticesPage extends React.Component {

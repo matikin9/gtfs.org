@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styles from './header.module.css';
-import githubLogo from '../images/github-logo.png';
 import { Dropdown, Transition } from 'semantic-ui-react';
 import DocsOption from './docs-option';
+import githubLogo from '../images/github-logo.png';
+import gtfsHeader from '../images/gtfs-01-01.png';
 
 const languageOptions = [{ key: 'English', text: 'English', value: 'English' }];
 
@@ -66,7 +67,8 @@ export default class Header extends React.Component {
         </div>
         <div className={styles.lowerRow}>
           <div className={styles.logo}>
-            <h1>GTFS</h1>
+            {/* <h1>GTFS</h1> */}
+            <img src={gtfsHeader} style={{marginLeft: '-12px', marginTop: '5px'}} width="125" height="62.5"/>
           </div>
           <div className={styles.links}>
             <Link
@@ -103,7 +105,7 @@ export default class Header extends React.Component {
             />
           </div>
           </div>
-          <Transition.Group animation='slide down' duration='500'>
+          <Transition.Group animation='slide down' duration='150'>
             {open &&
               <div className={styles.docsOptions}>
                 {docsOptions.items.map((option) => (

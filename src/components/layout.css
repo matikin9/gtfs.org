@@ -1,3 +1,7 @@
+.visible .transition {
+  display: flex!important;
+}
+
 .headerContainer {
   color: red;
 }

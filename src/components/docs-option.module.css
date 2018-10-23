@@ -1,10 +1,17 @@
 .container {
-  width: 200px;
+  width: 275px;
   height: 100px;
-  background-color: whitesmoke;
+  background-color: white;
   color: black;
   margin-right: 50px;
   padding: 10px;
+  filter: drop-shadow(0px 0px 3px #efefef);
+  transition: all .2s ease-in-out;
+}
+
+.container:hover {
+  filter: drop-shadow(0px 0px 3px #cccccc);
+  /* transition-delay: .5s; */
 }
 
 .title {

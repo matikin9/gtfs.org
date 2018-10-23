@@ -1,0 +1,103 @@
+{
+	"sections": [{
+			"name": "Introduction",
+			"slug": "about",
+			"anchor": "best-practices/",
+      "children": []
+		},
+		{
+			"name": "Dataset Publishing & General Practices",
+			"slug": "publishing",
+      "anchor": "best-practices/",
+      "children": []
+		},
+		{
+			"name": "Recommendations Organized by File",
+			"slug": "all-files",
+      "anchor": "best-practices/",
+      "children": [
+				{
+					"name": "All Files",
+					"slug": null
+				},
+				{
+					"name": "agency.txt",
+					"slug": "agency"
+				},
+				{
+					"name": "stops.txt",
+          "slug": "stops"
+				},
+				{
+					"name": "routes.txt",
+          "slug": "routes"
+				},
+				{
+					"name": "trips.txt",
+          "slug": "trips"
+				},
+				{
+					"name": "stop_times.txt",
+          "slug": "stop_times"
+				},
+				{
+					"name": "calendar.txt",
+          "slug": "calendar"
+				},
+				{
+					"name": "calendar_dates.txt",
+          "slug": "calendar_dates"
+				},
+				{
+					"name": "fare_attributes.txt",
+          "slug": "fare_attributes"
+				},
+				{
+					"name": "fare_rules.txt",
+          "slug": "fare_rules"
+				},
+				{
+					"name": "shapes.txt",
+          "slug": "shapes"
+				},
+				{
+					"name": "frequencies.txt",
+          "slug": "frequencies"
+				},
+				{
+					"name": "transfers.txt",
+          "slug": "transfers"
+				},
+				{
+					"name": "feed_info.txt",
+          "slug": "feed_info"
+				}
+			]
+		},
+		{
+			"name": "Recommendations Organized by Case",
+			"slug": null,
+      "anchor": "best-practices/",
+      "children": [
+				{
+					"name": "Loop Routes",
+					"slug": "loop-routes"
+				},
+				{
+					"name": "Lasso Routes",
+					"slug": "lasso-routes"
+				},
+				{
+					"name": "Branches",
+					"slug": "branches"
+				},
+			]
+		},
+		{
+			"name": "About This Document",
+			"slug": "about",
+      "anchor": "best-practices/",
+			"children": []
+		}
+	]
+}

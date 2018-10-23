@@ -4,7 +4,7 @@ import styles from './header.module.css';
 import { Dropdown, Transition } from 'semantic-ui-react';
 import DocsOption from './docs-option';
 import githubLogo from '../images/github-logo.png';
-import gtfsHeader from '../images/gtfs-01-01.png';
+import gtfsHeader from '../images/gtfs.png';
 
 const languageOptions = [{ key: 'English', text: 'English', value: 'English' }];
 

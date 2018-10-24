@@ -23,9 +23,15 @@ const docsOptions = {
       link: '/realtime'
     },
     {
-      id: 1,
+      id: 2,
       title: 'Best Practices',
       blurb: 'Best Practices blurb.',
+      link: '/best-practices'
+    },
+    {
+      id: 3,
+      title: 'Merged View',
+      blurb: 'Merged view blurb.',
       link: '/best-practices'
     }
   ]

@@ -32,7 +32,7 @@ export default class ReferencePage extends React.Component {
 
   render() {
     const htmlAst = this.props.data.allFile.edges[0].node.childMarkdownRemark.htmlAst;
-
+    console.log(htmlAst);
     return (
       <Layout>
         <div className={styles.container}>

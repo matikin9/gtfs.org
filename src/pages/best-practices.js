@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import rehypeReact from 'rehype-react';
-import { Accordion, Icon, Button } from 'semantic-ui-react';
+import pageContents from '../../best-practices-contents.json';
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -12,79 +12,92 @@ const renderAst = new rehypeReact({
 class BestPracticesPage extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
-    const {data} = props;
+    this.data = props.data;
+    this.nodeDictionary = {};
+    this.state = {
+      consolidatedHast: this.data.allFile.edges[0].node.childMarkdownRemark.htmlAst,
+      testNode: {},
+      parsingComplete: false
+    }
+    console.log('starter hast node', this.data.allFile.edges[0].node.childMarkdownRemark.htmlAst)
   }
 
-  state = { activeIndex: 0 }
-
-  handleClick = (e, titleProps) => {
-    const { index } = titleProps
-    const { activeIndex } = this.state
-    const newIndex = activeIndex === index ? -1 : index
-
-    this.setState({ activeIndex: newIndex })
+  componentDidMount() {
+    this.mapDataToDictionary();
   }
+
+  mapDataToDictionary() {
+    this.data.allFile.edges.forEach(({node}) => {
+      let key = node.name;
+      let content = node.childMarkdownRemark.htmlAst;
+      let pair = {};
+      pair[key] = content;
+      Object.assign(this.nodeDictionary, pair)
+    });
+    console.log('complete dictionary', this.nodeDictionary);
+    this.setState({parsingComplete: true});
+    // this.consolidateHastNodes();
+  }
+
+  consolidateHastNodes() {
+    let newConsolidatedHast = this.nodeDictionary[pageContents.sections[0].slug]; //make first section hast root, all following nodes will be added as children
+    for (let i = 1; i < pageContents.sections.length; i ++) {
+      let thisNode = this.nodeDictionary[pageContents.sections[i].slug];
+      console.log('current node', thisNode);
+      if (thisNode !== undefined) {
+        if (thisNode.type === "root") {
+          newConsolidatedHast.children.concat(thisNode.children);
+        } else {
+          newConsolidatedHast.children.push(thisNode);
+        }
+        if (pageContents.sections[i].children.length > 0) {
+          pageContents.sections[i].children.forEach((child) => {
+            let thisChildNode = this.nodeDictionary[child.slug];
+            if (thisChildNode !== undefined) {
+              if (thisChildNode.type === "root") {
+                newConsolidatedHast.children.concat(thisChildNode.children);
+              } else {
+                newConsolidatedHast.children.push(thisChildNode);
+              }
+            }
+          });
+        }
+      }
+    }
+    console.log('consolidated node', newConsolidatedHast);
+    this.setState({
+      consolidatedHast: newConsolidatedHast,
+      testNode: this.data.allFile.edges[3].node.childMarkdownRemark.htmlAst,
+      parsingComplete: true
+    });
+    // console.log(this.consolidatedHast);
+    // console.log(this.data.allFile.edges[0].node.childMarkdownRemark.htmlAst);
+  }
+
+
+
 
   render() {
-    const { activeIndex } = this.state;
-    return(
-      // <Accordion>
-      //    <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
-      //      <Icon name='dropdown' />
-      //      What is a dog?
-      //    </Accordion.Title>
-      //    <Accordion.Content active={activeIndex === 0}>
-      //      <p>
-      //        A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can
-      //        be found as a welcome guest in many households across the world.
-      //      </p>
-      //    </Accordion.Content>
-      //
-      //    <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick}>
-      //      <Icon name='dropdown' />
-      //      What kinds of dogs are there?
-      //    </Accordion.Title>
-      //    <Accordion.Content active={activeIndex === 1}>
-      //      <p>
-      //        There are many breeds of dogs. Each breed varies in size and temperament. Owners often
-      //        select a breed of dog that they find to be compatible with their own lifestyle and
-      //        desires from a companion.
-      //      </p>
-      //    </Accordion.Content>
-      //
-      //    <Accordion.Title active={activeIndex === 2} index={2} onClick={this.handleClick}>
-      //      <Icon name='dropdown' />
-      //      How do you acquire a dog?
-      //    </Accordion.Title>
-      //    <Accordion.Content active={activeIndex === 2}>
-      //      <p>
-      //        Three common ways for a prospective owner to acquire a dog is from pet shops, private
-      //        owners, or shelters.
-      //      </p>
-      //      <p>
-      //        A pet shop may be the most convenient way to buy a dog. Buying a dog from a private
-      //        owner allows you to assess the pedigree and upbringing of your dog before choosing to
-      //        take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog
-      //        who may not find one so readily.
-      //      </p>
-      //    </Accordion.Content>
-      //  </Accordion>
-      <Layout>
-        {/* <div dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}></div> */}
-        <div style={{height: '350px'}}></div>
-        <Accordion>
-          <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
-            <Icon name='dropdown' />
-            What is a dog?
-          </Accordion.Title>
+    // const nodes = this.state.consolidatedHast;
+    // console.log('nodes in render', nodes);
 
-            idk
+      return(
+        <Layout>
+          <h2>Hi</h2>
+          {this.state.parsingComplete && Object.entries(this.nodeDictionary).map(pairArray => renderAst(pairArray[1]))}
+          {/* {renderAst(this.data.allFile.edges[0].node.childMarkdownRemark.htmlAst)} */}
+          {/* {this.state.parsingComplete && renderAst(nodes)} */}
+          {/* {(nodes.children.length === 21) ? renderAst(nodes) : null} */}
 
-          {/* {renderAst(data.allFile.edges[0].node.childMarkdownRemark.htmlAst)} */}
-        </Accordion>
-      </Layout>
-    )
+        </Layout>
+      )
+    // return(
+    //
+    //   <Layout>
+    //     {/* <div dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}></div> */}
+    //
+    //   </Layout>
+    // )
   }
 
 }
@@ -95,9 +108,9 @@ export const homeQuery = graphql`
     query {
       allFile(
           filter: {
-            internal: {mediaType: {eq: "text/markdown"}},
-            sourceInstanceName: {eq: "local"},
-            name: {eq: "best-practices"},
+            # internal: {mediaType: {eq: "text/markdown"}},
+            sourceInstanceName: {eq: "content"},
+            # name: {eq: "best-practices"},
             # relativePath: {regex: "/en\//"}
           }
         ){

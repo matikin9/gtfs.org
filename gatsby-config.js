@@ -26,6 +26,13 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/content/best-practices`,
+        name: "content"
+      }
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [ // some interesting plugins available to use with

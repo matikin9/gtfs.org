@@ -32,6 +32,7 @@ module.exports = {
         name: "content"
       }
     },
+    'gatsby-plugin-sharp',
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -39,7 +40,13 @@ module.exports = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              offsetY: '250',
+              offsetY: '500',
+            }
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 400,
             }
           }
         ],

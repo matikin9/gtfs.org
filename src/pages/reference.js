@@ -15,7 +15,7 @@ const renderAst = new rehypeReact({
 export default class ReferencePage extends React.Component {
   constructor(props) {
     super(props);
-    this.parseNodes();
+    // this.parseNodes();
 
   }
 

@@ -3,6 +3,8 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import rehypeReact from 'rehype-react';
 import pageContents from '../../best-practices-contents.json';
+import styles from './reference.module.css';
+import SideNav from "../components/side-nav";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -18,7 +20,6 @@ class BestPracticesPage extends React.Component {
     this.state = {
       parsingComplete: false
     }
-    console.log('starter hast node', this.data.allFile.edges[0].node.childMarkdownRemark.htmlAst)
   }
 
   componentDidMount() {
@@ -56,8 +57,14 @@ class BestPracticesPage extends React.Component {
   render() {
     return(
       <Layout>
-        <h2>Hi</h2>
-        {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
+        <div className={styles.container}>
+          <div className={styles.navContainer}>
+            <SideNav content={pageContents}/>
+          </div>
+          <div className={styles.contentContainer}>
+            {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
+          </div>
+        </div>
       </Layout>
     )
   }

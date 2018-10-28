@@ -109,3 +109,8 @@
   /* opacity: .7; */
   padding-left: 50px;
 }
+
+.fixFlex {
+  display: flex;
+  flex-direction: row;
+}

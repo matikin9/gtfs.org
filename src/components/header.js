@@ -115,7 +115,9 @@ export default class Header extends React.Component {
             {open &&
               <div className={styles.docsOptions}>
                 {docsOptions.items.map((option) => (
-                  <DocsOption key={option.id} content={option}></DocsOption>
+                  <div className={styles.fixFlex}>
+                    <DocsOption key={option.id} content={option}></DocsOption>
+                  </div>
                 ))}
 
               </div>

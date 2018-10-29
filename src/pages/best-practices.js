@@ -28,11 +28,13 @@ class BestPracticesPage extends React.Component {
 
   mapDataToDictionary() {
     this.data.allFile.edges.forEach(({node}) => {
-      let key = node.name;
-      let content = node.childMarkdownRemark.htmlAst;
-      let pair = {};
-      pair[key] = content;
-      Object.assign(this.nodeDictionary, pair)
+      if (node.internal.mediaType === "text/markdown") { //ignore photo nodes
+        let key = node.name;
+        let content = node.childMarkdownRemark.htmlAst;
+        let pair = {};
+        pair[key] = content;
+        Object.assign(this.nodeDictionary, pair)
+      }
     });
     console.log('complete dictionary', this.nodeDictionary);
     this.sortDictionary()
@@ -83,6 +85,9 @@ export const homeQuery = graphql`
             node {
               name
               relativePath
+              internal {
+                mediaType
+              }
               childMarkdownRemark {
                 htmlAst
 

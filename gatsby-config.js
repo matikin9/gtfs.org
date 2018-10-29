@@ -32,23 +32,25 @@ module.exports = {
         name: "content"
       }
     },
+    'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [ // some interesting plugins available to use with
           {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 250,
+            }
+          },
+          {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
               offsetY: '500',
             }
           },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 400,
-            }
-          }
+          'gatsby-remark-copy-linked-files'
         ],
       },
     },

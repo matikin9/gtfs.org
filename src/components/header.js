@@ -62,9 +62,6 @@ export default class Header extends React.Component {
               <h5>Mobility<strong>Data</strong></h5>
             </a>
           </div>
-          <div style={{flex: '2', color: '#61b5d9', marginLeft: '25px'}}>
-            Travelers need mobility apps. <strong>Mobility apps need high-quality data</strong>
-          </div>
 
           <div className={styles.github} onClick={() => window.location = "https://github.com/MobilityData"}>
             <span>Data specs on GitHub</span>

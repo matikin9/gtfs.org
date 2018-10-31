@@ -13,25 +13,19 @@ const docsOptions = {
     {
       id: 0,
       title: 'Static',
-      blurb: 'Static blurb.',
+      blurb: 'Reference for core comma-separated values specification to describe stops, routes, schedules, and fares',
       link: '/reference'
     },
     {
       id: 1,
       title: 'Realtime',
-      blurb: 'Realtime blurb.',
+      blurb: 'Reference for protobuf-based GTFS extension to provide arrival estimates, vehicle positions, and service alerts',
       link: '/realtime'
     },
     {
       id: 2,
       title: 'Best Practices',
-      blurb: 'Best Practices blurb.',
-      link: '/best-practices'
-    },
-    {
-      id: 3,
-      title: 'Merged View',
-      blurb: 'Merged view blurb.',
+      blurb: 'Recommendations to support quality user experiences in GTFS-consuming applications',
       link: '/best-practices'
     }
   ]

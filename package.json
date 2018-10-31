@@ -16,6 +16,7 @@
     "gatsby-remark-copy-linked-files": "^2.0.6",
     "gatsby-remark-images": "^2.0.4",
     "gatsby-source-filesystem": "^2.0.2",
+    "gatsby-transformer-json": "2.1.2",
     "gatsby-transformer-remark": "^2.1.6",
     "gatsby-transformer-sharp": "^2.0.1-16",
     "install": "^0.12.1",

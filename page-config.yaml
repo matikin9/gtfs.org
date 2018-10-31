@@ -8,13 +8,13 @@ pages:
     url: /reference
     template: doc-page
     files: pages/reference.md
-    toc: ref-contents.json
+    toc: ref-contents
 
   - title: Realtime Reference
     url: /realtime
     template: doc-page
     files: pages/realtime.md
-    toc: realtime-contents.json
+    toc: realtime-contents
 
   - title: Best Practices
     url: /best-practices
@@ -23,7 +23,7 @@ pages:
       - agency.md
       - stops.md
       - routes.md
-    toc: best-practices-contents.json
+    toc: best-practices-contents
 
   - title: Examples
     url: /examples

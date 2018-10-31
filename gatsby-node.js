@@ -12,7 +12,7 @@ try {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === "MarkdownRemark" && node.name != "README") {
+  if (node.internal.type === "MarkdownRemark" || node.internal.type === "Json") {
 
     const slug = createFilePath({ node, getNode, basePath: 'pages' }); //`${node.frontmatter.lang}` + ...
     createNodeField({
@@ -61,6 +61,7 @@ exports.createPages = ({ graphql, actions }) => {
       context: {
         //things passed here avail as graphql variables in page queries
         sourceInstanceName: page.title
+        toc: page.toc
       }
     })
   })

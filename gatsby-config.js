@@ -12,6 +12,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-transformer-json',
+      options: {
+        typeName: 'Json',
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages/home`,

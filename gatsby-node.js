@@ -60,7 +60,7 @@ exports.createPages = ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/${page.template}.js`),
       context: {
         //things passed here avail as graphql variables in page queries
-        sourceInstanceName: page.title
+        sourceInstanceName: page.title,
         toc: page.toc
       }
     })

@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: 'General Transit Feed Specification',
+    title: 'General Transit Feed Specification'
   },
   plugins: [
     {
@@ -14,7 +14,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-json',
       options: {
-        typeName: 'Json',
+        typeName: 'Json'
       }
     },
     {
@@ -78,7 +78,7 @@ module.exports = {
             }
           },
           'gatsby-remark-copy-linked-files'
-        ],
+        ]
       },
     },
     'gatsby-plugin-react-helmet',

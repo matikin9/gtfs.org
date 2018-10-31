@@ -1,22 +1,20 @@
 import React from 'react';
-import Layout from '../components/layout';
 import { graphql } from 'gatsby';
+import Layout from '../components/layout';
 import rehypeReact from 'rehype-react';
-import styles from './doc-page.module.css';
+import pageContents from '../../best-practices-contents.json';
+import styles from './reference.module.css';
 import SideNav from "../components/side-nav";
 
 const renderAst = new rehypeReact({
-  createElement: React.createElement
-  // components: { "nested-table": NestedTable },
+  createElement: React.createElement,
+  // components: { "accordion": Accordion },
 }).Compiler
 
-
-export default class DocPage extends React.Component {
+class BestPracticesPage extends React.Component {
   constructor(props) {
     super(props);
     this.data = props.data;
-    console.log(this.data);
-    this.pageContents = this.data.allJson.edges[0].node.sections;
     this.nodeDictionary = {};
     this.sortedHast = [];
     this.state = {
@@ -40,10 +38,11 @@ export default class DocPage extends React.Component {
     });
     console.log('complete dictionary', this.nodeDictionary);
     this.sortDictionary()
+    // this.consolidateHastNodes();
   }
 
   sortDictionary() {
-    this.pageContents.forEach((section) => {
+    pageContents.sections.forEach((section) => {
       let hast = this.nodeDictionary[section.slug]
       if (hast !== undefined) this.sortedHast.push(hast);
       if (section.children.length > 0) {
@@ -62,7 +61,7 @@ export default class DocPage extends React.Component {
       <Layout>
         <div className={styles.container}>
           <div className={styles.navContainer}>
-            <SideNav content={this.pageContents}/>
+            <SideNav content={pageContents}/>
           </div>
           <div className={styles.contentContainer}>
             {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
@@ -73,54 +72,28 @@ export default class DocPage extends React.Component {
   }
 }
 
-export const query = graphql`
-query {
-  allFile(
-      filter: {
-        sourceInstanceName: {eq: "Best Practices"}
-      }
-    ){
-      edges {
-        node {
-          name
-          relativePath
-          internal {
-            mediaType
-          }
-          childMarkdownRemark {
-            htmlAst
+export default BestPracticesPage
 
+export const homeQuery = graphql`
+    query {
+      allFile(
+          filter: {
+            sourceInstanceName: {eq: "content"}
+          }
+        ){
+          edges {
+            node {
+              name
+              relativePath
+              internal {
+                mediaType
+              }
+              childMarkdownRemark {
+                htmlAst
+
+              }
+            }
           }
         }
-      }
     }
-}
 `
-
-// query($sourceInstanceName: String!, $toc: String!) {
-//   allJson(filter: {fields: {slug: {eq: $toc}}}) {
-//     edges {
-//       node {
-//         fields {
-//           slug
-//         }
-//         sections {
-//           name
-//           slug
-//           anchor
-//         }
-//       }
-//     }
-//   }
-//
-//   allFile(filter: {sourceInstanceName: {eq: $sourceInstanceName}}) {
-//     edges {
-//       node {
-//         internal {
-//           mediaType
-//         }
-//         name
-//       }
-//     }
-//   }
-// }

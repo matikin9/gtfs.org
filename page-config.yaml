@@ -1,26 +1,31 @@
-- title: Home
-  url: /
-  template: basic-page
-  files: pages/home.md
+pages:
+  - title: Home
+    url: /
+    template: basic-page
+    files: pages/home.md
 
-- title: Static Reference
-  url: /reference
-  template: doc-page
-  files: pages/reference.md
+  - title: Static Reference
+    url: /reference
+    template: doc-page
+    files: pages/reference.md
+    toc: ref-contents.json
 
-- title: Realtime Reference
-  url: /realtime
-  template: doc-page
-  files: pages/realtime.md
+  - title: Realtime Reference
+    url: /realtime
+    template: doc-page
+    files: pages/realtime.md
+    toc: realtime-contents.json
 
-- title: Best Practices
-  url: /best-practices
-  template: doc-page
-  items:
-    - title: About
-      file: about.md
+  - title: Best Practices
+    url: /best-practices
+    template: doc-page
+    files:
+      - agency.md
+      - stops.md
+      - routes.md
+    toc: best-practices-contents.json
 
-- title: Examples
-  url: /examples
-  template: basic-page
-  file: pages/examples.md
+  - title: Examples
+    url: /examples
+    template: basic-page
+    file: pages/examples.md

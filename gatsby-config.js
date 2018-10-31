@@ -14,22 +14,43 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages`,
-        name: "local"
+        path: `${__dirname}/src/pages/home`,
+        name: "Home"
       }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/content/reference`,
-        name: "remote"
+        path: `${__dirname}/src/pages/best-practices`,
+        name: "Best Practices"
       }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/content/best-practices`,
-        name: "content"
+        path: `${__dirname}/src/pages/reference/gtfs/spec`,
+        name: "Static Reference"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/reference/gtfs-realtime/spec`,
+        name: "Realtime Reference"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/examples`,
+        name: "Examples"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/testing`,
+        name: "Testing"
       }
     },
     'gatsby-transformer-sharp',
@@ -47,7 +68,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              offsetY: '500',
+              offsetY: '600',
             }
           },
           'gatsby-remark-copy-linked-files'

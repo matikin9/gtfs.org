@@ -25,32 +25,44 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
-            }
-          }
-        }
+  const contentDictionary = {};
+  // return new Promise((resolve, reject) => {
+  //   graphql(`
+  //     {
+  //       allMarkdownRemark {
+  //         edges {
+  //           node {
+  //             fields {
+  //               slug
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `).then(result => {
+  //     // console.log(result);
+  //     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  //       createPage({
+  //         path: node.fields.slug,
+  //         component: path.resolve('./src/templates/doc-page.js'),
+  //         context: {
+  //           //things passed here avail as graphql variables in page queries
+  //           slug: node.fields.slug
+  //         }
+  //       })
+  //     })
+  //     resolve()
+  //   })
+  // })
+  pageConfig.pages.forEach((page) => {
+    createPage({
+      path: page.url,
+      component: path.resolve(`./src/templates/${page.template}.js`),
+      context: {
+        //things passed here avail as graphql variables in page queries
+        sourceInstanceName: page.title
       }
-    `).then(result => {
-      // console.log(result);
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve('./src/templates/doc-page.js'),
-          context: {
-            //things passed here avail as graphql variables in page queries
-            slug: node.fields.slug
-          }
-        })
-      })
-      resolve()
     })
   })
+
 }

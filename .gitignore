@@ -28,4 +28,11 @@ yarn-error.log
 =======
 
 /src/content
+<<<<<<< HEAD
 >>>>>>> update page queries for home and best-practices
+=======
+/src/pages/best-practices
+/src/pages/examples
+/src/pages/reference
+/src/pages/testing
+>>>>>>> rearrange content files and setup for using config file

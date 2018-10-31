@@ -1,0 +1,26 @@
+- title: Home
+  url: /
+  template: basic-page
+  files: pages/home.md
+
+- title: Static Reference
+  url: /reference
+  template: doc-page
+  files: pages/reference.md
+
+- title: Realtime Reference
+  url: /realtime
+  template: doc-page
+  files: pages/realtime.md
+
+- title: Best Practices
+  url: /best-practices
+  template: doc-page
+  items:
+    - title: About
+      file: about.md
+
+- title: Examples
+  url: /examples
+  template: basic-page
+  file: pages/examples.md

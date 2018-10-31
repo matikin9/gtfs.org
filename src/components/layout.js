@@ -18,7 +18,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div>
+      <div style={{width: '100%'}}>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[

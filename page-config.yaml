@@ -17,7 +17,7 @@ pages:
     template: doc-page
     files:
       - pages/realtime.md
-    toc: realtime-contents
+    toc: /realtime-contents/
 
   - title: Best Practices
     url: /best-practices

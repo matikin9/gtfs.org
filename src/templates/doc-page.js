@@ -44,13 +44,15 @@ export default class DocPage extends React.Component {
 
   sortDictionary() {
     this.pageContents.forEach((section) => {
-      let hast = this.nodeDictionary[section.slug]
-      if (hast !== undefined) this.sortedHast.push(hast);
-      if (section.children.length > 0) {
-        section.children.forEach((child) => {
-          let childHast = this.nodeDictionary[child.slug];
-          if (childHast !== undefined) this.sortedHast.push(childHast);
-        });
+      if (section.slug !== undefined) {
+        let hast = this.nodeDictionary[section.slug]
+        if (hast !== undefined) this.sortedHast.push(hast);
+        if (section.children.length > 0) {
+          section.children.forEach((child) => {
+            let childHast = this.nodeDictionary[child.slug];
+            if (childHast !== undefined) this.sortedHast.push(childHast);
+          });
+        }
       }
     });
     console.log('sorted hast nodes', this.sortedHast);
@@ -88,6 +90,7 @@ export const query = graphql`
             children {
               name
               slug
+              anchor
             }
           }
         }

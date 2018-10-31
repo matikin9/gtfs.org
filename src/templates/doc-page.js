@@ -74,53 +74,38 @@ export default class DocPage extends React.Component {
 }
 
 export const query = graphql`
-query {
-  allFile(
-      filter: {
-        sourceInstanceName: {eq: "Best Practices"}
-      }
-    ){
+  query($sourceInstanceName: String!, $toc: String!) {
+    allJson(filter: {fields: {slug: {eq: $toc}}}) {
       edges {
         node {
-          name
-          relativePath
-          internal {
-            mediaType
+          fields {
+            slug
           }
-          childMarkdownRemark {
-            htmlAst
-
+          sections {
+            name
+            slug
+            anchor
+            children {
+              name
+              slug
+            }
           }
         }
       }
     }
-}
-`
 
-// query($sourceInstanceName: String!, $toc: String!) {
-//   allJson(filter: {fields: {slug: {eq: $toc}}}) {
-//     edges {
-//       node {
-//         fields {
-//           slug
-//         }
-//         sections {
-//           name
-//           slug
-//           anchor
-//         }
-//       }
-//     }
-//   }
-//
-//   allFile(filter: {sourceInstanceName: {eq: $sourceInstanceName}}) {
-//     edges {
-//       node {
-//         internal {
-//           mediaType
-//         }
-//         name
-//       }
-//     }
-//   }
-// }
+    allFile(filter: {sourceInstanceName: {eq: $sourceInstanceName}}) {
+      edges {
+        node {
+          internal {
+            mediaType
+          }
+          name
+          childMarkdownRemark {
+            htmlAst
+          }
+        }
+      }
+    }
+  }
+`

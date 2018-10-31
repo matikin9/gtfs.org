@@ -2,18 +2,21 @@ pages:
   - title: Home
     url: /
     template: basic-page
-    files: pages/home.md
+    files:
+      - pages/home.md
 
   - title: Static Reference
     url: /reference
     template: doc-page
-    files: pages/reference.md
-    toc: ref-contents
+    files:
+      - pages/reference.md
+    toc: /ref-contents/
 
   - title: Realtime Reference
     url: /realtime
     template: doc-page
-    files: pages/realtime.md
+    files:
+      - pages/realtime.md
     toc: realtime-contents
 
   - title: Best Practices
@@ -28,4 +31,5 @@ pages:
   - title: Examples
     url: /examples
     template: basic-page
-    file: pages/examples.md
+    files:
+      - pages/examples.md

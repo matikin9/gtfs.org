@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styles from './header.module.css';
-import { Dropdown, Transition } from 'semantic-ui-react';
+import { Dropdown, Transition, Icon } from 'semantic-ui-react';
 import DocsOption from './docs-option';
 import githubLogo from '../images/github-logo.png';
 import gtfsHeader from '../images/gtfs.png';
@@ -75,7 +75,10 @@ export default class Header extends React.Component {
               >
               Home
             </Link>
-            <div style={{cursor: 'pointer'}} onClick={() => this.toggleDocs()}><a>Docs</a></div>
+            <div className={open ? styles.docsOpen : styles.docsClosed} onClick={() => this.toggleDocs()}>
+              <span className={styles.fakeLink}>Docs</span>
+              {open ? <Icon size="tiny" name="caret up"/> : <Icon size="tiny" name="caret down"/>}
+            </div>
             <Link
               to="/examples"
               activeClassName={styles.activePage}

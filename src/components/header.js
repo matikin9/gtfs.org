@@ -75,7 +75,7 @@ export default class Header extends React.Component {
               >
               Home
             </Link>
-            <div onClick={() => this.toggleDocs()}>Docs</div>
+            <div style={{cursor: 'pointer'}} onClick={() => this.toggleDocs()}><a>Docs</a></div>
             <Link
               to="/examples"
               activeClassName={styles.activePage}
@@ -106,9 +106,7 @@ export default class Header extends React.Component {
             {open &&
               <div className={styles.docsOptions}>
                 {docsOptions.items.map((option) => (
-                  <div className={styles.fixFlex}>
-                    <DocsOption key={option.id} content={option}></DocsOption>
-                  </div>
+                  <DocsOption key={option.id} content={option}></DocsOption>
                 ))}
 
               </div>

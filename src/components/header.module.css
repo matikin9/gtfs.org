@@ -18,6 +18,7 @@
   display: flex;
   flex-direction: column;
   filter: drop-shadow(0px 0px 5px #dbdbdb);
+  overflow: auto;
 }
 
 .upper-row {
@@ -99,20 +100,18 @@
   color: whitesmoke;
 }
 
-.visible.transition {
-  display: flex!important;
-}
-
 .docs-options {
   width: 100%;
-  height: 150px;
-  background-color: whitesmoke; /*#efefef;*/
+  /* min-height: 150px; */
+  height: auto;
+  background-color: rgba(255,255,255); /*#efefef;*/
   display: flex!important;
   flex-direction: row!important;
   justify-content: center;
   align-items: center;
   /* opacity: .7; */
   padding-left: 50px;
+  overflow: auto;
 }
 
 .fixFlex {

@@ -36,4 +36,12 @@ pages:
 
   - title: Testing
     url: /testing
-    template: basic-page 
+    template: basic-page
+
+  - title: Getting Started
+    url: /getting-started
+    template: basic-page
+
+  - title: GTFS Background
+    url: /background
+    template: basic-page

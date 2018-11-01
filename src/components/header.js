@@ -75,9 +75,18 @@ export default class Header extends React.Component {
               >
               Home
             </Link>
+            <Link
+              to="/getting-started"
+              activeClassName={styles.activePage}
+              style={{ textDecoration: 'none' }}
+              >
+              Getting Started
+            </Link>
             <div className={open ? styles.docsOpen : styles.docsClosed} onClick={() => this.toggleDocs()}>
               <span className={styles.fakeLink}>Docs</span>
-              {open ? <Icon size="tiny" name="caret up"/> : <Icon size="tiny" name="caret down"/>}
+              {open ?
+                <Icon className={styles.up} size="small" name="chevron up"/>
+                : <Icon size="small" name="chevron down"/>}
             </div>
             <Link
               to="/examples"

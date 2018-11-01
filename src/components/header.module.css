@@ -1,3 +1,7 @@
+.up {
+  top: 50px;
+}
+
 .docs-open {
   display: flex;
   flex-direction: row;
@@ -5,7 +9,7 @@
 }
 
 .docs-closed {
-  /* color: #4183C4; */
+  color: #4183C4;
 }
 
 .fake-link:hover {
@@ -60,7 +64,7 @@
 }
 
 .logo {
-  flex: 1.5;
+  flex: 1;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -71,14 +75,15 @@
 }
 
 .links {
-  flex: 4;
+  flex: 6;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  /* justify-content:  */
   font-size: 20px !important;
 }
 
 .links > * {
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 .github {

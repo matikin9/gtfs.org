@@ -59,6 +59,20 @@ module.exports = {
         name: "Testing"
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/getting-started`,
+        name: "Getting Started"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/gtfs-background`,
+        name: "GTFS Background"
+      }
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

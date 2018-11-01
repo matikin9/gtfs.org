@@ -24,12 +24,12 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const homeQuery = graphql`
-    query {
+    query($sourceInstanceName: String!) {
       allFile(
           filter: {
             internal: {mediaType: {eq: "text/markdown"}},
-            # sourceInstanceName: {eq: "reference"},
-            name: {eq: "home"},
+            sourceInstanceName: {eq: $sourceInstanceName},
+            # name: {eq: "home"},
             # relativePath: {regex: "/en\//"}
           }
         ){

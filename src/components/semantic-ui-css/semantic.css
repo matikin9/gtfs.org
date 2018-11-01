@@ -38008,7 +38008,7 @@ body.pushable > .pusher {
 /* Visible */
 
 .visible.transition {
-
+  height: 200px;
   visibility: visible !important;
   /*  backface-visibility: @backfaceVisibility;
   transform: @use3DAcceleration;*/

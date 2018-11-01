@@ -33,3 +33,7 @@ pages:
     template: basic-page
     files:
       - pages/examples.md
+
+  - title: Testing
+    url: /testing
+    template: basic-page 

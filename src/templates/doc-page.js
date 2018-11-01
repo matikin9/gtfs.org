@@ -5,6 +5,7 @@ import rehypeReact from 'rehype-react';
 import styles from './doc-page.module.css';
 import SideNav from "../components/side-nav";
 
+
 const renderAst = new rehypeReact({
   createElement: React.createElement
   // components: { "nested-table": NestedTable },

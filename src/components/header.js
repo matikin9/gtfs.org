@@ -59,13 +59,13 @@ export default class Header extends React.Component {
 
           <div className={styles.github} onClick={() => window.location = "https://github.com/MobilityData"}>
             <span>Data specs on GitHub</span>
-            <img src={githubLogo} width="20" height="20"/>
+            <img src={githubLogo} alt="Github Logo" width="20" height="20"/>
           </div>
         </div>
         <div className={styles.lowerRow}>
           <div className={styles.logo}>
             {/* <h1>GTFS</h1> */}
-            <img src={gtfsHeader} style={{marginLeft: '-12px', marginTop: '5px'}} width="125" height="62.5"/>
+            <img src={gtfsHeader} alt="GTFS" style={{marginLeft: '-12px', marginTop: '5px'}} width="125" height="62.5"/>
           </div>
           <div className={styles.links}>
             <Link

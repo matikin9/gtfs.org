@@ -5,13 +5,15 @@ const fs = require('fs');
 
 try {
   var pageConfig = yaml.safeLoad(fs.readFileSync('./page-config.yaml', 'utf8'));
-  console.log(pageConfig);
+  console.log('page config file loaded');
 } catch (e) {
   console.log(e);
 }
 
+//add slugs to all markdown file nodes
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
+  // console.log(node);
   if (node.internal.type === "MarkdownRemark" || node.internal.type === "Json") {
 
     const slug = createFilePath({ node, getNode, basePath: 'pages' }); //`${node.frontmatter.lang}` + ...
@@ -21,6 +23,40 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: slug
     })
   }
+}
+
+//create a node containing the table of contents for each page from page-config
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  const { createNode } = actions;
+  let i = 0;
+  pageConfig.pages.forEach((page) => {
+    // console.log(page)
+    // console.log('\n')
+    if (page.sidemenu !== undefined) {
+      console.log('creating sidemenu node from:', page.sidemenu)
+      const nodeData = {
+        key: i,
+        contents: page.sidemenu
+      }
+      const nodeContent = JSON.stringify(nodeData)
+      const nodeMeta = {
+        id: createNodeId(`menu-contents-${nodeData.key}`),
+        parent: null,
+        children: [],
+        internal: {
+          type: 'SideMenu',
+          content: nodeContent,
+          contentDigest: createContentDigest(nodeData)
+        }
+      }
+      const node = Object.assign({}, nodeData, nodeMeta)
+      createNode(node);
+      i++;
+    }
+  })
+  // const contents = {
+  //   key:
+  // }
 }
 
 exports.createPages = ({ graphql, actions }) => {

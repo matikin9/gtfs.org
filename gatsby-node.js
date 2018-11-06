@@ -41,6 +41,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
       const nodeContent = JSON.stringify(nodeData)
       const nodeMeta = {
         id: createNodeId(`menu-contents-${nodeData.key}`),
+        toc: page.toc,
         parent: null,
         children: [],
         internal: {

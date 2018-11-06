@@ -17,7 +17,7 @@ export default class DocPage extends React.Component {
     super(props);
     this.data = props.data;
     console.log(this.data);
-    this.pageContents = this.data.allJson.edges[0].node.sections;
+    this.pageContents = this.data.allSideMenu.edges[0].node.contents;
     this.nodeDictionary = {};
     this.sortedHast = [];
     this.state = {
@@ -78,20 +78,38 @@ export default class DocPage extends React.Component {
 
 export const query = graphql`
   query($sourceInstanceName: String!, $toc: String!) {
-    allJson(filter: {fields: {slug: {eq: $toc}}}) {
+    # allJson(filter: {fields: {slug: {eq: $toc}}}) {
+    #   edges {
+    #     node {
+    #       fields {
+    #         slug
+    #       }
+    #       sections {
+    #         name
+    #         slug
+    #         anchor
+    #         children {
+    #           name
+    #           slug
+    #           anchor
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
+
+    allSideMenu(filter: {toc: {eq: $toc}}) {
       edges {
+
         node {
-          fields {
-            slug
-          }
-          sections {
+          id
+          contents {
             name
             slug
             anchor
             children {
               name
               slug
-              anchor
             }
           }
         }

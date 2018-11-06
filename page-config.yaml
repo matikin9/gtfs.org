@@ -41,7 +41,7 @@ pages:
       - routes.md
     toc: /best-practices-contents/
     sidemenu:
-    - name: Getting Started
+    - name: Introduction
       slug: about
       anchor: best-practices/
     - name: Dataset Publishing & General Practices

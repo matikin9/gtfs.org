@@ -18,6 +18,8 @@ export default class DocPage extends React.Component {
     this.data = props.data;
     console.log(this.data);
     this.pageContents = this.data.allSideMenu.edges[0].node.contents;
+    // this.pageContents = this.data.allJson.edges[0].node.sections;
+
     this.nodeDictionary = {};
     this.sortedHast = [];
     this.state = {
@@ -48,7 +50,7 @@ export default class DocPage extends React.Component {
       if (section.slug !== undefined) {
         let hast = this.nodeDictionary[section.slug]
         if (hast !== undefined) this.sortedHast.push(hast);
-        if (section.children.length > 0) {
+        if (section.children) {
           section.children.forEach((child) => {
             let childHast = this.nodeDictionary[child.slug];
             if (childHast !== undefined) this.sortedHast.push(childHast);

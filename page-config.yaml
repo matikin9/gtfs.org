@@ -57,14 +57,39 @@ pages:
     files:
       - pages/realtime.md
     toc: /realtime-contents/
+    sidemenu:
+    - name: Feed Message
+      anchor: realtime/#message-feedmessage
+      slug: reference
+      children:
+      - name: Feed Header
+        children:
+        - name: Incrementality
+      - name: Feed Entity
+        children:
+        - name:	Trip Update
+          children:
+            - Trip Descriptor
+            - Vehicle Descriptor
+            - Stop Time Update
+        - name: Vehicle Position
+          children:
+            - Trip Descriptor
+            - Vehicle Descriptor
+            - Position
+            - Vehicle Stop Status
+            - Congestion Level
+            - Occupancy Status
+        - name: Alert
+          children:
+            - Time Range
+            - Entity Selector
+            - Cause Effect
+            - Translated String
 
   - title: Best Practices
     url: /best-practices
     template: doc-page
-    files:
-      - agency.md
-      - stops.md
-      - routes.md
     toc: /best-practices-contents/
     sidemenu:
     - name: Introduction

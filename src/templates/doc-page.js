@@ -112,6 +112,10 @@ export const query = graphql`
             children {
               name
               slug
+              children {
+                name
+                children
+              }
             }
           }
         }

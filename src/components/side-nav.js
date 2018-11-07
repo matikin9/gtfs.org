@@ -17,7 +17,19 @@ const SideNav = ({ content }) => (
             <div key={index}>
               <li><Link to={section.anchor}>{section.name}</Link></li>
               <div style={{ marginLeft: 10 }}>
-                {section.children && section.children.map((childSection,index) => <li key={index}><Link to={childSection.anchor} className={styles.subcategory}>{childSection.name}</Link></li>)}
+                {section.children && section.children.map((firstChild,indexTwo) =>
+                  <li key={indexTwo}>
+                    <Link to={firstChild.anchor} className={styles.subcategory}>{firstChild.name}</Link>
+                      {firstChild.children && firstChild.children.map((secondChild, indexThree) =>
+                        <div style={{ marginLeft: 10 }}>
+                          <li key={indexThree}>{secondChild.name}</li>
+                            {secondChild.children && secondChild.children.map((thirdChild) =>
+                              <li style={{ marginLeft: 10 }}>{thirdChild}</li>
+                            )}
+                        </div>
+                      )}
+                  </li>
+                )}
               </div>
             </div>
             )

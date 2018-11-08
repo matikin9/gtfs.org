@@ -84,6 +84,7 @@ export default class DocPage extends React.Component {
             <SideNav content={this.pageContents} route={this.props.location.pathname}/>
           </div>
           <div className={styles.contentContainer}>
+            {/* <h1>{this.data.allSideMenu.edges[0].node.sourceInstanceName}</h1> */}
             {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
           </div>
           <Footer/>
@@ -120,6 +121,7 @@ export const query = graphql`
 
         node {
           id
+          sourceInstanceName
           contents {
             name
             slug

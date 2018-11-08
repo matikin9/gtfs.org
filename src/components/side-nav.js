@@ -16,7 +16,7 @@ const SideNav = ({ content }) => (
                     <Link to={firstChild.anchor} className={styles.subcategory}>{firstChild.name}</Link>
                       {firstChild.children && firstChild.children.map((secondChild, indexThree) =>
                         <div style={{ marginLeft: 10 }}>
-                          <li key={indexThree}><Link to={secondChild.anchor}>{secondChild.name}</Link></li>
+                          <li key={indexThree}><Link to={secondChild.anchor} className={styles.subcategory}>{secondChild.name}</Link></li>
                             {secondChild.children && secondChild.children.map((thirdChild) =>
                               <li style={{ marginLeft: 10 }}>{thirdChild}</li>
                             )}

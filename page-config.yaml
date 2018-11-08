@@ -39,40 +39,60 @@ pages:
       - pages/realtime.md
     sidemenu:
     - name: Feed Message
-      anchor: realtime/#message-feedmessage
+      anchor: '#message-feedmessage'
       slug: reference
       children:
       - name: Feed Header
+        anchor: '#message-feedheader'
         children:
         - name: Incrementality
+          anchor: '#enum-incrementality'
       - name: Feed Entity
+        anchor: '#message-feedentity'
         children:
         - name:	Trip Update
+          anchor: '#message-tripupdate'
           children:
-            - Trip Descriptor
-            - Vehicle Descriptor
-            - Stop Time Update
+            - name: Trip Descriptor
+              anchor: '#message-tripdescriptor'
+            - name: Vehicle Descriptor
+              anchor: '#message-vehicledescriptor'
+            - name: Stop Time Update
+              anchor: '#message-stoptimeupdate'
         - name: Vehicle Position
+          anchor: '#message-vehicleposition'
           children:
-            - Trip Descriptor
-            - Vehicle Descriptor
-            - Position
-            - Vehicle Stop Status
-            - Congestion Level
-            - Occupancy Status
+            - name: Trip Descriptor
+              anchor: '#message-tripdescriptor'
+            - name: Vehicle Descriptor
+              anchor: '#message-vehicledescriptor'
+            - name: Position
+              anchor: '#message-position'
+            - name: Vehicle Stop Status
+              anchor: '#enum-vehiclestopstatus'
+            - name: Congestion Level
+              anchor: '#enum-congestionlevel'
+            - name: Occupancy Status
+              anchor: '#enum-occupancystatus'
         - name: Alert
           children:
-            - Time Range
-            - Entity Selector
-            - Cause Effect
-            - Translated String
+            - name: Time Range
+              anchor: '#message-timerange'
+            - name: Entity Selector
+              anchor: '#message-entityselector'
+            - name: Cause
+              anchor: '#enum-cause'
+            - name: Effect
+              anchor: '#enum-effect'
+            - name: Translated String
+              anchor: '#message-translatedstring'
 
   - title: Best Practices
     url: /best-practices
     template: doc-page
     sidemenu:
     - name: Introduction
-      # slug: about
+      slug: introduction
       anchor: best-practices/
     - name: Dataset Publishing & General Practices
       slug: publishing
@@ -103,12 +123,13 @@ pages:
           slug: fare_rules
         - name: shapes.txt
           slug: shapes
+        - name: feed_info.txt
+          slug: feed_info
         - name: frequencies.txt
           slug: frequencies
         - name: transfers.txt
           slug: transfers
-        - name: feed_info.txt
-          slug: feed_info
+
     - name: Recommendations Organized by Case
       slug: null
       anchor: best-practices/

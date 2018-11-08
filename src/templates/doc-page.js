@@ -53,7 +53,7 @@ export default class DocPage extends React.Component {
       item.anchor = `${basePath}#` + item.name.toLowerCase().replace(/ /g, '-');
       item.children && item.children.map((firstChild) => {
         console.log('accessing name: ', firstChild.name);
-        firstChild.anchor = `${basePath}#` + firstChild.name.toLowerCase().replace(/\./g, '');
+        firstChild.anchor = `${basePath}#` + firstChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
         firstChild.children && firstChild.children.map((secondChild) => {
           secondChild.anchor = `${basePath}#` + secondChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
         })

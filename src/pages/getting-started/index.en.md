@@ -9,7 +9,7 @@ lang: en
 
 A GTFS feed is composed of a series of text files collected in a ZIP file. Each file models a particular aspect of transit information: stops, routes, trips, and other schedule data. The details of each file are defined in the GTFS reference.
 
-See [GTFS Examples]( {{ "/examples" | prepend: site.baseurl }} ) for model feeds that illustrate GTFS usage. A transit agency can produce a GTFS feed to share their public transit information with developers, who write tools that consume GTFS feeds to incorporate public transit information into their applications. GTFS can be used in a variety of applications & processes (see [GTFS Applications](#gtfs-applications), below).
+See [GTFS Examples](/examples) for model feeds that illustrate GTFS usage. A transit agency can produce a GTFS feed to share their public transit information with developers, who write tools that consume GTFS feeds to incorporate public transit information into their applications. GTFS can be used in a variety of applications & processes (see [GTFS Applications](#gtfs-applications), below).
 
 ## Making a Transit Feed Publicly Available
 

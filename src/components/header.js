@@ -52,11 +52,10 @@ export default class Header extends React.Component {
       <div className={styles.container}>
         <div className={styles.upperRow}>
           <div className={styles.mobilityData}>
-            <a href="https://www.mobilitydata.org">
-              <h5>Mobility<strong>Data</strong></h5>
-            </a>
+              <h5>
+                <a style={{color: '#61b5d9'}} href="https://www.mobilitydata.org">Mobility<strong>Data</strong></a>
+              </h5>
           </div>
-
           <div className={styles.github} onClick={() => window.location = "https://github.com/MobilityData"}>
             <span>Data specs on GitHub</span>
             <img src={githubLogo} alt="Github Logo" width="20" height="20"/>

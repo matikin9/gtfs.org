@@ -26,6 +26,7 @@
 
 .github a {
   color: whitesmoke;
+
 }
 
 .container {
@@ -95,6 +96,7 @@
   align-items: center;
   opacity: .7;
   margin-right: auto;
+  transition: all .1s ease-in-out;
 }
 
 .github:hover {

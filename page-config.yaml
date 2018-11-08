@@ -151,5 +151,9 @@ pages:
     template: basic-page
 
   - title: GTFS Background
-    url: /background
+    url: /gtfs-background
+    template: basic-page
+
+  - title: About
+    url: /about
     template: basic-page

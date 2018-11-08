@@ -73,6 +73,13 @@ module.exports = {
         name: "GTFS Background"
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/about`,
+        name: "About"
+      }
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -88,7 +95,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              offsetY: '510',
+              offsetY: '525',
             }
           },
           'gatsby-remark-copy-linked-files'

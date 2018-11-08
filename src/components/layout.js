@@ -6,6 +6,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import Footer from './footer'
 import styles from './layout.css'
+import './layout.css';
 import './semantic-ui-css/semantic.css'
 
 const Layout = ({ children }) => (
@@ -35,9 +36,9 @@ const Layout = ({ children }) => (
         <div className={styles.pageContainer}>
           {children}
         </div>
-        <div className={styles.footerContainer}>
+        {/* <div className={styles.footerContainer}>
           <Footer/>
-        </div>
+        </div> */}
       </div>
     )}
   />

@@ -41,7 +41,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
       const nodeContent = JSON.stringify(nodeData)
       const nodeMeta = {
         id: createNodeId(`menu-contents-${nodeData.key}`),
-        toc: page.toc,
+        sourceInstanceName: page.title,
         parent: null,
         children: [],
         internal: {
@@ -99,7 +99,6 @@ exports.createPages = ({ graphql, actions }) => {
       context: {
         //things passed here avail as graphql variables in page queries
         sourceInstanceName: page.title,
-        toc: page.toc
       }
     })
   })

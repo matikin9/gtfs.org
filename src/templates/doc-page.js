@@ -79,7 +79,7 @@ export default class DocPage extends React.Component {
 }
 
 export const query = graphql`
-  query($sourceInstanceName: String!, $toc: String!) {
+  query($sourceInstanceName: String!) {
     # allJson(filter: {fields: {slug: {eq: $toc}}}) {
     #   edges {
     #     node {
@@ -100,7 +100,7 @@ export const query = graphql`
     #   }
     # }
 
-    allSideMenu(filter: {toc: {eq: $toc}}) {
+    allSideMenu(filter: {sourceInstanceName: {eq: $sourceInstanceName}}) {
       edges {
 
         node {

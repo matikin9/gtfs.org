@@ -10,7 +10,6 @@ pages:
     template: doc-page
     files:
       - pages/reference.md
-    toc: /ref-contents/
     sidemenu:
     - name: Term Definitions
       anchor: reference/#term-definitions
@@ -56,7 +55,6 @@ pages:
     template: doc-page
     files:
       - pages/realtime.md
-    toc: /realtime-contents/
     sidemenu:
     - name: Feed Message
       anchor: realtime/#message-feedmessage
@@ -90,7 +88,6 @@ pages:
   - title: Best Practices
     url: /best-practices
     template: doc-page
-    toc: /best-practices-contents/
     sidemenu:
     - name: Introduction
       slug: about

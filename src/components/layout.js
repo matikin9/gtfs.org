@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
-import Footer from './footer'
+// import Footer from './footer'
 import styles from './layout.css'
 import './layout.css';
 import './semantic-ui-css/semantic.css'

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import rehypeReact from 'rehype-react';
 import styles from './doc-page.module.css';
 import SideNav from "../components/side-nav";
+import Footer from '../components/footer';
 
 
 const renderAst = new rehypeReact({
@@ -85,6 +86,7 @@ export default class DocPage extends React.Component {
           <div className={styles.contentContainer}>
             {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
           </div>
+          <Footer/>
         </div>
       </Layout>
     )

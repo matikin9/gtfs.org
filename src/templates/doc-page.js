@@ -19,8 +19,6 @@ export default class DocPage extends React.Component {
     console.log('doc page props:', props);
     console.log(this.data);
     this.pageContents = this.data.allSideMenu.edges[0].node.contents;
-    // this.pageContents = this.data.allJson.edges[0].node.sections;
-
     this.nodeDictionary = {};
     this.sortedHast = [];
     this.state = {
@@ -52,7 +50,6 @@ export default class DocPage extends React.Component {
     this.pageContents.forEach((item) => {
       item.anchor = `${basePath}#` + item.name.toLowerCase().replace(/ /g, '-');
       item.children && item.children.map((firstChild) => {
-        console.log('accessing name: ', firstChild.name);
         firstChild.anchor = `${basePath}#` + firstChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
         firstChild.children && firstChild.children.map((secondChild) => {
           secondChild.anchor = `${basePath}#` + secondChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');

@@ -7,14 +7,6 @@ import styles from "./side-nav.module.css";
 const SideNav = ({ content }) => (
     <div className={styles.container}>
       {console.log('received contents:', content)}
-      {/* <h3 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'black',
-            textDecoration: 'none',
-          }}
-        > */}
           {content.map((section,index) =>
             <div key={index}>
               <li><Link to={section.anchor}>{section.name}</Link></li>
@@ -36,8 +28,6 @@ const SideNav = ({ content }) => (
             </div>
             )
           }
-        {/* </Link>
-      </h3> */}
     </div>
 )
 

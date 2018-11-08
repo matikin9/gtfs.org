@@ -92,7 +92,6 @@ exports.createPages = ({ graphql, actions }) => {
   //   })
   // })
   pageConfig.pages.forEach((page) => {
-    console.log('making page with toc: ', page.toc);
     createPage({
       path: page.url,
       component: path.resolve(`./src/templates/${page.template}.js`),

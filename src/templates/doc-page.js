@@ -16,6 +16,7 @@ export default class DocPage extends React.Component {
   constructor(props) {
     super(props);
     this.data = props.data;
+    console.log('doc page props:', props);
     console.log(this.data);
     this.pageContents = this.data.allSideMenu.edges[0].node.contents;
     // this.pageContents = this.data.allJson.edges[0].node.sections;
@@ -29,6 +30,7 @@ export default class DocPage extends React.Component {
 
   componentDidMount() {
     this.mapDataToDictionary();
+    this.addAnchorAddress();
   }
 
   mapDataToDictionary() {
@@ -43,6 +45,20 @@ export default class DocPage extends React.Component {
     });
     console.log('complete dictionary', this.nodeDictionary);
     this.sortDictionary()
+  }
+
+  addAnchorAddress(menuItem) {
+    let basePath = this.props.location.pathname;
+    this.pageContents.forEach((item) => {
+      item.anchor = `${basePath}#` + item.name.toLowerCase().replace(/ /g, '-');
+      item.children && item.children.map((firstChild) => {
+        console.log('accessing name: ', firstChild.name);
+        firstChild.anchor = `${basePath}#` + firstChild.name.toLowerCase().replace(/\./g, '');
+        firstChild.children && firstChild.children.map((secondChild) => {
+          secondChild.anchor = `${basePath}#` + secondChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
+        })
+      })
+    })
   }
 
   sortDictionary() {
@@ -67,7 +83,7 @@ export default class DocPage extends React.Component {
       <Layout>
         <div className={styles.container}>
           <div className={styles.navContainer}>
-            <SideNav content={this.pageContents}/>
+            <SideNav content={this.pageContents} route={this.props.location.pathname}/>
           </div>
           <div className={styles.contentContainer}>
             {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
@@ -108,7 +124,7 @@ export const query = graphql`
           contents {
             name
             slug
-            anchor
+            # anchor
             children {
               name
               slug

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styles from "./side-nav.module.css";
 
+
+
 const SideNav = ({ content }) => (
     <div className={styles.container}>
       {console.log('received contents:', content)}
@@ -22,7 +24,7 @@ const SideNav = ({ content }) => (
                     <Link to={firstChild.anchor} className={styles.subcategory}>{firstChild.name}</Link>
                       {firstChild.children && firstChild.children.map((secondChild, indexThree) =>
                         <div style={{ marginLeft: 10 }}>
-                          <li key={indexThree}>{secondChild.name}</li>
+                          <li key={indexThree}><Link to={secondChild.anchor}>{secondChild.name}</Link></li>
                             {secondChild.children && secondChild.children.map((thirdChild) =>
                               <li style={{ marginLeft: 10 }}>{thirdChild}</li>
                             )}

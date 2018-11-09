@@ -2,8 +2,8 @@ pages:
   - title: Home
     url: /
     template: basic-page
-    files:
-      - pages/home.md
+    # files:
+    #   - pages/home.md
 
   - title: Static Reference
     url: /reference
@@ -39,53 +39,53 @@ pages:
       - pages/realtime.md
     sidemenu:
     - name: Feed Message
-      anchor: '#message-feedmessage'
+      anchor: /realtime/#message-feedmessage
       slug: reference
       children:
       - name: Feed Header
-        anchor: '#message-feedheader'
+        anchor: /realtime/#message-feedheader
         children:
         - name: Incrementality
-          anchor: '#enum-incrementality'
+          anchor: /realtime/#enum-incrementality
       - name: Feed Entity
-        anchor: '#message-feedentity'
+        anchor: /realtime/#message-feedentity
         children:
         - name:	Trip Update
-          anchor: '#message-tripupdate'
+          anchor: /realtime/#message-tripupdate
           children:
             - name: Trip Descriptor
-              anchor: '#message-tripdescriptor'
+              anchor: /realtime/#message-tripdescriptor
             - name: Vehicle Descriptor
-              anchor: '#message-vehicledescriptor'
+              anchor: /realtime/#message-vehicledescriptor
             - name: Stop Time Update
-              anchor: '#message-stoptimeupdate'
+              anchor: /realtime/#message-stoptimeupdate
         - name: Vehicle Position
-          anchor: '#message-vehicleposition'
+          anchor: /realtime/#message-vehicleposition
           children:
             - name: Trip Descriptor
-              anchor: '#message-tripdescriptor'
+              anchor: /realtime/#message-tripdescriptor
             - name: Vehicle Descriptor
-              anchor: '#message-vehicledescriptor'
+              anchor: /realtime/#message-vehicledescriptor
             - name: Position
-              anchor: '#message-position'
+              anchor: /realtime/#message-position
             - name: Vehicle Stop Status
-              anchor: '#enum-vehiclestopstatus'
+              anchor: /realtime/#enum-vehiclestopstatus
             - name: Congestion Level
-              anchor: '#enum-congestionlevel'
+              anchor: /realtime/#enum-congestionlevel
             - name: Occupancy Status
-              anchor: '#enum-occupancystatus'
+              anchor: /realtime/#enum-occupancystatus
         - name: Alert
           children:
             - name: Time Range
-              anchor: '#message-timerange'
+              anchor: /realtime/#message-timerange
             - name: Entity Selector
-              anchor: '#message-entityselector'
+              anchor: /realtime/#message-entityselector
             - name: Cause
-              anchor: '#enum-cause'
+              anchor: /realtime/#enum-cause
             - name: Effect
-              anchor: '#enum-effect'
+              anchor: /realtime/#enum-effect
             - name: Translated String
-              anchor: '#message-translatedstring'
+              anchor: /realtime/#message-translatedstring
 
   - title: Best Practices
     url: /best-practices
@@ -147,8 +147,8 @@ pages:
   - title: Examples
     url: /examples
     template: basic-page
-    files:
-      - pages/examples.md
+    # files:
+    #   - pages/examples.md
     sidemenu:
         - name: Getting Started
           slug: getting-started

@@ -20,6 +20,7 @@ export default class DocPage extends React.Component {
     console.log('doc page props:', props);
     console.log(this.data);
     this.pageContents = this.data.allSideMenu.edges[0].node.contents;
+    this.pageName = this.data.allSideMenu.edges[0].node.sourceInstanceName;
     this.nodeDictionary = {};
     this.sortedHast = [];
     this.state = {
@@ -49,7 +50,6 @@ export default class DocPage extends React.Component {
   addAnchorAddress(menuItem) {
     let basePath = this.props.location.pathname;
     this.pageContents.forEach((item) => {
-
       if (!item.anchor) {
         item.anchor = `${basePath}#` + item.name.toLowerCase().replace(/ /g, '-');
         item.children && item.children.map((firstChild) => {
@@ -84,6 +84,7 @@ export default class DocPage extends React.Component {
   }
 
   render() {
+    const showName = (this.pageName == "Realtime Reference");
     return(
       <Layout>
         <div className={styles.container}>
@@ -91,7 +92,7 @@ export default class DocPage extends React.Component {
             <SideNav content={this.pageContents} route={this.props.location.pathname}/>
           </div>
           <div className={styles.contentContainer}>
-            {/* <h1>{this.data.allSideMenu.edges[0].node.sourceInstanceName}</h1> */}
+            {showName && <h1>{'GTFS ' + this.pageName}</h1>}
             {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
           </div>
           <Footer/>

@@ -103,7 +103,7 @@ export default class Header extends React.Component {
                 Testing Feeds
               </Link>
             </div>
-            <div className={styles.language}>
+            {/* <div className={styles.language}>
               <Dropdown
                 button
                 className='icon'
@@ -114,7 +114,7 @@ export default class Header extends React.Component {
                 search
                 text='Select Language'
               />
-            </div>
+            </div> */}
             </div>
             <Transition.Group animation='slide down' duration='150'>
               {open &&

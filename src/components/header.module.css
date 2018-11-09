@@ -123,6 +123,7 @@
 
 .docs-options {
   width: 100%;
+  position: fixed;
   /* min-height: 150px; */
   height: auto;
   background-color: rgba(255,255,255, 1); /*#efefef;*/

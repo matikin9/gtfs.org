@@ -17,10 +17,11 @@ const IndexPage = ({ data }) => {
           flex: 1,
           alignItems: 'space-around',
           width: '80vw',
+          maxWidth: '1000px',
           // height: '100vh',
           marginLeft: '10vw',
           // position: 'absolute',
-          paddingTop: '150px',
+          paddingTop: '50px',
           paddingBottom: '150px'
         }}>
           <div style={{flex: '1'}} dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}></div>

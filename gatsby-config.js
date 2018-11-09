@@ -95,7 +95,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              offsetY: '550',
+              offsetY: 150,
             }
           },
           'gatsby-remark-copy-linked-files'

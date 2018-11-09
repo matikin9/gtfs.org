@@ -24,6 +24,7 @@
     "npm": "^6.4.1",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
+    "react-headroom": "2.2.2",
     "react-helmet": "^5.2.0",
     "react-onclickoutside": "^6.7.1",
     "react-typography": "^0.16.13",

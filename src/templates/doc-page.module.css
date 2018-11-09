@@ -13,7 +13,7 @@
   width: 25vw;
   /* min-width: 300px; */
   background-color: #efefef;
-  padding: 50px 15px 15px 30px;
+  padding: 10px 15px 15px 30px;
   /* margin-right: 50px; */
   overflow-y: auto;
 }
@@ -23,6 +23,7 @@
 }
 
 .contentContainer {
+  /* position: absolute; */
   padding-top: 50px;
   padding-left: 75px;
   padding-right: 75px;

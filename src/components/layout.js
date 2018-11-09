@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+// import Headroom from 'react-headroom';
 
 import Header from './header'
 // import Footer from './footer'
@@ -31,7 +32,9 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <div className={styles.headerContainer}>
-          <Header siteTitle={data.site.siteMetadata.title} />
+          {/* <Headroom> */}
+            <Header siteTitle={data.site.siteMetadata.title} />
+          {/* </Headroom> */}
         </div>
         <div className={styles.pageContainer}>
           {children}

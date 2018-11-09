@@ -75,6 +75,7 @@ pages:
             - name: Occupancy Status
               anchor: /realtime/#enum-occupancystatus
         - name: Alert
+          anchor: /realtime/#message-alert
           children:
             - name: Time Range
               anchor: /realtime/#message-timerange

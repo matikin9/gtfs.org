@@ -14,7 +14,7 @@ jobs:
       - run: npm run build
       - deploy:
           name: Deploy to s3
-          command:
+          command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               aws s3 sync _site s3://gtfs.org/ --delete
             fi

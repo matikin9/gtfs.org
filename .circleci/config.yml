@@ -2,9 +2,9 @@ version: 2
 jobs:
   build:
     machine: true
+    working_directory: ~/repo
     steps:
       - checkout
-      - run: cd gtfs.org
       - run: npm install
       - run:
           name: Fetch reference source repos

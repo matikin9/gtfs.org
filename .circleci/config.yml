@@ -13,7 +13,7 @@ jobs:
           command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-practices
       - run: npm run build
       - deploy:
-        -steps:
+        steps:
           - run:
               name: Install awscli
               command: sudo pip install awscli

@@ -175,3 +175,7 @@ pages:
   - title: About
     url: /about
     template: basic-page
+
+  - title: Changes
+    url: /changes
+    template: basic-page

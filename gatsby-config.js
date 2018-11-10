@@ -80,6 +80,13 @@ module.exports = {
         name: "About"
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/reference/gtfs/CHANGES.md`,
+        name: "Changes"
+      }
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

@@ -2,16 +2,16 @@ version: 2
 jobs:
   build:
     machine: true
-    steps:
-      - checkout
-      - run: npm install
-      - run:
-          name: Fetch reference source repos
-          command: git clone https://github.com/google/transit src/pages/reference
-      - run:
-          name: Fetch best practices repo
-          command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-Practices
-      - run: gatsby build
-      - deploy:
-          name: Deploy placeholder
-          command:
+  steps:
+    - checkout
+    - run: npm install
+    - run:
+        name: Fetch reference source repos
+        command: git clone https://github.com/google/transit src/pages/reference
+    - run:
+        name: Fetch best practices repo
+        command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-Practices
+    - run: gatsby build
+    - deploy:
+        name: Deploy placeholder
+        command:

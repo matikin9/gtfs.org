@@ -1,44 +1,17 @@
 version: 2
-# defaults:
-#   working_directory: ~/repo
-  jobs:
-    build:
-      machine: true
-      steps:
-        - checkout
-        - run: npm install
-        - run:
-            name: Fetch reference source repos
-            command: git clone https://github.com/google/transit src/pages/reference
-        - run:
-            name: Fetch best practices repo
-            command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-Practices
-        - run: gatsby build
-        - deploy:
-            name: Deploy placeholder
-            command: 
-
-
-# version: 2
-# jobs:
-#   build:
-#     machine: true
-#     steps:
-#       - checkout
-#       - run: bundle install
-#       - run:
-#           name: Clone Best Practices repo
-#           command: git clone git@github.com:itd-consortium/gtfs-best-practices.git _best-practices/
-#       - run:
-#           name: Clone Core Reference repo
-#           command: git clone git@github.com:itd-consortium/gtfs-reference.git _reference/
-#       - run:
-#           name: Clone Realtime repo
-#           command: git clone git@github.com:itd-consortium/gtfs-realtime.git realtime/
-#       - run: bundle exec jekyll build
-#       - deploy:
-#           name: If master, deploy to S3
-#           command: |
-#             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#               aws s3 sync _site s3://gtfs.org/ --delete
-#             fi
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: npm install
+      - run:
+          name: Fetch reference source repos
+          command: git clone https://github.com/google/transit src/pages/reference
+      - run:
+          name: Fetch best practices repo
+          command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-Practices
+      - run: gatsby build
+      - deploy:
+          name: Deploy placeholder
+          command:

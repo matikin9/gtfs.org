@@ -4,6 +4,7 @@ jobs:
     machine: true
     steps:
       - checkout
+      - run: cd gtfs.org
       - run: npm install
       - run:
           name: Fetch reference source repos

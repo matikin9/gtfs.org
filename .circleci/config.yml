@@ -12,14 +12,16 @@ jobs:
           name: Fetch best practices repo
           command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-practices
       - run: npm run build
-      - deploy:
-        steps:
-          - run:
-              name: Install awscli
-              command: sudo pip install awscli
-          - run:
-              name: Deploy to s3
-              command: |
-                if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                  aws s3 sync public s3://gtfs.org/ --delete
-                fi
+  deploy:
+    docker:
+      - image: circleci/python:2.7-jessie
+    steps:
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy to s3
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              aws s3 sync public s3://gtfs.org/ --delete
+            fi

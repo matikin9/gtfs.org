@@ -10,7 +10,7 @@ jobs:
           command: git clone https://github.com/google/transit src/pages/reference
       - run:
           name: Fetch best practices repo
-          command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-Practices
+          command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-practices
       - run: npm run build
       - deploy:
           name: Deploy to s3

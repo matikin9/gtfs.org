@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Fetch best practices repo
           command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-Practices
-      - run: gatsby build
+      - run: npm run build
       - deploy:
           name: Deploy to s3
           command:

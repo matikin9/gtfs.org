@@ -60,7 +60,7 @@ export default class Header extends React.Component {
                 </h5>
             </div>
             <div className={styles.github} onClick={() => window.location = "https://github.com/MobilityData"}>
-              <span>Data specs on GitHub</span>
+              <span>GitHub</span>
               <img src={githubLogo} alt="Github Logo" width="20" height="20"/>
             </div>
           </div>

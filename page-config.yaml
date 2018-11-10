@@ -94,13 +94,11 @@ pages:
     sidemenu:
     - name: Introduction
       slug: introduction
-      anchor: best-practices/
     - name: Dataset Publishing & General Practices
       slug: publishing
-      anchor: best-practices/
     - name: Recommendations Organized by File
       slug: all-files
-      anchor: best-practices/
+      anchor: best-practices/#practice-recommendations-organized-by-file
       children :
         - name: All Files
           file: about.md
@@ -130,10 +128,9 @@ pages:
           slug: frequencies
         - name: transfers.txt
           slug: transfers
-
     - name: Recommendations Organized by Case
       slug: null
-      anchor: best-practices/
+      anchor: best-practices/#practice-recommendations-organized-by-case
       children:
         - name: Loop Routes
           slug: loop-routes
@@ -143,7 +140,6 @@ pages:
           slug: branches
     - name: About This Document
       slug: about
-      anchor: best-practices/
 
   - title: Examples
     url: /examples

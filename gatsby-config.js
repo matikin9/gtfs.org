@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages/best-practices`,
+        path: `${__dirname}/src/pages/best-practices/en`,
         name: "Best Practices"
       }
     },
@@ -69,7 +69,7 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages/gtfs-background`,
+        path: `${__dirname}/src/pages/gtfs-background/index.en.md`,
         name: "GTFS Background"
       }
     },

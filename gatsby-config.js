@@ -34,14 +34,14 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages/reference/gtfs/spec`,
+        path: `${__dirname}/src/pages/reference/gtfs/spec/en`,
         name: "Static Reference"
       }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages/reference/gtfs-realtime/spec`,
+        path: `${__dirname}/src/pages/reference/gtfs-realtime/spec/en`,
         name: "Realtime Reference"
       }
     },

@@ -126,6 +126,10 @@ export default class Header extends React.Component {
                 </div>
               }
             </Transition.Group>
+
+            <div className={styles.notice}>
+              <p>Please note: There is currently a known issue with our source for this documentation causing some field names to display with missing underscores. Please refer to the source on GitHub for <a href="https://github.com/google/transit/blob/master/gtfs/spec/en/reference.md">static</a> and <a href="https://github.com/google/transit/blob/master/gtfs-realtime/spec/en/reference.md">realtime</a> reference to confirm field names while we address this bug.</p>
+            </div>
           </div>
         </Headroom>
       )

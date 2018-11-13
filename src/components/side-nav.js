@@ -6,7 +6,6 @@ import styles from "./side-nav.module.css";
 
 const SideNav = ({ content }) => (
     <div className={styles.container}>
-      {console.log('received contents:', content)}
           {content.map((section,index) =>
             <div key={index}>
               <li><Link to={section.anchor}>{section.name}</Link></li>

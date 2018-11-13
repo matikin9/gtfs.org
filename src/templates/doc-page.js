@@ -7,9 +7,9 @@ import SideNav from "../components/side-nav";
 import Footer from '../components/footer';
 
 
+
 const renderAst = new rehypeReact({
   createElement: React.createElement
-  // components: { "nested-table": NestedTable },
 }).Compiler
 
 
@@ -17,8 +17,6 @@ export default class DocPage extends React.Component {
   constructor(props) {
     super(props);
     this.data = props.data;
-    console.log('doc page props:', props);
-    console.log(this.data);
     this.pageContents = this.data.allSideMenu.edges[0].node.contents;
     this.pageName = this.data.allSideMenu.edges[0].node.sourceInstanceName;
     this.nodeDictionary = {};
@@ -43,7 +41,6 @@ export default class DocPage extends React.Component {
         Object.assign(this.nodeDictionary, pair)
       }
     });
-    console.log('complete dictionary', this.nodeDictionary);
     this.sortDictionary()
   }
 
@@ -76,7 +73,6 @@ export default class DocPage extends React.Component {
         }
       }
     });
-    console.log('sorted hast nodes', this.sortedHast);
     this.setState({parsingComplete: true});
   }
 
@@ -101,25 +97,6 @@ export default class DocPage extends React.Component {
 
 export const query = graphql`
   query($sourceInstanceName: String!) {
-    # allJson(filter: {fields: {slug: {eq: $toc}}}) {
-    #   edges {
-    #     node {
-    #       fields {
-    #         slug
-    #       }
-    #       sections {
-    #         name
-    #         slug
-    #         anchor
-    #         children {
-    #           name
-    #           slug
-    #           anchor
-    #         }
-    #       }
-    #     }
-    #   }
-    # }
 
     allSideMenu(filter: {sourceInstanceName: {eq: $sourceInstanceName}}) {
       edges {

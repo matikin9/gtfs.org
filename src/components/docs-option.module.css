@@ -11,7 +11,7 @@
 }
 
 .container:hover {
-  filter: drop-shadow(0px 0px 3px #cccccc);
+  filter: drop-shadow(0px 0px 4px #cccccc);
   /* transition-delay: .5s; */
 }
 
@@ -25,4 +25,8 @@
 
 a {
   color: black;
+}
+
+p {
+  color: black!important;
 }

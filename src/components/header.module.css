@@ -1,3 +1,13 @@
+.lower-row a{
+  text-decoration: none;
+  color: black!important;
+}
+
+.lower-row a:hover {
+  text-decoration: none;
+  color: #61b5d9!important;
+}
+
 .up {
   top: 50px;
 }
@@ -5,15 +15,18 @@
 .docs-open {
   display: flex;
   flex-direction: row;
-  color: black;
+  color: #61b5d9;
+  /* border-bottom: 1px solid #61b5d9; */
 }
 
 .docs-closed {
-  color: #4183C4;
+  color: black;
 }
 
 .fake-link:hover {
   cursor: pointer;
+  color: #61b5d9!important;
+  border-bottom: 1px solid #61b5d9;
 }
 
 .mobility-data {
@@ -118,7 +131,10 @@
 }
 
 .active-page {
-  color: black;
+  /* color: #61b5d9; */
+  /* text-decoration: underline;
+  text-decoration-color: #61b5d9; */
+  border-bottom: 1px solid #61b5d9;
 }
 
 .docs-options {

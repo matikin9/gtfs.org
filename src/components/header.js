@@ -73,14 +73,12 @@ export default class Header extends React.Component {
               <Link
                 to="/"
                 activeClassName={styles.activePage}
-                style={{ textDecoration: 'none' }}
                 >
                 Home
               </Link>
               <Link
                 to="/getting-started"
                 activeClassName={styles.activePage}
-                style={{ textDecoration: 'none' }}
                 >
                 Getting Started
               </Link>

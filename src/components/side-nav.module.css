@@ -5,13 +5,21 @@
 
 .subcategory {
   font-size: 16px !important;
+  color: #727272!important;
 }
 
 
 .container a {
   font-size: 20px;
-  text-decoration: none !important;
-  color: black !important;
+  text-decoration: none;
+  color: #595959;
+  transition: all .05s ease-in-out;
+}
+
+.container a:hover{
+  color: black!important;
+  /* text-decoration: underline; */
+  text-decoration-color: #61b5d9;
 }
 
 .container li {

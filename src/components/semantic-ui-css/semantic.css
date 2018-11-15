@@ -658,6 +658,7 @@ a {
 a:hover {
  color: #1e70bf;
  text-decoration: none;
+ border-bottom: 1px solid #61b5d9;
 }
 
 /*******************************

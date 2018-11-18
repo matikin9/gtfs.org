@@ -27,6 +27,7 @@ export default class DocPage extends React.Component {
   constructor(props) {
     super(props);
     this.data = props.data;
+    console.log('doc page props: ', props);
     this.pageContents = this.data.allSideMenu.edges[0].node.contents;
     this.pageName = this.data.allSideMenu.edges[0].node.sourceInstanceName;
     this.nodeDictionary = {};
@@ -44,7 +45,7 @@ export default class DocPage extends React.Component {
   componentDidMount() {
     this.grabAnchors();
     this.mapDataToDictionary();
-    this.addAnchorAddress();
+    // this.addAnchorAddress();
     this.trackScrollLocation();
   }
 
@@ -80,21 +81,6 @@ export default class DocPage extends React.Component {
     this.sortDictionary()
   }
 
-  addAnchorAddress(menuItem) {
-    let basePath = this.props.location.pathname;
-    this.pageContents.forEach((item) => {
-    if (!item.anchor) item.anchor = `${basePath}#` + item.name.toLowerCase().replace(/ /g, '-').replace(/&/g, '');
-      item.children && item.children.map((firstChild) => {
-        if (!firstChild.anchor) firstChild.anchor = `${basePath}#` + firstChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
-          firstChild.children && firstChild.children.map((secondChild) => {
-            if (!secondChild.anchor) {
-              secondChild.anchor = `${basePath}#` + secondChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
-            }
-          })
-      })
-    })
-  }
-
   sortDictionary() {
     this.pageContents.forEach((section) => {
       if (section.slug !== undefined) {
@@ -123,7 +109,6 @@ export default class DocPage extends React.Component {
               route={this.props.location.pathname}
               currentOffset={pageYOffset}
               pageAnchors={this.anchors}
-
             />
           </div>
           <div className={styles.contentContainer}>

@@ -3,6 +3,20 @@ const { createFilePath } = require('gatsby-source-filesystem');
 const yaml = require('js-yaml');
 const fs = require('fs');
 
+const addAnchorAddress = function(basePath, pageContents) {
+  pageContents.forEach((item) => {
+  if (!item.anchor) item.anchor = `${basePath}#` + item.name.toLowerCase().replace(/ /g, '-').replace(/&/g, '');
+    item.children && item.children.map((firstChild) => {
+      if (!firstChild.anchor) firstChild.anchor = `${basePath}#` + firstChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
+        firstChild.children && firstChild.children.map((secondChild) => {
+          if (!secondChild.anchor) {
+            secondChild.anchor = `${basePath}#` + secondChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
+          }
+        })
+    })
+  })
+}
+
 try {
   var pageConfig = yaml.safeLoad(fs.readFileSync('./page-config.yaml', 'utf8'));
   console.log('page config file loaded');
@@ -33,6 +47,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
     // console.log(page)
     // console.log('\n')
     if (page.sidemenu !== undefined) {
+      addAnchorAddress(page.url, page.sidemenu)
       console.log('creating sidemenu node from:', page.sidemenu)
       const nodeData = {
         key: i,

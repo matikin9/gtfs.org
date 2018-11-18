@@ -16,7 +16,7 @@ class SideNav extends React.Component {
 
   componentDidMount() {
     this.calcCurrentAnchor = this.calcCurrentAnchor.bind(this);
-    setInterval(this.calcCurrentAnchor, 500);
+    setInterval(this.calcCurrentAnchor, 50);
     console.log(this.props);
   }
 
@@ -29,12 +29,19 @@ class SideNav extends React.Component {
     const pageAnchors = this.props.pageAnchors;
     for (let i = 0; i < pageAnchors.length; i++) {
       // console.log('checking anchor: ', pageAnchors[i])
-      if (this.props.currentOffset > pageAnchors[i].offsetTop && this.props.currentOffset < pageAnchors[i+1].offsetTop) {
+      if (this.props.currentOffset > pageAnchors[i].offsetTop) {
         // console.log('updating current anchor to :', pageAnchors[i]);
-        let currentAnchor = pageAnchors[i];
-        console.log('updating current anchor: ', currentAnchor.getAttribute('href'))
-        this.setState({currentAnchor: currentAnchor});
-        break;
+        if (i+1 == pageAnchors.length) {//at last anchor, can't check next
+          let currentAnchor = pageAnchors[i];
+          // console.log('updating current anchor: ', currentAnchor.getAttribute('href'))
+          this.setState({currentAnchor: currentAnchor});
+          break;
+        } else if (this.props.currentOffset < pageAnchors[i+1].offsetTop) {
+          let currentAnchor = pageAnchors[i];
+          // console.log('updating current anchor: ', currentAnchor.getAttribute('href'))
+          this.setState({currentAnchor: currentAnchor});
+          break;
+        }
       }
     }
   }
@@ -44,7 +51,10 @@ class SideNav extends React.Component {
       let currentAnchor = this.props.route + this.state.currentAnchor.getAttribute('href')
       // console.log('itemAnchor, currentAnchor, this.props', itemAnchor, currentAnchor)
       if (itemAnchor === currentAnchor) {
-        return {color: '#61b5d9'}
+        return {
+          color: '#61b5d9',
+          fontWeight: 'bold'
+        }
       } else {
         return null
       }

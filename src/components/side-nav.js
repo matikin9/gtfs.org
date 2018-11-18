@@ -18,7 +18,6 @@ class SideNav extends React.Component {
   componentDidMount() {
     this.calcCurrentAnchor = this.calcCurrentAnchor.bind(this);
     this.interval = setInterval(this.calcCurrentAnchor, 50);
-    console.log(this.props);
   }
 
   componentWillUnmount() {
@@ -28,17 +27,13 @@ class SideNav extends React.Component {
   calcCurrentAnchor() {
     const pageAnchors = this.props.pageAnchors;
     for (let i = 0; i < pageAnchors.length; i++) {
-      // console.log('checking anchor: ', pageAnchors[i])
       if (this.props.currentOffset > pageAnchors[i].offsetTop) {
-        // console.log('updating current anchor to :', pageAnchors[i]);
         if (i+1 == pageAnchors.length) {//at last anchor, can't check next
           let currentAnchor = pageAnchors[i];
-          // console.log('updating current anchor: ', currentAnchor.getAttribute('href'))
           this.setState({currentAnchor: currentAnchor});
           break;
         } else if (this.props.currentOffset < pageAnchors[i+1].offsetTop) {
           let currentAnchor = pageAnchors[i];
-          // console.log('updating current anchor: ', currentAnchor.getAttribute('href'))
           this.setState({currentAnchor: currentAnchor});
           break;
         }
@@ -49,7 +44,6 @@ class SideNav extends React.Component {
   styleIfActive(itemAnchor) {
     if (this.state.currentAnchor) {
       let currentAnchor = this.props.route + this.state.currentAnchor.getAttribute('href')
-      // console.log('itemAnchor, currentAnchor, this.props', itemAnchor, currentAnchor)
       if (itemAnchor === currentAnchor) {
         return null
         // return {

@@ -6,12 +6,22 @@ import styles from './doc-page.module.css';
 import SideNav from "../components/side-nav";
 import Footer from '../components/footer';
 
-
-
 const renderAst = new rehypeReact({
   createElement: React.createElement
 }).Compiler
 
+
+function throttled(delay, fn) {
+  let lastCall = 0;
+  return (...args) => {
+    const now = (new Date).getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return fn(...args);
+  }
+}
 
 export default class DocPage extends React.Component {
   constructor(props) {
@@ -21,14 +31,40 @@ export default class DocPage extends React.Component {
     this.pageName = this.data.allSideMenu.edges[0].node.sourceInstanceName;
     this.nodeDictionary = {};
     this.sortedHast = [];
+    this.anchors = [];
     this.state = {
-      parsingComplete: false
+      parsingComplete: false,
+      pageYOffset: 0
     }
+    // this.trackScrollLocation = this.trackScrollLocation.bind(this);
+    this.logOffset = this.logOffset.bind(this);
+    this.throttledLogOffset = throttled(500, this.logOffset)
   }
 
   componentDidMount() {
+    this.grabAnchors();
     this.mapDataToDictionary();
     this.addAnchorAddress();
+    this.trackScrollLocation();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.throttledLogOffset);
+  }
+
+  grabAnchors() {
+    this.anchors = document.getElementsByClassName('anchor');
+  }
+
+  logOffset() {
+    let newOffset = window.pageYOffset;
+    this.setState({
+      pageYOffset: newOffset
+    });
+  }
+
+  trackScrollLocation() {
+    window.addEventListener('scroll', this.throttledLogOffset);
   }
 
   mapDataToDictionary() {
@@ -55,7 +91,6 @@ export default class DocPage extends React.Component {
               secondChild.anchor = `${basePath}#` + secondChild.name.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
             }
           })
-
       })
     })
   }
@@ -78,11 +113,18 @@ export default class DocPage extends React.Component {
 
   render() {
     const showName = (this.pageName == "Realtime Reference");
+    let pageYOffset = this.state.pageYOffset;
     return(
       <Layout>
         <div className={styles.container}>
           <div className={styles.navContainer}>
-            <SideNav content={this.pageContents} route={this.props.location.pathname}/>
+            <SideNav
+              content={this.pageContents}
+              route={this.props.location.pathname}
+              currentOffset={pageYOffset}
+              pageAnchors={this.anchors}
+
+            />
           </div>
           <div className={styles.contentContainer}>
             {showName && <h1>{'GTFS ' + this.pageName}</h1>}

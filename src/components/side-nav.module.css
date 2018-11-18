@@ -5,9 +5,13 @@
 
 .subcategory {
   font-size: 16px !important;
-  color: #727272!important;
+  /* color: #727272!important; */
 }
 
+.container a.active {
+  background-color: red!important;
+  color: red!important;
+}
 
 .container a {
   font-size: 20px;

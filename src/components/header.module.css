@@ -100,7 +100,8 @@
 }
 
 .github {
-  /* flex: 2; */
+  flex: .5;
+  max-width: 70px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

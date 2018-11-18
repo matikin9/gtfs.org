@@ -51,7 +51,12 @@ export default class Header extends React.Component {
   render() {
     const {open} = this.state;
     return(
-      <Headroom>
+      <Headroom upTolerance={100} downTolerance={120} style={{
+        webkitTransition: 'all 1s ease-in-out',
+        mozTransition: 'all 1s ease-in-out',
+        oTransition: 'all 1s ease-in-out',
+        transition: 'all 1s ease-in-out'
+      }}>
         <div className={styles.container}>
           <div className={styles.upperRow}>
             <div className={styles.mobilityData}>

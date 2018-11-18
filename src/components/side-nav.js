@@ -9,6 +9,7 @@ import styles from "./side-nav.module.css";
 class SideNav extends React.Component {
   constructor(props) {
     super(props);
+    this.interval = null
     this.state = {
       currentAnchor: null
     }
@@ -16,13 +17,12 @@ class SideNav extends React.Component {
 
   componentDidMount() {
     this.calcCurrentAnchor = this.calcCurrentAnchor.bind(this);
-    setInterval(this.calcCurrentAnchor, 50);
+    this.interval = setInterval(this.calcCurrentAnchor, 50);
     console.log(this.props);
   }
 
-  componentDidUpdate() {
-    // console.log('nav receiving offset: ', this.props.currentOffset);
-    // this.calcCurrentAnchor();
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   calcCurrentAnchor() {
@@ -51,10 +51,11 @@ class SideNav extends React.Component {
       let currentAnchor = this.props.route + this.state.currentAnchor.getAttribute('href')
       // console.log('itemAnchor, currentAnchor, this.props', itemAnchor, currentAnchor)
       if (itemAnchor === currentAnchor) {
-        return {
-          color: '#61b5d9',
-          fontWeight: 'bold'
-        }
+        return null
+        // return {
+        //   color: '#61b5d9',
+        //   fontWeight: 'bold'
+        // }
       } else {
         return null
       }

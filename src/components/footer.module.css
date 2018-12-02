@@ -14,6 +14,18 @@
   padding: 0 10px;
 }
 
-.footer-container p {
+.footer-container p  {
   color: whitesmoke!important;
+}
+
+.footer-container a  {
+  color: whitesmoke!important;
+  text-decoration: underline;
+  opacity: .7;
+}
+
+.footer-container a:hover  {
+  color: whitesmoke!important;
+  text-decoration: underline;
+  opacity: .9;
 }

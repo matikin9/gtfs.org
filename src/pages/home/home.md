@@ -8,7 +8,6 @@
 
 <a href="/gtfs-background">More GTFS background</a>
 
-
 ## How do I start?
 
 1. Take a look at the <a href="/examples">GTFS data examples</a>.</li>

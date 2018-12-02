@@ -2,14 +2,14 @@ pages:
   - title: Home
     url: /
     template: basic-page
-    # files:
-    #   - pages/home.md
+    files:
+      - pages/home.md
 
   - title: Static Reference
     url: /reference
     template: doc-page
-    files:
-      - pages/reference.md
+    # files:
+    #   - pages/reference.md
     sidemenu:
     - name: Term Definitions
       slug: reference
@@ -35,8 +35,8 @@ pages:
   - title: Realtime Reference
     url: /realtime
     template: doc-page
-    files:
-      - pages/realtime.md
+    # files:
+    #   - pages/realtime.md
     sidemenu:
     - name: Feed Message
       anchor: /realtime/#message-feedmessage
@@ -144,21 +144,6 @@ pages:
   - title: Examples
     url: /examples
     template: basic-page
-    # files:
-    #   - pages/examples.md
-    sidemenu:
-        - name: Getting Started
-          slug: getting-started
-          anchor: null
-          children:
-            - name: Overview
-              slug: introduction.md
-            - name: Installation
-              slug: installation.md
-            - name: Creating your site
-              slug: creating-site.md
-            - name: Publishing your site
-              slug: publishing.md
 
   - title: Testing
     url: /testing

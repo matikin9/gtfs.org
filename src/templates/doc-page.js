@@ -14,7 +14,7 @@ const renderAst = new rehypeReact({
 function throttled(delay, fn) {
   let lastCall = 0;
   return (...args) => {
-    const now = (new Date).getTime();
+    const now = (new Date()).getTime();
     if (now - lastCall < delay) {
       return;
     }
@@ -27,7 +27,7 @@ export default class DocPage extends React.Component {
   constructor(props) {
     super(props);
     this.data = props.data;
-    console.log('doc page props: ', props);
+    // console.log('doc page props: ', props);
     this.pageContents = this.data.allSideMenu.edges[0].node.contents;
     this.pageName = this.data.allSideMenu.edges[0].node.sourceInstanceName;
     this.nodeDictionary = {};
@@ -98,11 +98,11 @@ export default class DocPage extends React.Component {
   }
 
   render() {
-    const showName = (this.pageName == "Realtime Reference");
+    const showName = (this.pageName === "Realtime Reference");
     let pageYOffset = this.state.pageYOffset;
     return(
       <Layout>
-        <div className={styles.container}>
+      <div className={styles.container}>
           <div className={styles.navContainer}>
             <SideNav
               content={this.pageContents}

@@ -1,23 +1,22 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styles from "./side-nav.module.css";
-
-
-
-
+import Headroom from 'react-headroom';
 
 class SideNav extends React.Component {
   constructor(props) {
     super(props);
     this.interval = null
     this.state = {
-      currentAnchor: null
+      currentAnchor: this.props.pageAnchors[0],
+      currentAnchorIndex: 0,
+      headerPinned: true,
     }
   }
 
   componentDidMount() {
     this.calcCurrentAnchor = this.calcCurrentAnchor.bind(this);
-    this.interval = setInterval(this.calcCurrentAnchor, 50);
+    this.interval = setInterval(this.calcCurrentAnchor, 10);
   }
 
   componentWillUnmount() {
@@ -25,19 +24,51 @@ class SideNav extends React.Component {
   }
 
   calcCurrentAnchor() {
+    const prevAnchorIndex = this.state.currentAnchorIndex;
+    // console.log('current state:', this.state)
     const pageAnchors = this.props.pageAnchors;
     for (let i = 0; i < pageAnchors.length; i++) {
-      if (this.props.currentOffset > pageAnchors[i].offsetTop) {
-        if (i+1 == pageAnchors.length) {//at last anchor, can't check next
-          let currentAnchor = pageAnchors[i];
-          this.setState({currentAnchor: currentAnchor});
-          break;
-        } else if (this.props.currentOffset < pageAnchors[i+1].offsetTop) {
-          let currentAnchor = pageAnchors[i];
-          this.setState({currentAnchor: currentAnchor});
-          break;
-        }
+      if (this.props.currentOffset > pageAnchors[i].offsetTop - 15) {
+        // if (i-1 === prevAnchorIndex || i+1 === prevAnchorIndex) { //check if consecutive, if not need to track between
+          if (i+1 === pageAnchors.length) {//at last anchor, can't check next
+            let currentAnchor = pageAnchors[i];
+            this.moveToCurrentAnchor(prevAnchorIndex, i, pageAnchors);
+            // this.setState({
+            //   currentAnchor: currentAnchor,
+            //   currentAnchorIndex: i
+            // });
+            break;
+          } else if (this.props.currentOffset < pageAnchors[i+1].offsetTop) {
+            let currentAnchor = pageAnchors[i];
+            this.moveToCurrentAnchor(prevAnchorIndex, i, pageAnchors);
+            // this.setState({
+            //   currentAnchor: currentAnchor,
+            //   currentAnchorIndex: i
+            // });
+            // console.log('set new active anchor. index, prevIndex:', i, prevAnchorIndex)
+            break;
+          }
+        // }
       }
+    }
+  }
+
+  moveToCurrentAnchor(prevIndex, newIndex, pageAnchors) {
+    while (prevIndex !== newIndex) {
+      if (prevIndex < newIndex) {
+        prevIndex += 1;
+        this.setState({
+          currentAnchor: pageAnchors[prevIndex],
+          currentAnchorIndex: prevIndex
+        });
+      } else if (prevIndex > newIndex) {
+        prevIndex -= 1;
+        this.setState({
+          currentAnchor: pageAnchors[prevIndex],
+          currentAnchorIndex: prevIndex
+        });
+      }
+      setTimeout(() => null, 100);
     }
   }
 
@@ -58,6 +89,7 @@ class SideNav extends React.Component {
 
   render() {
     const { content } = this.props
+    const shiftDown = this.state.headerPinned
     return(
         <div className={styles.container}>
             {content.map((section,index) =>

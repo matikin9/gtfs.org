@@ -28,6 +28,7 @@
     "react-headroom": "2.2.2",
     "react-helmet": "^5.2.0",
     "react-onclickoutside": "^6.7.1",
+    "react-scrollspy": "^3.3.5",
     "react-typography": "^0.16.13",
     "rehype-react": "^3.0.3",
     "semantic-ui-css": "^2.4.1",

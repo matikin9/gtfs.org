@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => {
           marginLeft: '10vw',
           // position: 'absolute',
           paddingTop: '50px',
-          paddingBottom: '150px'
+          paddingBottom: '350px'
         }}>
           <div style={{flex: '1'}} dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}></div>
         </div>

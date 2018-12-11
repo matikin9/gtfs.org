@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styles from './header.module.css';
-import { Dropdown, Transition, Icon } from 'semantic-ui-react';
+import { Transition, Icon } from 'semantic-ui-react';
 import DocsOption from './docs-option';
 import githubLogo from '../images/github-logo.png';
 import gtfsHeader from '../images/gtfs.png';
 import Headroom from 'react-headroom';
 
-
-const languageOptions = [{ key: 'English', text: 'English', value: 'English' }];
 
 const docsOptions = {
   items: [

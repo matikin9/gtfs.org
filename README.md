@@ -21,7 +21,7 @@ The content for this site is grouped into three primary categories: Core Referen
 6. To build the production version and run it locally:
   `gatsby build && gatsby serve`
 
-## Updating site structure:
+## Updating site structure using configs:
 The individual pages of the site are programmatically generated from the markdown files in the `src/pages` directory. The files in `best-practices` and `reference` were cloned in step 4 above, the rest live in this repository. To update the content of the site simply update those files and commit them in their respective repository, this will automatically trigger a new build of the site.
 
 The pages to be built and their respective source files are specified in `page-config.yaml` in the project root. If you'd like to add/remove pages, or update a reference page's navigation menu you can do so by making changes to this file.
@@ -51,6 +51,11 @@ If adding new pages, you must first create a new directory in `src/pages` contai
 
 * The slug field is used to specify source markdown files for a given page, and must be included for any sidemenu item that has a corresponding file. (i.e. Static and Realtime Reference are both compiled from one markdown file each, so they have only one slug at the root of the menu, whereas Best Practices has a file for each menu item and thus a slug is required for each)
 
+## Todo
+* Data layer description
+* Explanation of file structure
+* build workflow and hosting
+* Planned features
 
 
 ## License

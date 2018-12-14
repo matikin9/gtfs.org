@@ -11,6 +11,7 @@
 .navContainer {
   /* flex: 1.5; */
   width: 25vw;
+  /* max-width: 250px; */
   /* min-width: 300px; */
   background-color: #efefef;
   padding: 10px 15px 15px 30px;

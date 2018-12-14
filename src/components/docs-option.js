@@ -6,7 +6,7 @@ const DocsOption = ({content}) => (
   <div className={styles.container}>
     <Link to={content.link}>
       <h3>{content.title}</h3>
-      <p>{content.blurb}</p>
+      <p>{content.description}</p>
     </Link>
   </div>
 )

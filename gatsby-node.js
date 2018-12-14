@@ -27,9 +27,7 @@ try {
 //add slugs to all markdown file nodes
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  // console.log(node);
   if (node.internal.type === "MarkdownRemark" || node.internal.type === "Json") {
-
     const slug = createFilePath({ node, getNode, basePath: 'pages' }); //`${node.frontmatter.lang}` + ...
     createNodeField({
       node,
@@ -39,13 +37,46 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-//create a node containing the table of contents for each page from page-config
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
-  let i = 0;
+  //create nav node
+  const navNodeData = {
+    key: 0,
+    contents: pageConfig.nav
+  }
+  const navNodeContent = JSON.stringify(navNodeData)
+  const navNodeMeta = {
+    id: createNodeId(`menu-contents-${navNodeData.key}`),
+    internal: {
+      type: 'Nav',
+      content: navNodeContent,
+      contentDigest: createContentDigest(navNodeData)
+    }
+  }
+  const navNode = Object.assign({}, navNodeData, navNodeMeta)
+  createNode(navNode);
+
+  //create docs nav node
+  const docsNodeData = {
+    key: 1,
+    contents: pageConfig.docs_nav
+  }
+  const docsNodeContent = JSON.stringify(docsNodeData)
+  const docsNodeMeta = {
+    id: createNodeId(`menu-contents-${docsNodeData.key}`),
+    internal: {
+      type: 'Nav',
+      content: docsNodeContent,
+      contentDigest: createContentDigest(docsNodeData)
+    }
+  }
+  const docsNode = Object.assign({}, docsNodeData, docsNodeMeta)
+  createNode(docsNode);
+
+  //create a node containing the table of contents for each page from page-config
+
+  let i = 2;
   pageConfig.pages.forEach((page) => {
-    // console.log(page)
-    // console.log('\n')
     if (page.sidemenu !== undefined) {
       addAnchorAddress(page.url, page.sidemenu)
       console.log('creating sidemenu node from:', page.sidemenu)
@@ -70,42 +101,11 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
       i++;
     }
   })
-  // const contents = {
-  //   key:
-  // }
 }
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   const contentDictionary = {};
-  // return new Promise((resolve, reject) => {
-  //   graphql(`
-  //     {
-  //       allMarkdownRemark {
-  //         edges {
-  //           node {
-  //             fields {
-  //               slug
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `).then(result => {
-  //     // console.log(result);
-  //     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-  //       createPage({
-  //         path: node.fields.slug,
-  //         component: path.resolve('./src/templates/doc-page.js'),
-  //         context: {
-  //           //things passed here avail as graphql variables in page queries
-  //           slug: node.fields.slug
-  //         }
-  //       })
-  //     })
-  //     resolve()
-  //   })
-  // })
   pageConfig.pages.forEach((page) => {
     console.log('creating page: ', page.title)
     createPage({
@@ -117,5 +117,4 @@ exports.createPages = ({ graphql, actions }) => {
       }
     })
   })
-
 }

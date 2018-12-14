@@ -27,7 +27,6 @@ export default class DocPage extends React.Component {
   constructor(props) {
     super(props);
     this.data = props.data;
-    // console.log('doc page props: ', props);
     this.pageContents = this.data.allSideMenu.edges[0].node.contents;
     this.pageName = this.data.allSideMenu.edges[0].node.sourceInstanceName;
     this.nodeDictionary = {};

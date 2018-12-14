@@ -23,8 +23,8 @@ pages:
   - title: Home
     url: /
     template: basic-page
-    files:
-      - pages/home.md
+    # files:
+    #   - pages/home.md
   - title: Static Reference
     url: /reference
     template: doc-page

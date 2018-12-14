@@ -19,7 +19,6 @@ const addAnchorAddress = function(basePath, pageContents) {
 
 try {
   var pageConfig = yaml.safeLoad(fs.readFileSync('./page-config.yaml', 'utf8'));
-  console.log('page config file loaded');
 } catch (e) {
   console.log(e);
 }
@@ -79,7 +78,6 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   pageConfig.pages.forEach((page) => {
     if (page.sidemenu !== undefined) {
       addAnchorAddress(page.url, page.sidemenu)
-      console.log('creating sidemenu node from:', page.sidemenu)
       const nodeData = {
         key: i,
         contents: page.sidemenu
@@ -107,7 +105,6 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   const contentDictionary = {};
   pageConfig.pages.forEach((page) => {
-    console.log('creating page: ', page.title)
     createPage({
       path: page.url,
       component: path.resolve(`./src/templates/${page.template}.js`),

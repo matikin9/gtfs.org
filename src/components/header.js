@@ -11,7 +11,6 @@ import { StaticQuery, graphql } from "gatsby"
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
-    console.log('queried data in header: ', props.data);
     this.state = {
       open: false,
     }
@@ -114,19 +113,3 @@ export default class Header extends React.Component {
   }
 }
 
-export const query = graphql`
-  query {
-    allNav {
-      edges {
-        node {
-          contents {
-            display
-            link
-            title
-            description
-          }
-        }
-      }
-    }
-  }
-`

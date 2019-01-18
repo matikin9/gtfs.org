@@ -1,22 +1,17 @@
 nav:
   - display: Home
     link: /
+  - display: Static
+    link: /reference
+  - display: Realtime
+    link: /realtime
   - display: Getting Started
     link: /getting-started
   - display: Examples
     link: /examples
   - display: Testing Feeds
     link: /testing
-
-docs_nav:
-  - title: Static
-    description: Reference for core comma-separated values specification to describe stops, routes, schedules, and fares
-    link: /reference
-  - title: Realtime
-    description: Reference for protobuf-based GTFS extension to provide arrival estimates, vehicle positions, and service alerts
-    link: /realtime
-  - title: Best Practices
-    description: Recommendations to support quality user experiences in GTFS-consuming applications
+  - display: Best Practices
     link: /best-practices
 
 pages:

@@ -55,23 +55,6 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const navNode = Object.assign({}, navNodeData, navNodeMeta)
   createNode(navNode);
 
-  //create docs nav node
-  const docsNodeData = {
-    key: 1,
-    contents: pageConfig.docs_nav
-  }
-  const docsNodeContent = JSON.stringify(docsNodeData)
-  const docsNodeMeta = {
-    id: createNodeId(`menu-contents-${docsNodeData.key}`),
-    internal: {
-      type: 'Nav',
-      content: docsNodeContent,
-      contentDigest: createContentDigest(docsNodeData)
-    }
-  }
-  const docsNode = Object.assign({}, docsNodeData, docsNodeMeta)
-  createNode(docsNode);
-
   //create a node containing the table of contents for each page from page-config
 
   let i = 2;

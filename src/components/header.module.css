@@ -137,21 +137,6 @@ a.active-page {
   /* border-bottom: 1px solid #61b5d9; */
 }
 
-.docs-options {
-  width: 100%;
-  position: fixed;
-  /* min-height: 150px; */
-  height: auto;
-  background-color: rgba(255,255,255, 1); /*#efefef;*/
-  display: flex!important;
-  flex-direction: row!important;
-  justify-content: center;
-  align-items: center;
-  /* opacity: .7; */
-  padding-left: 50px;
-  overflow: auto;
-}
-
 .fixFlex {
   display: flex;
   flex-direction: row;

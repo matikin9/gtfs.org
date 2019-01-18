@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styles from './header.module.css';
-import { Transition, Icon } from 'semantic-ui-react';
-import DocsOption from './docs-option';
 import githubLogo from '../images/github-logo.png';
 import gtfsHeader from '../images/gtfs.png';
 import Headroom from 'react-headroom';
@@ -12,18 +10,10 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
     }
   }
 
-  toggleDocs() {
-    this.setState(prevState => ({
-      open: !prevState.open
-    }))
-  }
-
   render() {
-    const {open} = this.state;
     return (
       <StaticQuery
         query={graphql`
@@ -34,8 +24,6 @@ export default class Header extends React.Component {
                   contents {
                     display
                     link
-                    title
-                    description
                   }
                 }
               }
@@ -67,13 +55,6 @@ export default class Header extends React.Component {
                   <img src={gtfsHeader} alt="GTFS" style={{marginLeft: '-12px', marginTop: '5px'}} width="125" height="62.5"/>
                 </div>
                 <div className={styles.links}>
-                <div className={open ? styles.docsOpen : styles.docsClosed} onClick={() => this.toggleDocs()}>
-                  <span className={styles.fakeLink}>Docs</span>
-                
-                {open ?
-                  <Icon className={styles.up} size="small" name="chevron up"/>
-                  : <Icon size="small" name="chevron down"/>}
-                  </div>
                   {data.allNav.edges[0].node.contents.map((item) => (
                     <Link
                       to={item.link}
@@ -96,15 +77,6 @@ export default class Header extends React.Component {
                 />
                 </div> */}
               </div>
-              <Transition.Group animation='slide down' duration='150'>
-              {open &&
-                <div className={styles.docsOptions}>
-                  {data.allNav.edges[1].node.contents.map((option) => (
-                    <DocsOption key={option.id} content={option}></DocsOption>
-                  ))}
-                </div>
-              }
-              </Transition.Group>
             </div>
           </Headroom>
         )}

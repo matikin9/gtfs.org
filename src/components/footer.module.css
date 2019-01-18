@@ -9,12 +9,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
   padding: 0 10px;
-}
-
-.footer-container p  {
   color: whitesmoke!important;
 }
 
@@ -28,4 +24,8 @@
   color: whitesmoke!important;
   text-decoration: underline;
   opacity: .9;
+}
+
+.footer-container .footer-credits {
+  padding-top: 1em;
 }

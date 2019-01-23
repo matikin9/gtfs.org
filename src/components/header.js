@@ -55,8 +55,9 @@ export default class Header extends React.Component {
                   <img src={gtfsHeader} alt="GTFS" style={{marginLeft: '-12px', marginTop: '5px'}} width="125" height="62.5"/>
                 </div>
                 <div className={styles.links}>
-                  {data.allNav.edges[0].node.contents.map((item) => (
+                  {data.allNav.edges[0].node.contents.map((item, index) => (
                     <Link
+                      key={index}
                       to={item.link}
                       activeClassName={styles.activePage}
                     >

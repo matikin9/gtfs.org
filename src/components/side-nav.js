@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import styles from "./side-nav.module.css";
 
 class SideNav extends React.Component {
@@ -85,33 +85,56 @@ class SideNav extends React.Component {
     }
   }
 
+  renderVersionControl() {
+    const showVersionControl = (this.props.pageName === "Realtime Reference v2" || this.props.pageName === "Realtime Reference v1");
+
+    if (!showVersionControl) {
+      return null
+    }
+
+    return (
+      <form className={styles.versionSelectForm}>
+        <label htmlFor="versionSelect">Version</label>
+        <select 
+          id="versionSelect"
+          value={this.props.route}
+          onChange={(event) => navigate(event.target.value)}
+        >
+          <option value="/realtime/v2/">2.0 (Latest)</option>
+          <option value="/realtime/v1/">1.0</option>
+        </select>
+      </form>
+    )
+  }
+
   render() {
     const { content } = this.props
     return(
-        <div className={styles.container}>
-            {content.map((section,index) =>
-              <div key={index}>
-                <li><Link to={section.anchor} style={this.styleIfActive(section.anchor)}>{section.name}</Link></li>
-                <div style={{ marginLeft: 10 }}>
-                  {section.children && section.children.map((firstChild,indexTwo) =>
-                    <li key={indexTwo}>
-                      <Link to={firstChild.anchor} style={this.styleIfActive(firstChild.anchor)}>{firstChild.name}</Link>
-                        {firstChild.children && firstChild.children.map((secondChild, indexThree) =>
-                          <div style={{ marginLeft: 10 }}>
-                            <li key={indexThree}><Link to={secondChild.anchor} style={this.styleIfActive(secondChild.anchor)}>{secondChild.name}</Link></li>
-                              {secondChild.children && secondChild.children.map((thirdChild) =>
-                                <li style={{ marginLeft: 10 }}><Link to={thirdChild.anchor} style={this.styleIfActive(thirdChild.anchor)}>{thirdChild.name}</Link></li>
-                              )}
-                          </div>
+      <div className={styles.container}>
+        {this.renderVersionControl()}
+        {content.map((section, index) =>
+          <div key={index}>
+            <li><Link to={section.anchor} style={this.styleIfActive(section.anchor)}>{section.name}</Link></li>
+            <div style={{ marginLeft: 10 }}>
+              {section.children && section.children.map((firstChild, index) =>
+                <li key={index}>
+                  <Link to={firstChild.anchor} style={this.styleIfActive(firstChild.anchor)}>{firstChild.name}</Link>
+                    {firstChild.children && firstChild.children.map((secondChild, index) =>
+                      <div  key={index} style={{ marginLeft: 10 }}>
+                        <li><Link to={secondChild.anchor} style={this.styleIfActive(secondChild.anchor)}>{secondChild.name}</Link></li>
+                        {secondChild.children && secondChild.children.map((thirdChild, index) =>
+                          <li key={index} style={{ marginLeft: 10 }}><Link to={thirdChild.anchor} style={this.styleIfActive(thirdChild.anchor)}>{thirdChild.name}</Link></li>
                         )}
-                    </li>
-                  )}
-                </div>
-              </div>
-            )}
+                      </div>
+                    )}
+                </li>
+              )}
+            </div>
           </div>
-        )
-      }
+        )}
+      </div>
+    )
+  }
 }
 
 export default SideNav

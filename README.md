@@ -17,9 +17,9 @@ The content for this site is grouped into three primary categories: Core Referen
 4. Run this command to clone all necessary data from the content repos:
   `npm run fetchdata`
 5. To run the site locally in development mode:
-  `gatsby develop`
+  `npm run develop`
 6. To build the production version and run it locally:
-  `gatsby build && gatsby serve`
+  `npm run build && npm run serve`
 
 ## Updating site structure using configs:
 The individual pages of the site are programmatically generated from the markdown files in the `src/pages` directory. The files in `best-practices` and `reference` were cloned in step 4 above, the rest live in this repository. To update the content of the site simply update those files and commit them in their respective repository, this will automatically trigger a new build of the site.

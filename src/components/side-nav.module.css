@@ -1,34 +1,26 @@
-.container {
+.sideNav {
   position: fixed;
   min-width: 150px;
 }
 
-.subcategory {
-  font-size: 16px !important;
-  /* color: #727272!important; */
-}
-
-.container a.active {
+.sideNav a.active {
   background-color: red!important;
   color: red!important;
 }
 
-.container a {
-  font-size: 20px;
+.sideNav a {
+  font-size: 16px;
   text-decoration: none;
   color: #595959;
   transition: all .05s ease-in-out;
 }
 
-.container a:hover{
+.sideNav a:hover{
   color: black!important;
-  /* text-decoration: underline; */
-  /* text-decoration-color: #61b5d9; */
 }
 
-.container li {
-  margin-bottom: 7px;
-  max-width: 200px;
+.versionSelectForm {
+  margin-bottom: 0;
 }
 
 .versionSelectForm label {
@@ -36,3 +28,12 @@
   font-weight: bold;
 }
 
+.sideNav ul {
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.sideNav li {
+  max-width: 200px;
+  margin-bottom: 3px;
+}

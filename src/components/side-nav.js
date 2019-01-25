@@ -110,27 +110,33 @@ class SideNav extends React.Component {
   render() {
     const { content } = this.props
     return(
-      <div className={styles.container}>
+      <div className={styles.sideNav}>
         {this.renderVersionControl()}
         {content.map((section, index) =>
-          <div key={index}>
-            <li><Link to={section.anchor} style={this.styleIfActive(section.anchor)}>{section.name}</Link></li>
-            <div style={{ marginLeft: 10 }}>
-              {section.children && section.children.map((firstChild, index) =>
-                <li key={index}>
-                  <Link to={firstChild.anchor} style={this.styleIfActive(firstChild.anchor)}>{firstChild.name}</Link>
+          <ul key={index} className={styles.sideNavMenu}>
+            <li><Link to={section.anchor} style={this.styleIfActive(section.anchor)}>{section.name}</Link>
+              <ul>
+                {section.children && section.children.map((firstChild, index) =>
+                  <li key={index}>
+                    <Link to={firstChild.anchor} style={this.styleIfActive(firstChild.anchor)}>{firstChild.name}</Link>
                     {firstChild.children && firstChild.children.map((secondChild, index) =>
-                      <div  key={index} style={{ marginLeft: 10 }}>
-                        <li><Link to={secondChild.anchor} style={this.styleIfActive(secondChild.anchor)}>{secondChild.name}</Link></li>
-                        {secondChild.children && secondChild.children.map((thirdChild, index) =>
-                          <li key={index} style={{ marginLeft: 10 }}><Link to={thirdChild.anchor} style={this.styleIfActive(thirdChild.anchor)}>{thirdChild.name}</Link></li>
-                        )}
-                      </div>
+                      <ul key={index}>
+                        <li><Link to={secondChild.anchor} style={this.styleIfActive(secondChild.anchor)}>{secondChild.name}</Link>
+                          <ul>
+                            {secondChild.children && secondChild.children.map((thirdChild, index) =>
+                              <li key={index}>
+                                <Link to={thirdChild.anchor} style={this.styleIfActive(thirdChild.anchor)}>{thirdChild.name}</Link>
+                              </li>
+                            )}
+                          </ul>
+                        </li>
+                      </ul>
                     )}
-                </li>
-              )}
-            </div>
-          </div>
+                  </li>
+                )}
+              </ul>
+            </li>
+          </ul>
         )}
       </div>
     )

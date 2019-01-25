@@ -1,33 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
-// import 'semantic-ui-css/semantic.min.css';
 import Footer from '../components/footer';
 
 const IndexPage = ({ data }) => {
   return(
     <Layout>
-      <div style={{
-        position: 'absolute',
-        display: 'flex',
-        flexDirection: 'row',
-        minHeight: '100vh'
-      }}>
-        <div style={{
-          flex: 1,
-          alignItems: 'space-around',
-          width: '80vw',
-          maxWidth: '1000px',
-          // height: '100vh',
-          marginLeft: '10vw',
-          // position: 'absolute',
-          paddingTop: '50px',
-          paddingBottom: '350px'
-        }}>
-          <div style={{flex: '1'}} dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}></div>
-        </div>
-        <Footer/>
+      <div className="container mt-4 mb-4" dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}>
       </div>
+      <Footer className="footer" />
     </Layout>
   )
 }

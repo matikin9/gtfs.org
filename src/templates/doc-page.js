@@ -115,7 +115,7 @@ export default class DocPage extends React.Component {
             {showName && <h1>{'GTFS ' + this.pageName}</h1>}
             {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
           </div>
-          <Footer/>
+          <Footer className="footerDocPage" />
         </div>
       </Layout>
     )

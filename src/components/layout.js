@@ -2,13 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-// import Headroom from 'react-headroom';
 
 import Header from './header'
-// import Footer from './footer'
 import styles from './layout.css'
 import './layout.css';
-import './semantic-ui-css/semantic.css'
 
 const Layout = ({ children }) => (
   <StaticQuery

@@ -4,7 +4,7 @@ nav:
   - display: Static
     link: /reference
   - display: Realtime
-    link: /realtime
+    link: /realtime/v2
   - display: Getting Started
     link: /getting-started
   - display: Examples

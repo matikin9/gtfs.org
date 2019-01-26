@@ -2,17 +2,17 @@ nav:
   - display: Home
     link: /
   - display: Static
-    link: /reference
+    link: /reference/
   - display: Realtime
-    link: /realtime/v2
+    link: /realtime/v2/
   - display: Getting Started
-    link: /getting-started
+    link: /getting-started/
   - display: Examples
-    link: /examples
+    link: /examples/
   - display: Testing Feeds
-    link: /testing
+    link: /testing/
   - display: Best Practices
-    link: /best-practices
+    link: /best-practices/
 
 pages:
   - title: Home
@@ -21,7 +21,7 @@ pages:
     # files:
     #   - pages/home.md
   - title: Static Reference
-    url: /reference
+    url: /reference/
     template: doc-page
     sidemenu:
     - name: Term Definitions
@@ -46,7 +46,7 @@ pages:
       - name: feed_info.txt
 
   - title: Realtime Reference v2
-    url: /realtime/v2
+    url: /realtime/v2/
     template: doc-page
     sidemenu:
     - name: Feed Message
@@ -100,7 +100,7 @@ pages:
               anchor: /realtime/v2/#message-translatedstring
 
   - title: Realtime Reference v1
-    url: /realtime/v1
+    url: /realtime/v1/
     template: doc-page
     sidemenu:
     - name: Feed Message
@@ -154,7 +154,7 @@ pages:
               anchor: /realtime/v1/#message-translatedstring
 
   - title: Best Practices
-    url: /best-practices
+    url: /best-practices/
     template: doc-page
     sidemenu:
     - name: Introduction
@@ -207,25 +207,25 @@ pages:
       slug: about
 
   - title: Examples
-    url: /examples
+    url: /examples/
     template: basic-page
 
   - title: Testing
-    url: /testing
+    url: /testing/
     template: basic-page
 
   - title: Getting Started
-    url: /getting-started
+    url: /getting-started/
     template: basic-page
 
   - title: GTFS Background
-    url: /gtfs-background
+    url: /gtfs-background/
     template: basic-page
 
   - title: About
-    url: /about
+    url: /about/
     template: basic-page
 
   - title: Changes
-    url: /changes
+    url: /changes/
     template: basic-page

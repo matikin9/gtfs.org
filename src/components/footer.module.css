@@ -1,8 +1,7 @@
 .footer {
   box-shadow: inset 0 7px 10px -15px rgba(0,0,0,1);
-  background-color: #444444;
+  background-color: #343a40;
   text-align: center;
-  padding: 0 10px;
   color: whitesmoke;
   padding: 10px 0;
 }
@@ -27,30 +26,18 @@
   padding-top: 1em;
 }
 
+.footer-credits a {
+  text-decoration: none;
+  padding: 0 0.5em;
+}
+
 .footer-doc-page {
   position: absolute;
   bottom: 0;
   height: 75px;
   width: 100vw;
-  box-shadow: inset 0 7px 10px -15px rgba(0,0,0,1);
-  background-color: #444444;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 0 10px;
-  color: whitesmoke;
-}
-
-.footer-doc-page a  {
-  color: whitesmoke;
-  text-decoration: underline;
-  opacity: .7;
-}
-
-.footer-doc-page a:hover  {
-  color: whitesmoke;
-  text-decoration: underline;
-  opacity: .9;
 }

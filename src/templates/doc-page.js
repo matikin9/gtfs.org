@@ -84,7 +84,22 @@ export default class DocPage extends React.Component {
     this.pageContents.forEach((section) => {
       if (section.slug !== undefined) {
         let hast = this.nodeDictionary[section.slug]
-        if (hast !== undefined) this.sortedHast.push(hast);
+        if (hast !== undefined) {
+          // Add table classes
+          hast.children.forEach(hast => {
+            if (hast.tagName === 'table') {
+              hast.properties.className = ['table'];
+            }
+            if (hast.children) {
+              hast.children.forEach(hast => {
+                if (hast.tagName === 'table') {
+                  hast.properties.className = ['table'];
+                }
+              });
+            }
+          });
+          this.sortedHast.push(hast);
+        }
         if (section.children) {
           section.children.forEach((child) => {
             let childHast = this.nodeDictionary[child.slug];
@@ -99,7 +114,7 @@ export default class DocPage extends React.Component {
   render() {
     const showName = (this.pageName === "Realtime Reference v2" || this.pageName === "Realtime Reference v1");
     let pageYOffset = this.state.pageYOffset;
-    return(
+    return (
       <Layout>
         <div className={styles.container}>
           <div className={styles.navContainer}>
@@ -111,14 +126,14 @@ export default class DocPage extends React.Component {
               pageAnchors={this.anchors}
             />
           </div>
-          <div className={styles.contentContainer}>
+          <div className={styles.docContainer}>
             {showName && <h1>{'GTFS ' + this.pageName}</h1>}
             {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
           </div>
           <Footer className="footerDocPage" />
         </div>
       </Layout>
-    )
+    );
   }
 }
 

@@ -21,8 +21,7 @@
   list-style: none;
 }
 
-.contentContainer {
-  /* position: absolute; */
+.docContainer {
   flex: 1;
   min-width: 800px;
   padding-top: 50px;

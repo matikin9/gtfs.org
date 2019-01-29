@@ -17,7 +17,7 @@ nav:
 pages:
   - title: Home
     url: /
-    template: basic-page
+    template: home-page
     # files:
     #   - pages/home.md
   - title: Static Reference

@@ -1,5 +1,6 @@
 .bg-blue {
   background: #172f50;
+  z-index: 1;
 }
 
 .main-nav-link {

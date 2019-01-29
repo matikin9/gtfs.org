@@ -1,20 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import styles from './basic-page.module.css';
 import Layout from '../components/layout';
 import Footer from '../components/footer';
 
 const IndexPage = ({ data }) => {
   return(
     <Layout>
-      <div className={`${styles.basicPageContainer} container mt-5 mb-5`}>
-        <div className="row">
-          <div 
-            className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1"
-            dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}
-          >
-          </div>
-        </div> 
+      <div className="container mt-5 mb-5" dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}>
       </div>
       <Footer className="footer" />
     </Layout>

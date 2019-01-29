@@ -226,6 +226,10 @@ pages:
     url: /about/
     template: basic-page
 
+  - title: License
+    url: /license/
+    template: basic-page
+
   - title: Changes
     url: /changes/
     template: basic-page

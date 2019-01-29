@@ -1,0 +1,5 @@
+@media screen and (min-height: 400px)  {
+    .basic-page-container {
+        min-height: 320px;
+    }
+}

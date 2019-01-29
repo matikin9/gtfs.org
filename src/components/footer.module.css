@@ -3,7 +3,7 @@
   background-color: #343a40;
   text-align: center;
   color: whitesmoke;
-  padding: 10px 0;
+  padding: 1.5em 0.5em;
 }
 
 .footer a  {
@@ -16,14 +16,6 @@
   color: whitesmoke;
   text-decoration: underline;
   opacity: .9;
-}
-
-.footer-disclaimer {
-  font-size: 12px;
-}
-
-.footer-credits {
-  padding-top: 1em;
 }
 
 .footer-credits a {

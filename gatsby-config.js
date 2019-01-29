@@ -84,6 +84,13 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        path: `${__dirname}/src/pages/license`,
+        name: "License"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         path: `${__dirname}/src/pages/reference/v2/gtfs/CHANGES.md`,
         name: "Changes"
       }

@@ -44,7 +44,7 @@ export default class Header extends React.Component {
           }
         `}
         render={data => (
-          <Navbar light={true} expand="md" className={`${styles.bgBlue} navbar-dark`}>
+          <Navbar light={true} expand="lg" className={`${styles.bgBlue} navbar-dark`}>
             <div className="container">
               <NavbarBrand href="/">
                 <img src={gtfsHeader} width="125" height="44" alt="GTFS" className={styles.headerLogo} />

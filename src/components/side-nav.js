@@ -113,16 +113,16 @@ class SideNav extends React.Component {
       <div className={styles.sideNav}>
         {this.renderVersionControl()}
         {content.map((section, index) =>
-          <ul key={index} className={styles.sideNavMenu}>
+          <ul key={index} className="list-unstyled">
             <li><Link to={section.anchor} style={this.styleIfActive(section.anchor)}>{section.name}</Link>
-              <ul>
+              <ul className="list-unstyled">
                 {section.children && section.children.map((firstChild, index) =>
                   <li key={index}>
                     <Link to={firstChild.anchor} style={this.styleIfActive(firstChild.anchor)}>{firstChild.name}</Link>
                     {firstChild.children && firstChild.children.map((secondChild, index) =>
-                      <ul key={index}>
+                      <ul key={index} className="list-unstyled">
                         <li><Link to={secondChild.anchor} style={this.styleIfActive(secondChild.anchor)}>{secondChild.name}</Link>
-                          <ul>
+                          <ul className="list-unstyled">
                             {secondChild.children && secondChild.children.map((thirdChild, index) =>
                               <li key={index}>
                                 <Link to={thirdChild.anchor} style={this.styleIfActive(thirdChild.anchor)}>{thirdChild.name}</Link>

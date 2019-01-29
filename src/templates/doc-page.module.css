@@ -44,6 +44,15 @@ a {
   word-wrap: break-word !important;
 }
 
+li ul,
+li ol {
+  padding-left: 20px;
+}
+
+li p {
+  margin-bottom: 0;
+}
+
 @media screen and (min-width: 0px) and (max-width: 700px) {
   .navContainer { display: none; }
 }

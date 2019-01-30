@@ -72,7 +72,15 @@ All of the data consumed by the site is queried using GraphQL. GraphQL nodes are
 Data from the content source markdown files is parsed by the 'gatsby-transformer-remark' plugin into an html tree structure known as htmlAst, which is then rendered using the 'rehype-react' compiler.
 
 ## Building and hosting
-This site is built using CirclCI and hosted on AWS. It is configured to rebuild any time a new commit is added to the master branch of this repository, [Google Transit](https://github.com/google/transit), or [GTFS Best Practices](https://github.com/MobilityData/gtfs-best-practices)
+This site is built using [CircleCI](http://circleci.com) and hosted on Amazon S3 as a static site. Each time it is deployed, it pulls the latest documentation from [Google Transit](https://github.com/google/transit) and [GTFS Best Practices](https://github.com/MobilityData/gtfs-best-practices).
+
+### Staging
+
+Any commit pushed to the `master` branch will automatically be deployed to https://staging.gtfs.org. 
+
+### Production 
+
+Any commit pushed to the `production` branch will automatically be deployed to https://gtfs.org. 
 
 ## Planned features
 * Search functionality - index all of the site content and add a search bar to the header for quickly finding reference information

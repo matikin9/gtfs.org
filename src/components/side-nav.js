@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, navigate } from 'gatsby';
+import { Link } from 'gatsby';
 import styles from "./side-nav.module.css";
 
 class SideNav extends React.Component {
@@ -85,33 +85,10 @@ class SideNav extends React.Component {
     }
   }
 
-  renderVersionControl() {
-    const showVersionControl = (this.props.pageName === "Realtime Reference v2" || this.props.pageName === "Realtime Reference v1");
-
-    if (!showVersionControl) {
-      return null
-    }
-
-    return (
-      <form className={styles.versionSelectForm}>
-        <label htmlFor="versionSelect">Version</label>
-        <select 
-          id="versionSelect"
-          value={this.props.route}
-          onChange={(event) => navigate(event.target.value)}
-        >
-          <option value="/realtime/v2/">2.0 (Latest)</option>
-          <option value="/realtime/v1/">1.0</option>
-        </select>
-      </form>
-    )
-  }
-
   render() {
     const { content } = this.props
     return(
       <div className={styles.sideNav}>
-        {this.renderVersionControl()}
         {content.map((section, index) =>
           <ul key={index} className="list-unstyled">
             <li><Link to={section.anchor} style={this.styleIfActive(section.anchor)}>{section.name}</Link>

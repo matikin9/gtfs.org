@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import rehypeReact from 'rehype-react';
 import styles from './doc-page.module.css';
 import SideNav from "../components/side-nav";
@@ -126,8 +126,29 @@ export default class DocPage extends React.Component {
     this.setState({parsingComplete: true});
   }
 
+  renderVersionControl() {
+    return (
+      <div class="card mb-4 mt-3">
+        <div class="card-body">
+          <form className={styles.versionSelectForm}>
+            <label htmlFor="versionSelect">Version</label>
+            <select 
+              id="versionSelect"
+              value={this.props.location.pathname}
+              onChange={(event) => navigate(event.target.value)}
+            >
+              <option value="/realtime/v2/">2.0 (Latest)</option>
+              <option value="/realtime/v1/">1.0</option>
+            </select>
+          </form>
+        </div>
+      </div>
+    )
+  }
+
   render() {
-    const showName = (this.pageName === "Realtime Reference v2" || this.pageName === "Realtime Reference v1");
+    const showName = this.pageName.startsWith('Realtime Reference');
+    const showVersionControl = this.pageName.startsWith('Realtime Reference');
     let pageYOffset = this.state.pageYOffset;
     return (
       <Layout>
@@ -143,6 +164,7 @@ export default class DocPage extends React.Component {
           </div>
           <div className={styles.docContainer}>
             {showName && <h1>{'GTFS ' + this.pageName}</h1>}
+            {showVersionControl && this.renderVersionControl()}
             {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
           </div>
           <Footer className="footerDocPage" />

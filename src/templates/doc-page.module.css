@@ -35,6 +35,16 @@ li p {
   margin-bottom: 0;
 }
 
+.versionSelectForm {
+  margin-bottom: 0;
+}
+
+.versionSelectForm label {
+  padding-right: 10px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
 @media screen and (min-width: 700px) {
   .container {
     display: flex;

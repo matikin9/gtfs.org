@@ -6,23 +6,23 @@
   "dependencies": {
     "bootstrap": "^4.2.1",
     "dotenv": "^6.2.0",
-    "gatsby": "^2.0.91",
+    "gatsby": "^2.0.106",
     "gatsby-cli": "^2.4.8",
     "gatsby-plugin-catch-links": "^2.0.9",
     "gatsby-plugin-force-trailing-slashes": "^1.0.4",
-    "gatsby-plugin-manifest": "2.0.13",
+    "gatsby-plugin-manifest": "2.0.15",
     "gatsby-plugin-meta-redirect": "^1.1.1",
-    "gatsby-plugin-offline": "^2.0.21",
+    "gatsby-plugin-offline": "^2.0.22",
     "gatsby-plugin-react-helmet": "^3.0.5",
-    "gatsby-plugin-sharp": "^2.0.17",
-    "gatsby-plugin-typography": "^2.2.5",
+    "gatsby-plugin-sharp": "^2.0.19",
+    "gatsby-plugin-typography": "^2.2.6",
     "gatsby-remark-autolink-headers": "^2.0.12",
     "gatsby-remark-copy-linked-files": "^2.0.8",
     "gatsby-remark-images": "^3.0.1",
-    "gatsby-source-filesystem": "^2.0.16",
+    "gatsby-source-filesystem": "^2.0.18",
     "gatsby-transformer-json": "^2.1.7",
-    "gatsby-transformer-remark": "^2.2.0",
-    "gatsby-transformer-sharp": "^2.1.10",
+    "gatsby-transformer-remark": "^2.2.2",
+    "gatsby-transformer-sharp": "^2.1.13",
     "js-yaml": "^3.12.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -30,7 +30,7 @@
     "react-typography": "^0.16.18",
     "reactstrap": "^7.1.0",
     "rehype-react": "^3.1.0",
-    "sharp": "^0.21.2"
+    "sharp": "^0.21.3"
   },
   "license": "MIT",
   "scripts": {
@@ -42,7 +42,7 @@
     "fetchdata": "git clone https://github.com/google/transit src/pages/reference/v2 && git clone https://github.com/google/transit src/pages/reference/v1 && git -C src/pages/reference/v1 reset eb4b243513abdca8efeaefbf8c264d9d1072ffb6 --hard && git clone https://github.com/MobilityData/gtfs-best-practices -b docsv2 --single-branch src/pages/best-practices"
   },
   "devDependencies": {
-    "prettier": "^1.15.3"
+    "prettier": "^1.16.2"
   },
   "repository": {
     "type": "git",

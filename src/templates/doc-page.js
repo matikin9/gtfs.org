@@ -80,23 +80,38 @@ export default class DocPage extends React.Component {
     this.sortDictionary()
   }
 
+  formatTable(hast) {
+    console.log(hast)
+              
+    hast.properties.className = ['table'];
+    return {
+      children: [hast],
+      properties: {
+        className: ['table-responsive']
+      },
+      tagName: 'div',
+      type: 'element'
+    };
+  }
+
   sortDictionary() {
     this.pageContents.forEach((section) => {
       if (section.slug !== undefined) {
         let hast = this.nodeDictionary[section.slug]
         if (hast !== undefined) {
-          // Add table classes
-          hast.children.forEach(hast => {
-            if (hast.tagName === 'table') {
-              hast.properties.className = ['table'];
+          // Add table classes and wrap in table-responsive div
+          hast.children = hast.children.map(childHast => {
+            if (childHast.tagName === 'table') {
+              childHast = this.formatTable(childHast);
             }
-            if (hast.children) {
-              hast.children.forEach(hast => {
-                if (hast.tagName === 'table') {
-                  hast.properties.className = ['table'];
+            if (childHast.children) {
+              childHast.children.forEach(childHast => {
+                if (childHast.tagName === 'table') {
+                  childHast = this.formatTable(childHast);
                 }
               });
             }
+            return childHast;
           });
           this.sortedHast.push(hast);
         }

@@ -1,5 +1,17 @@
+.basic-page-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 @media screen and (min-height: 400px)  {
     .basic-page-container {
         min-height: 320px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .basic-page-container {
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 }

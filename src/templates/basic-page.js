@@ -7,7 +7,7 @@ import Footer from '../components/footer';
 const IndexPage = ({ data }) => {
   return(
     <Layout>
-      <div className={`${styles.basicPageContainer} container mt-5 mb-5`}>
+      <div className={`${styles.basicPageContainer} container`}>
         <div className="row">
           <div 
             className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1"

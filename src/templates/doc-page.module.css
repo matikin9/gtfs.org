@@ -1,15 +1,9 @@
 .navContainer {
-  /* flex: 1.5; */
-  width: 25vw;
+  width: 260px;
   background-color: #efefef;
   padding: 10px 15px 15px 30px;
-  /* margin-right: 50px; */
   overflow-y: auto;
   display: none;
-}
-
-.navContainer li {
-  list-style: none;
 }
 
 .docContainer {
@@ -57,7 +51,6 @@ li p {
   }
 
   .docContainer {
-    width: 75vw;
     flex: 1;
     padding: 50px 75px 150px;
     background: white;

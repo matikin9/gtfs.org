@@ -57,7 +57,7 @@ export default class DocPage extends React.Component {
   }
 
   logOffset() {
-    let newOffset = window.pageYOffset;
+    const newOffset = window.pageYOffset;
     this.setState({
       pageYOffset: newOffset
     });
@@ -67,22 +67,7 @@ export default class DocPage extends React.Component {
     window.addEventListener('scroll', this.throttledLogOffset);
   }
 
-  mapDataToDictionary() {
-    this.data.allFile.edges.forEach(({node}) => {
-      if (node.internal.mediaType === "text/markdown") { //ignore photo nodes
-        let key = node.name;
-        let content = node.childMarkdownRemark.htmlAst;
-        let pair = {};
-        pair[key] = content;
-        Object.assign(this.nodeDictionary, pair)
-      }
-    });
-    this.sortDictionary()
-  }
-
   formatTable(hast) {
-    console.log(hast)
-              
     hast.properties.className = ['table'];
     return {
       children: [hast],
@@ -94,25 +79,40 @@ export default class DocPage extends React.Component {
     };
   }
 
+  mapDataToDictionary() {
+    this.data.allFile.edges.forEach(({node}) => {
+      if (node.internal.mediaType === "text/markdown") { //ignore photo nodes
+        const key = node.name;
+        const content = node.childMarkdownRemark.htmlAst;
+
+        // Add table classes and wrap in table-responsive div
+        content.children = content.children.map(hast => {
+          if (hast.tagName === 'table') {
+            hast = this.formatTable(hast);
+          }
+          if (hast.children) {
+            hast.children.forEach(hast => {
+              if (hast.tagName === 'table') {
+                hast = this.formatTable(hast);
+              }
+            });
+          }
+          return hast;
+        });
+
+        const pair = {};
+        pair[key] = content;
+        Object.assign(this.nodeDictionary, pair)
+      }
+    });
+    this.sortDictionary()
+  }
+
   sortDictionary() {
     this.pageContents.forEach((section) => {
       if (section.slug !== undefined) {
         let hast = this.nodeDictionary[section.slug]
         if (hast !== undefined) {
-          // Add table classes and wrap in table-responsive div
-          hast.children = hast.children.map(childHast => {
-            if (childHast.tagName === 'table') {
-              childHast = this.formatTable(childHast);
-            }
-            if (childHast.children) {
-              childHast.children.forEach(childHast => {
-                if (childHast.tagName === 'table') {
-                  childHast = this.formatTable(childHast);
-                }
-              });
-            }
-            return childHast;
-          });
           this.sortedHast.push(hast);
         }
         if (section.children) {
@@ -128,8 +128,8 @@ export default class DocPage extends React.Component {
 
   renderVersionControl() {
     return (
-      <div class="card mb-4 mt-3">
-        <div class="card-body">
+      <div className="card mb-4 mt-3">
+        <div className="card-body">
           <form className={styles.versionSelectForm}>
             <label htmlFor="versionSelect">Version</label>
             <select 
@@ -149,7 +149,7 @@ export default class DocPage extends React.Component {
   render() {
     const showName = this.pageName.startsWith('Realtime Reference');
     const showVersionControl = this.pageName.startsWith('Realtime Reference');
-    let pageYOffset = this.state.pageYOffset;
+    const pageYOffset = this.state.pageYOffset;
     return (
       <Layout>
         <div className={styles.container}>

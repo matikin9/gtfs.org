@@ -27,6 +27,9 @@ jobs:
             fi
 workflows:
   version: 2
+  commit:
+    jobs:
+      - build
   hourly:
     triggers:
       - schedule:

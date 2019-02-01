@@ -25,3 +25,16 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "production" ]; then
               aws s3 sync public s3://gtfs.org/ --delete
             fi
+workflows:
+  version: 2
+  hourly:
+    triggers:
+      - schedule:
+          cron: "0 * * * *"
+          filters:
+            branches:
+              only:
+                - master
+                - production
+    jobs:
+      - build

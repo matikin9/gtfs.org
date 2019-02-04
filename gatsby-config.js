@@ -95,6 +95,13 @@ module.exports = {
         name: "Changes"
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/reference/v2/gtfs-realtime/CHANGES.md`,
+        name: "Realtime Changes"
+      }
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

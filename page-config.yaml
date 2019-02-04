@@ -235,3 +235,7 @@ pages:
   - title: Changes
     url: /changes/
     template: basic-page
+
+  - title: Realtime Changes
+    url: /rt-changes/
+    template: basic-page

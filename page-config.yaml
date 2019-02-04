@@ -159,6 +159,8 @@ pages:
     sidemenu:
     - name: Introduction
       slug: introduction
+    - name: FAQ
+      slug: faq
     - name: Dataset Publishing & General Practices
       slug: publishing
     - name: Recommendations Organized by File

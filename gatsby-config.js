@@ -28,6 +28,13 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        path: `${__dirname}/src/pages/extensions`,
+        name: "Extensions"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         path: `${__dirname}/src/pages/reference/v2/gtfs/spec/en`,
         name: "Static Reference"
       }
@@ -51,6 +58,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages/examples`,
         name: "Examples"
+      }
+    },
+        {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/applications`,
+        name: "Applications"
       }
     },
     {

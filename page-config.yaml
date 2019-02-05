@@ -13,6 +13,8 @@ nav:
     link: /testing/
   - display: Best Practices
     link: /best-practices/
+  - display: Extensions
+    link: /extensions/    
 
 pages:
   - title: Home
@@ -232,4 +234,12 @@ pages:
 
   - title: Changes
     url: /changes/
+    template: basic-page
+
+  - title: Extensions
+    url: /extensions/
+    template: basic-page
+
+  - title: Applications
+    url: /applications/
     template: basic-page

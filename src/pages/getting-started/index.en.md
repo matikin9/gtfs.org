@@ -3,40 +3,45 @@ layout: default
 permalink: /getting-started/
 lang: en
 ---
-# Getting Started
 
-## Overview
+## Getting Started
+<hr>
 
-A GTFS feed is composed of a series of text files collected in a ZIP file. Each file models a particular aspect of transit information: stops, routes, trips, and other schedule data. The details of each file are defined in the GTFS reference.
+A GTFS feed, which contains static transit information, is composed of a number of text (.txt) files that are contained in a single ZIP file. Each file describes a particular aspect of transit information: stops, routes, trips, fares, etc. For more information about each file, consult the GTFS reference. 
 
-See [GTFS Examples](/examples) for model feeds that illustrate GTFS usage. A transit agency can produce a GTFS feed to share their public transit information with developers, who write tools that consume GTFS feeds to incorporate public transit information into their applications. GTFS can be used in a variety of applications & processes (see [GTFS Applications](#gtfs-applications), below).
+In order to create a GTFS feed follow the steps below.
+
+1. Create all the required files described in the GTFS-Static reference. Create the optional files if their functionality is desired. 
+2. Save all files in the .txt format. Field values should be comma delimited and each line should end with a line break. See the GTFS reference for detailed information on the file contents.
+3. Zip all the text files together. The zipped file comprises a version of the feed.
+4. Publish your feed by using one of the options in the section below. 
 
 ## Making a Transit Feed Publicly Available
+<hr>
 
-Many [applications](#gtfs-applications) are compatible with data in the GTFS format. The simplest way to make a feed public is to host it on a web server. Developers and consuming applications can download GTFS data from the specified URL.
+Datasets should be published at a public, permanent URL, including the zip file name. (e.g., www.agency.org/gtfs/gtfs.zip). Ideally, the URL should be directly downloadable without requiring login to access the file, to facilitate download by consuming software applications. While it is recommended (and the most common practice) to make a GTFS dataset openly downloadable, if a data provider does need to control access to GTFS for licensing or other reasons, it is recommended to control access to the GTFS dataset using API keys, which will facilitate automatic downloads.
 
-The best method to quickly share a GTFS dataset with a large number of developers is to register the zip file URL via websites that serve as the primary global directories of publicly accessible GTFS data:
+The web-server hosting GTFS data should be configured to correctly report the file modification date (see HTTP/1.1 - Request for Comments 2616, under Section 14.29).
 
-* [TransitFeeds.com](https://transitfeeds.com/) ([submit data feed](https://github.com/TransitFeeds/TransitFeeds-Public/issues))
-* [Transitland feed registry](https://transit.land/feed-registry/) ([submit data feed](https://transit.land/feed-registry/feeds/new))
-* [TransitWiki.org](https://www.transitwiki.org/TransitWiki/index.php/Publicly-accessible_public_transportation_data) - “Publicly-accessible public transportation data”
+See “[Best Practices: Dataset Publishing](/best-practices/#dataset-publishing--general-practices)” for further recommendations.
 
-## GTFS Applications
+## Training
+<hr>
 
-A partial directory of the many applications that consume and utilize GTFS data is maintained at [TransitWiki](https://www.transitwiki.org/TransitWiki/index.php/Category:GTFS-consuming_applications).
+The World Bank Open Learning Campus (OLC) offers a self-based online course called “[Introduction to the General Transit Feed Specification (GTFS) and Informal Transit System Mapping](https://olc.worldbank.org/content/introduction-general-transit-feed-specification-gtfs-and-informal-transit-system-mapping)”. This course includes the following sections:
 
-Many types of applications consume GTFS data, including:
-
-* [Trip planning and maps](https://www.transitwiki.org/TransitWiki/index.php/Category:Trip-planning_%26_navigation_applications) – applications that assist a in planning journeys from one location to another using public transportation and other modes
-* [Timetable creation](https://www.transitwiki.org/TransitWiki/index.php/Category:Timetable_generation_software) – to create a printed list of the agency’s schedule in a timetable format
-* [Accessibility](https://www.transitwiki.org/TransitWiki/index.php/Category:Accessibility_devices_and_applications) – applications that assist transit riders with disabilities in using public transportation
-* [Planning & analysis](https://www.transitwiki.org/TransitWiki/index.php/Category:Network_planning_software) – applications that assist transit professionals in assessing the current or planned transit network, including ridership forecasting
-* [Real-time transit information](https://www.transitwiki.org/TransitWiki/index.php/Category:Real-time_applications) – applications that use GTFS data along with a real-time information source to provide estimated arrival information to transit riders
-* [Public Information Displays](https://www.transitwiki.org/TransitWiki/index.php/Category:Public_information_displays) - Electronic displays to show schedule information, service advisories, real-time arrivals and/or other information
-
-See also: [applications and services for creating and maintaining GTFS data](https://www.transitwiki.org/TransitWiki/index.php/General_Transit_Feed_Specification#Creating_and_Maintaining_a_GTFS_Dataset).
+- What is GTFS? History & File Structure
+- What is GTFS? Visualization & Community
+- Setting up a GTFS Feed
+- Introduction to GitHub & Open Source Tools
+- Stories from the Field
+- How to Map Transit Data
+- How to Collect Data for a City’s First Feed
+- App Survey
+- GTFS-Realtime
 
 ## Getting Help & Community
+<hr>
 
 ### Mailing Lists
 

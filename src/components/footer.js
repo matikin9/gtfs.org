@@ -10,7 +10,7 @@ const Footer = (props) => {
         <div className={styles.footerCredits}>
           <Link to="/about">About</Link>
           <Link to="/license">License</Link>
-          <a href="https://mobilitydata.org/">Mobility Data</a>
+          <a href="https://mobilitydata.org/">MobilityData</a>
         </div>
       </div>
     </div>

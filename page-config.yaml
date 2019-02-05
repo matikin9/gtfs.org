@@ -238,15 +238,14 @@ pages:
     url: /changes/
     template: basic-page
 
-<<<<<<< HEAD
   - title: Extensions
     url: /extensions/
     template: basic-page
 
   - title: Applications
     url: /applications/
-=======
+    template: basic-page
+
   - title: Realtime Changes
     url: /realtime/changes/
->>>>>>> ef2ff261d563a7836862912b50d0550387fee014
     template: basic-page

@@ -161,6 +161,8 @@ pages:
     sidemenu:
     - name: Introduction
       slug: introduction
+    - name: FAQ
+      slug: faq
     - name: Dataset Publishing & General Practices
       slug: publishing
     - name: Recommendations Organized by File
@@ -236,10 +238,15 @@ pages:
     url: /changes/
     template: basic-page
 
+<<<<<<< HEAD
   - title: Extensions
     url: /extensions/
     template: basic-page
 
   - title: Applications
     url: /applications/
+=======
+  - title: Realtime Changes
+    url: /realtime/changes/
+>>>>>>> ef2ff261d563a7836862912b50d0550387fee014
     template: basic-page

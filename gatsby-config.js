@@ -35,6 +35,13 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        path: `${__dirname}/src/pages/changes`,
+        name: "Changes"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         path: `${__dirname}/src/pages/reference/v2/gtfs/spec/en`,
         name: "Static Reference"
       }
@@ -106,14 +113,14 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages/reference/v2/gtfs/CHANGES.md`,
-        name: "Changes"
+        name: "Change Process"
       }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages/reference/v2/gtfs-realtime/CHANGES.md`,
-        name: "Realtime Changes"
+        name: "Realtime Change Process"
       }
     },
     'gatsby-transformer-sharp',

@@ -14,7 +14,9 @@ nav:
   - display: Best Practices
     link: /best-practices/
   - display: Extensions
-    link: /extensions/    
+    link: /extensions/  
+  - display: Changes
+    link: /changes/  
 
 pages:
   - title: Home
@@ -234,8 +236,8 @@ pages:
     url: /license/
     template: basic-page
 
-  - title: Changes
-    url: /changes/
+  - title: Change Process
+    url: /change-process/
     template: basic-page
 
   - title: Extensions
@@ -246,6 +248,10 @@ pages:
     url: /applications/
     template: basic-page
 
-  - title: Realtime Changes
-    url: /realtime/changes/
+  - title: Realtime Change Process
+    url: /realtime/change-process/
+    template: basic-page
+
+  - title: Changes
+    url: /changes/
     template: basic-page

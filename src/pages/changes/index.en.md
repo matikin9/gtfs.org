@@ -7,7 +7,7 @@ lang: en
 ## Changing GTFS
 <hr>
 
-GTFS is a community driven data format. Users can suggest and vote on changes to the GTFS specification. For detailed information see the [GTFS-realtime](/realtime/change-process/) and [GTFS-static](/change-process) change processes. 
+GTFS is a community driven data format. Users can suggest and vote on changes to the GTFS specification. For detailed information see the [GTFS-realtime](/realtime/change-process) and [GTFS-static](/change-process) change processes. 
 
 
 ## Proposed Extensions

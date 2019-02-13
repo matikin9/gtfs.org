@@ -10,7 +10,7 @@ Before publishing, GTFS feeds should be validated in order to catch errors. A nu
 ## For GTFS-Static
 <hr>
 
-* [FeedValidator](https://github.com/google/transitfeed/wiki/FeedValidator) - verifies that the feed conforms to the requirements defined in the GTFS-static reference.
+* [FeedValidator](https://github.com/google/transitfeed/wiki/FeedValidator) - Verifies that the feed conforms to the requirements defined in the GTFS-static reference.
 * [ScheduleViewer](https://github.com/google/transitfeed/wiki/ScheduleViewer) - Visualizes geospatial and stop time feed data. This is not representative of how feed data will look in other applications; it is a basic tool for testing. Examine routes and schedules to ensure that the data feed correctly represents the system.
 * [Conveyal GTFS validator](https://github.com/conveyal/gtfs-validator) - Based on the OneBusAway GTFS modules.
 * [GFTS Data Package Specification](https://github.com/Stephen-Gates/GTFS) - A [Data Package specification](https://frictionlessdata.io/specs/data-package/) that does validation using Good Tables. Includes a data package, schemas, tests, and uses South East Queensland GTFS data as an example.

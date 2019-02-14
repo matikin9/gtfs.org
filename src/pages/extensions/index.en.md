@@ -5,7 +5,7 @@ lang: en
 ---
 # Extensions
 
-GTFS extensions that add specialized functionality to the core specification. Extensions that are currently in development can be found on the [changes page](/changes)
+GTFS has extensions that add specialized functionality to the core specification. Extensions that are currently in development can be found on the [changes](/changes) page
 
 ### Unofficial Extensions 
 <hr>

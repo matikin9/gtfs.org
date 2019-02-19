@@ -1,6 +1,27 @@
-import i18n from "i18next";
+import i18next from "i18next";
+import { langs } from '../lib/i18n';
 import LngDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from "react-i18next";
+
+const defaultLanguage = langs[0];
+
+const customPathDetector = {
+  name: 'customPath',
+
+  lookup(options) {
+    let found;
+    if (typeof window !== 'undefined') {
+      const language = window.location.pathname.match(/\/([a-zA-Z-]{2})\//g);
+      if (language instanceof Array) {
+        found = language[0].replace(/\//g, '');
+      }
+    }
+    return found || defaultLanguage;
+  }
+};
+
+const lngDetector = new LngDetector();
+lngDetector.addDetector(customPathDetector);
 
 const resources = {
   en: {
@@ -13,14 +34,14 @@ const resources = {
   }
 };
 
-i18n
-  .use(LngDetector)
+i18next
+  .use(lngDetector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: defaultLanguage,
 
-    preload: ['en', 'es'],
+    preload: langs,
 
     keySeparator: false, // we do not use keys in form messages.welcome
 
@@ -29,15 +50,13 @@ i18n
     },
 
     detection: {
-      order: ['path']
+      order: ['customPath']
     },
 
     ns: [
       'translation',
       'menu'
-    ],
-
-    debug: true
+    ]
   });
 
-  export default i18n;
+  export default i18next;

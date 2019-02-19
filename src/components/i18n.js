@@ -1,13 +1,23 @@
 import i18n from "i18next";
-import Backend from 'i18next-xhr-backend';
 import LngDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from "react-i18next";
 
+const resources = {
+  en: {
+    translation: require("../../static/locales/en/translation.json"),
+    menu: require("../../static/locales/en/menu.json")
+  },
+  es: {
+    translation: require("../../static/locales/es/translation.json"),
+    menu: require("../../static/locales/es/menu.json")
+  }
+};
+
 i18n
-  .use(Backend) // load translation using xhr -> see /public/locales
   .use(LngDetector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
+    resources,
     fallbackLng: 'en',
 
     preload: ['en', 'es'],

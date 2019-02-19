@@ -103,8 +103,6 @@ export default class DocPage extends React.Component {
     const { lang } = frontmatter
     const { pathname } = location
 
-    console.log(allSideMenu)
-
     const pageContents = allSideMenu ? allSideMenu.edges[0].node.contents : [];
     const pageTitle = allSideMenu ? allSideMenu.edges[0].node.title : '';
     const showTitle = pathname.includes('/reference/realtime/');

@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /extensions/
+path: /extensions/
 lang: en
 ---
 # Extensions

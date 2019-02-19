@@ -4,14 +4,18 @@ import styles from './basic-page.module.css';
 import Layout from '../components/layout';
 import Footer from '../components/footer';
 
-const IndexPage = ({ data }) => {
-  return(
+export default function Template({
+  data, // this prop will be injected by the GraphQL query below.
+}) {
+  const { markdownRemark } = data // data.markdownRemark holds our post data
+  const { html } = markdownRemark
+  return (
     <Layout>
       <div className={`${styles.basicPageContainer} container`}>
         <div className="row">
           <div 
             className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1"
-            dangerouslySetInnerHTML={{ __html: data.allFile.edges[0].node.childMarkdownRemark.html }}
+            dangerouslySetInnerHTML={{ __html: html }}
           >
           </div>
         </div> 
@@ -21,28 +25,14 @@ const IndexPage = ({ data }) => {
   )
 }
 
-export default IndexPage
-
-export const homeQuery = graphql`
-    query($sourceInstanceName: String!) {
-      allFile(
-          filter: {
-            internal: {mediaType: {eq: "text/markdown"}},
-            sourceInstanceName: {eq: $sourceInstanceName},
-            # name: {eq: "home"},
-            # relativePath: {regex: "/en\//"}
-          }
-        ){
-          edges {
-            node {
-              name
-              relativePath
-              childMarkdownRemark {
-                html
-
-              }
-            }
-          }
-        }
+export const pageQuery = graphql`
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        path
+        title
+      }
     }
+  }
 `

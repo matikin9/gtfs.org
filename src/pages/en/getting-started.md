@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /getting-started/
+path: /getting-started/
 lang: en
 ---
 

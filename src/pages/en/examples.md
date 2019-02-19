@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /examples/
+path: /examples/
 lang: en
 ---
 # GTFS Examples

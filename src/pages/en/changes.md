@@ -1,13 +1,13 @@
 ---
 layout: default
-permalink: /changes/
+path: /changes/
 lang: en
 ---
 
 ## Changing GTFS
 <hr>
 
-GTFS is a community driven data format. Users can propse and vote on changes to the GTFS. For detailed information see the [GTFS-realtime](/realtime/change-process/) and [GTFS-static](/change-process) change processes. 
+GTFS is a community driven data format. Users can propse and vote on changes to the GTFS. For detailed information see the [GTFS-realtime](/reference/realtime/changes/) and [GTFS-static](/reference/static/changes) change processes. 
 
 
 ## Proposed Extensions

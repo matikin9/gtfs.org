@@ -26,25 +26,39 @@ function throttled(delay, fn) {
 export default class DocPage extends React.Component {
   constructor(props) {
     super(props);
-    this.data = props.data;
-    this.pageContents = this.data.allSideMenu.edges[0].node.contents;
-    this.pageName = this.data.allSideMenu.edges[0].node.sourceInstanceName;
-    this.nodeDictionary = {};
-    this.sortedHast = [];
+    this.pageContents = props.data.allSideMenu.edges[0].node.contents;
+    this.pageTitle = props.data.allSideMenu.edges[0].node.title;
     this.anchors = [];
     this.state = {
-      parsingComplete: false,
       pageYOffset: 0
     }
-    // this.trackScrollLocation = this.trackScrollLocation.bind(this);
+    this.trackScrollLocation = this.trackScrollLocation.bind(this);
     this.logOffset = this.logOffset.bind(this);
-    this.throttledLogOffset = throttled(500, this.logOffset)
+    this.throttledLogOffset = throttled(500, this.logOffset);
+    this.lang = props.data.markdownRemark.frontmatter.lang;
+
+    this.hast = props.data.markdownRemark.htmlAst.children.reduce((memo, hast) => {
+      if (hast.tagName === 'table') {
+        hast = this.formatTable(hast);
+      }
+      if (hast.children) {
+        hast.children.forEach(hast => {
+          if (hast.tagName === 'table') {
+            hast = this.formatTable(hast);
+          }
+        });
+      }
+
+      if (hast.type !== 'text') {
+        memo.push(hast);
+      }
+      
+      return memo;
+    }, []);
   }
 
   componentDidMount() {
     this.grabAnchors();
-    this.mapDataToDictionary();
-    // this.addAnchorAddress();
     this.trackScrollLocation();
   }
 
@@ -79,54 +93,9 @@ export default class DocPage extends React.Component {
     };
   }
 
-  mapDataToDictionary() {
-    this.data.allFile.edges.forEach(({node}) => {
-      if (node.internal.mediaType === "text/markdown") { //ignore photo nodes
-        const key = node.name;
-        const content = node.childMarkdownRemark.htmlAst;
-
-        // Add table classes and wrap in table-responsive div
-        content.children = content.children.map(hast => {
-          if (hast.tagName === 'table') {
-            hast = this.formatTable(hast);
-          }
-          if (hast.children) {
-            hast.children.forEach(hast => {
-              if (hast.tagName === 'table') {
-                hast = this.formatTable(hast);
-              }
-            });
-          }
-          return hast;
-        });
-
-        const pair = {};
-        pair[key] = content;
-        Object.assign(this.nodeDictionary, pair)
-      }
-    });
-    this.sortDictionary()
-  }
-
-  sortDictionary() {
-    this.pageContents.forEach((section) => {
-      if (section.slug !== undefined) {
-        let hast = this.nodeDictionary[section.slug]
-        if (hast !== undefined) {
-          this.sortedHast.push(hast);
-        }
-        if (section.children) {
-          section.children.forEach((child) => {
-            let childHast = this.nodeDictionary[child.slug];
-            if (childHast !== undefined) this.sortedHast.push(childHast);
-          });
-        }
-      }
-    });
-    this.setState({parsingComplete: true});
-  }
-
   renderVersionControl() {
+    console.log(this.lang)
+    const langPrefix = this.lang === 'en' ? '' : `/${this.lang}`;
     return (
       <div className="card mb-4 mt-3">
         <div className="card-body">
@@ -137,8 +106,8 @@ export default class DocPage extends React.Component {
               value={this.props.location.pathname}
               onChange={(event) => navigate(event.target.value)}
             >
-              <option value="/realtime/v2/">2.0 (Latest)</option>
-              <option value="/realtime/v1/">1.0</option>
+              <option value={`${langPrefix}/reference/realtime/v2/`}>2.0 (Latest)</option>
+              <option value={`${langPrefix}/reference/realtime/v1/`}>1.0</option>
             </select>
           </form>
         </div>
@@ -147,15 +116,15 @@ export default class DocPage extends React.Component {
   }
 
   render() {
-    const showName = this.pageName.startsWith('Realtime Reference');
-    const showVersionControl = this.pageName.startsWith('Realtime Reference');
+    const showTitle = this.props.location.pathname.includes('/reference/realtime/');
+    const showVersionControl = this.props.location.pathname.includes('/reference/realtime/');
     const pageYOffset = this.state.pageYOffset;
+
     return (
       <Layout>
         <div className={styles.container}>
           <div className={styles.navContainer}>
             <SideNav
-              pageName={this.pageName}
               content={this.pageContents}
               route={this.props.location.pathname}
               currentOffset={pageYOffset}
@@ -163,9 +132,12 @@ export default class DocPage extends React.Component {
             />
           </div>
           <div className={styles.docContainer}>
-            {showName && <h1>{'GTFS ' + this.pageName}</h1>}
+            {showTitle && <h1>{this.pageTitle}</h1>}
             {showVersionControl && this.renderVersionControl()}
-            {this.state.parsingComplete && this.sortedHast.map(node => renderAst(node))}
+            {renderAst({
+              children: this.hast,
+              type: 'root'
+            })}
           </div>
           <Footer className="footerDocPage" />
         </div>
@@ -174,15 +146,24 @@ export default class DocPage extends React.Component {
   }
 }
 
-export const query = graphql`
-  query($sourceInstanceName: String!) {
-
-    allSideMenu(filter: {sourceInstanceName: {eq: $sourceInstanceName}}) {
+export const pageQuery = graphql`
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      htmlAst
+      frontmatter {
+        path,
+        lang
+      }
+    }
+    
+    allSideMenu(filter: {sourceInstancePath: {eq: $path}}) {
       edges {
 
         node {
           id
-          sourceInstanceName
+          sourceInstancePath
+          title
           contents {
             name
             slug
@@ -200,20 +181,6 @@ export const query = graphql`
                 }
               }
             }
-          }
-        }
-      }
-    }
-
-    allFile(filter: {sourceInstanceName: {eq: $sourceInstanceName}}) {
-      edges {
-        node {
-          internal {
-            mediaType
-          }
-          name
-          childMarkdownRemark {
-            htmlAst
           }
         }
       }

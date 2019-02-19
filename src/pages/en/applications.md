@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /examples/
+path: /applications/
 lang: en
 ---
 # GTFS Applications

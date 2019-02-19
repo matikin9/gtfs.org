@@ -23,19 +23,6 @@ try {
   console.log(e);
 }
 
-//add slugs to all markdown file nodes
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === "MarkdownRemark" || node.internal.type === "Json") {
-    const slug = createFilePath({ node, getNode, basePath: 'pages' }); //`${node.frontmatter.lang}` + ...
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug
-    })
-  }
-}
-
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
   //create nav node
@@ -56,11 +43,10 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   createNode(navNode);
 
   //create a node containing the table of contents for each page from page-config
-
   let i = 2;
   pageConfig.pages.forEach((page) => {
     if (page.sidemenu !== undefined) {
-      addAnchorAddress(page.url, page.sidemenu)
+      addAnchorAddress(page.path, page.sidemenu)
       const nodeData = {
         key: i,
         contents: page.sidemenu
@@ -68,7 +54,8 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
       const nodeContent = JSON.stringify(nodeData)
       const nodeMeta = {
         id: createNodeId(`menu-contents-${nodeData.key}`),
-        sourceInstanceName: page.title,
+        sourceInstancePath: page.path,
+        title: page.title,
         parent: null,
         children: [],
         internal: {
@@ -84,24 +71,58 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   })
 }
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
-  const contentDictionary = {};
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage, createRedirect } = actions
+
+  const defaultTemplate = path.resolve('src/templates/basic-page.js')
+  const docTemplate = path.resolve('src/templates/doc-page.js')
 
   createRedirect({
-    fromPath: '/realtime', 
-    toPath: '/realtime/v2', 
+    fromPath: '/reference/realtime', 
+    toPath: '/reference/realtime/v2', 
     isPermanent: true
   });
 
-  pageConfig.pages.forEach((page) => {
-    createPage({
-      path: page.url,
-      component: path.resolve(`./src/templates/${page.template}.js`),
-      context: {
-        //things passed here avail as graphql variables in page queries
-        sourceInstanceName: page.title,
+  return graphql(`
+    {
+      allMarkdownRemark(
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+              template
+            }
+          }
+        }
       }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
+
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const { path, template } = node.frontmatter;
+
+      const context = {
+      };
+
+      const matchedPage = pageConfig.pages.find((page) => {
+        return page.path === path
+      });
+
+      if (matchedPage) {
+        addAnchorAddress(matchedPage.path, matchedPage.sidemenu)
+        context.sidemenu = matchedPage.sidemenu
+      }
+
+      createPage({
+        path,
+        component: template === 'doc-page' ? docTemplate : defaultTemplate,
+        context
+      })
     })
   })
 }

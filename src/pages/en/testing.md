@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /testing/
+path: /testing/
 lang: en
 ---
 # Feed Validators

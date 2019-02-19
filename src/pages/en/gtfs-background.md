@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /gtfs-background/
+path: /gtfs-background/
 lang: en
 ---
 # GTFS Background

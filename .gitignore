@@ -1,12 +1,6 @@
 _site
 .sass-cache
 .jekyll-metadata
-realtime
-gtfs-realtime
-_reference
-gtfs-reference
-_best-practices
-gtfs-best-practices
 
 # Project dependencies
 .cache
@@ -18,8 +12,8 @@ yarn-error.log
 .DS_Store
 
 .env*
-/src/content
-/src/pages/best-practices
-/src/pages/reference
+/repos
+/src/pages/*/best-practices
+/src/pages/*/reference
 
 .Rhistory

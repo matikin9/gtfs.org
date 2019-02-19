@@ -1,8 +1,10 @@
 require('dotenv').config();
+const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
-    title: 'General Transit Feed Specification'
+    title: 'General Transit Feed Specification',
+    languages
   },
   plugins: [
     {
@@ -14,115 +16,45 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages/home`,
-        name: "Home"
+        path: `${__dirname}/src/pages`,
+        name: "pages"
       }
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/best-practices/en`,
-        name: "Best Practices"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/extensions`,
-        name: "Extensions"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/changes`,
-        name: "Changes"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/reference/v2/gtfs/spec/en`,
-        name: "Static Reference"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/reference/v2/gtfs-realtime/spec/en`,
-        name: "Realtime Reference v2"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/reference/v1/gtfs-realtime/spec/en`,
-        name: "Realtime Reference v1"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/examples`,
-        name: "Examples"
-      }
-    },
-        {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/applications`,
-        name: "Applications"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/testing`,
-        name: "Testing"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/getting-started`,
-        name: "Getting Started"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/gtfs-background/index.en.md`,
-        name: "GTFS Background"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/about`,
-        name: "About"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/license`,
-        name: "License"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/reference/v2/gtfs/CHANGES.md`,
-        name: "Change Process"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/reference/v2/gtfs-realtime/CHANGES.md`,
-        name: "Realtime Change Process"
-      }
-    },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     path: `${__dirname}/src/pages/reference/v2/gtfs/spec/en`,
+    //     name: "Static Reference"
+    //   }
+    // },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     path: `${__dirname}/src/pages/reference/v2/gtfs-realtime/spec/en`,
+    //     name: "Realtime Reference v2"
+    //   }
+    // },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     path: `${__dirname}/src/pages/reference/v1/gtfs-realtime/spec/en`,
+    //     name: "Realtime Reference v1"
+    //   }
+    // },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     path: `${__dirname}/src/pages/reference/v2/gtfs/CHANGES.md`,
+    //     name: "Change Process"
+    //   }
+    // },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     path: `${__dirname}/src/pages/reference/v2/gtfs-realtime/CHANGES.md`,
+    //     name: "Realtime Change Process"
+    //   }
+    // },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -162,6 +94,6 @@ module.exports = {
     'gatsby-plugin-force-trailing-slashes',
     'gatsby-plugin-offline',
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-meta-redirect'
+    'gatsby-plugin-meta-redirect',
   ],
 }

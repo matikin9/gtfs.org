@@ -6,6 +6,7 @@ import styles from './doc-page.module.css';
 import SideNav from "../components/side-nav";
 import Footer from '../components/footer';
 import { useTranslation } from 'react-i18next';
+import { getPathForLanguage } from '../lib/i18n';
 
 const renderAst = new rehypeReact({
   createElement: React.createElement
@@ -13,7 +14,6 @@ const renderAst = new rehypeReact({
 
 function VersionSelect(props) {
   const { t, i18n } = useTranslation();
-  const langPrefix = props.lang === 'en' ? '' : `/${props.lang}`;
   return (
     <div className="card mb-4 mt-3">
       <div className="card-body">
@@ -24,8 +24,8 @@ function VersionSelect(props) {
             value={props.location.pathname}
             onChange={(event) => navigate(event.target.value)}
           >
-            <option value={`${langPrefix}/reference/realtime/v2/`}>2.0 ({t('latest')})</option>
-            <option value={`${langPrefix}/reference/realtime/v1/`}>1.0</option>
+            <option value={getPathForLanguage('/reference/realtime/v2/', i18n.language)}>2.0 ({t('latest')})</option>
+            <option value={getPathForLanguage('/reference/realtime/v1/', i18n.language)}>1.0</option>
           </select>
         </form>
       </div>
@@ -140,7 +140,7 @@ export default class DocPage extends React.Component {
           </div>
           <div className={styles.docContainer}>
             {showTitle && <h1>{pageTitle}</h1>}
-            {showVersionControl && <VersionSelect lang={lang} location={location} />}
+            {showVersionControl && <VersionSelect location={location} />}
             {renderAst({
               children: hast,
               type: 'root'

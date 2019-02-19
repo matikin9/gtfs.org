@@ -1,11 +1,12 @@
 require('dotenv').config();
+const { langs } = require('./src/lib/i18n')
 
 module.exports = {
   siteMetadata: {
     title: 'General Transit Feed Specification',
     languages: {
-      langs: ['en', 'es'],
-      defaultLangKey: 'en'
+      langs,
+      defaultLangKey: langs[0]
     }
   },
   plugins: [

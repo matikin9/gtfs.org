@@ -42,7 +42,7 @@ cp repos/transit/gtfs-realtime/spec/es/reference.md $PAGE
 echo -en "---\npath: /es/reference/realtime/v2/\nlang: es\ntemplate: doc-page\n---\n$(cat $PAGE)" > $PAGE
 
 # GTFS Realtime v1
-git -C repos/transit reset 33c329b0d07e72744de43319f839810a5df0b439 --hard
+git -C repos/transit checkout tags/v1.0
 mkdir -p src/pages/en/reference/realtime/v1
 PAGE=src/pages/en/reference/realtime/v1/index.md
 cp repos/transit/gtfs-realtime/spec/en/reference.md $PAGE

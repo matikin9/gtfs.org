@@ -1,5 +1,4 @@
 ---
-layout: default
 path: /examples/
 lang: en
 ---

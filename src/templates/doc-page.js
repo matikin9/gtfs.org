@@ -5,11 +5,33 @@ import rehypeReact from 'rehype-react';
 import styles from './doc-page.module.css';
 import SideNav from "../components/side-nav";
 import Footer from '../components/footer';
+import { useTranslation } from 'react-i18next';
 
 const renderAst = new rehypeReact({
   createElement: React.createElement
 }).Compiler
 
+function VersionSelect(props) {
+  const { t, i18n } = useTranslation();
+  const langPrefix = props.lang === 'en' ? '' : `/${props.lang}`;
+  return (
+    <div className="card mb-4 mt-3">
+      <div className="card-body">
+        <form className={styles.versionSelectForm}>
+          <label htmlFor="versionSelect">{t('version')}</label>
+          <select 
+            id="versionSelect"
+            value={props.location.pathname}
+            onChange={(event) => navigate(event.target.value)}
+          >
+            <option value={`${langPrefix}/reference/realtime/v2/`}>2.0 ({t('latest')})</option>
+            <option value={`${langPrefix}/reference/realtime/v1/`}>1.0</option>
+          </select>
+        </form>
+      </div>
+    </div>
+  );
+}
 
 function throttled(delay, fn) {
   let lastCall = 0;
@@ -26,8 +48,7 @@ function throttled(delay, fn) {
 export default class DocPage extends React.Component {
   constructor(props) {
     super(props);
-    this.pageContents = props.data.allSideMenu.edges[0].node.contents;
-    this.pageTitle = props.data.allSideMenu.edges[0].node.title;
+
     this.anchors = [];
     this.state = {
       pageYOffset: 0
@@ -35,26 +56,6 @@ export default class DocPage extends React.Component {
     this.trackScrollLocation = this.trackScrollLocation.bind(this);
     this.logOffset = this.logOffset.bind(this);
     this.throttledLogOffset = throttled(500, this.logOffset);
-    this.lang = props.data.markdownRemark.frontmatter.lang;
-
-    this.hast = props.data.markdownRemark.htmlAst.children.reduce((memo, hast) => {
-      if (hast.tagName === 'table') {
-        hast = this.formatTable(hast);
-      }
-      if (hast.children) {
-        hast.children.forEach(hast => {
-          if (hast.tagName === 'table') {
-            hast = this.formatTable(hast);
-          }
-        });
-      }
-
-      if (hast.type !== 'text') {
-        memo.push(hast);
-      }
-      
-      return memo;
-    }, []);
   }
 
   componentDidMount() {
@@ -93,49 +94,57 @@ export default class DocPage extends React.Component {
     };
   }
 
-  renderVersionControl() {
-    console.log(this.lang)
-    const langPrefix = this.lang === 'en' ? '' : `/${this.lang}`;
-    return (
-      <div className="card mb-4 mt-3">
-        <div className="card-body">
-          <form className={styles.versionSelectForm}>
-            <label htmlFor="versionSelect">Version</label>
-            <select 
-              id="versionSelect"
-              value={this.props.location.pathname}
-              onChange={(event) => navigate(event.target.value)}
-            >
-              <option value={`${langPrefix}/reference/realtime/v2/`}>2.0 (Latest)</option>
-              <option value={`${langPrefix}/reference/realtime/v1/`}>1.0</option>
-            </select>
-          </form>
-        </div>
-      </div>
-    )
-  }
-
   render() {
-    const showTitle = this.props.location.pathname.includes('/reference/realtime/');
-    const showVersionControl = this.props.location.pathname.includes('/reference/realtime/');
     const pageYOffset = this.state.pageYOffset;
 
+    const { data, location } = this.props
+    const { markdownRemark, allSideMenu } = data // data.markdownRemark holds our post data
+    const { frontmatter } = markdownRemark
+    const { lang } = frontmatter
+    const { pathname } = location
+
+    console.log(allSideMenu)
+
+    const pageContents = allSideMenu ? allSideMenu.edges[0].node.contents : [];
+    const pageTitle = allSideMenu ? allSideMenu.edges[0].node.title : '';
+    const showTitle = pathname.includes('/reference/realtime/');
+    const showVersionControl = pathname.includes('/reference/realtime/');
+
+    const hast = markdownRemark.htmlAst.children.reduce((memo, hast) => {
+      if (hast.tagName === 'table') {
+        hast = this.formatTable(hast);
+      }
+      if (hast.children) {
+        hast.children.forEach(hast => {
+          if (hast.tagName === 'table') {
+            hast = this.formatTable(hast);
+          }
+        });
+      }
+
+      if (hast.type !== 'text') {
+        memo.push(hast);
+      }
+      
+      return memo;
+    }, []);
+
     return (
-      <Layout>
+      <Layout lang={lang} location={location}>
         <div className={styles.container}>
           <div className={styles.navContainer}>
             <SideNav
-              content={this.pageContents}
-              route={this.props.location.pathname}
+              content={pageContents}
+              route={pathname}
               currentOffset={pageYOffset}
               pageAnchors={this.anchors}
             />
           </div>
           <div className={styles.docContainer}>
-            {showTitle && <h1>{this.pageTitle}</h1>}
-            {showVersionControl && this.renderVersionControl()}
+            {showTitle && <h1>{pageTitle}</h1>}
+            {showVersionControl && <VersionSelect lang={lang} location={location} />}
             {renderAst({
-              children: this.hast,
+              children: hast,
               type: 'root'
             })}
           </div>
@@ -166,11 +175,9 @@ export const pageQuery = graphql`
           title
           contents {
             name
-            slug
             anchor
             children {
               name
-              slug
               anchor
               children {
                 name

@@ -1,5 +1,4 @@
 ---
-layout: default
 path: /getting-started/
 lang: en
 ---

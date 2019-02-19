@@ -1,5 +1,4 @@
 const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
 const yaml = require('js-yaml');
 const fs = require('fs');
 

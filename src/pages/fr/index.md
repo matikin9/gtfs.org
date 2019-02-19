@@ -1,9 +1,9 @@
 ---
-path: /
-lang: en
+path: /fr/
+lang: fr
 ---
 
-## What is GTFS?
+## French What is GTFS?
 
 The General Transit Feed Specification (GTFS) is an open transit data standard that
 

@@ -1,5 +1,4 @@
 ---
-layout: default
 path: /about/
 lang: en
 ---

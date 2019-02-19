@@ -7,15 +7,7 @@ jobs:
       - run: sudo apt-get -y -qq install awscli
       - checkout
       - run: npm install
-      - run:
-          name: Fetch reference source repos v2
-          command: git clone https://github.com/google/transit src/pages/reference/v2
-      - run:
-          name: Fetch reference source repos v1
-          command: git clone https://github.com/google/transit src/pages/reference/v1 && git -C src/pages/reference/v1 reset 33c329b0d07e72744de43319f839810a5df0b439 --hard
-      - run:
-          name: Fetch best practices repo
-          command: git clone --single-branch -b docsv2 https://github.com/MobilityData/gtfs-best-practices src/pages/best-practices
+      - run: npm run fetchdata
       - run: npm run build
       - deploy:
           name: Deploy to s3

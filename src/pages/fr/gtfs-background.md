@@ -1,5 +1,4 @@
 ---
-layout: default
 path: /fr/gtfs-background/
 lang: fr
 ---

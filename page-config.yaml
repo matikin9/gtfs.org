@@ -23,7 +23,6 @@ pages:
     path: /reference/static/
     sidemenu:
     - name: Term Definitions
-      slug: reference
     - name: Field Types
     - name: Dataset Files
     - name: File Requirements
@@ -48,7 +47,6 @@ pages:
     sidemenu:
     - name: Feed Message
       anchor: /reference/realtime/v2/#message-feedmessage
-      slug: reference
       children:
       - name: Feed Header
         anchor: /reference/realtime/v2/#message-feedheader
@@ -101,7 +99,6 @@ pages:
     sidemenu:
     - name: Feed Message
       anchor: /es/reference/realtime/v2/#message-feedmessage
-      slug: reference
       children:
       - name: Feed Header
         anchor: /es/reference/realtime/v2/#message-feedheader
@@ -154,7 +151,6 @@ pages:
     sidemenu:
     - name: Feed Message
       anchor: /reference/realtime/v1/#message-feedmessage
-      slug: reference
       children:
       - name: Feed Header
         anchor: /reference/realtime/v1/#message-feedheader
@@ -207,7 +203,6 @@ pages:
     sidemenu:
     - name: Feed Message
       anchor: /es/reference/realtime/v1/#message-feedmessage
-      slug: reference
       children:
       - name: Feed Header
         anchor: /es/reference/realtime/v1/#message-feedheader
@@ -259,52 +254,58 @@ pages:
     path: /best-practices/
     sidemenu:
     - name: Introduction
-      slug: introduction
     - name: FAQ
-      slug: faq
     - name: Dataset Publishing & General Practices
-      slug: publishing
     - name: Recommendations Organized by File
-      slug: all-files
-      anchor: best-practices/#practice-recommendations-organized-by-file
       children :
         - name: All Files
-          file: about.md
         - name: agency.txt
-          slug: agency
         - name: stops.txt
-          slug: stops
         - name: routes.txt
-          slug: routes
         - name: trips.txt
-          slug: trips
         - name: stop_times.txt
-          slug: stop_times
         - name: calendar.txt
-          slug: calendar
         - name: calendar_dates.txt
-          slug: calendar_dates
         - name: fare_attributes.txt
-          slug: fare_attributes
         - name: fare_rules.txt
-          slug: fare_rules
         - name: shapes.txt
-          slug: shapes
         - name: feed_info.txt
-          slug: feed_info
         - name: frequencies.txt
-          slug: frequencies
         - name: transfers.txt
-          slug: transfers
     - name: Recommendations Organized by Case
-      slug: null
       anchor: best-practices/#practice-recommendations-organized-by-case
       children:
         - name: Loop Routes
-          slug: loop-routes
         - name: Lasso Routes
-          slug: lasso-routes
         - name: Branches
-          slug: branches
     - name: About This Document
-      slug: about
+
+  - title: Mejores Prácticas
+    path: /es/best-practices/
+    sidemenu:
+    - name: Introduction
+    - name: FAQ
+    - name: Dataset Publishing & General Practices
+    - name: Recommendations Organized by File
+      children :
+        - name: All Files
+        - name: agency.txt
+        - name: stops.txt
+        - name: routes.txt
+        - name: trips.txt
+        - name: stop_times.txt
+        - name: calendar.txt
+        - name: calendar_dates.txt
+        - name: fare_attributes.txt
+        - name: fare_rules.txt
+        - name: shapes.txt
+        - name: feed_info.txt
+        - name: frequencies.txt
+        - name: transfers.txt
+    - name: Recommendations Organized by Case
+      anchor: best-practices/#practice-recommendations-organized-by-case
+      children:
+        - name: Loop Routes
+        - name: Lasso Routes
+        - name: Branches
+    - name: About This Document

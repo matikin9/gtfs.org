@@ -1,10 +1,12 @@
 require('dotenv').config();
-const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
     title: 'General Transit Feed Specification',
-    languages
+    languages: {
+      langs: ['en', 'es'],
+      defaultLangKey: 'en'
+    }
   },
   plugins: [
     {
@@ -20,41 +22,6 @@ module.exports = {
         name: "pages"
       }
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/src/pages/reference/v2/gtfs/spec/en`,
-    //     name: "Static Reference"
-    //   }
-    // },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/src/pages/reference/v2/gtfs-realtime/spec/en`,
-    //     name: "Realtime Reference v2"
-    //   }
-    // },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/src/pages/reference/v1/gtfs-realtime/spec/en`,
-    //     name: "Realtime Reference v1"
-    //   }
-    // },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/src/pages/reference/v2/gtfs/CHANGES.md`,
-    //     name: "Change Process"
-    //   }
-    // },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/src/pages/reference/v2/gtfs-realtime/CHANGES.md`,
-    //     name: "Realtime Change Process"
-    //   }
-    // },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

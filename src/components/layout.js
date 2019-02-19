@@ -4,8 +4,9 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import './layout.css';
+import './i18n';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, lang, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -33,10 +34,14 @@ const Layout = ({ children }) => (
               gtag('config', 'UA-92157254-1');
             `}
           </script>
-          <html lang="en" />
+          <html lang={lang} />
         </Helmet>
         <div>
-          <Header siteTitle={data.site.siteMetadata.title} />
+          <Header
+            siteTitle={data.site.siteMetadata.title}
+            lang={lang}
+            location={location}
+          />
         </div>
         <div>
           {children}
@@ -48,6 +53,7 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  lang: PropTypes.string.isRequired
 }
 
 export default Layout

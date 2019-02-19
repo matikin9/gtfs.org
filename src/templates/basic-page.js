@@ -4,13 +4,14 @@ import styles from './basic-page.module.css';
 import Layout from '../components/layout';
 import Footer from '../components/footer';
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
+export default function Template({ data, location }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { html } = markdownRemark
+  const { html, frontmatter } = markdownRemark
+  const { lang } = frontmatter
+
+
   return (
-    <Layout>
+    <Layout lang={lang} location={location}>
       <div className={`${styles.basicPageContainer} container`}>
         <div className="row">
           <div 
@@ -32,6 +33,7 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
+        lang
       }
     }
   }

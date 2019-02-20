@@ -3,7 +3,7 @@ path: /es/
 lang: es
 ---
 
-## Espanol What is GTFS?
+## Spanish What is GTFS?
 
 The General Transit Feed Specification (GTFS) is an open transit data standard that
 

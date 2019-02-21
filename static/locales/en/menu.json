@@ -10,6 +10,25 @@
   "Changes": "Changes",
   "About": "About",
   "License": "License",
-  "MobilityData": "MobilityData"
+  "MobilityData": "MobilityData",
+  "Feed Message": "Feed Message",
+  "Feed Header": "Feed Header",
+  "Incrementality": "Incrementality",
+  "Feed Entity": "Feed Entity",
+  "Trip Update": "Trip Update",
+  "Trip Descriptor": "Trip Descriptor",
+  "Vehicle Descriptor": "Vehicle Descriptor",
+  "Stop Time Update": "Stop Time Update",
+  "Vehicle Position": "Vehicle Position",
+  "Position": "Position",
+  "Vehicle Stop Status": "Vehicle Stop Status",
+  "Congestion Level": "Congestion Level",
+  "Occupancy Status": "Occupancy Status",
+  "Alert": "Alert",
+  "Time Range": "Time Range",
+  "Entity Selector": "Entity Selector",
+  "Cause": "Cause",
+  "Effect": "Effect",
+  "Translated String": "Translated String"
 }
   

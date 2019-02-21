@@ -88,7 +88,6 @@ Any commit pushed to the `production` branch will automatically be deployed to h
 * The site is not currently optimized for mobile browsers
 
 ## Maintainability - Known Issues
-* A sidemenu can currently only nest three levels, the side-nav component could be refactored to use recursion to remove any depth restriction
 * Some of the content on the Best Practices page contains nested tables which are difficult to render from parsed markdown, the current solution is to use html tables within markdown tables, but these must not contain newline characters to remain valid markdown so they are difficult to read and update. This has been solved in the static and realtime reference pages by reformatting the content to not use nested tables.
 * Because of the differences in filestructure between the source repos, and formatting differences within the markdown files living in those repos, the configuration of this site is more brittle and labor-intensive than it needs to be. Standardizing that structure and formatting would allow for a better workflow and much more flexibility in the configuration of this site.
 

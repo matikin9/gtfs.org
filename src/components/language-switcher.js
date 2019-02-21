@@ -43,6 +43,8 @@ export default class LanguageSwitcher extends React.Component {
   }
 
   render() {
+    const { location } = this.props;
+    
     return (
       <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle outline className={styles.languageButton} caret>

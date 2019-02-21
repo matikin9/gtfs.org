@@ -6,9 +6,3 @@
 .main-nav-link {
   color: rgba(255, 255, 255, 0.7);
 }
-
-@media (min-width: 992px) {
-  .main-nav-link {
-    max-width: 120px;
-  }
-}

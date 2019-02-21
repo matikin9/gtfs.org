@@ -79,6 +79,7 @@ export default class Header extends React.Component {
             <Navbar light={true} expand="lg" className={`${styles.bgBlue} navbar-dark`}>
               <div className="container">
                 <LogoLink />
+                <LanguageSwitcher location={location} />
                 <NavbarToggler onClick={() => this.toggleNavbar()} className="mr-2" />
                 <Collapse isOpen={!this.state.collapsed} navbar>
                   <Nav className="mr-auto" navbar>
@@ -90,7 +91,6 @@ export default class Header extends React.Component {
                     ))}
                   </Nav>
                 </Collapse>
-                <LanguageSwitcher location={location} />
               </div>
             </Navbar>
           )

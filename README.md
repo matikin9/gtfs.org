@@ -71,6 +71,12 @@ All of the data consumed by the site is queried using GraphQL. GraphQL nodes are
 
 Data from the content source markdown files is parsed by the 'gatsby-transformer-remark' plugin into an html tree structure known as htmlAst, which is then rendered using the 'rehype-react' compiler.
 
+## Translations
+
+Translations for strings in the header, footer and documentation version selector are stored in JSON files in the `/static/locales/{lang}/` folders. These translations are broken into [namespaces](https://www.i18next.com/principles/namespaces) `translation` and `menu`. Additional namespaces can be supported by updating the `/src/components/i18n.js` file.
+
+Translations for page content are managed as markdown files in the `/src/pages/{lang}` folders.
+
 ## Building and hosting
 This site is built using [CircleCI](http://circleci.com) and hosted on Amazon S3 as a static site. Each time it is deployed, it pulls the latest documentation from [Google Transit](https://github.com/google/transit) and [GTFS Best Practices](https://github.com/MobilityData/gtfs-best-practices).
 
@@ -84,8 +90,6 @@ Any commit pushed to the `production` branch will automatically be deployed to h
 
 ## Planned features
 * Search functionality - index all of the site content and add a search bar to the header for quickly finding reference information
-* Localization - utilize a translation service to have all of the source markdown content translated, then incorporate a language selection component which will determine which language of the site will be served. A UI component already exists in the header component for this but is currently commented out
-* The site is not currently optimized for mobile browsers
 
 ## Maintainability - Known Issues
 * Some of the content on the Best Practices page contains nested tables which are difficult to render from parsed markdown, the current solution is to use html tables within markdown tables, but these must not contain newline characters to remain valid markdown so they are difficult to read and update. This has been solved in the static and realtime reference pages by reformatting the content to not use nested tables.

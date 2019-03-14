@@ -8,14 +8,12 @@ const NotFoundPage = (props) => {
   const { t, i18n } = useTranslation()
   const { location } = props
 
-  const changeLanguageToEnglish = () => {
-    const englishPath = getPathForLanguage(location.pathname, 'en')
-    
-    i18n.changeLanguage('en');
-    navigate(englishPath)
-  };
-
   const renderNotFoundText = () => {
+    const englishPath = getPathForLanguage(location.pathname, 'en');
+    const fullEnglishPath = `${location.origin}${englishPath}`;
+
+    console.log(englishPath)
+
     if (i18n.language === 'en') {
       return (
         <p className="card-text">This page does not exist.</p>
@@ -25,7 +23,10 @@ const NotFoundPage = (props) => {
         <div>
           <p className="card-text">{t('Not Found text')} {t(i18n.language)}.</p>
           <p className="card-text">
-            <button onClick={() => changeLanguageToEnglish()}>{t('View in English')}</button>
+            <a className="btn btn-primary" href={englishPath}>{t('View in English')}</a>
+          </p>
+          <p className="card-text">
+            <a className="btn btn-primary" href={`http://translate.google.com/translate?hl=&sl=en&tl=${i18n.language}&u=${encodeURIComponent(fullEnglishPath)}`}>{t('You can also use Google Translate')}</a>
           </p>
         </div>
       )

@@ -9,4 +9,4 @@ La Especificación de alimentación de tránsito general (GTFS) es una especific
 
 GTFS se divide en un [componente estático](/es/reference/static) que contiene información de horarios, tarifas y tránsito geográfico, y un [componente en tiempo real](/es/reference/realtime/v2) que contiene predicciones de llegada, posiciones de vehículos y avisos de servicio .
 
-[Más fondo de GTFS](/gtfs-background)
+[Más fondo de GTFS](/es/gtfs-background)

@@ -3,7 +3,7 @@ path: /
 lang: en
 ---
 
-## GTFS: Making Public Transit Data Universally Acessible
+## GTFS: Making Public Transit Data Universally Accessible
 
 The General Transit Feed Specification (GTFS) is a data specification that allows public transit agencies to publish their transit data in a format that can be consumed by a [wide variety of software applications](/applications). Today, the GTFS data format is used by thousands of public transport providers. 
 

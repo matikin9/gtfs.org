@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import { getPathForLanguage } from '../lib/i18n'
 import { navigate } from 'gatsby'
 import { useTranslation } from 'react-i18next';
+import Footer from '../components/footer';
 
 const NotFoundPage = (props) => {
   const { t, i18n } = useTranslation()
@@ -37,7 +38,7 @@ const NotFoundPage = (props) => {
     <Layout location={location} lang={i18n.language}>
       <div className="container">
         <div className="row">
-          <div className="col-md-6 offset-md-3 mt-5">
+          <div className="col-md-6 offset-md-3 mt-5 mb-5">
             <div className="card">
               <div className="card-body">
                 <h1 className="card-title">{t('Not Found')}</h1>
@@ -47,6 +48,7 @@ const NotFoundPage = (props) => {
           </div>
         </div>
       </div>
+      <Footer className="footer" />
     </Layout>
   )
 }

@@ -39,7 +39,7 @@ i18next
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    fallbackLng: defaultLanguage,
+    fallbackLng: false,
 
     preload: langs,
 

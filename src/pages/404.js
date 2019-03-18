@@ -13,8 +13,6 @@ const NotFoundPage = (props) => {
     const englishPath = getPathForLanguage(location.pathname, 'en');
     const fullEnglishPath = `${location.origin}${englishPath}`;
 
-    console.log(englishPath)
-
     if (i18n.language === 'en') {
       return (
         <p className="card-text">This page does not exist.</p>

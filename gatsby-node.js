@@ -18,8 +18,8 @@ const addAnchorAddress = function(basePath, pageContents) {
 
 try {
   var pageConfig = yaml.safeLoad(fs.readFileSync('./page-config.yaml', 'utf8'));
-} catch (e) {
-  console.log(e);
+} catch (error) {
+  console.log(error);
 }
 
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {

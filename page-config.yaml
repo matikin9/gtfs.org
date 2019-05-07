@@ -40,6 +40,8 @@ pages:
       - name: shapes.txt
       - name: frequencies.txt
       - name: transfers.txt
+      - name: pathways.txt
+      - name: levels.txt
       - name: feed_info.txt
 
   - title: GTFS Realtime Reference v2

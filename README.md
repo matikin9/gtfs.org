@@ -2,9 +2,9 @@
 Source code for the [General Transit Feed Specification Site](https://gtfs.org). This site was built using [GatsbyJS](https://github.com/gatsbyjs/gatsby), a static-site generator which uses React and GraphQL.
 
 ## Editing site content
-The content for this site is grouped into three primary categories: Core Reference, Realtime Reference and Best Practices. These categories are housed in separate repositories. To edit information in those documents, see the corresponding repository:
+The content for this site is grouped into three primary categories: Static Reference, Realtime Reference and Best Practices. These categories are housed in separate repositories. To edit information in those documents, see the corresponding repository:
 
-* [GTFS Core Reference](https://github.com/google/transit/tree/master/gtfs)
+* [GTFS Static Reference](https://github.com/google/transit/tree/master/gtfs)
 * [GTFS Realtime Reference](https://github.com/google/transit/tree/master/gtfs-realtime)
 * [GTFS Best Practices](https://github.com/MobilityData/gtfs-best-practices)
 
@@ -28,8 +28,6 @@ The pages to be built and their respective source files are specified in `page-c
 
 Site navigation is also defined in this file. There are two sections of the header which contain the links defined as 'nav' and 'docs-nav'. Updating 'nav' will add new links to this bar:
 ![Image of site nav](./readme-images/nav.png)
-Updating 'docs-nav' will add items to this menu: 
-![Image of docs nav](./readme-images/docs-nav.png)
 
 
 To add new pages, you must first create a new directory in `src/pages` containing the markdown files which will populate the page. Then register that directory to be queried into Gatsby's GraphQL data layer by appending an object of the following structure to the plugins array of `gatsby-config.js`:
@@ -78,7 +76,7 @@ Translations for strings in the header, footer and documentation version selecto
 Translations for page content are managed as markdown files in the `/src/pages/{lang}` folders.
 
 ## Building and hosting
-This site is built using [CircleCI](http://circleci.com) and hosted on Amazon S3 as a static site. Each time it is deployed, it pulls the latest documentation from [Google Transit](https://github.com/google/transit) and [GTFS Best Practices](https://github.com/MobilityData/gtfs-best-practices).
+This site is built using [CircleCI](http://circleci.com) and hosted on Amazon S3 as a static site. Each time it is deployed, it pulls the latest documentation from [Google Transit](https://github.com/google/transit) and [GTFS Best Practices](https://github.com/MobilityData/gtfs-best-practices). The site automatically re-deploys every hour. Deployment status can be checked at [CircleCI](https://circleci.com/gh/MobilityData/gtfs.org/tree/master). 
 
 ### Staging
 

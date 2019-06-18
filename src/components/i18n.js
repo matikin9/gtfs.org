@@ -56,7 +56,9 @@ i18next
     ns: [
       'translation',
       'menu'
-    ]
+    ],
+
+    preload: langs
   });
 
   export default i18next;

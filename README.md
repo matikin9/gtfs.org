@@ -78,6 +78,8 @@ Translations for page content are managed as markdown files in the `/src/pages/{
 ## Building and hosting
 This site is built using [CircleCI](http://circleci.com) and hosted on Amazon S3 as a static site. Each time it is deployed, it pulls the latest documentation from [Google Transit](https://github.com/google/transit) and [GTFS Best Practices](https://github.com/MobilityData/gtfs-best-practices). The site automatically re-deploys every hour. Deployment status can be checked at [CircleCI](https://circleci.com/gh/MobilityData/gtfs.org/tree/master). 
 
+Note that you may need to clear your cache in order to see recent changes reflected on gtfs.org. 
+
 ### Staging
 
 Any commit pushed to the `master` branch will automatically be deployed to https://staging.gtfs.org. 

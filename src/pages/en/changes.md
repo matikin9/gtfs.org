@@ -25,7 +25,7 @@ Many transit agencies provide “flexible” or “demand responsive” services
 ##### Branding 
 Consistent presentation of line, service, and operator branding attributes clearly differentiate components of a transit system, making the system easier to navigate. This extension would add support for a variety of branding attributes.
 
-##### [Service Changes](bit.ly/gtfs-service-changes-v3_1)
+##### [Service Changes](https://bit.ly/gtfs-service-changes-v3_1)
 GTFS currently has no way to represent service changes planned between one and seven days in advance. This extension allows these service changes to be reflected in GTFS.
 
 ##### [Pathways](https://bit.ly/gtfs-pathways)

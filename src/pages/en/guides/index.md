@@ -40,21 +40,21 @@ There are several locations where you can publish your feed on the web. Choose f
 # Examples
 <hr>
 
-## Fare examples
+## Fare Examples
 
 <hr>
 
 * [Example 1: All trips have the same fare unlimited transfers] (/fare-example1)
-* Example 2: All trips have the same fare, no transfers
-* Example 3: All trips have the same fare, transfers allowed
-* Example 4: Different pricing for local and express routes
-* Example 5: Buying a transfer increases a fare
-* Example 6: Fare depends on station pairs, how you get there doesn't matter
-* Example 7: Fare depends on zone
-* Example 8: Influence of transfers and transfer_duration
-* Example 9: Fares ad block transfers 
+* [Example 2: All trips have the same fare, no transfers] (/fare-example2)
+* [Example 3: All trips have the same fare, transfers allowed] (/fare-example3)
+* [Example 4: Different pricing for local and express routes] (/fare-example4)
+* [Example 5: Buying a transfer increases a fare] (/fare-example5)
+* [Example 6: Fare depends on station pairs, how you get there doesn't matter] (/fare-example6)
+* [Example 7: Fare depends on zone] (/fare-example7)
+* [Example 8: Influence of transfers and transfer_duration] (/fare-example8)
+* [Example 9: Fares ad block transfers] (/fare-example9)
 
-## Route examples 
+## Route Examples 
 <hr>
 
 The following sections contain example route models. The first correctly models the routes with trip variations.
@@ -63,7 +63,7 @@ The following sections contain example route models. The first correctly models 
 * Example 1 - Correct
 * Example 2 - Incorrect 
 
-## Modeling scenarios
+## Modelling scenarios
 <hr>
 
 The following sections contain detailed modeling scenarios.
@@ -202,7 +202,7 @@ If you write a GTFS validator tool that references these Best Practices, please 
 
 * Do you need help with the specification ? You can find places of discussion on Google groups:[missing links to be added ](), and [GTFS Slack]().
 
-* If you think that the community could benefit from your expertise on the specifications, please participate to this [discussions, links to be added] ().
+* If you think that the community could benefit from your expertise on the specifications, please participate to these [discussions, links to be added] ().
 
 <hr>
 

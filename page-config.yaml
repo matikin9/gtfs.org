@@ -311,8 +311,8 @@ pages:
       - name: Getting started
       - name: Examples
         children:
-          - name: Fare
-          - name: Routes
+          - name: Fare Examples
+          - name: Route Examples
           - name: Modelling scenarios
           - name: Joining and splitting trains
       - name: Frequently Asked Questions

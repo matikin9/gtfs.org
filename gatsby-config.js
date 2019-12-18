@@ -29,6 +29,27 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        path: `${__dirname}/src/pages/en/fare-example2/`,
+        name: "fare-example2"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/fare-example3/`,
+        name: "fare-example3"
+      }
+    }, {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/fare-example4/`,
+        name: "fare-example4"
+      }
+    },
+
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         path: `${__dirname}/src/pages/en/guides/`,
         name: "Guides"
       }

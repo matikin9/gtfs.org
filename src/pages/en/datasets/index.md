@@ -1,8 +1,8 @@
 ---
-path: /examples/
+path: /datasets/
 lang: en
 ---
-# GTFS Examples
+# GTFS Datasets
 
 The following links contain examples of GTFS feeds.
 

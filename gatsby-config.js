@@ -11,6 +11,29 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/validator/`,
+        name: "validator"
+      }
+    },
+
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/fare-example1/`,
+        name: "fare-example1"
+      }
+    },
+
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/guides/`,
+        name: "Guides"
+      }
+    },
+    {
       resolve: 'gatsby-transformer-json',
       options: {
         typeName: 'Json'

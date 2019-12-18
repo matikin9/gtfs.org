@@ -1,22 +1,15 @@
 nav:
   - display: Home
     link: /
-  - display: Static
+  - display: Documentation
     link: /reference/static
-  - display: Realtime
+  - display: Datasets
+    link: /datasets/
+  - display: Guides & Tools
+    link: /guides/
+  - display: About
     link: /reference/realtime/v2/
-  - display: Getting Started
-    link: /getting-started/
-  - display: Examples
-    link: /examples/
-  - display: Testing Feeds
-    link: /testing/
-  - display: Best Practices
-    link: /best-practices/
-  - display: Extensions
-    link: /extensions/  
-  - display: Changes
-    link: /changes/  
+
 
 pages:
   - title: Static Reference
@@ -311,3 +304,29 @@ pages:
         - name: Lasso Routes
         - name: Branches
     - name: About This Document
+
+  - title: Guides
+    path: /guides/
+    sidemenu:
+      - name: Getting started
+      - name: Examples
+        children:
+          - name: Fare
+          - name: Routes
+          - name: Modelling scenarios
+          - name: Joining and splitting trains
+      - name: Frequently Asked Questions
+        children:
+          - name: Recommendations
+      - name: Support
+      - name: Tools
+        children:
+          - name: Libraries & Tutorials
+          - name: Validators
+
+  - title: validator
+    path: /validator/
+    sidemenu:
+      - name: Feed Issues
+      - name: Validation Warnings
+      - name: Validation Errors

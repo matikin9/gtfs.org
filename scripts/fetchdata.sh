@@ -54,7 +54,7 @@ cp repos/transit/gtfs-realtime/spec/es/reference.md $PAGE
 echo -en "---\npath: /es/reference/realtime/v1/\nlang: es\ntemplate: doc-page\n---\n$(cat $PAGE)" > $PAGE
 
 # Best Practices
-git clone https://github.com/MobilityData/gtfs-best-practices.git -b docsv2 --single-branch repos/best-practices
+git clone https://github.com/MobilityData/gtfs-best-practices.git -b production --single-branch repos/best-practices
 BEST_PRACTICES_FILES=(introduction faq publishing all-files agency stops routes trips stop_times calendar calendar_dates fare_attributes fare_rules shapes feed_info frequencies transfers loop-routes lasso-routes branches about)
 
 mkdir -p src/pages/en/best-practices

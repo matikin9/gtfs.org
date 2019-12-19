@@ -84,11 +84,34 @@ module.exports = {
         path: `${__dirname}/src/pages/en/fare-example8/`,
         name: "fare-example8"
       }
-    }, {
+    },
+
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages/en/fare-example9/`,
         name: "fare-example9"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/routes-modelling-scenario1/`,
+        name: "routes-modelling-scenario1"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/routes-modelling-scenario2/`,
+        name: "routes-modelling-scenario2"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/routes-example/`,
+        name: "routes-example"
       }
     },
 

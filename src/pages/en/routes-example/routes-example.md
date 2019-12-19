@@ -1,10 +1,10 @@
 ---
-path: /routes-example4/
+path: /routes-example/
 lang: en
 ---
 
-
 # Correct example
+
 <hr> 
 
 File ```routes.txt```:
@@ -29,7 +29,8 @@ File ```trips.txt```:
 
 # Incorrect example
 
-File ```routes.txt```
+File ```routes.txt```:
+
 | route_id | route_short_name | route_long_name | route_type |
 |----------|------------------|-----------------|------------|
 | R10-in   | 10               | To Downtown     | 3          |

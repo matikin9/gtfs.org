@@ -59,23 +59,19 @@ The following sections describe sample fares:
 * [Example 8: Influence of transfers and transfer_duration] (/fare-example8)
 * [Example 9: Fares ad block transfers] (/fare-example9)
 
-## Route Examples 
-<hr>
+## Routes Examples 
 
 The following sections contain example route models. The first correctly models the routes with trip variations.
 
-
-* Example 1 - Correct
-* Example 2 - Incorrect 
+* [Examples] (/routes-example/)
 
 ## Modelling scenarios
-<hr>
 
 The following sections contain detailed modeling scenarios.
 
 
-* Example 1 - Correct
-* Example 2 - Incorrect 
+* [Scenario 1] (/routes-modelling-scenario1/)
+* [Scenario 2] (/routes-modelling-scenario2/)
 
 <hr>
 
@@ -88,63 +84,11 @@ lineup of vehicles. Use pickup and drop off restrictions to prevent routing resu
  duplicated trips for the shared part of the trip.
 
 
-### Joining trains
-
-<hr>
+* [Joining trains] (/joining-trains/)
 
 
-Set each section of a joined train to display the same destination on the trip_headsign.
- Specify that the departure board for stops C and D show only one trip direction.
+* [Splitting trains] (/splitting-trains/)
 
-__ Train section 1__
-
-| **trip_id** | **stop_id** | **pickup_type** | **drop_off_type** | **trip_headsign** |
-|---------------|---------------|-------------------|---------------------|---------------------|
-| **trip_1**    | A             | 0                 | 0                   | E                   |
-| **trip_1**    | B             | 0                 | 0                   | E                   |
-| **trip_1**    | C             | 0                 | 0                   | E                   |
-| **trip_1**    | D             | 0                 | 0                   | E                   |
-| **trip_1**    | E             | 0                 | 0                   | E                   |
-
-__ Train section 2__
-
-| **trip_id** | **stop_id** | **pickup_type** | **drop_off_type** | **trip_headsign** |
-|-------------|-------------|-----------------|-------------------|-------------------|
-| **trip_2**  | X           | 0               | 0                 | E                 |
-| **trip_2**  | Y           | 0               | 0                 | E                 |
-| **trip_2**  | C           | 1               | 0                 | E                 |
-| **trip_2**  | D           | 1               | 0                 | E                 |
-| **trip_2**  | E           | 1               | 0                 | E                 |
-
-
-### Splitting trains
-
-<hr>
-
-
-__ Train section 1__
-
-| **trip_id** | **stop_id** | **pickup_type** | **drop_off_type** | **trip_headsign** |
-|---------------|---------------|-------------------|---------------------|---------------------|
-| **trip_1**    | E             | 0                 | 0                   | A                   |
-| **trip_1**    | D             | 0                 | 0                   | A                   |
-| **trip_1**    | C             | 0                 | 0                   | A                   |
-| **trip_1**    | B             | 0                 | 0                   | A                   |
-| **trip_1**    | A             | 0                 | 0                   | A                   |
-
-__ Train section 2__
-
-| **trip_id** | **stop_id** | **pickup_type** | **drop_off_type** | **trip_headsign** |
-|---------------|---------------|-------------------|---------------------|---------------------|
-| **trip_1**    | E             | 0                 | 1                   | X                   |
-| **trip_1**    | D             | 0                 | 1                   | X                   |
-| **trip_1**    | C             | 0                 | 1                   | X                   |
-| **trip_1**    | Y             | 0                 | 0                   | X                   |
-| **trip_1**    | X             | 0                 | 0                   | X                   |
-
-Set each section of the split train to display a different destination trip_headsign.
- Specify that the departure boards for stops E, D, and C show two trips departing at the same 
- time (one in direction A and one in direction X).
 
 ### Alternative solutions
 Using three trips or two trips with one long and one short trip will not work properly because 

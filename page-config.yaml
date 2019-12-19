@@ -312,7 +312,7 @@ pages:
       - name: Examples
         children:
           - name: Fare Examples
-          - name: Route Examples
+          - name: Routes Examples
           - name: Modelling scenarios
           - name: Joining and splitting trains
       - name: Frequently Asked Questions

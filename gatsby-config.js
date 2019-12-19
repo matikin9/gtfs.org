@@ -10,6 +10,14 @@ module.exports = {
     }
   },
   plugins: [
+
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/publishing-general-recommendations/`,
+        name: "publishing-general-recommendations"
+      }
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -44,6 +52,43 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages/en/fare-example4/`,
         name: "fare-example4"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/fare-example5/`,
+        name: "fare-example5"
+      }
+    }, {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/fare-example6/`,
+        name: "fare-example6"
+      }
+    }, {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/fare-example6/`,
+        name: "fare-example6"
+      }
+    }, {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/fare-example7/`,
+        name: "fare-example7"
+      }
+    }, {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/fare-example8/`,
+        name: "fare-example8"
+      }
+    }, {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/fare-example9/`,
+        name: "fare-example9"
       }
     },
 

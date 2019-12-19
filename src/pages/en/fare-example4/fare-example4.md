@@ -24,6 +24,8 @@ File ```fare_attributes.txt```:
 | local_fare   | 1.75  | USD           | 0              |           |
 | express_fare | 5.00  | USD           | 0              |           |
 
+<br>
+
 File ```fare_rules.txt```:
 
 | fare_id      | route_id | 

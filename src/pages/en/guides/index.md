@@ -6,15 +6,15 @@ template: doc-page
 # Getting started
 <hr>
 
-## "How do I start ?"   
+## How do I start ?   
 
 <hr>
 
-A GTFS feed, which contains static transit information, is composed of a number of text (.txt) files that are contained in a single ZIP file. Each file describes a particular aspect of transit information: stops, routes, trips, fares, etc. For more information about each file, consult the GTFS reference. 
+A GTFS feed, which contains static transit information, is composed of a number of text (.txt) files that are contained in a single ZIP file. Each file describes a particular aspect of transit information: stops, routes, trips, fares, etc. For more information about each file, consult the [GTFS reference](/reference/static/). 
 
 In order to create a GTFS feed follow the steps below.
 
-1. Create all the required files described in the [GTFS-Static](/reference/) reference. Create the optional files if their functionality is desired. 
+1. Create all the required files described in the [GTFS-Static](/reference/static/) reference. Create the optional files if their functionality is desired. 
 1. Save all files in the .txt format. Field values should be comma delimited and each line should end with a line break. See the GTFS reference for detailed information on the file contents.
 1. Zip all the text files together. The zipped file comprises a version of the feed.
 1. Publish the feed by using one of the options described in the next section. 
@@ -25,15 +25,20 @@ In order to create a GTFS feed follow the steps below.
 
 <hr>
 
-To make your general transit feed specification (GTFS) feed publicly available, we recommend that you publish it on the web. GTFS file users periodically. Consuming software applications fetch your transit data from this web location to ensure that they have your most up-to-date feed information. You can also manually upload your feed data. 
+To make your general transit feed specification (GTFS) feed publicly available, we recommend that you publish it
+on the web. Consuming software applications periodically fetch your transit data from this web
+location to ensure that they have your most up-to-date feed information.
+You can also manually upload your feed data. 
 
 There are several locations where you can publish your feed on the web. Choose from these options: 
 
 - __Agency website (recommended)__: Publish your feed to your own website. To password protect the URL, use HTTP Basic & Digest authentication. NTLM (IIS/Win32) authentication isn’t supported.
 - __Agency FTP server__: Host your feed on your FTP server. You may password protect the URL using the standard FTP authentication mechanism.
-- __Rented hosting from an FTP provider__: Host your feed through rented FTP space. To find a provider, do a Google search for "FTP hosting service."
-- __Google Drive__: Publish your feed on Google Drive. Once you save the URL of your feed data ZIP file to the Transit partner dashboard, we email you to request access permission.
-- __Manual upload via Transit partner dashboard__: As a last resort, use the manual uploading option in the Transit partner dashboard. We don’t recommend this option, as it often leads to stale data for users.
+- __Rented hosting from an FTP provider__: Host your feed through rented FTP space. To find a provider, do a web search for "FTP hosting service."
+- __Google Drive__: Publish your feed on Google Drive. Once you save the URL of your feed data ZIP file to the Transit partner dashboard, you will be emailed to request access permission.
+- __Manual upload via Transit partner dashboard__: As a last resort, use the manual uploading option in the Transit partner dashboard. This option is not recommended since it often leads to stale data for users.
+
+##### General Recommendations for publishing your GFTS feed can be found [here] (/publishing-general-recommendations/) 
 
 <hr>
 
@@ -42,7 +47,7 @@ There are several locations where you can publish your feed on the web. Choose f
 
 ## Fare Examples
 
-<hr>
+The following sections describe sample fares:
 
 * [Example 1: All trips have the same fare unlimited transfers] (/fare-example1)
 * [Example 2: All trips have the same fare, no transfers] (/fare-example2)
@@ -114,6 +119,7 @@ __ Train section 2__
 
 ### Splitting trains
 
+<hr>
 
 
 __ Train section 1__
@@ -205,7 +211,6 @@ If you write a GTFS validator tool that references these Best Practices, please 
 * If you think that the community could benefit from your expertise on the specifications, please participate to these [discussions, links to be added] ().
 
 <hr>
-
 
 # Tools
 

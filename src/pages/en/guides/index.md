@@ -137,12 +137,12 @@ If you write a GTFS validator tool that references these Best Practices, please 
 
 <hr>
 
-1. ```TripDescriptor``` semantics
-1. Trip matching in special cases
-1. How to cancel a trip ?
-1. ```TripDescriptor``` and Alerts categorization
-1. ```TripDescriptor``` for ```TripUpdate``` and ```VehiclePosition```
-1. Vehicle position feeds minimum specification
+1. [```TripDescriptor``` semantics] (/recommendation1/)
+1. [Trip matching in special cases] (/recommendation2/)
+1. [How to cancel a trip ?] (/recommendation3/)
+1. [```TripDescriptor``` and Alerts categorization] (/recommendation4/)
+1. [```TripDescriptor``` for ```TripUpdate``` and ```VehiclePosition```] (/recommendation5/)
+1. [Vehicle position feeds minimum specification] (/recommendation6/)
 
 <hr>
 

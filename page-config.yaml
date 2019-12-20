@@ -331,13 +331,3 @@ pages:
       - name: Validation Warnings
       - name: Validation Errors
 
-  - title: documentation
-    path: /documentation/
-    sidemenu:
-      - name: Core GTFS
-        children:
-          - name: Best Practices
-          - name: Realtime
-      - name: GTFS Extensions
-      - name: Consolidated Specification
-      - name: Changing GTFS

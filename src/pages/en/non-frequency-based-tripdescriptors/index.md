@@ -31,8 +31,8 @@ trip_update {
       start_date: "20160203"
     }
 }
-
 ````
+
 Note: You must provide valid ```route_id```, ```direction_id```, and ```start_time```. Otherwise, the ```trip_update``` is discarded. 
-Also, if the IDs resolve to a non-unique trip or a trip not in service, the vehicle position or trip update is discarded.
- For this matching method to work, the GTFS static feed must include ```direction_id```.
+Also, if the IDs resolve to a non-unique trip or a trip not in service, the vehicle position or trip update is discarded. 
+For this matching method to work, the GTFS static feed must include ```direction_id```.

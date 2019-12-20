@@ -2,7 +2,7 @@ nav:
   - display: Home
     link: /
   - display: Documentation
-    link: /reference/static
+    link: /best-practices/
   - display: Datasets
     link: /datasets/
   - display: Guides & Tools

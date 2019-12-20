@@ -2,7 +2,7 @@ nav:
   - display: Home
     link: /
   - display: Documentation
-    link: /best-practices/
+    link: /documentation/
   - display: Datasets
     link: /datasets/
   - display: Guides & Tools
@@ -330,3 +330,14 @@ pages:
       - name: Feed Issues
       - name: Validation Warnings
       - name: Validation Errors
+
+  - title: documentation
+    path: /documentation/
+    sidemenu:
+      - name: Core GTFS
+        children:
+          - name: Best Practices
+          - name: Realtime
+      - name: GTFS Extensions
+      - name: Consolidated Specification
+      - name: Changing GTFS

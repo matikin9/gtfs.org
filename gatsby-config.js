@@ -17,7 +17,8 @@ module.exports = {
         path: `${__dirname}/src/pages/en/frequency-based-tripdescriptors/`,
         name: "frequency-based-tripdescriptors"
       }
-    }, {
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages/en/non-frequency-based-tripdescriptors/`,

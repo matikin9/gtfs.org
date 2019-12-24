@@ -161,11 +161,8 @@ If you write a GTFS validator tool that references these Best Practices, please 
 <hr>
 
 ## Libraries & Tutorials
-This [tutorial, tba](/tutorial) covers a variety of aspects in working with GTFS-realtime data,
-for both agencies and developers. 
+The following tutorial provided by [OneBusAway](https://onebusaway.org/) covers a variety of aspects in working with GTFS-realtime data, for both agencies and developers. 
  
-This content has been provided by [OneBusAway](https://onebusaway.org/).
-
 ## Validators
 
 
@@ -173,4 +170,4 @@ Before publishing, GTFS feeds should be validated in order to catch errors.
 A number of different validation tools exist. 
 Some tools check individual feeds while others are made to be integrated into software. 
 
-More details [here, link to validator documentation] (/validator)
+More details [here, link to validator documentation] (/validator/)

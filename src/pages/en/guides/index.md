@@ -163,6 +163,13 @@ If you write a GTFS validator tool that references these Best Practices, please 
 ## Libraries & Tutorials
 The following tutorial provided by [OneBusAway](https://onebusaway.org/) covers a variety of aspects in working with GTFS-realtime data, for both agencies and developers. 
  
+- Intro to GTFS-realtime and how to produce a GTFS-realtime alerts feed
+- How to produce GTFS-realtime feeds
+- [Minimum fields required for vehicle positions] (/tutorial-003/)
+- How to consume a GTFS-realtime feed, with a simple visualization of vehicle positions
+- GTFS-realtime's place in the API ecosystem and using GTFS-realtime to power OneBusAway
+- Other GTFS-realtime resources, including various adapters and plugins that work with the spec
+
 ## Validators
 
 

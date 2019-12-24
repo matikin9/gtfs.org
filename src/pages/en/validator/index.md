@@ -5,13 +5,7 @@ template: doc-page
 ---
 # Feed Issues
 
-Review your GTFS feed to identify and address errors and warnings. The following table shows issues that can arise in your data feed.
-
-| Issue Type          | Description                                                                                                                                                                                      | Example                                                                                                                                                                                                                                                                                                                                                            |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Fetch errors        | Issues that prevent Google from retrieving your feed, usually due to a data fetch setup issue. You must fix these errors before Google can create a preview feed or provide a validation report. | The FTP URL you submitted is inaccurate, causing a 404 when Google tries to fetch your feed.                                                                                                                                                                                                                                                                       |
-| Validation errors   | Critical, blocking issues that must be fixed in order for your feed to work.                                                                                                                     | Missing referenced valueThe service_id referenced in trips.txt is not defined in calendar.txt.                                                                                                                                                                                                                                                                     |
-| Validation warnings | Potential feed problems to review so you can be sure your feed accurately describes transit routes and schedules.                                                                                | __Example 1__ <br> A stop that your feed indicates is located in the middle of the ocean. <br> <br> Update your feed to properly locate the stop. <br><br>  __Example 2__  <br> A warning is returned because a route schedule appears too tight based on the distance between stops. <br><br> Check your information and confirm it is accurate; if it is, no further action is needed on your part. |
+Review your GTFS feed to identify and address errors and warnings. [This table] (/feed-issues-details/) shows issues that can arise in your data feed.
 
 # Validation Warnings
 
@@ -31,7 +25,8 @@ Review warnings to ensure that your feed data is accurate and correctly coded. W
 - [Transfers] (/warning-transfers/)
 - [Trips] (/warning-trips/) 
 
-# [Validation Errors] (/validation-errors/)
+# Validation Errors
 
 Validation errors are critical, blocking issues that prevent your feed to be correctly processed until you fix them.
 
+[Examples of validation errors are available here] (/validation-errors/)

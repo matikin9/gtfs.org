@@ -14,10 +14,17 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages/en/tutorial-003/`,
-        name: "tutorial-003"
+        path: `${__dirname}/src/pages/en/feed-issues/`,
+        name: "feed-issues"
       }
     }, {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/validation-errors/`,
+        name: "validation-errors"
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages/en/frequency-based-tripdescriptors/`,

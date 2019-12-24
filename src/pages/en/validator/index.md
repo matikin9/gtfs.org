@@ -5,7 +5,7 @@ template: doc-page
 ---
 # Feed Issues
 
-Review your GTFS feed to identify and address errors and warnings. The following table shows issues that can arise in your data feed.
+Review your GTFS feed to identify and address errors and warnings. [This table] (/feed-issues-details/) shows issues that can arise in your data feed.
 
 | Issue Type          | Description                                                                                                                                                                                      | Example                                                                                                                                                                                                                                                                                                                                                            |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -31,7 +31,9 @@ Review warnings to ensure that your feed data is accurate and correctly coded. W
 - [Transfers] (/warning-transfers/)
 - [Trips] (/warning-trips/) 
 
-# [Validation Errors] (/validation-errors/)
+# Validation Errors
 
 Validation errors are critical, blocking issues that prevent your feed to be correctly processed until you fix them.
+
+[Examples of validation errors are available here] (/validation-errors/)
 

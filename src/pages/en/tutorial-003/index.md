@@ -12,31 +12,34 @@ This article lists the minimum requirements for a working feed of vehicle positi
 
 ## How it works
 
-Before you create a GTFS-realtime feed, you need to have a working GTFS static feed. After you’ve created a working GTFS static feed, you can sign up to share your 
+Before you create a GTFS-realtime feed, you need to have a working GTFS static feed. After you’ve created a working GTFS static feed, you can share your 
 RT feed to show users your vehicle positions. 
 
-In order for vehicle positions to show accurate arrival and departure estimates, we require, at minimum, the list of fields shown below:
+The following list below represents the minimum fields that are required to to show accurate arrival and departure estimates:
+
 
 | Field name            | Required? | Description                                                                    |
 |-----------------------|-----------|--------------------------------------------------------------------------------|
-| entity                | Yes       | (maps_transit.FeedEntity)                                                      |
-| entity_id             | Yes       | Keep this stable until trip is updated                                         |
-| vehicle (position)    | Yes       | (maps_transit.VehiclePosition)                                                 |
-| trip                  | Yes       | (maps_transit.TripDescriptor)                                                  |
-| trip_id               | Yes       | Uniquely identifies a trip from the static                                     |
-| start_time            | Yes       | Required for frequency-based trips                                             |
-| start_date            | Yes       | Required for frequency-based trips                                             |
-| schedule_relationship | Yes       | SCHEDULED or other appropriate                                                 |
-| position              | Yes       | (maps_transit.Position)                                                        |
-| latitude              | Yes       | Degrees north in the WGS-84 coordinate system                                  |
-| longitude             | Yes       | Degrees east in the WGS-84 coordinate system                                   |
-| bearing               | Optional  | Might be used in the future                                                    |
-| speed                 | Optional  | Might be used in the future                                                    |
-| timestamp             | Yes       | Epoch timestamp of when the position of the vehicle was obtained in seconds    |
-| vehicle (descriptor)  | Yes       | (maps_transit.VehicleDescriptor)                                               |
-| id                    | Yes       | This must uniquely and stably identify a vehicle over the entire trip duration |
+| ```entity```                | Yes       | (maps_transit.FeedEntity)                                                      |
+| ```entity_id```             | Yes       | Keep this stable until trip is updated                                         |
+| ```vehicle``` (position)    | Yes       | (maps_transit.VehiclePosition)                                                 |
+| ```trip```                  | Yes       | (maps_transit.TripDescriptor)                                                  |
+| ```trip_id```               | Yes       | Uniquely identifies a trip from the static                                     |
+| ```start_time```            | Yes       | Required for frequency-based trips                                             |
+| ```start_date```            | Yes       | Required for frequency-based trips                                             |
+| ```schedule_relationship``` | Yes       | SCHEDULED or other appropriate                                                 |
+| ```position```              | Yes       | (maps_transit.Position)                                                        |
+| ```latitude```              | Yes       | Degrees north in the WGS-84 coordinate system                                  |
+| ```longitude```             | Yes       | Degrees east in the WGS-84 coordinate system                                   |
+| ```bearing```               | Optional  | Might be used in the future                                                    |
+| ```speed```                 | Optional  | Might be used in the future                                                    |
+| ```timestamp```             | Yes       | Epoch timestamp of when the position of the vehicle was obtained in seconds    |
+| ```vehicle``` (descriptor)  | Yes       | (maps_transit.VehicleDescriptor)                                               |
+| ```id```                    | Yes       | This must uniquely and stably identify a vehicle over the entire trip duration |
 
-Example code:
+<br>
+
+__Example code:__
 
 <hr>
 

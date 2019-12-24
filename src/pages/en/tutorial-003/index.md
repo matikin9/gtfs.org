@@ -7,6 +7,7 @@ lang: en
 <hr>
 
 Vehicle position provides Transit users with updates on the location of a vehicle, allowing users to plan their trips more efficiently. 
+
 This article lists the minimum requirements for a working feed of vehicle positions.
 
 ## How it works

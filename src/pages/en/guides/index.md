@@ -150,9 +150,13 @@ If you write a GTFS validator tool that references these Best Practices, please 
 
 <hr>
 
-* Do you need help with the specification ? You can find places of discussion on Google groups:[missing links to be added ](), and [GTFS Slack]().
+* Do you need help with the specification ? You can find places of discussion on Google groups:
 
-* If you think that the community could benefit from your expertise on the specifications, please participate to these [discussions, links to be added] ().
+    * [Google Group discussion on realtime GTFS feeds](https://groups.google.com/forum/#!forum/gtfs-realtime)
+    * [Slack channel for realtime GTFS feeds](https://mobilitydata-io.slack.com/archives/C3D321CKB).
+    * [Slack channel for GTFS best practices](https://mobilitydata-io.slack.com/archives/C3NH9A9TQ).
+ 
+* If you think that the community could benefit from your expertise on the specifications, you are more than welcome to participate to these [discussions](https://github.com/google/transit/issues/).
 
 <hr>
 

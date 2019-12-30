@@ -14,11 +14,22 @@ Historically, TriMet worked with Google to format their transit data into an eas
 
 Several organisations are involved in the development and improvement of GTFS:
 
-- [MobilityData](https://mobilitydata.org/)   
+- [Cambridge Systematics](https://www.camsys.com/)
+- [Capital Metro](https://www.capmetro.org/)
+- [Center for Urban Transportation Research at University of South Florida](https://www.cutr.usf.edu/)
+- [Conveyal](https://www.conveyal.com/)
+- [Google](https://www.google.com/)
+- [IBI Group](https://www.ibigroup.com/)
+- [Mapzen](https://www.mapzen.com/)
+- [Microsoft](https://www.microsoft.com/fr-ca/)
+- [Moovel](https://www.moovel.com/en)
+- [Oregon Department of Transportation](https://www.oregon.gov/odot/pages/index.aspx)
+- [Swiftly](https://www.goswift.ly/)
+- [Transit](https://transitapp.com/)
+- [Trillium](https://trilliumtransit.com/)
 - [TriMet](https://trimet.org/)
-- [Trillium Transit](https://trilliumtransit.com/gtfs/gtfs-manager/)
-- [Google Transit](https://support.google.com/transitpartners/answer/1111471?hl=en&ref_topic=3521043)
-- [Conveyal](https://www.conveyal.com/transit-data-tools)
+- [World Bank](https://www.worldbank.org/)
+- [The Rocky Mountain Institute Mobility Transformation](https://rmi.org/our-work/mobility-transformation/mobility-data/)
 
 ### Our Goal 
 

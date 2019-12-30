@@ -12,6 +12,13 @@ Historically, TriMet worked with Google to format their transit data into an eas
 
 ### Involved organisations
 
+Several organisations are involved in the development and improvement of GTFS:
+
+- [MobilityData](https://mobilitydata.org/)   
+- [TriMet](https://trimet.org/)
+- [Trillium Transit](https://trilliumtransit.com/gtfs/gtfs-manager/)
+- [Google Transit](https://support.google.com/transitpartners/answer/1111471?hl=en&ref_topic=3521043)
+- [Conveyal](https://www.conveyal.com/transit-data-tools)
 
 ### Our Goal 
 

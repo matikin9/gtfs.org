@@ -42,10 +42,108 @@ There are several locations where you can publish your feed on the web. Choose f
 
 <hr>
 
+
 # Examples
+
+<details><summary>Fare examples</summary>
+<p id="fare-examples">
+
+<details><summary>Example 1: All trips have the same fare unlimited transfers</summary>
+
+<p id="fare-example1">
+
+Suppose Demo Transit Agency has the following fare structure:
+
+* Riders pay $1.00 on boarding (```price```='1.00', ```currency```='USD', ```payment_method```='0')
+* Ticket is good for all vehicles and doesn't expire (```transfers```='')
+* Passengers can ride as long as they like because ```transfer_duration``` is omitted
+
+Since all trips have the same fare, Demo Transit can omit ```fare_rules.txt```
+
+File ```fare_attributes.txt```:
+
+| fare_id   | price | currency_type | payment_method | transfers |
+|-----------|-------|---------------|----------------|-----------|
+| only_fare | 1.00  | USD           | 0              |           |
+
 <hr>
 
-## Fare Examples
+## Calculating an adult fare
+
+
+The trip planner calculates a fare of $1 for each leg of the itinerary that 
+includes a change of vehicle. However, unlimited transfers are permitted, so 
+the trip planner only displays the lowest charge, that is, the adult fare of $1.
+
+</p>
+
+<p id="example2">
+# Example 2: All trips have the same fare, no transfers
+
+<hr> 
+
+Suppose Demo Transit Agency has the following fare structure:
+
+* Riders pay $1.00 on boarding (```price```='1.00', ```currency```='USD', ```payment_method```='0')
+* Passengers can ride as long as they like because ```transfer_duration``` is omitted
+* Any change in vehicles requires a new fare. (```transfers```='0')
+
+Since all trips have the same fare, Demo Transit can omit ```fare_rules.txt```
+
+File ```fare_attributes.txt```:
+
+| fare_id   | price | currency_type | payment_method | transfers |
+|-----------|-------|---------------|----------------|-----------|
+| only_fare | 1.00  | USD           | 0              |           |
+
+<hr>
+
+## Calculating an adult fare
+
+The trip planner calculates a fare of $1 for each leg of the itinerary that 
+includes a change of vehicle. So an itinerary that requires a change of buses
+would be $2.</p>
+
+<p>
+Contenu 3
+
+</p>
+
+<p>
+
+Contenu 4
+
+</p>
+<p>
+
+Contenu 4
+
+</p>
+<p>
+
+Contenu 4
+
+</p>
+<p>
+
+Contenu 4
+
+</p>
+<p>
+
+Contenu 4
+
+</p>
+<p>
+
+Contenu 4
+
+</p>
+
+
+
+<summary>Routes examples</summary>
+</details>
 
 The following sections describe sample fares:
 

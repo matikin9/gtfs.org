@@ -15,21 +15,21 @@ const renderAst = new rehypeReact({
 function VersionSelect(props) {
   const { t, i18n } = useTranslation();
   return (
-    <div className="card mb-4 mt-3">
-      <div className="card-body">
-        <form className={styles.versionSelectForm}>
-          <label htmlFor="versionSelect">{t('version')}</label>
-          <select 
-            id="versionSelect"
-            value={props.location.pathname}
-            onChange={(event) => navigate(event.target.value)}
-          >
-            <option value={getPathForLanguage('/reference/realtime/v2/', i18n.language)}>2.0 ({t('latest')})</option>
-            <option value={getPathForLanguage('/reference/realtime/v1/', i18n.language)}>1.0</option>
-          </select>
-        </form>
+      <div className="card mb-4 mt-3">
+        <div className="card-body">
+          <form className={styles.versionSelectForm}>
+            <label htmlFor="versionSelect">{t('version')}</label>
+            <select
+                id="versionSelect"
+                value={props.location.pathname}
+                onChange={(event) => navigate(event.target.value)}
+            >
+              <option value={getPathForLanguage('/reference/realtime/v2/', i18n.language)}>2.0 ({t('latest')})</option>
+              <option value={getPathForLanguage('/reference/realtime/v1/', i18n.language)}>1.0</option>
+            </select>
+          </form>
+        </div>
       </div>
-    </div>
   );
 }
 
@@ -123,32 +123,32 @@ export default class DocPage extends React.Component {
       if (hast.type !== 'text') {
         memo.push(hast);
       }
-      
+
       return memo;
     }, []);
 
     return (
-      <Layout lang={lang} location={location}>
-        <div className={styles.container}>
-          <div className={styles.navContainer}>
-            <SideNav
-              content={pageContents}
-              route={pathname}
-              currentOffset={pageYOffset}
-              pageAnchors={this.anchors}
-            />
+        <Layout lang={lang} location={location}>
+          <div className={styles.container}>
+            <div className={styles.navContainer}>
+              <SideNav
+                  content={pageContents}
+                  route={pathname}
+                  currentOffset={pageYOffset}
+                  pageAnchors={this.anchors}
+              />
+            </div>
+            <div className={styles.docContainer}>
+              {showTitle && <h1>{pageTitle}</h1>}
+              {showVersionControl && <VersionSelect location={location}/>}
+              {renderAst({
+                children: hast,
+                type: 'root'
+              })}
+            </div>
+            <Footer className="footerDocPage"/>
           </div>
-          <div className={styles.docContainer}>
-            {showTitle && <h1>{pageTitle}</h1>}
-            {showVersionControl && <VersionSelect location={location} />}
-            {renderAst({
-              children: hast,
-              type: 'root'
-            })}
-          </div>
-          <Footer className="footerDocPage" />
-        </div>
-      </Layout>
+        </Layout>
     );
   }
 }

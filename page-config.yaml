@@ -333,8 +333,9 @@ pages:
   - title: documentation
     path: /documentation/
     sidemenu:
-      - name: Feed Issues
-      - name: Validation Warnings
-      - name: Validation Errors
+      - name: GTFS-Static
+      - name: GTFS-RT
+      - name: Extensions
+      - name: Changing GTFS
 
 

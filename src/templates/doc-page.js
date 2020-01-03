@@ -12,6 +12,7 @@ const renderAst = new rehypeReact({
   createElement: React.createElement
 }).Compiler
 
+
 function VersionSelect(props) {
   const { t, i18n } = useTranslation();
   return (
@@ -32,6 +33,7 @@ function VersionSelect(props) {
       </div>
   );
 }
+
 
 function throttled(delay, fn) {
   let lastCall = 0;

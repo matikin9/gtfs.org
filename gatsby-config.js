@@ -17,7 +17,15 @@ module.exports = {
         path: `${__dirname}/src/pages/en/feed-issues/`,
         name: "feed-issues"
       }
-    }, {
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/documentation/`,
+        name: "documentation"
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages/en/validation-errors/`,

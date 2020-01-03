@@ -330,4 +330,11 @@ pages:
       - name: Validation Warnings
       - name: Validation Errors
 
+  - title: documentation
+    path: /documentation/
+    sidemenu:
+      - name: Feed Issues
+      - name: Validation Warnings
+      - name: Validation Errors
+
 

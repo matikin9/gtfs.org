@@ -6,9 +6,8 @@ template: doc-page
 # Getting started
 <hr>
 
-## How do I start ?   
-
-<hr>
+<details>
+<summary>How do I start ?</summary>
 
 A GTFS feed, which contains static transit information, is composed of a number of text (.txt) files that are contained in a single ZIP file. Each file describes a particular aspect of transit information: stops, routes, trips, fares, etc. For more information about each file, consult the [GTFS reference](/reference/static/). 
 
@@ -19,11 +18,10 @@ In order to create a GTFS feed follow the steps below.
 1. Zip all the text files together. The zipped file comprises a version of the feed.
 1. Publish the feed by using one of the options described in the next section. 
 
-<hr>
+</details>
 
-## Publish your GTFS feed data
-
-<hr>
+<details>
+<summary>Publish your GTFS feed data</summary>
 
 To make your general transit feed specification (GTFS) feed publicly available, we recommend that you publish it
 on the web. Consuming software applications periodically fetch your transit data from this web
@@ -32,18 +30,60 @@ You can also manually upload your feed data.
 
 There are several locations where you can publish your feed on the web. Choose from these options: 
 
-- __Agency website (recommended)__: Publish your feed to your own website. To password protect the URL, use HTTP Basic & Digest authentication. NTLM (IIS/Win32) authentication isn’t supported.
-- __Agency FTP server__: Host your feed on your FTP server. You may password protect the URL using the standard FTP authentication mechanism.
-- __Rented hosting from an FTP provider__: Host your feed through rented FTP space. To find a provider, do a web search for "FTP hosting service."
-- __Google Drive__: Publish your feed on Google Drive. Once you save the URL of your feed data ZIP file to the Transit partner dashboard, you will be emailed to request access permission.
-- __Manual upload via Transit partner dashboard__: As a last resort, use the manual uploading option in the Transit partner dashboard. This option is not recommended since it often leads to stale data for users.
+<details>
+<summary>Agency website (recommended)</summary>
+Publish your feed to your own website. To password protect the URL, use HTTP Basic & Digest authentication. NTLM (IIS/Win32) authentication isn’t supported.
+</details>
 
-##### General Recommendations for publishing your GFTS feed can be found [here] (/publishing-general-recommendations/) 
+<details>
+<summary>Agency FTP server</summary>
+Host your feed on your FTP server. You may password protect the URL using the standard FTP authentication mechanism.
+</details>
+
+<details>
+<summary>Rented hosting from an FTP provider</summary>
+Host your feed through rented FTP space. To find a provider, do a web search for "FTP hosting service."
+</details>
+
+<details>
+<summary>Google Drive</summary>
+Publish your feed on Google Drive. Once you save the URL of your feed data ZIP file to the Transit partner dashboard, you will be emailed to request access permission.</details>
+
+<details>
+<summary>Manual upload via Transit partner dashboard</summary>
+As a last resort, use the manual uploading option in the Transit partner dashboard. This option is not recommended since it often leads to stale data for users.</details>
+
+
+Datasets should be published at a public, permanent URL, including the zip file name. (e.g., www.agency.org/gtfs/gtfs.zip). Ideally, the URL should be directly downloadable without requiring login to access the file, to facilitate download by consuming software applications. While it is recommended (and the most common practice) to make a GTFS dataset openly downloadable, if a data provider does need to control access to GTFS for licensing or other reasons, it is recommended to control access to the GTFS dataset using API keys, which will facilitate automatic downloads.
+
+<hr>
+ 
+GTFS data is published in iterations so that a single file at a stable location always contains the latest official description of service for a transit agency (or agencies). 
 
 <hr>
 
+One GTFS dataset should contain current and upcoming service (sometimes called a “merged” dataset). Google transitfeed tool's [merge function](https://github.com/google/transitfeed/wiki/Merge) can be used to create a merged dataset from two different GTFS feeds. <ul><li>At any time, the published GTFS dataset should be valid for at least the next 7 days, and ideally for as long as the operator is confident that the schedule will continue to be operated.</li><li>If possible, the GTFS dataset should cover at least the next 30 days of service.</li></ul> 
+
+<hr>
+
+Remove old services (expired calendars) from the feed. 
+
+<hr>
+
+If a service modification will go into effect in 7 days or fewer, express this service change through a [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) feed (service advisories or trip updates) rather than static GTFS dataset. 
+
+<hr>
+
+The web-server hosting GTFS data should be configured to correctly report the file modification date (see [HTTP/1.1 - Request for Comments 2616](https://tools.ietf.org/html/rfc2616#section-14.29), under Section 14.29). 
+
+ 
+</details>
+
+<br>
 
 # Examples
+
+<hr>
 
 <details id="fare">
     <summary>Fare examples</summary>
@@ -590,8 +630,9 @@ Using three trips or two trips with one long and one short trip will not work pr
 
 <hr>
 
-## Why are these GTFS Best Practices important?
-
+<details>
+ <summary>Why are these GTFS Best Practices important?</summary>
+<p>
 The objectives of GTFS Best Practices are:
 
 * To improve end-user customer experience in public transportation apps
@@ -600,31 +641,40 @@ The objectives of GTFS Best Practices are:
 
 Without coordinated GTFS Best Practices, various GTFS-consuming applications may establish requirements and expectations in an uncoordinated way, which leads to diverging requirements and application-specific datasets and less interoperability. Prior to the release of the Best Practices, there was greater ambiguity and disagreement in what constitutes correctly-formed GTFS data.
 
-## How were they developed? Who developed them?
+</details>
 
+<details>
+ <summary>How were they developed? Who developed them?</summary>
+<p>
 These Best Practices were developed by a working group of 17 organizations involved in GTFS, including app providers & data consumers, transit providers, and consultants with extensive involvement in GTFS. The working group was convened and facilitated by [Rocky Mountain Institute](http://www.rmi.org/mobility).
 
 Working Group members voted on each Best Practice. Most Best Practices were approved by a unanimous vote. In a minority of cases, Best Practices were approved a large majority of organizations.
 
-## Why not just change the GTFS reference?
+</details>
 
+<details>
+ <summary>Why not just change the GTFS reference?</summary>
+<p>
 Good question! The process of examining the Specification, data usage and needs did indeed trigger some changes to the Specification (see [closed pull requests in GitHub](https://github.com/google/transit/pulls?q=is%3Apr+is%3Aclosed)). Specification reference amendments are subject to a higher bar of scrutiny and comment than the Best Practices. However, there was still need to agree on a clear set of Best Practice recommendations.
 
 The working group anticipates that some GTFS Best Practices will eventually become part of the core GTFS reference.
 
-## Do GTFS validator tools check for conformance with these Best Practices?
+</details>
 
+<details>
+ <summary>Do GTFS validator tools check for conformance with these Best Practices?</summary>
+<p>
 No validator tool currently checks for conformance with all Best Practices. 
 
 Various validator tools check for conformance with some of these best practices. For a list of GTFS validator tools, see [Testing Feeds](http://gtfs.org/testing/). 
 
 If you write a GTFS validator tool that references these Best Practices, please email [hello@mobilitydata.org](mailto:hello@mobilitydata.org).
 
-<hr>
+</details>
+
+<br>
 
 ## Recommendations
-
-<hr>
 
 1. [```TripDescriptor``` semantics] (/recommendation1/)
 1. [Trip matching in special cases] (/recommendation2/)
@@ -653,9 +703,11 @@ If you write a GTFS validator tool that references these Best Practices, please 
 
 <hr>
 
-## Libraries & Tutorials
-The following tutorial provided by [OneBusAway](https://onebusaway.org/) covers a variety of aspects in working with GTFS-realtime data, for both agencies and developers. 
- 
+<details>
+<summary>Libraries & Tutorials</summary>
+
+The following tutorials provided by [OneBusAway](https://onebusaway.org/) cover a variety of aspects in working with GTFS-realtime data, for both agencies and developers. 
+
 - Intro to GTFS-realtime and how to produce a GTFS-realtime alerts feed
 - How to produce GTFS-realtime feeds
 - [Minimum fields required for vehicle positions] (/tutorial-003/)
@@ -663,11 +715,19 @@ The following tutorial provided by [OneBusAway](https://onebusaway.org/) covers 
 - GTFS-realtime's place in the API ecosystem and using GTFS-realtime to power OneBusAway
 - Other GTFS-realtime resources, including various adapters and plugins that work with the spec
 
-## Validators
+</details>
 
-
+<details>
+<summary>Validators</summary>
+<p>
 Before publishing, GTFS feeds should be validated in order to catch errors. 
 A number of different validation tools exist. 
 Some tools check individual feeds while others are made to be integrated into software. 
 
 More details [here, link to validator documentation] (/validator/)
+</details>
+ 
+
+## 
+
+

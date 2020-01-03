@@ -45,13 +45,14 @@ There are several locations where you can publish your feed on the web. Choose f
 
 # Examples
 
-<details><summary>Fare examples</summary>
-<p id="fare-examples">
+<details id="fare">
+    <summary>Fare examples</summary>
+  The following sections describe sample fares:
+  
 
-<details><summary>Example 1: All trips have the same fare unlimited transfers</summary>
-
-<p id="fare-example1">
-
+<details id="sub-example-details">
+<summary id="sub-example=summary">Example 1: All trips have the same fare, unlimited transfers</summary>
+  
 Suppose Demo Transit Agency has the following fare structure:
 
 * Riders pay $1.00 on boarding (```price```='1.00', ```currency```='USD', ```payment_method```='0')
@@ -68,25 +69,22 @@ File ```fare_attributes.txt```:
 
 <hr>
 
-## Calculating an adult fare
+Calculating an adult fare
 
 
 The trip planner calculates a fare of $1 for each leg of the itinerary that 
 includes a change of vehicle. However, unlimited transfers are permitted, so 
 the trip planner only displays the lowest charge, that is, the adult fare of $1.
+</details> 
 
-</p>
-
-<p id="example2">
-# Example 2: All trips have the same fare, no transfers
-
-<hr> 
-
+<details id="sub-example-details">
+<summary>Example 2: All trips have the same fare, no transfers</summary>
+ 
 Suppose Demo Transit Agency has the following fare structure:
 
 * Riders pay $1.00 on boarding (```price```='1.00', ```currency```='USD', ```payment_method```='0')
 * Passengers can ride as long as they like because ```transfer_duration``` is omitted
-* Any change in vehicles requires a new fare. (```transfers```='0')
+* Any change in vehicles requires a new fare (```transfers```='0')
 
 Since all trips have the same fare, Demo Transit can omit ```fare_rules.txt```
 
@@ -96,102 +94,495 @@ File ```fare_attributes.txt```:
 |-----------|-------|---------------|----------------|-----------|
 | only_fare | 1.00  | USD           | 0              |           |
 
-<hr>
 
-## Calculating an adult fare
+Calculating an adult fare
 
 The trip planner calculates a fare of $1 for each leg of the itinerary that 
 includes a change of vehicle. So an itinerary that requires a change of buses
-would be $2.</p>
+would be $2.
 
-<p>
-Contenu 3
-
-</p>
-
-<p>
-
-Contenu 4
-
-</p>
-<p>
-
-Contenu 4
-
-</p>
-<p>
-
-Contenu 4
-
-</p>
-<p>
-
-Contenu 4
-
-</p>
-<p>
-
-Contenu 4
-
-</p>
-<p>
-
-Contenu 4
-
-</p>
-
-
-
-<summary>Routes examples</summary>
 </details>
+  
+<details id="sub-example-details">
+<summary>Example 3: All trips have the same fare, no transfers</summary>
 
-The following sections describe sample fares:
+Suppose Demo Transit Agency has the following fare structure:
 
-* [Example 1: All trips have the same fare unlimited transfers] (/fare-example1)
-* [Example 2: All trips have the same fare, no transfers] (/fare-example2)
-* [Example 3: All trips have the same fare, transfers allowed] (/fare-example3)
-* [Example 4: Different pricing for local and express routes] (/fare-example4)
-* [Example 5: Buying a transfer increases a fare] (/fare-example5)
-* [Example 6: Fare depends on station pairs, how you get there doesn't matter] (/fare-example6)
-* [Example 7: Fare depends on zone] (/fare-example7)
-* [Example 8: Influence of transfers and transfer_duration] (/fare-example8)
-* [Example 9: Fares ad block transfers] (/fare-example9)
+* Riders pay $1.00 on boarding (```price```='1.00', ```currency```='USD', ```payment_method```='0')
+* Unlimited transfers are allowed within 90 minutes ```transfer="```,```transfer_duration=5400```).
 
-## Routes Examples 
+Since all trips have the same fare, Demo Transit can omit ```fare_rules.txt```
 
-The following sections contain example route models. The first correctly models the routes with trip variations.
+File ```fare_attributes.txt```:
 
-* [Examples] (/routes-example/)
-
-## Modelling scenarios
-
-The following sections contain detailed modeling scenarios.
-
-
-* [Scenario 1] (/routes-modelling-scenario1/)
-* [Scenario 2] (/routes-modelling-scenario2/)
+| fare_id   | price | currency_type | payment_method | transfers | transfer_duration |
+|-----------|-------|---------------|----------------|-----------|------------------|
+| only_fare | 1.00  | USD           | 0              |           | 5400             |
 
 <hr>
 
-## Joining and splitting trains
+Calculating an adult fare
+
+The trip planner calculates a fare of $1 for each leg of the itinerary that 
+includes a change of vehicle. Then it calculates the time for the itinerary.
+If the itinerary time is less than 90 minutes, the fare is $1.
+
+</details>
+  
+<details id="sub-example-details">
+  <summary>Example 1</summary>
+</details>
+  
+<details id="sub-example-details">
+<summary>Example 5: Buying a transfer increases a fare</summary>
+
+Suppose Demo Transit Agency has the following fare structure:
+
+* Riders pay $1.75 on boarding local buses
+* Riders can pay an extra $0.25 on boarding to purchase a transfer
+* Transfers purchased are valid for 90 minutes
+
+Since these rules apply to all trips, Demo Transit can omit ```fare_rules.txt```
+
+File ```fare_attributes.txt```:
+
+| fare_id          | price | currency_type | payment_method | transfers | 
+|------------------|-------|---------------|----------------|-----------|
+| local_fare       | 1.75  | USD           | 0              |           |
+| plustransfer_fare| 2.00  | USD           |                | 5400      |
+
+
+<hr>
+
+Calculating an adult fare
+
+Technically, both fares apply on itinerary that has no transfers.
+However, the trip planner always chooses the least expensive applicable fare:
+
+* For an itinerary with one transfer, ```simple_fare``` is $3.50 vs. $2.00 when a transfer
+is purchased. So the trip planner will report $2.00 fare on all itineraries that require a 
+change of vehicle.
+* For an itinerary with no transfers, $1.75 fare is less than 
+```plustransfer_fare``` of $2.00. So if an itinerary doesn't require a change of vehicle, 
+the fare is $1.75  
+  
+</details>
+  
+<details id="sub-example-details">
+<summary>Example 6: Fare depends on stations pairs, how you get there doesn't matter</summary>
+
+In this example only the entry and exit points from the system matter. 
+To define this fare structure for the feed, each station must have its own unique zone ID 
+defined in ```stops.txt```. Each station is considered a single zone.
+
+* The ```fare_attributes.txt``` and fare_rules.txt files define one row for each pair of stations.
+* In file ```fare_attributes.txt```, the origin_id and destination_id fields identify station pairs by zone ID.
+
+
+File ```fare_attributes.txt```:
+
+| fare_id    | price | currency_type | payment_method | transfers |
+|------------|-------|---------------|----------------|-----------|
+| !S1_to_S2  | 1.75  | USD           | 0              |           |
+| !S1_to_S3  | 3.25  | USD           | 0              |           |
+| !S1_to_S4  | 4.55  | USD           | 0              |           |
+| ...        |       |               |                |           |
+| !S10_to_S1 | 5.65  | USD           | 0              |           |
+
+<br>
+
+File ```fare_rules.txt```:
+
+| fare_id    | origin_id | destination_id |
+|------------|-----------|----------------|
+| !S1_to_S2  | S1        | S2             |
+| !S1_to_S3  | S1        | S3             |
+| !S1_to_S4  | S1        | S4             |
+| ...        |           |                |
+| !S10_to_S1 | S10       | S1             |
+
+<hr>
+
+Calculating an adult fare
+
+The trip planner calculates an itinerary, and then looks up the fare rules until it finds a 
+matching origin/destination station pair. The public feed from SF Bay Area BART provides a 
+real-world illustration of this type of fare structure.
+
+  
  
+</details>
+  
+<details id="sub-example-details">
+<summary>Example 7: Fare depends on zones</summary>
+  
+Suppose Demo Transit Agency has a concentric three-zone system, where fares depend on which 
+zones a rider passes through during an itinerary. To define this fare structure for the feed, 
+files ```fare_attributes.txt``` and ```fare_rules.txt``` must contain a line for each possible combination of zones. 
+For very complex cross-zone fare structures, it may be simpler to programmatically output ```fare_rules.txt``` using 
+origin and destination to define fares.
+
+File ```fare_attributes.txt```:
+
+| fare_id | price | currency_type | payment_method | transfers |
+|---------|-------|---------------|----------------|-----------|
+| F1      | 4.15  | USD           | 0              |           |
+| F2      | 2.20  | USD           | 0              |           |
+| F3      | 2.20  | USD           | 0              |           |
+| F4      | 2.95  | USD           | 0              |           |
+| F5      | 1.25  | USD           | 0              |           |
+| F6      | 1.95  | USD           | 0              |           |
+| F7      | 1.95  | USD           | 0              |           |
+
+<br>
+
+File ```fare_rules.txt```:
+
+| fare_id | contains_id |
+|---------|-------------|
+| F1      | 1           |
+| F1      | 2           |
+| F1      | 3           |
+| F2      | 1           |
+| F2      | 2           |
+| F3      | 1           |
+| F3      | 3           |
+| F4      | 2           |
+| F4      | 3           |
+| F5      | 1           |
+| F6      | 2           |
+| F7      | 3           |
+
+<hr>
+
+Calculating an adult fare
+
+Let's look more closely at the definitions in ```fare_rules.txt```.
+
+* F1 applies to any trip that passes through zones (1,2,3).
+* F2 applies to any trip that passes through zones (1,2).
+* F3 applies to any trip that passes through zones (1,3).
+* F4 applies to any trip that passes through zones (2,3).
+* F5 applies to any trip that passes through zone 1 only.
+* F6 applies to any trip that passes through zone 2 only.
+* F7 applies to any trip that passes through zone 3 only.
+
+The trip planner calculates an itinerary, and then looks up the fare rules to determine the fares that apply 
+based on zone. Since F1 also includes travel in zone 1, only F4 ($2.95) applies to a trip from zone 2 to zone 3. 
+A fare rule only applies when the set of zones passed through in an itinerary exactly matches the set specified 
+by the fare rule. For a trip between zones 2 and 3, the trip planner reports $2.95 as the adult fare.
+
+  
+</details>
+  
+<details id="sub-example-details">
+<summary>Example 8: Influence of transfers and transfer_duration</summary>
+
+The following is an example of a transfer:
+
+* Trip 1 departs at 10:00 and arrives at 11:00.
+* Trip 2 departs at 11:15 and arrives at 12:00.
+* To make the fare valid for the complete journey, you must allow for at least 1 transfer and 
+a ```transfer_duration``` of at least 2 hours (from 10:00 to 12:00).
+</details>
+  
+<details id="sub-example-details">
+<summary>Example 9: Fare and blocks transfers</summary>
+
+
+
+<hr> 
+
+A block transfer combines two trips belonging to different routes, allowing passengers to 
+remain on the same vehicle while transferring from one route to the next. For a trip that has 
+a block transfer, the system selects a fare that can be used for all routes involved. 
+Block transfers are not counted as transfers for fare modeling.
+
+The following is an example model of a fare for block transfer:
+
+* Assume that there are two routes, A and B.
+* Any trip on route A or B costs $1, and any trip including A and B costs $2.
+
+The values in ```fare_attributes.txt``` and ```fare_rules.txt``` should look as follows:
+
+File ```fare_attributes.txt```:
+
+| fare_id  | price | currency_type | payment_method | transfers | transfer_duration |
+|----------|-------|---------------|----------------|-----------|-------------------|
+| fare_A   | 1.00  | USD           | 0              | 0         |                   |
+| fare_B   | 1.00  | USD           | 0              | 0         |                   |
+| fare_AB  | 2.00  | USD           | 0              | 0         |                   |
+
+<br>
+
+File ```fare_rules.txt```:
+
+| fare_id | route_id | origin_id | destination_id | contains_id |
+|---------|----------|-----------|----------------|-------------|
+| fare_A  | route_A  |           |                |             |
+| fare_B  | route_B  |           |                |             |
+| fare_AB | route_A  |           |                |             |
+| fare_AB | route_B  |           |                |             |
+
+</details>
+
+
+</details>
+
+<details id="routes"><summary id="sub-example-summary">Routes examples</summary>
+  The following sections contain example route models. The first correctly models the routes with trip variations.
+  
+
+<details id="sub-example-details">
+<summary>Correct example</summary>
+  
+
+File ```routes.txt```:
+
+| route_id | route_short_name | route_long_name       | route_type |
+|----------|------------------|-----------------------|------------|
+| R10      | 10               | Airport - Downtown    | 3          |
+| R20      | 20               | University - Downtown | 3          |
+
+<br>
+
+File ```trips.txt```:
+
+| route_id | service_id | trip_id | trip_headsign | direction_id |
+|----------|------------|---------|---------------|--------------|
+| R10      | WD         | T-10-1  | Airport       | 0            |
+| R10      | WE         | T-10-2  | Downtown      | 1            |
+| R20      | WD         | T-20-1  | University    | 0            |
+| R20      | WE         | T20-2   | Downtown      | 1            |
+
+
+</details>
+
+<details id="sub-example-details">
+<summary id="sub-example-summary">Incorrect example</summary>
+
+File ```routes.txt```:
+
+| route_id | route_short_name | route_long_name | route_type |
+|----------|------------------|-----------------|------------|
+| R10-in   | 10               | To Downtown     | 3          |
+| R10-out  | 10               | To Airport      | 3          |
+| R20-in   | 20               | To Downtown     | 3          |
+| R20-out  | 20               | To University   | 3          |
+
+
+</details>
+</details>
+
+<details id="modelling">
+<summary>Route modelling examples</summary>
+  The following sections contain detailed modeling scenarios.
+  
+
+<details id="modelling">
+<summary>Route modelling scenario 1</summary>
+  
+Bus line 1 operates between stops A - B - C - D - E - F. 
+Some trips only operate between A and D, some trips skip B, C, and E. 
+This route is modeled as one route “1” in the feed, including trips from A to F.
+
+<hr> 
+
+
+File ```stops.txt```
+
+| stop_id | stop_name | stop_lat   | stop_lon    |
+|---------|-----------|------------|-------------|
+| stopA   | Stop A    | -21.213049 | -159.825975 |
+| stopB   | Stop B    | -21.227892 | -159.828051 |
+| stopC   | Stop C    | -21.252230 | -159.821118 |
+| stopD   | Stop D    | -21.260588 | -159.800071 |
+| stopE   | Stop E    | -21.271595 | -159.757365 |
+| stopF   | Stop F    | -21.269228 | -159.739851 |
+
+
+<br>
+
+File ```routes.txt```:
+
+| route_id | route_short_name | route_long_name | route_type |
+|----------|------------------|-----------------|------------|
+| BusLine1 | 1                |                 | 3          |
+
+<br>
+
+File ```trips.txt```:
+
+| route_id | service_id | trip_id    |
+|----------|------------|------------|
+| BusLine1 | 0          | tripABCDEF |
+| BusLine1 | 0          | tripABCD   |
+| BusLine1 | 0          | tripADF    |
+
+<br>
+
+
+File ```stop_times.txt```
+
+| trip_id    | arrival_time | departure_time | stop_id | stop_sequence |
+|------------|--------------|----------------|---------|---------------|
+| tripABCDEF | 06:00:00     | 06:00:00       | stopA   | 1             |
+| tripABCDEF | 06:10:00     | 06:12:00       | stopB   | 2             |
+| tripABCDEF | 06:20:00     | 06:22:00       | stopC   | 3             |
+| tripABCDEF | 06:30:00     | 06:32:00       | stopD   | 4             |
+| tripABCDEF | 06:40:00     | 06:42:00       | stopE   | 5             |
+| tripABCDEF | 06:50:00     | 06:50:00       | stopF   | 6             |
+| tripABCD   | 08:00:00     | 08:00:00       | stopA   | 1             |
+| tripABCD   | 08:10:00     | 08:12:00       | stopB   | 2             |
+| tripABCD   | 08:20:00     | 08:22:00       | stopC   | 3             |
+| tripABCD   | 08:30:00     | 08:30:00       | stopD   | 4             |
+| tripADF    | 10:00:00     | 10:00:00       | stopA   | 1             |
+| tripADF    | 10:30:00     | 10:32:00       | stopD   | 2             |
+| tripADF    | 10:50:00     | 10:50:00       | stopF   | 3             |
+
+
+</details>
+
+<details id="modelling">
+<summary>Route modelling scenario 2</summary>
+  
+Using the same setup as the previous scenario, however, the trips that skip B, C, and E are 
+communicated to users in schedules as a separate line (1 Express). This scenario requires 
+that you model maps and signage as a separate route (1 Express) in the feed.
+
+<hr> 
+
+
+File ```stops.txt```
+
+| stop_id | stop_name | stop_lat   | stop_lon    |
+|---------|-----------|------------|-------------|
+| stopA   | Stop A    | -21.213049 | -159.825975 |
+| stopB   | Stop B    | -21.227892 | -159.828051 |
+| stopC   | Stop C    | -21.252230 | -159.821118 |
+| stopD   | Stop D    | -21.260588 | -159.800071 |
+| stopE   | Stop E    | -21.271595 | -159.757365 |
+| stopF   | Stop F    | -21.269228 | -159.739851 |
+
+
+<br>
+
+File ```routes.txt```:
+
+| route_id | route_short_name | route_long_name | route_type |
+|-----------------|------------------|-----------------|------------|
+| BusLine1        | 1                |                 | 3          |
+| BusLine1Express | 1 Express        |                 | 3          |
+
+<br>
+
+File ```trips.txt```:
+
+| route_id        | service_id | trip_id    |
+|-----------------|------------|------------|
+| BusLine1        | 0          | tripABCDEF |
+| BusLine1        | 0          | tripABCD   |
+| BusLine1Express | 0          | tripADF    |
+
+<br>
+
+File ```stop_times.txt```
+
+| trip_id    | arrival_time | departure_time | stop_id | stop_sequence |
+|------------|--------------|----------------|---------|---------------|
+| tripABCDEF | 06:00:00     | 06:00:00       | stopA   | 1             |
+| tripABCDEF | 06:10:00     | 06:12:00       | stopB   | 2             |
+| tripABCDEF | 06:20:00     | 06:22:00       | stopC   | 3             |
+| tripABCDEF | 06:30:00     | 06:32:00       | stopD   | 4             |
+| tripABCDEF | 06:40:00     | 06:42:00       | stopE   | 5             |
+| tripABCDEF | 06:50:00     | 06:50:00       | stopF   | 6             |
+| tripABCD   | 08:00:00     | 08:00:00       | stopA   | 1             |
+| tripABCD   | 08:10:00     | 08:12:00       | stopB   | 2             |
+| tripABCD   | 08:20:00     | 08:22:00       | stopC   | 3             |
+| tripABCD   | 08:30:00     | 08:30:00       | stopD   | 4             |
+| tripADF    | 10:00:00     | 10:00:00       | stopA   | 1             |
+| tripADF    | 10:10:00     | 10:12:00       | stopD   | 2             |
+| tripADF    | 10:20:00     | 10:20:00       | stopF   | 3             |
+
+</details>
+
+
+</details>
+
+<details id="trains">
+<summary> Joining and splitting trains</summary>
+
 Common train operations involve two trains that are joined at a station and then continue 
 the journey as one train, or one train that is split at a station into two trains headed in 
 different directions. Model joining and splitting in GTFS with two separate trips, one for each 
 lineup of vehicles. Use pickup and drop off restrictions to prevent routing results that show
- duplicated trips for the shared part of the trip.
+duplicated trips for the shared part of the trip.
 
+<details id="trains">
+<summary>Joining trains</summary>
 
-* [Joining trains] (/joining-trains/)
+Set each section of a joined train to display the same destination on the trip_headsign.
+Specify that the departure board for stops C and D show only one trip direction.
 
+__ Train section 1__
 
-* [Splitting trains] (/splitting-trains/)
+| **trip_id** | **stop_id** | **pickup_type** | **drop_off_type** | **trip_headsign** |
+|---------------|---------------|-------------------|---------------------|---------------------|
+| **trip_1**    | A             | 0                 | 0                   | E                   |
+| **trip_1**    | B             | 0                 | 0                   | E                   |
+| **trip_1**    | C             | 0                 | 0                   | E                   |
+| **trip_1**    | D             | 0                 | 0                   | E                   |
+| **trip_1**    | E             | 0                 | 0                   | E                   |
 
+__ Train section 2__
 
-### Alternative solutions
-Using three trips or two trips with one long and one short trip will not work properly because 
-the transfer information cannot be described correctly. In routing results, users would be asked 
-to transfer although passengers can stay on board.
+| **trip_id** | **stop_id** | **pickup_type** | **drop_off_type** | **trip_headsign** |
+|-------------|-------------|-----------------|-------------------|-------------------|
+| **trip_2**  | X           | 0               | 0                 | E                 |
+| **trip_2**  | Y           | 0               | 0                 | E                 |
+| **trip_2**  | C           | 1               | 0                 | E                 |
+| **trip_2**  | D           | 1               | 0                 | E                 |
+| **trip_2**  | E           | 1               | 0                 | E                 |
+
+</details>
+
+  <details id="trains">
+    <summary>Splitting trains</summary>
+    
+
+Set each section of the split train to display a different destination trip_headsign.
+ Specify that the departure boards for stops E, D, and C show two trips departing at the same 
+ time (one in direction A and one in direction X).
+ 
+__ Train section 1__
+
+| **trip_id** | **stop_id** | **pickup_type** | **drop_off_type** | **trip_headsign** |
+|---------------|---------------|-------------------|---------------------|---------------------|
+| **trip_1**    | E             | 0                 | 0                   | A                   |
+| **trip_1**    | D             | 0                 | 0                   | A                   |
+| **trip_1**    | C             | 0                 | 0                   | A                   |
+| **trip_1**    | B             | 0                 | 0                   | A                   |
+| **trip_1**    | A             | 0                 | 0                   | A                   |
+
+__ Train section 2__
+
+| **trip_id** | **stop_id** | **pickup_type** | **drop_off_type** | **trip_headsign** |
+|---------------|---------------|-------------------|---------------------|---------------------|
+| **trip_1**    | E             | 0                 | 1                   | X                   |
+| **trip_1**    | D             | 0                 | 1                   | X                   |
+| **trip_1**    | C             | 0                 | 1                   | X                   |
+| **trip_1**    | Y             | 0                 | 0                   | X                   |
+| **trip_1**    | X             | 0                 | 0                   | X                   |
+
+  </details>
+  
+ <details><summary>Alternative solution</summary>
+ <p>
+Using three trips or two trips with one long and one short trip will not work properly because the transfer information cannot be described correctly. In routing results, users would be asked to transfer although passengers can stay on board.
+ 
+ </p>
+ </details>
+</details>
 
 <hr>
 
@@ -227,7 +618,7 @@ No validator tool currently checks for conformance with all Best Practices.
 
 Various validator tools check for conformance with some of these best practices. For a list of GTFS validator tools, see [Testing Feeds](http://gtfs.org/testing/). 
 
-If you write a GTFS validator tool that references these Best Practices, please email [gtfs@rmi.org](mailto:gtfs@rmi.org).
+If you write a GTFS validator tool that references these Best Practices, please email [hello@mobilitydata.org](mailto:hello@mobilitydata.org).
 
 <hr>
 

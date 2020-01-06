@@ -6,6 +6,7 @@ import Header from './header'
 import './layout.css';
 import './i18n';
 
+
 const Layout = ({ children, lang, location }) => (
     <StaticQuery
         query={graphql`

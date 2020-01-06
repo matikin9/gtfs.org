@@ -1,21 +1,30 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { graphql, navigate } from 'gatsby';
+import {graphql, navigate} from 'gatsby';
 import rehypeReact from 'rehype-react';
 import styles from './doc-page.module.css';
 import SideNav from "../components/side-nav";
 import Footer from '../components/footer';
-import { useTranslation } from 'react-i18next';
-import { getPathForLanguage } from '../lib/i18n';
+import {useTranslation} from 'react-i18next';
+import {getPathForLanguage} from '../lib/i18n';
+import Counter from "../components/Counter"
+import Button from "../components/Button"
 
+
+// const renderAst = new rehypeReact({
+//   createElement: React.createElement
+// }).Compiler
 
 const renderAst = new rehypeReact({
-  createElement: React.createElement
+  createElement: React.createElement,
+  components: {
+    "interactive-counter": Counter,
+    "button": Button
+  },
 }).Compiler
 
-
 function VersionSelect(props) {
-  const { t, i18n } = useTranslation();
+  const {t, i18n} = useTranslation();
   return (
       <div className="card mb-4 mt-3">
         <div className="card-body">
@@ -159,7 +168,6 @@ export default class DocPage extends React.Component {
 export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
       htmlAst
       frontmatter {
         path,

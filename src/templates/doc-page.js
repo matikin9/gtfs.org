@@ -8,6 +8,7 @@ import Footer from '../components/footer';
 import { useTranslation } from 'react-i18next';
 import { getPathForLanguage } from '../lib/i18n';
 
+
 const renderAst = new rehypeReact({
   createElement: React.createElement
 }).Compiler

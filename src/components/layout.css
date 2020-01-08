@@ -49,3 +49,42 @@ p {
     font-family: "Courier New";
 }
 
+#attributions {
+    display: none;
+}
+
+#calendar {
+    display: none;
+}
+
+#calendar_d {
+    display: none;
+}
+
+#fare_a {
+    display: none;
+}
+
+#fare_r {
+    display: none;
+}
+
+#levels {
+    display: none;
+}
+
+#pathways {
+    display: none;
+}
+
+#shapes {
+    display: none;
+}
+
+#transfers {
+    display: none;
+}
+
+
+
+

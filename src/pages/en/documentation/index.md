@@ -104,7 +104,6 @@ The following example demonstrates how a field value would appear in a comma-del
 
 <button> Generate Specification with selected extensions</button>
 
-
 <select id="documentation" multiple searchable="Search here..">
     <option value="" disabled selected>Choose extensions (hold cmd or ctrl for multiple selection)</option>
     <option value="attributions">Attributions.txt</option>
@@ -120,7 +119,9 @@ The following example demonstrates how a field value would appear in a comma-del
 
 <div id="ref" style="display: none;">
 
-### agency.txt
+<br>
+
+###  <button-agency />
 
 File: **Required**
 
@@ -135,7 +136,9 @@ File: **Required**
 |  `agency_fare_url` | URL | Optional | URL of a web page that allows a rider to purchase tickets or other fare instruments for that agency online. |
 |  `agency_email` | Email | Optional | Email address actively monitored by the agency’s customer service department. This email address should be a direct contact point where transit riders can reach a customer service representative at the agency. |
 
-### stops.txt
+<br>
+
+### <button-stops />
 
 File: **Required**
 
@@ -156,7 +159,9 @@ File: **Required**
 |  `level_id` | ID referencing `levels.level_id` | Optional | Level of the location. The same level can be used by multiple unlinked stations.|
 |  `platform_code` | Text | Optional | Platform identifier for a platform stop (a stop belonging to a station). This should be just the platform identifier (eg. "G" or "3"). Words like “platform” or "track" (or the feed’s language-specific equivalent) should not be included. This allows feed consumers to more easily internationalize and localize the platform identifier into other languages. |
 
-### routes.txt
+<br>
+
+### <button-routes />
 
 File: **Required**
 
@@ -173,7 +178,9 @@ File: **Required**
 |  `route_text_color` | Color | Optional | Legible color to use for text drawn against a background of `route_color`. Defaults to black (`000000`) when omitted or left empty. The color difference between `route_color` and `route_text_color` should provide sufficient contrast when viewed on a black and white screen. |
 |  `route_sort_order` | Non-negative integer | Optional | Orders the routes in a way which is ideal for presentation to customers. Routes with smaller `route_sort_order` values should be displayed first. |
 
-### trips.txt
+<br>
+
+### <button-trips />
 
 File: **Required**
 
@@ -207,7 +214,9 @@ Notes on above table:
 * On Friday into Saturday morning, for example, a single vehicle operates `trip_1`, `trip_2`, and `trip_3` (10:00 PM through 12:55 AM). Note that the last trip occurs on Saturday, 12:00 AM to 12:55 AM, but is part of the Friday “service day” because the times are 24:00:00 to 24:55:00.
 * On Monday, Tuesday, Wednesday, and Thursday, a single vehicle operates `trip_1`, `trip_4`, and `trip_5` in a block from 8:00 PM to 10:55 PM.
 
-### stop_times.txt
+<br>
+
+### <button-stop-times />
 
 File: **Required**
 
@@ -231,7 +240,9 @@ File: **Required**
 
 <div id="calendar" style="display: none;"> 
 
-### calendar.txt
+<br>
+
+### <button-calendar />
 
 
 File: **Conditionally required**
@@ -253,7 +264,9 @@ File: **Conditionally required**
 
 <div id="calendar_d" style="display:none;"> 
 
-### calendar_dates.txt
+<br>
+
+### <button-calendar-dates />
 
 File: **Conditionally required**
 
@@ -272,7 +285,9 @@ The [calendar_dates.txt](#calendar_datestxt) table can explicitly activate or di
 
 <div id="fare_a" style="display:none;">
 
-### fare_attributes.txt
+<br>
+
+### <button-fare-attributes />
 
 File: **Optional**
 
@@ -314,6 +329,8 @@ For examples that demonstrate how to specify a fare structure with [fare_rules.t
 </div>
 
 <div id="levels" style="display:none;">
+
+<br>
 
 ### levels.txt
 
@@ -365,7 +382,9 @@ To go from the entrance (which is a node represented as a location with location
 
 <div id="shapes" style="display:none;">
 
-### shapes.txt
+<br>
+
+### <button-shapes />
 
 File: **Optional**
 
@@ -385,7 +404,9 @@ Shapes describe the path that a vehicle travels along a route alignment, and are
 
 <div id="transfers" style="display:none;">
 
-### transfers.txt
+<br>
+
+### <button-transfers />
 
 File: **Optional**
 

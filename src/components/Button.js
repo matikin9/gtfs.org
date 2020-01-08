@@ -11,6 +11,8 @@ export default class Button extends React.Component {
             }
         }
 
+        document.getElementById("ref").style.display = 'block';
+
         for (var i = 0; i < selectedValues.length; i++) {
             document.getElementById(selectedValues[i]).style.display = 'block';
         }

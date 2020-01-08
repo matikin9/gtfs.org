@@ -17,7 +17,15 @@ module.exports = {
         path: `${__dirname}/src/pages/en/feed-issues/`,
         name: "feed-issues"
       }
-    }, {
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/pages/en/documentation/`,
+        name: "documentation"
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages/en/validation-errors/`,
@@ -76,95 +84,6 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages/en/validator/`,
         name: "validator"
-      }
-    },
-
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example1/`,
-        name: "fare-example1"
-      }
-    },
-
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example2/`,
-        name: "fare-example2"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example3/`,
-        name: "fare-example3"
-      }
-    }, {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example4/`,
-        name: "fare-example4"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example5/`,
-        name: "fare-example5"
-      }
-    }, {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example6/`,
-        name: "fare-example6"
-      }
-    }, {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example6/`,
-        name: "fare-example6"
-      }
-    }, {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example7/`,
-        name: "fare-example7"
-      }
-    }, {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example8/`,
-        name: "fare-example8"
-      }
-    },
-
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/fare-example9/`,
-        name: "fare-example9"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/routes-modelling-scenario1/`,
-        name: "routes-modelling-scenario1"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/routes-modelling-scenario2/`,
-        name: "routes-modelling-scenario2"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages/en/routes-example/`,
-        name: "routes-example"
       }
     },
 

@@ -5,6 +5,7 @@ template: doc-page
 
 ---
 # 
+<details>
 
 <summary>GTFS-Static</summary>
 

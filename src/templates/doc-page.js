@@ -7,20 +7,40 @@ import SideNav from "../components/side-nav";
 import Footer from '../components/footer';
 import {useTranslation} from 'react-i18next';
 import {getPathForLanguage} from '../lib/i18n';
-import Counter from "../components/Counter"
-import Button from "../components/Button"
-
-
-// const renderAst = new rehypeReact({
-//   createElement: React.createElement
-// }).Compiler
-
+import Counter from "../components/Counter";
+import Button from "../components/Button";
+import ButtonAgency from "../components/ButtonAgency";
+import ButtonStops from "../components/ButtonStops";
+import ButtonRoutes from "../components/ButtonRoutes";
+import ButtonTrips from "../components/ButtonTrips";
+import ButtonStopTimes from "../components/ButtonStopTimes";
+import ButtonCalendar from "../components/ButtonCalendar";
+import ButtonCalendarDates from "../components/ButtonCalendarDates";
+import ButtonFareAttributes from "../components/ButtonFareAttributes";
+import ButtonFareRules from "../components/ButtonShapes";
+import ButtonShapes from "../components/ButtonShapes";
+import ButtonFeedInfo from "../components/ButtonFeedInfo";
+import ButtonFrequencies from "../components/ButtonFrequencies";
+import ButtonTransfers from "../components/ButtonTransfers";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     "interactive-counter": Counter,
-    "button": Button
+    "button": Button,
+    "button-agency": ButtonAgency,
+    "button-stops": ButtonStops,
+    "button-routes": ButtonRoutes,
+    "button-trips": ButtonTrips,
+    "button-stop-times": ButtonStopTimes,
+    "button-calendar": ButtonCalendar,
+    "button-calendar-dates": ButtonCalendarDates,
+    "button-fare-attributes": ButtonFareAttributes,
+    "button-fare-rules": ButtonFareRules,
+    "button-shapes": ButtonShapes,
+    "button-feed-info": ButtonFeedInfo,
+    "button-frequencies": ButtonFrequencies,
+    "button-transfers": ButtonTransfers
   },
 }).Compiler
 

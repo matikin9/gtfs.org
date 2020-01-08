@@ -332,8 +332,8 @@ pages:
   - title: documentation
     path: /documentation/
     sidemenu:
-      - name: GTFS-Static
-      - name: GTFS-RT
+      - name: General Transit Feed Specification Reference
+      - name: GTFS Realtime feed (GTFS-RT)
       - name: Extensions
       - name: Changing GTFS
 

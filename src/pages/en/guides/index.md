@@ -720,13 +720,416 @@ If you write a GTFS validator tool that references these Best Practices, please 
 
 <hr>
 
-1. [```TripDescriptor``` semantics] (/recommendation1/)
-1. [Trip matching in special cases] (/recommendation2/)
-1. [How to cancel a trip ?] (/recommendation3/)
-1. [```TripDescriptor``` and Alerts categorization] (/recommendation4/)
-1. [```TripDescriptor``` for ```TripUpdate``` and ```VehiclePosition```] (/recommendation5/)
-1. [Vehicle position feeds minimum specification] (/recommendation6/)
+<details>
+<summary> Static feeds</summary>
 
+<details>
+<summary> Trip matching in special cases </summary>
+
+## How to uniquely model trips in a frequency based system 
+
+For trips modeled using frequencies.txt, that is frequency-based trips, the ```trip_id``` is not in itself a unique identifier of a single journey, as it lacks a specific time component. 
+In order to uniquely identify such trips within a TripDescriptor, a triple of identifiers must be provided:
+
+* ```trip_id```
+* ```start_time```
+* ```start_date```
+* ```start_time``` should be first published, and any subsequent feed updates should use that same ```start_time``` when referring to the same journey. StopTimeUpdates should be used to 
+indicate adjustments; ```start_time``` does not have to be precisely the departure time from the first station, although it should be pretty close to that time.
+
+For example, let’s say we decide at 10:00, May, 25th 2015, that a trip with ```trip_id=T``` will start at ```start_time=10:10:00```, and provide this information via realtime feed at 10:01. 
+By 10:05 we suddenly know that the trip will start not at 10:10 but at 10:13. In our new realtime feed we can still identify this trip as (T, 2015-05-25, 10:10:00) but provide a 
+StopTimeUpdate with departure from first stop at 10:13:00. If a ```start_time``` is not specified, the trip update or vehicle position is ignored.
+
+The trip update or vehicle position is ignored if the trip is not in service at the specified ```start_date```.
+
+## How to uniquely model trips when ```trip_id``` are not available 
+
+If ```trip_ids``` are not stable or unavailable and the GTFS includes ```direction_ids```, trips which are not frequency based can be uniquely identified by a TripDescriptor including the 
+combination of:
+
+* ```route_id```
+* ```direction_id```
+* ```start_time```
+* ```start_date```
+
+```start_time``` should be the scheduled start time. Once it appears, ```start_time``` must stay the same in all TripDescriptors representing the same trip instance across all feed versions. 
+StopTimeUpdates should be used to indicate adjustments to ```start_time```. For example, let’s say we decide at 10:00, May, 25th 2015, that a trip with ```route_id=R``` and 
+```direction_id```=0 will start at ```start_time=10:10:00```, and provide this information via realtime feed at 10:01. By 10:05 we suddenly know that the trip will start not at 10:10 but 
+at 10:13. In our new realtime feed we can still identify this trip as (R, 0, 2015-05-25, 10:10:00) but provide a StopTimeUpdate with departure from first stop at 10:13:00.
+
+Unless ```route_id```, ```direction_id``` and ```start_time``` are all provided and valid, the trip_update or vehicle position is discarded. Also, if the ids resolve to a trip not 
+in service at the specified date or do not resolve to a unique trip, the vehicle positions or trip update is discarded.
+
+For this matching method to work, the GTFS static feed should include ```direction_ids```.
+
+</details>
+
+<details>
+<summary>  How to cancel a trip ?</summary>
+
+
+A trip can be cancelled by either:
+
+* providing a service alert message with a TripDescriptor matching the affected trip and effect "NO_SERVICE"
+* providing a trip_update whose TripDescriptor has a ScheduleRelationship "CANCELED"
+
+</details>
+
+</details>
+
+<details>
+<summary> Realtime feeds</summary>
+
+<details>
+<summary> TripDescriptor semantics </summary>
+
+This document describes the existing practice of interpreting TripDescriptor sub-message in all kinds of realtime feed messages.
+
+The ```TripDescriptor``` message is used to link a realtime trip entity to its static GTFS prototype. The very bare minimum expected from a feed provider is tripid. 
+When the tripid is missing, the realtime alert, vehicle position, or trip update message is ignored.
+
+## Trip update and vehicle positions
+
+If a trip update or vehicle position has:
+
+* ```TripDescriptor```
+* a ```trip_id``` corresponding to a non-frequency based trip
+* no additional fields
+
+then that trip update or vehicle position message relates to the trip happening within [-12h, +12h] from feed timestamp.
+
+It is valid to explicitly specify ```start_date```, if service runs on the specified day according to static GTFS. It is also valid to specify start_time in this case, 
+but it should be the same as in the corresponding static GTFS feed. If an invalid  ```start_date```, or  ```start_time``` is specified, corresponding trip update, or vehicle position is ignored.
+
+If trip update or vehicle position has:
+
+* ```TripDescriptor```
+* a ```trip_id``` correspond to a frequency based trip
+then at least ```start_time``` should be specified, otherwise such trip update or vehicle position is ignored. When ```trip_id``` and ```start_time``` are 
+within ```exact_time```=1 interval, ```start_time``` must be several integers (possibly zero) ```headway_secs``` later than the beginning of the interval. 
+Ideally, it is expected that ```start_date``` is specified as well, but if not, it is set to the local day, corresponding to the feed’s timestamp. Independent of whether ```start_date``` 
+is explicitly specified, or heuristically determined, trip update or vehicle position is ignored if trip is not in service at specified date. The triple 
+(tripid, ```start_date```, ```start_time```) identifies a trip uniquely.
+
+```start_time``` should either be the GTFS-static time of the original trip, or in the frequency based case, become immutable once first published. 
+```StopTimeUpdates``` should be used to indicate adjustments; ```start_time``` is not expected to be equal to departure time from the first station, although it should be pretty close.
+
+For example, let’s say we decide at 10:00, May, 25th 2015, that a trip with ```trip_id=T``` will start at ```start_time=10:10:00```, and provide this information via realtime feed at 10:01. 
+By 10:05 we suddenly know that the trip will start not at 10:10 but at 10:13. In our new realtime feed we can still identify this trip as ```(T, 2015-05-25, 10:10:00)``` but provide ```stoptimeupdate``` 
+with departure from first stop at 10:13:00.
+
+## Alerts
+
+### ```start_date``` and ```start_time```
+
+Alerts follow a different logic. If ```TripDescriptor``` does not specify ```start_date``` and/or ```start_time```, then all trips with the corresponding tripid are affected. 
+Specifically, if the trip is frequency based, and ```start_time``` is unspecified, then all routing results involving this trip expose the alert. 
+If ```start_date``` is specified, it should be within the service dates of the trip, otherwise the alert is ignored. 
+If ```start_time``` is specified, it should correspond to the static GTFS feed for non-frequency based trips.
+
+Specifying ```start_time``` for frequency based trips does not define a trip instance on its own, but allows you to attach alerts to the corresponding trip defined in trip updates, 
+even if these trip updates reside in a separate feed. Such cross-feed reference is another strong reason to choose an immutable ```start_time``` in trip updates, 
+since fetch times of alerts, and trip update feeds are never perfectly aligned.
+
+### ```active_period```
+
+When no ```active_period``` message is present, the TripDescriptor applies to every matching trip. For example, when only tripid is specified for a non-frequency based trip, 
+the alert will be applied indefinitely for all known service dates. If ```active_period``` messages are defined, then only trips within these periods are affected by the alert. 
+We strongly advise against using a trip descriptor to represent multiple trips where possible, advising instead to use multiple ```informed_entity``` to represent the desired
+ specific trip instances (with ```start_date```) if multiple are affected.
+
+### ```effect: NO_SERVICE```
+One important type of alerts is ```effect: NO_SERVICE```. The recommended way of cancelling a non-frequency based trip via alert is to provide a descriptor with both tripid, and ```start_date```.
+ It is strongly discouraged to provide a tripid without ```start_date```, which would then rely on the ```active_period```. 
+ In cases where a trip takes longer than 24 hours, providing ```start_date``` is strongly advised to avoid ambiguities.
+
+
+</details>
+
+<details>
+
+<summary> TripDescriptor``` and Alerts categorization </summary>
+ 
+It’s important to understand how ```TripDescriptor``` works in your feed. This article provides guidelines for ```TripDescriptor``` entities and alerts categorization.
+
+
+## How it works
+
+Alerts differ from the ```TripUpdates``` and ```VehiclePosition``` feeds in a few ways. Alerts use ```TripDescriptor``` entities to specify the type of alert that informs users of any changes in their trip.
+ Here are a few things you need to know about ```TripDescriptor```:
+
+* If a ```TripDescriptor``` is specified in an alert, the informed_entities must provide a ```trip_id```. 
+* When a ```TripDescriptor``` doesn’t specify ```start_date``` or ```start_time```, all trips with the corresponding ```trip_id``` are affected. 
+* Specifying ```start_time``` for frequency-based trips doesn’t define a trip instance. However, it allows you to attach alerts to the corresponding trip defined in trip updates, even if these trip updates are in a separate feed. 
+* Frequency-based trips with unspecified ```start_time``` show the alert for all route results involving the trip.
+
+Since fetch times of alerts and TripUpdate feeds are not perfectly aligned, use an immutable ```start_time``` in ```TripUpdate```. 
+
+## ```TripDescriptor``` alert guidelines
+
+When working with a ```TripDescriptor``` for an alert, follow the guidelines below:
+
+* When ```trip_id``` and start_time are within ```exact_time=1``` interval, ```start_time``` must be later than the beginning of the interval by an exact multiple of ```headway_secs```. 
+* If ```start_time``` is specified, it must correspond to the static GTFS feed for non-frequency based trips.
+* If ```start_date``` is specified, it must be within the service dates of the trip. Otherwise, the alert is ignored.
+    * If ```start_date``` isn’t specified, it’s set to the local day, corresponding to the feed timestamp.
+* Do not use a ```TripDescriptor``` to represent multiple trips. Use multiple instances of ```informed_entity``` to represent the desired specific trips (with ```start_date```) that are affected.
+
+Example code:
+
+```
+alert {
+      informed_entity {
+        trip_id: "T"
+    }    
+        informed_entity {
+      start_date: "16230"
+      start_time: "07:00:00"
+ }
+  ```active_period``` {
+      start: 1284457468
+      end: 1284468072
+    }
+} 
+```
+
+Important: An ```active_period``` must be defined for trips within a specific time. When no ```active_period``` is present, the ```TripDescriptor``` applies to every matching trip. For example, when only ```trip_id``` 
+is specified for a non-frequency-based trip, the alert is applied indefinitely for all known service dates.
+
+
+## Alerts categorization guidelines
+
+There are 3 types of alerts: critical, warning, and informational. To ensure accurate and consistent alert categorization when you create alerts, follow the guidelines below:
+
+### Critical
+
+Your journey is significantly impacted and probably not running.
+
+* ***NO_SERVICE***: There’s no service on the line or at certain stops, or a specific trip has been canceled. This will trigger Trip Planner to re-route users around the disruption.
+* ***SIGNIFICANT_DELAYS***: There are significant delays and irregular service occurring on the line (e.g. recovering after a power failure or severe weather). All users should be aware of this.
+
+
+### Warning
+
+
+There's disruption you should know about, but your journey might still be ok.
+
+* ***DETOUR***: A trip runs a different route than the normal route.
+* ***STOP_MOVED***: A stop has been temporarily moved.
+* ***REDUCED_SERVICE***: Fewer trips are running at the moment due to some form of disruption.
+* ***MODIFIED_SERVICE***: The timetable is not being followed due to some form of disruption.
+
+### Informational
+
+Interesting information about the journey. Informational alerts might be skipped from some UIs depending on space.
+
+* ***ADDITIONAL_SERVICE***: More trips are running than normal, for example due to a sporting event.
+* ***OTHER_EFFECT***: Information about the trip that does not fall into the above categories. This is the category where any miscellaneous messages can be placed. For example, “This service has no guard,” “Ticket machines broken: 
+please buy ticket onboard,” or “No catering on this train.”
+* ***UNKNOWN_EFFECT***: See OTHER_EFFECT. Will be treated the same in the UI.
+* ***(None specified)***: See OTHER_EFFECT. Will be treated the same in the UI.
+
+</details>
+
+<details> <summary>
+TripDescriptor for TripUpdate and VehiclePosition </summary>
+
+To help users have successful trips, review and use Google Transit guidelines. When working with ```TripDescriptors``` for the ```TripUpdate``` and ```VehiclePosition``` entities, follow the guidelines below:
+
+<hr>
+
+## TripUpdate
+
+<hr>
+
+* [Frequency-based TripDes riptors] (/frequency-based-tripdescriptors/)
+* [Non-frequency-based TripDescriptors] (/non-frequency-based-tripdescriptors/)
+
+### Create a simple TripUpdate
+
+If it's not feasible for your system to generate predictions for entire trips, ensure the accuracy of your GTFS-realtime feed by providing a simple ```TripUpdate``` feed.
+
+You must follow a few basic requirements:
+
+The ```TripUpdates``` feed should include the best-available prediction of the next upcoming ```StopTimeUpdate```.
+If possible, the feed should continue to include any previously visited stops. Use StopTimeUpdates to represent stops, with values indicating the final times of when the vehicle arrived or departed the stop.
+Include a ```TripUpdate.timestamp``` of when the latest measurement of the associated vehicle was taken, if available.
+
+### What happens next 
+
+When you successfully create a ```TripUpdate```, we support re-routing based on the realtime departure and arrival times provided through GTFS-realtime ```TripUpdate``` feeds.
+
+For example:
+Trip T is scheduled to depart at 7 PM today from station S. The GTFS-realtime ```TripUpdate``` feed indicates that the trip has a delay of 5 minutes at station S. 
+Now, when you search for connections from station S at 7:03 PM, trip T will show as one of the possible connections. This is because the realtime ```TripUpdate``` updated the departure time of trip T as being after the scheduled 
+departure time.
+
+#### Example code:
+
+```
+
+trip_update {
+    trip {
+      trip_id: "T"
+      start_time: "07:00:00"
+    }
+    stop_time_update {
+      stop_id: "S"
+      departure {
+        delay: 300
+      }
+    }
+}
+
+```
+
+<hr>
+
+## VehiclePosition
+
+<hr>
+
+* Frequency-based TripDesriptors
+
+Trip descriptors for ```VehiclePositions``` are flexible for both frequency and non-frequency-based trips. We request that you provide as much information as possible to identify the trip. At minimum, 
+we request that you provide the ```route_id``` and the ```direction_id```.
+
+* Non-frequency-based ```TripDesriptors```
+
+```VehicleDescriptor``` is necessary to track a trip’s vehicle over time. It should be unique for each feed, and stable during the trip duration. To ensure that the vehicle is trackable, provide the vehicle descriptor ```id```.
+
+
+
+### Position and trip matching
+
+Provide a timestamped ```VehiclePositions``` feed with a well-matched ```TripDescriptor``` and accurate position information. Only report vehicles that are in service (i.e. assigned to a block). 
+Trip matching occurs when you provide the vehicle’s most updated position with the timestamp of the reading, the trip descriptor, and the vehicle descriptor.
+
+#### Examples of valid VehiclePosition messages
+
+* ***Example 1*** shows a basic ```route_id``` informed for trip descriptor:
+
+```
+vehicle_position {
+    trip {
+      route_id: "route1"
+    }
+    vehicle {
+      id: "route1-v1"
+    }
+    position {
+      latitude: 4066265190
+      longitude: 3862204692
+    }
+    timestamp: 1458508943
+  }
+}
+```
+
+* ***Example 2*** shows the previous example with additional trip information provided:
+
+```
+vehicle_position {
+    trip {
+      route_id: "route1"
+      direction_id: "0"
+      start_time: "10:10:00"
+      start_date: "20160203"
+ 
+    }
+    vehicle {
+      id: "route1-v1"
+    }
+    position {
+      latitude: 4066265190
+      longitude: 3862204692
+    }
+    timestamp: 1458508943
+  }
+}
+```
+ 
+</details>
+
+<details>
+<summary>
+Vehicle position feeds minimum specification </summary>
+
+It is possible to use realtime (RT) data over General Transit Feed Specification (GTFS) static by adding vehicle positions data in your feed. Vehicle position provides Transit users with updates on the 
+location of a vehicle, allowing users to plan their trips more efficiently. This article lists the minimum requirements for a working feed of vehicle positions.
+
+
+<hr>
+
+## How it works    
+
+Before you create a GTFS-realtime feed, you need to have a working GTFS static feed. After you’ve created a working GTFS static feed, you can sign up to share your RT feed to show users your vehicle positions. 
+
+In order for vehicle positions to show accurate arrival and departure estimates, we require, at minimum, the list of fields shown below:
+
+A GTFS feed, which contains static transit information, is composed of a number of text (.txt) files that are contained in a single ZIP file. Each file describes a particular aspect of transit information: stops, routes, 
+trips, fares, etc. For more information about each file, consult the [GTFS reference](/reference/static/). 
+
+In order to create a GTFS feed follow the steps below.
+
+| Field name                  | Required? | Description                                                                    |
+|-----------------------------|-----------|--------------------------------------------------------------------------------|
+| ```entity```                | Yes       | (maps_transit.FeedEntity)                                                      |
+| ```entity_id```             | Yes       | Keep this stable until trip is updated                                         |
+| ```vehicle (position)```    | Yes       | (maps_transit.VehiclePosition)                                                 |
+| ```trip```                  | Yes       | (maps_transit.TripDescriptor)                                                  |
+| ```trip_id```               | Yes       | Uniquely identifies a trip from the static                                     |
+| ```start_time```            | Yes       | Required for frequency-based trips                                             |
+| ```start_date```            | Yes       | Required for frequency-based trips                                             |
+| ```schedule_relationship``` | Yes       | SCHEDULED or other appropriate                                                 |
+| ```position```              | Yes       | (maps_transit.Position)                                                        |
+| ```latitude```              | Yes       | Degrees north in the WGS-84 coordinate system                                  |
+| ```longitude```             | Yes       | Degrees east in the WGS-84 coordinate system                                   |
+| ```bearing```               | Optional  | Might be used in the future                                                    |
+| ```speed```                 | Optional  | Might be used in the future                                                    |
+| ```timestamp```             | Yes       | Epoch timestamp of when the position of the vehicle was obtained in seconds    |
+| ```vehicle (descriptor)```  | Yes       | (maps_transit.VehicleDescriptor)                                               |
+| ```id```                    | Yes       | This must uniquely and stably identify a vehicle over the entire trip duration |
+
+<br>
+
+## Example code
+
+<br>
+
+```
+entity {   
+  id: "entity_id"        
+
+  vehicle: {     
+   
+     trip: {       
+        trip_id: "270856"
+        start_time: "09:42:00"        
+        start_date: "20170313"
+        schedule_relationship: SCHEDULED  
+     }
+
+     position: {   
+        latitude : -32.92627
+        longitude: 151.78036
+        bearing  : 91.0   
+        speed    : 9.8     
+     }
+     timestamp: 1527621931  
+     vehicle: {    
+        id   : "bus-234"  
+     }
+  }
+}
+```
+
+For more details on trip descriptors, check out the [TripDescriptors for TripUpdate and VehiclePosition section] 
+
+</details>
+</details>
+<br>
 
 # Support
 

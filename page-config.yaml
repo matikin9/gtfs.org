@@ -321,6 +321,10 @@ pages:
         children:
           - name: Libraries & Tutorials
           - name: Validators
+            children:
+              - name: Feed Issues
+              - name: Validation Warnings
+              - name: Validation Errors
 
   - title: validator
     path: /validator/

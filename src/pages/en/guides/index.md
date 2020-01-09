@@ -6,8 +6,7 @@ template: doc-page
 # Getting started
 <hr>
 
-<details>
-<summary>How do I start ?</summary>
+## How do I start ?
 
 A GTFS feed, which contains static transit information, is composed of a number of text (.txt) files that are contained in a single ZIP file. Each file describes a particular aspect of transit information: stops, routes, trips, fares, etc. For more information about each file, consult the [GTFS reference](/reference/static/). 
 
@@ -18,10 +17,8 @@ In order to create a GTFS feed follow the steps below.
 1. Zip all the text files together. The zipped file comprises a version of the feed.
 1. Publish the feed by using one of the options described in the next section. 
 
-</details>
 
-<details>
-<summary>Publish your GTFS feed data</summary>
+## Publish your GTFS feed data
 
 To make your general transit feed specification (GTFS) feed publicly available, we recommend that you publish it
 on the web. Consuming software applications periodically fetch your transit data from this web
@@ -53,31 +50,28 @@ Publish your feed on Google Drive. Once you save the URL of your feed data ZIP f
 <summary>Manual upload via Transit partner dashboard</summary>
 As a last resort, use the manual uploading option in the Transit partner dashboard. This option is not recommended since it often leads to stale data for users.</details>
 
+<br>
+
+## General recommendations for publishing
 
 Datasets should be published at a public, permanent URL, including the zip file name. (e.g., www.agency.org/gtfs/gtfs.zip). Ideally, the URL should be directly downloadable without requiring login to access the file, to facilitate download by consuming software applications. While it is recommended (and the most common practice) to make a GTFS dataset openly downloadable, if a data provider does need to control access to GTFS for licensing or other reasons, it is recommended to control access to the GTFS dataset using API keys, which will facilitate automatic downloads.
-
-<hr>
  
 GTFS data is published in iterations so that a single file at a stable location always contains the latest official description of service for a transit agency (or agencies). 
 
-<hr>
 
-One GTFS dataset should contain current and upcoming service (sometimes called a “merged” dataset). Google transitfeed tool's [merge function](https://github.com/google/transitfeed/wiki/Merge) can be used to create a merged dataset from two different GTFS feeds. <ul><li>At any time, the published GTFS dataset should be valid for at least the next 7 days, and ideally for as long as the operator is confident that the schedule will continue to be operated.</li><li>If possible, the GTFS dataset should cover at least the next 30 days of service.</li></ul> 
+One GTFS dataset should contain current and upcoming service (sometimes called a “merged” dataset). Google transitfeed tool's [merge function](https://github.com/google/transitfeed/wiki/Merge) can be used to create a merged dataset from two different GTFS feeds. 
+- At any time, the published GTFS dataset should be valid for at least the next 7 days, and ideally for as long as the operator is confident that the schedule will continue to be operated.
+- If possible, the GTFS dataset should cover at least the next 30 days of service.
 
-<hr>
 
-Remove old services (expired calendars) from the feed. 
+- Remove old services (expired calendars) from the feed. 
 
-<hr>
+- If a service modification will go into effect in 7 days or fewer, express this service change through a [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) feed (service advisories or trip updates) rather than static GTFS dataset. 
 
-If a service modification will go into effect in 7 days or fewer, express this service change through a [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) feed (service advisories or trip updates) rather than static GTFS dataset. 
 
-<hr>
-
-The web-server hosting GTFS data should be configured to correctly report the file modification date (see [HTTP/1.1 - Request for Comments 2616](https://tools.ietf.org/html/rfc2616#section-14.29), under Section 14.29). 
+- The web-server hosting GTFS data should be configured to correctly report the file modification date (see [HTTP/1.1 - Request for Comments 2616](https://tools.ietf.org/html/rfc2616#section-14.29), under Section 14.29). 
 
  
-</details>
 
 <br>
 
@@ -669,8 +663,7 @@ Using three trips or two trips with one long and one short trip will not work pr
 
 <hr>
 
-<details>
- <summary>Why are these GTFS Best Practices important?</summary>
+## Why are these GTFS Best Practices important?
 <p>
 The objectives of GTFS Best Practices are:
 
@@ -680,30 +673,23 @@ The objectives of GTFS Best Practices are:
 
 Without coordinated GTFS Best Practices, various GTFS-consuming applications may establish requirements and expectations in an uncoordinated way, which leads to diverging requirements and application-specific datasets and less interoperability. Prior to the release of the Best Practices, there was greater ambiguity and disagreement in what constitutes correctly-formed GTFS data.
 
-</details>
+## How were they developed? Who developed them?
 
-<details>
- <summary>How were they developed? Who developed them?</summary>
 <p>
 
 These Best Practices were developed by a working group of 17 organizations involved in GTFS, including app providers & data consumers, transit providers, and consultants with extensive involvement in GTFS. The working group was convened and facilitated by [Rocky Mountain Institute](http://www.rmi.org/mobility).
 
 Working Group members voted on each Best Practice. Most Best Practices were approved by a unanimous vote. In a minority of cases, Best Practices were approved a large majority of organizations.
 
-</details>
-
-<details>
- <summary>Why not just change the GTFS reference?</summary>
+## Why not just change the GTFS reference?
 <p>
 
 Good question! The process of examining the Specification, data usage and needs did indeed trigger some changes to the Specification (see [closed pull requests in GitHub](https://github.com/google/transit/pulls?q=is%3Apr+is%3Aclosed)). Specification reference amendments are subject to a higher bar of scrutiny and comment than the Best Practices. However, there was still need to agree on a clear set of Best Practice recommendations.
 
 The working group anticipates that some GTFS Best Practices will eventually become part of the core GTFS reference.
 
-</details>
+## Do GTFS validator tools check for conformance with these Best Practices?
 
-<details>
- <summary>Do GTFS validator tools check for conformance with these Best Practices?</summary>
 <p>
 No validator tool currently checks for conformance with all Best Practices. 
 
@@ -711,7 +697,6 @@ Various validator tools check for conformance with some of these best practices.
 
 If you write a GTFS validator tool that references these Best Practices, please email [hello@mobilitydata.org](mailto:hello@mobilitydata.org).
 
-</details>
 
 <br>
 <hr>
@@ -849,10 +834,9 @@ One important type of alerts is ```effect: NO_SERVICE```. The recommended way of
 
 <details>
 
-<summary> TripDescriptor``` and Alerts categorization </summary>
- 
-It’s important to understand how ```TripDescriptor``` works in your feed. This article provides guidelines for ```TripDescriptor``` entities and alerts categorization.
+<summary> TripDescriptor and Alerts categorization </summary>
 
+It’s important to understand how ```TripDescriptor``` works in your feed. This article provides guidelines for ```TripDescriptor``` entities and alerts categorization.
 
 ## How it works
 
@@ -876,9 +860,10 @@ When working with a ```TripDescriptor``` for an alert, follow the guidelines bel
     * If ```start_date``` isn’t specified, it’s set to the local day, corresponding to the feed timestamp.
 * Do not use a ```TripDescriptor``` to represent multiple trips. Use multiple instances of ```informed_entity``` to represent the desired specific trips (with ```start_date```) that are affected.
 
-Example code:
+#### Example code:
 
-```
+````
+
 alert {
       informed_entity {
         trip_id: "T"
@@ -892,7 +877,7 @@ alert {
       end: 1284468072
     }
 } 
-```
+````
 
 Important: An ```active_period``` must be defined for trips within a specific time. When no ```active_period``` is present, the ```TripDescriptor``` applies to every matching trip. For example, when only ```trip_id``` 
 is specified for a non-frequency-based trip, the alert is applied indefinitely for all known service dates.
@@ -943,7 +928,7 @@ To help users have successful trips, review and use Google Transit guidelines. W
 
 <hr>
 
-* [Frequency-based TripDes riptors] (/frequency-based-tripdescriptors/)
+* [Frequency-based TripDescriptors] (/frequency-based-tripdescriptors/)
 * [Non-frequency-based TripDescriptors] (/non-frequency-based-tripdescriptors/)
 
 ### Create a simple TripUpdate
@@ -1069,7 +1054,7 @@ Before you create a GTFS-realtime feed, you need to have a working GTFS static f
 In order for vehicle positions to show accurate arrival and departure estimates, we require, at minimum, the list of fields shown below:
 
 A GTFS feed, which contains static transit information, is composed of a number of text (.txt) files that are contained in a single ZIP file. Each file describes a particular aspect of transit information: stops, routes, 
-trips, fares, etc. For more information about each file, consult the [GTFS reference](/reference/static/). 
+trips, fares, etc. For more information about each file, consult the [GTFS reference](/documentation//). 
 
 In order to create a GTFS feed follow the steps below.
 
@@ -1147,13 +1132,8 @@ For more details on trip descriptors, check out the [TripDescriptors for TripUpd
 # Tools
 
 <hr>
-<div hidden>
 
-##Libraries & Tutorials
-</div>
-
-<details>
-<summary>Libraries & Tutorials</summary>
+### Libraries & Tutorials
 
 The following tutorials provided by [OneBusAway](https://onebusaway.org/) cover a variety of aspects in working with GTFS-realtime data, for both agencies and developers. 
 
@@ -1164,21 +1144,13 @@ The following tutorials provided by [OneBusAway](https://onebusaway.org/) cover 
 - GTFS-realtime's place in the API ecosystem and using GTFS-realtime to power OneBusAway
 - [Other GTFS-realtime resources, including various adapters and plugins that work with the spec](https://github.com/OneBusAway/onebusaway/wiki/GTFS-Realtime-Resources)
 
-</details>
 
-<div hidden>
+### Validators
 
-##Validators
-</div>
-
-<details>
-<summary>Validators</summary>
-<p>
 Before publishing, GTFS feeds should be validated in order to catch errors. 
 A number of different validation tools exist. 
 Some tools check individual feeds while others are made to be integrated into software. 
 
 More details [here, link to validator documentation] (/validator/)
-</details>
  
 

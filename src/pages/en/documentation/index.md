@@ -792,6 +792,4 @@ Some intercity transit agencies have certain disallowed travel patterns in which
 ##### [Vehicles](https://bit.ly/gtfs-vehicles)
 Vehicles are fundamental to any transit system and in some cases agencies may need to provide information about specific vehicles. Occupancy status, amenities, bike capacity and boarding restrictions and accessibility are all useful information that riders may need. This extension allows GTFS to describe many vehicle properties.
 
-</details>
-
 

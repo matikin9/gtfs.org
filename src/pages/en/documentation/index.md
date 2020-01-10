@@ -749,9 +749,8 @@ Vehicle descriptor describes a precise physical vehicle and can contain any of t
 # Extensions
 
 GTFS has extensions that add specialized functionality to the core specification. Extensions that are currently in development can be found in this section.
-<details>
-<summary>  Unofficial Extensions </summary>
-<hr>
+
+##  Unofficial Extensions 
 
 Some GTFS producers have added extensions to GTFS that have not been formally adopted into the specification. Some of the major unofficial extensions are listed below. 
 
@@ -759,7 +758,6 @@ Some GTFS producers have added extensions to GTFS that have not been formally ad
 * [MTC GTFS+](https://www.transitwiki.org/TransitWiki/index.php/File:GTFS%2B_Additional_Files_Format_Ver_1.7.pdf) - Created by the San Francisco Bay Area Metropolitan Transportation Commission. Adds additional real time information, directions, rider categories and more.
 * [MBTA](https://github.com/mbta/gtfs-documentation/) - Adds on-time performance tracking checkpoints, station and facility information and more. 
 
-</details>
 
 <br>
 
@@ -767,9 +765,7 @@ Some GTFS producers have added extensions to GTFS that have not been formally ad
 
 GTFS is a community driven data format. Users can propose and vote on changes to the GTFS. For detailed information see the [GTFS-realtime](/reference/realtime/changes/) and [GTFS-static](/reference/static/changes) change processes. 
 
-<details>
-<summary>See proposed extensions</summary>
-<hr>
+## Proposed extensions
 
 ##### MobilityData
 
@@ -795,7 +791,5 @@ Some intercity transit agencies have certain disallowed travel patterns in which
 
 ##### [Vehicles](https://bit.ly/gtfs-vehicles)
 Vehicles are fundamental to any transit system and in some cases agencies may need to provide information about specific vehicles. Occupancy status, amenities, bike capacity and boarding restrictions and accessibility are all useful information that riders may need. This extension allows GTFS to describe many vehicle properties.
-
-</details>
 
 

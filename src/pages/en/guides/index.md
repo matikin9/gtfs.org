@@ -1172,31 +1172,38 @@ Some tools check individual feeds while others are made to be integrated into so
 
 
 Validation warnings are informational messages that indicate potential problems with your feed, some of which could prevent your transit data from being displayed to transit data consumers. 
-Review warnings to ensure that your feed data is accurate and correctly coded. Where warnings indicate problems, update and then re-validate the feed.
 
-<details> <summary> Warning organised by category</summary>
+Review warnings to ensure that your feed data is accurate and correctly coded. 
 
-<details> <summary> Fares </summary> 
+When warnings indicate problems, update and then re-validate the feed.
+
+
+
+
+
+<button-category></button-category>
+
+<div id="blank" style="display: none;">
+</div>
+
+<div id="fares" style="display: none;">
 
 | Warning                                                     | Description                                                                                                                                                                                  |
 |-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Multiple fares without rules / fares with and without rules <br> <br> <br> <br> | Fares defined without rules are valid for all itineraries that meet their transfer limitations. <br><br> Review the corresponding fares to make sure that correct fare information is shown to users. |
 
-</details>
+</div>
 
-<details> <summary> Frequencies </summary> 
-
+<div id="frequencies" style="display: none;">
 
 | Warning                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Frequency headway longer than interval | <br><br>An entry in the ```frequencies.txt``` file was found where the ```headway_secs``` value is much greater than the difference between end_time and start_time. <br><br>Do not set ```headway_secs``` greater than the frequency interval. <br>We recommend you fix entries that cause this warning.                                                                                                                                                                                                                                               |
 | Overlapping frequency-based trips <br><br><br><br><br>      | <br>This warning indicates that two trips with overlapping frequency intervals and the same sequence of stops and times were found operating on the same day. <br>This may indicate duplicate trips in the feed or misconfigured calendar entries that cause trips to activate on the wrong day. <br><br>Verify that you correctly defined the service periods and exceptions; for example, weekend service enabled on a weekday (because it is a holiday) but without disabling the weekday service may create duplicate trips. |
 
+</div>
 
-</details>
-
-<details> <summary> Routes </summary> 
-
+<div id="routes-duplicate" style="display: none;">
 
 | Warning                                      | Description                                                                                                                                                                                                                                                                             |
 |-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1205,30 +1212,29 @@ Review warnings to ensure that your feed data is accurate and correctly coded. W
 |<br>```route_short_name``` equals ```route_long_name``` <br>      | <br> Fields```route_short_name``` and ```route_long_name``` must not be the same. If they are, specify the data in only one of the two fields.    <br><br>                                                                                                                                                      |
 |```route_short_name``` is too long <br><br><br>                | <br>The ```route_short_name``` should be a short identifier. <br> This warning reports any ```route_short_name``` field longer than 6 characters, however this is not a hard limit. <br> If the ```route_short_name``` contains  a proper name, and there is also a route_long_name, then you can ignore these warnings. |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-</details>
+</div>
 
-<details> <summary> Service date and times </summary> 
+<div id="service" style="display: none;">
 
 | Warning        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Trip duplicates <br><br><br><br><br><br>| This warning indicates that two trips were found operating on the same day that have the same sequence of stops and arrival or departure times. This may indicate duplicate trips in the feed or misconfigured calendar entries that cause trips to activate on the wrong day. <br><br> Verify correct definition of service periods and exceptions; for example, weekend service enabled on a weekday (because it is a holiday) but without disabling the weekday service may create duplicate trips. |
 
 
-</details>
+</div>
 
 
-<details> <summary> Shapes </summary> 
+<div id="shapes" style="display: none;">
 
 | Warning                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stop does not match ```shape_dist_traveled``` value <br><br><br><br><br>| This warning is caused by an incorrect ```shape_dist_traveled``` value that does not match the location of the stop along the shape. In some cases, the system can ignore the shape_dist_traveled value and match the stop to the shape; review the problem instances nevertheless. <br><br> It may be a good idea to completely remove the ```shape_dist_traveled``` values.              <br><br>                                                                                                                                                                                                    |
 | Stop too far from shape     <br><br><br><br><br><br><br><br>                  | This warning can be caused by wrong shapes or wrong stop locations. The problem instances should be reviewed to verify that the shape matches the course of the corresponding trip.A stop was found in the ```stop_times.txt``` file that was more than 150 meters away from the trip path of travel as defined by the shape entry in the ```shapes.txt``` file. This warning can be caused by wrong shape definition or wrong stop locations. <br><br>Review problem instances to verify that the shape matches the course of the corresponding trip and that all stop locations are correct. |
 
+</div>
 
-</details>
 
-<details> <summary>Stop and stations</summary> 
-
+<div id="stops" style="display: none;">
 
 | Warning                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1241,18 +1247,19 @@ Review warnings to ensure that your feed data is accurate and correctly coded. W
 | Stop unused / station unused  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>           | <br>Stops that are not used by any trip in the feed won’t be processed further. We recommend that you check that unused stop or station entities are intended and not caused by a problem in the feed. <br>A validation warning about unused stops or stations in a GTFS feed indicates that there are entries in the ```stops.txt``` file that are not used by any entries in the ```stop_times.txt``` file. That means that no transit vehicles are scheduled to use that stop or station. While there is no restriction about including in your GTFS feed stops or stations that are not served by any transit vehicles, GTFS providers are encouraged to leave these entities out of their feeds since such entries might confuse riders if, for example, they are shown on a map or included in search results. <br>Here are some things to check when resolving "Unused stop" or "Unused station" validation warnings: <br> - If transit vehicles should be scheduled to use that stop or station, it may indicate a problem with entries in the ```stop_times.txt``` file, such as the stop being incorrectly excluded from the trip or stop pattern of a route.<br> - If the stop or station is no longer in service, it may be best to remove it from the feed. <br> - If using stop-station hierarchy in a GTFS feed, then station entries (stops with a ```location_type``` of 1) typically do not have corresponding entries in the ```stop_times.txt``` file. <br> - If a station entry is not correctly annotated with the proper ```location_type``` value, the feed validator considers it a regular stop and warns that it is unused. |
 | <br>Un-merged stop warnings <br><br><br>                 | <br><br>Un-merged stop warnings occur when stops should have been merged. Duplicate stops are confusing for users. <br> The easiest way to fix this is: <br>  __1.__ Review the warning output to identify which stops need to be merged ("problem stop"). <br> __2.__ Find the geocodes of all problem stops in the new feed. <br>__3.__ Update the geocodes of problem stops in the old feed to match the new feed. <br>Assuming there are few stops with this problem, you can manually perform these updates.|
 
-</details>
-<details> <summary> Time </summary> 
+</div>
 
- 
+
+<div id="time" style="display: none;">
+
 | Warning      | Description                                           |
 |---------------|-------------------------------------------------------|
 | Time warnings | See `agency_timezone` for information on time warnings. |
 
-</details>
+</div>
 
-<details> <summary> Transfers </summary> 
 
+<div id="transfers" style="display: none;">
 
 | Warning                           | Description                                                                                                                                                                                   |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1260,9 +1267,10 @@ Review warnings to ensure that your feed data is accurate and correctly coded. W
 | Transfer distance is very large <br><br><br>   | This warning indicates that a transfer was defined between two stops that are very far away from each other at a distance that passengers wouldn’t normally walk <br>(> 2km), this must be fixed. <br><br>|
 | Transfer walking speed is too fast | This warning indicates that a transfer was defined between two stops with a ```min_transfer_time``` that requires very fast walking (> 2m/s), this must be fixed.                                   |
 
-</details>
-<details> <summary> Trips </summary> 
+</div>
 
+
+<div id="trips" style="display: none;">
 
 | Warning                                  | Description                                                                                                                                                                                                                                 |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1275,10 +1283,8 @@ Review warnings to ensure that your feed data is accurate and correctly coded. W
 | Fast travel between stops                 | <br>Two stop times, belonging to the same trip in the ```stop_times.txt``` file, were found where the speed required for the transit vehicle to travel between the specified stops in the specified time seems suspiciously fast.                     |
 | Fast travel between far stops             | <br> Two stops, which were far apart and belonging to the same trip in the ```stop_times.txt``` file, were found where the speed required for the transit vehicle to travel between the specified stops in the specified time seems suspiciously fast. |
 
-</details>
-
-</details>
-
+</div>
+     
 <br>
 
 

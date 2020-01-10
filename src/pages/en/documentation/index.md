@@ -10,7 +10,7 @@ template: doc-page
 
 This document defines the format and structure of the files that comprise a GTFS dataset.
 
-<details> 
+<details open> 
 <summary>Term Definitions</summary>
 
 This section defines terms that are used throughout this document.
@@ -28,7 +28,7 @@ This section defines terms that are used throughout this document.
  
 </details>
 
-<details> 
+<details open> 
 <summary>Field Types</summary>
 
 - **Color** - A color encoded as a six-digit hexadecimal number. Refer to [https://htmlcolorcodes.com](https://htmlcolorcodes.com) to generate a valid value (the leading "#" is not included). <br> *Example: `FFFFFF` for white, `000000` for black or `0039A6` for the A,C,E lines in NYMTA.*
@@ -50,7 +50,7 @@ This section defines terms that are used throughout this document.
  
 </details>
 
-<details> 
+<details open> 
 <summary>Dataset Files</summary>
 
 This specification defines the following files:
@@ -76,7 +76,7 @@ This specification defines the following files:
  
 </details>
 
-<details> 
+<details open> 
 <summary>File Requirements</summary>
 
 
@@ -99,7 +99,7 @@ The following example demonstrates how a field value would appear in a comma-del
  
 </details>
 
-<details> 
+<details open> 
 <summary>Field Definitions</summary>
 
 <button> Generate Specification with selected extensions</button>
@@ -428,7 +428,7 @@ When calculating an itinerary, GTFS-consuming applications interpolate transfers
 
 # GTFS Realtime feed (GTFS-RT)
 
-<details> 
+<details open> 
 <summary> Overview of GTFS Realtime feeds</summary>
 
 GTFS Realtime is a feed specification that allows public transportation agencies to provide realtime updates about their fleet to application developers. It is an extension to [GTFS](https://developers.google.com/transit/gtfs/reference) (General Transit Feed Specification), an open data format for public transportation schedules and associated geographic information. GTFS Realtime was designed around ease of implementation, good GTFS interoperability and a focus on passenger information.
@@ -454,7 +454,7 @@ Because GTFS Realtime allows you to present the _actual_ status of your fleet, t
 
 </details>
 
-<details> 
+<details open> 
 <summary> Overview of GTFS Realtime feed entities</summary>
 
 GTFS Realtime supports three distinct types of realtime data, that can be
@@ -462,7 +462,7 @@ combined witin a single realtime feed. Summaries are given below, with full
 documentation given in the relevant section.
 
 
-<details> 
+<details open> 
 <summary> Trip Updates: "Bus X is delayed by 5 minutes" </summary>
 
 Trip updates represent fluctuations in the timetable. We would expect to receive
@@ -574,7 +574,7 @@ As an example a long-distance bus that has an estimated delay of 15 minutes arri
 
 </details>
 
-<details> 
+<details open> 
 <summary> Service Alerts : "Station Y is closed due to construction"</summary>
 
 
@@ -653,7 +653,7 @@ What effect does this problem have on the specified entity? You may specify one 
 
 </details>
 
-<details> 
+<details open> 
 <summary> Vehicle Position: "This bus is at position X at time Y"</summary>
 
 
@@ -671,7 +671,7 @@ A **timestamp** denoting the time when the position reading was taken can be pro
 
 **Current passage** can also be provided (either as a `stop_sequence` or `stop_id`). This is a reference to the stop that the vehicle is either on its way to, or already stopped at.
 
-<details> 
+<details open> 
 <summary> Position</summary>
 
 Position contains the location data within Vehicle Position. Latitude and longitude are required, the other fields are optional. These types of data are:
@@ -684,7 +684,7 @@ Position contains the location data within Vehicle Position. Latitude and longit
 
 </details>
 
-<details> 
+<details open> 
 <summary> Congestion Level </summary>
 
 Vehicle position also allows the agency to specify the congestion level that the vehicle is currently experiencing. Congestion can be classed under the following categories:
@@ -699,7 +699,7 @@ It is up to the agency to classify what you class as each type of congestion. Ou
 
 </details>
 
-<details> 
+<details open> 
 <summary> Occupancy status </summary>
 
 Vehicle position also allows the agency to specify the degree of passenger occupancy for the vehicle. Occupancy status can be classed under the following categories:
@@ -716,7 +716,7 @@ This field is still **experimental**, and subject to change. It may be formally 
 
 </details>
 
-<details> 
+<details open> 
 <summary>  VehicleStopStatus </summary>
 
 Vehicle stop status gives more meaning to the status of a vehicle in relation with a stop that it is currently approaching or is at. It can be set to any of these values.
@@ -727,7 +727,7 @@ Vehicle stop status gives more meaning to the status of a vehicle in relation wi
 
 </details>
 
-<details> 
+<details open> 
 <summary> Vehicle Descriptor </summary>
 
 Vehicle descriptor describes a precise physical vehicle and can contain any of the following attributes:

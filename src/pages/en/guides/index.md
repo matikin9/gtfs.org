@@ -397,7 +397,6 @@ fare_AB,	route_B<br>
 </details>
 
 
-</details>
 <div hidden>
 
 ## Routes Examples
@@ -414,7 +413,7 @@ fare_AB,	route_B<br>
 File ```routes.txt```:
 
 <p id="csv">
-route_id,route_short_name,route_long_name,route_type <br
+route_id,route_short_name,route_long_name,route_type <br>
 R10,10,Airport - Downtown,3<br>
 R20,20,University - Downtown,3<br>
 </p>

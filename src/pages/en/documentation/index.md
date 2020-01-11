@@ -104,20 +104,9 @@ The following example demonstrates how a field value would appear in a comma-del
 
 <button> Generate Specification with selected extensions</button>
 
-<select id="documentation" multiple searchable="Search here..">
-    <option value="" disabled selected>Choose extensions (hold cmd or ctrl for multiple selection)</option>
-    <option value="attributions">Attributions.txt</option>
-    <option value="calendar">Calendar.txt</option>
-    <option value="calendar_d">Calendar_dates.txt</option>
-    <option value="fare_a">Fare_attributes.txt</option>
-    <option value="fare_r">Fare_rules.txt</option>
-    <option value="levels">Levels.txt</option>
-    <option value="pathways">Pathways.txt</option>
-    <option value="shapes">Shapes.txt</option>
-    <option value="transfers">Transfers.txt</option>
-</select>
+<div id="blank"></div>
 
-<div id="ref" style="display: none;">
+<div id="ref" style="display: block;">
 
 <br>
 
@@ -235,10 +224,13 @@ File: **Required**
 
 </div>
 
-<div id="attributions" style="display: none;"> 1</div>
+<div id="attributions" style="display: block;">
+
+TBU 
+</div>
 
 
-<div id="calendar" style="display: none;"> 
+<div id="calendar" style="display: block;">
 
 <br>
 
@@ -262,7 +254,7 @@ File: **Conditionally required**
 
 </div>
 
-<div id="calendar_d" style="display:none;"> 
+<div id="calendar_d" style="display: block;">
 
 <br>
 
@@ -283,7 +275,7 @@ The [calendar_dates.txt](#calendar_datestxt) table can explicitly activate or di
 
 </div>
 
-<div id="fare_a" style="display:none;">
+<div id="fare_a" style="display: block;">
 
 <br>
 
@@ -305,7 +297,7 @@ File: **Optional**
 </div>
 
 
-<div id="fare_r" style="display:none;">
+<div id="fare_r" style="display: block;">
 
 File: **Optional**
 
@@ -328,7 +320,7 @@ For examples that demonstrate how to specify a fare structure with [fare_rules.t
 
 </div>
 
-<div id="levels" style="display:none;">
+<div id="levels" style="display: block;">
 
 <br>
 
@@ -347,7 +339,7 @@ Describe the different levels of a station. Is mostly useful when used in conjun
 
 </div>
 
-<div id="pathways" style="display:none;">
+<div id="pathways" style="display: block;">
 
 ### pathways.txt
 
@@ -380,7 +372,7 @@ To go from the entrance (which is a node represented as a location with location
 
 </div>
 
-<div id="shapes" style="display:none;">
+<div id="shapes" style="display: block;">
 
 <br>
 

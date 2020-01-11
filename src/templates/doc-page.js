@@ -22,6 +22,7 @@ import ButtonShapes from "../components/ButtonShapes";
 import ButtonFeedInfo from "../components/ButtonFeedInfo";
 import ButtonFrequencies from "../components/ButtonFrequencies";
 import ButtonTransfers from "../components/ButtonTransfers";
+import ButtonCategory from "../components/ButtonCategory";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -40,7 +41,8 @@ const renderAst = new rehypeReact({
     "button-shapes": ButtonShapes,
     "button-feed-info": ButtonFeedInfo,
     "button-frequencies": ButtonFrequencies,
-    "button-transfers": ButtonTransfers
+    "button-transfers": ButtonTransfers,
+    "button-category": ButtonCategory
   },
 }).Compiler
 

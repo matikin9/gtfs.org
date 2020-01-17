@@ -10,7 +10,7 @@ template: doc-page
 
 This document defines the format and structure of the files that comprise a GTFS dataset.
 
-<details> 
+<details open> 
 <summary>Term Definitions</summary>
 
 This section defines terms that are used throughout this document.
@@ -28,7 +28,7 @@ This section defines terms that are used throughout this document.
  
 </details>
 
-<details> 
+<details open> 
 <summary>Field Types</summary>
 
 - **Color** - A color encoded as a six-digit hexadecimal number. Refer to [https://htmlcolorcodes.com](https://htmlcolorcodes.com) to generate a valid value (the leading "#" is not included). <br> *Example: `FFFFFF` for white, `000000` for black or `0039A6` for the A,C,E lines in NYMTA.*
@@ -50,7 +50,7 @@ This section defines terms that are used throughout this document.
  
 </details>
 
-<details> 
+<details open> 
 <summary>Dataset Files</summary>
 
 This specification defines the following files:
@@ -76,7 +76,7 @@ This specification defines the following files:
  
 </details>
 
-<details> 
+<details open > 
 <summary>File Requirements</summary>
 
 

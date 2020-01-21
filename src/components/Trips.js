@@ -3,7 +3,7 @@ import {useStaticQuery, graphql} from "gatsby"
 
 const ReactMarkdown = require('react-markdown')
 
-const Agency = () => {
+const Trips = () => {
     const data = useStaticQuery(graphql`
     {
       markdownRemark(frontmatter: {path: {eq: "/agency/"}}) {
@@ -19,4 +19,4 @@ const Agency = () => {
     // JSON.stringify(data.markdownRemark.html, null, 4)
 }
 
-export default Agency
+export default Trips

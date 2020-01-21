@@ -23,6 +23,7 @@ import ButtonFeedInfo from "../components/ButtonFeedInfo";
 import ButtonFrequencies from "../components/ButtonFrequencies";
 import ButtonTransfers from "../components/ButtonTransfers";
 import ButtonCategory from "../components/ButtonCategory";
+import About from "../components/About";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -42,7 +43,8 @@ const renderAst = new rehypeReact({
     "button-feed-info": ButtonFeedInfo,
     "button-frequencies": ButtonFrequencies,
     "button-transfers": ButtonTransfers,
-    "button-category": ButtonCategory
+    "button-category": ButtonCategory,
+    "about": About
   },
 }).Compiler
 

@@ -2,8 +2,10 @@
 path: /documentation/
 lang: en
 template: doc-page
-
 ---
+
+<about></about>
+
 # General Transit Feed Specification Reference
 
 **Revised January 17, 2019. See [Revision History](/reference/static/changes) for more details.**

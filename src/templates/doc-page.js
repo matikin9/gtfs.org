@@ -9,42 +9,34 @@ import {useTranslation} from 'react-i18next';
 import {getPathForLanguage} from '../lib/i18n';
 import Counter from "../components/Counter";
 import Button from "../components/Button";
-import ButtonAgency from "../components/ButtonAgency";
-import ButtonStops from "../components/ButtonStops";
-import ButtonRoutes from "../components/ButtonRoutes";
-import ButtonTrips from "../components/ButtonTrips";
-import ButtonStopTimes from "../components/ButtonStopTimes";
-import ButtonCalendar from "../components/ButtonCalendar";
-import ButtonCalendarDates from "../components/ButtonCalendarDates";
-import ButtonFareAttributes from "../components/ButtonFareAttributes";
-import ButtonFareRules from "../components/ButtonShapes";
-import ButtonShapes from "../components/ButtonShapes";
-import ButtonFeedInfo from "../components/ButtonFeedInfo";
-import ButtonFrequencies from "../components/ButtonFrequencies";
-import ButtonTransfers from "../components/ButtonTransfers";
-import ButtonCategory from "../components/ButtonCategory";
-import About from "../components/About";
+import Agency from "../components/Agency";
+import Stops from "../components/Stops";
+import Routes from "../components/Routes";
+import Trips from "../components/Trips";
+import StopTimes from "../components/StopTimes";
+import CalendarDates from "../components/CalendarDates";
+import Calendar from "../components/Calendar";
+import FareAttributes from "../components/FareAttributes";
+import FareRules from "../components/FareRules";
+import Shapes from "../components/Shapes";
+import Transfers from "../components/Transfers";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     "interactive-counter": Counter,
     "button": Button,
-    "button-agency": ButtonAgency,
-    "button-stops": ButtonStops,
-    "button-routes": ButtonRoutes,
-    "button-trips": ButtonTrips,
-    "button-stop-times": ButtonStopTimes,
-    "button-calendar": ButtonCalendar,
-    "button-calendar-dates": ButtonCalendarDates,
-    "button-fare-attributes": ButtonFareAttributes,
-    "button-fare-rules": ButtonFareRules,
-    "button-shapes": ButtonShapes,
-    "button-feed-info": ButtonFeedInfo,
-    "button-frequencies": ButtonFrequencies,
-    "button-transfers": ButtonTransfers,
-    "button-category": ButtonCategory,
-    "about": About
+    "agency": Agency,
+    "stops": Stops,
+    "routes": Routes,
+    "trips": Trips,
+    "stoptimes": StopTimes,
+    "calendar": Calendar,
+    "calendardates": CalendarDates,
+    "fareattributes": FareAttributes,
+    "farerules": FareRules,
+    "shapes": Shapes,
+    "transfers": Transfers,
   },
 }).Compiler
 

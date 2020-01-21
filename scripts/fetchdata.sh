@@ -65,6 +65,7 @@ touch $PAGE
 echo -en "---\npath: /best-practices/\nlang: en\ntemplate: doc-page\n---\n$(cat $PAGE)" > $PAGE
 for i in "${BEST_PRACTICES_FILES[@]}"
 do
+    cp repos/best-practices/en/$i.md ../src/pages/en/best-practices/
     cat repos/best-practices/en/$i.md >> $PAGE
 done
 # Remove existing lang tags

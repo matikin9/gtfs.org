@@ -65,7 +65,7 @@ touch $PAGE
 echo -en "---\npath: /best-practices/\nlang: en\ntemplate: doc-page\n---\n$(cat $PAGE)" > $PAGE
 for i in "${BEST_PRACTICES_FILES[@]}"
 do
-    cat repos/best-practices/en/$i.md >> $PAGE
+    cp repos/best-practices/en/$i.md src/pages/en/best-practices/$i.md
 done
 # Remove existing lang tags
 if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then

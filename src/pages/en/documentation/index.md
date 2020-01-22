@@ -356,6 +356,51 @@ For examples that demonstrate how to specify a fare structure with [fare_rules.t
 
 <br>
 
+## Feed_info (optional file)
+
+**This file is required if translation.txt is provided**
+
+The file contains information about the dataset itself, rather than the services that the dataset describes. Note that, in some cases, the publisher of the dataset is a different entity than any of the agencies.
+
+|  Field Name | Type | Required | Description |
+|  ------ | ------ | ------ | ------ |
+|  `feed_publisher_name` | Text | **Required** | Full name of the organization that publishes the dataset. This may be the same as one of the `agency.agency_name` values. |
+|  `feed_publisher_url` | URL | **Required** | URL of the dataset publishing organization's website. This may be the same as one of the `agency.agency_url` values. |
+|  `feed_lang` | Language code | **Required** | Default language used for the text in this dataset. This setting helps GTFS consumers choose capitalization rules and other language-specific settings for the dataset. The file `translations.txt` can be used if the text needs to be translated into languages other than the default one.<br><br>The default language may be multilingual for datasets with the original text in multiple languages. In such cases, the `feed_lang` field should contain the language code `mul` defined by the norm ISO 639-2. The best practice here would be to provide, in `translations.txt`, a translation for each language used throughout the dataset. If all the original text in the dataset is in the same language, then `mul` should not be used.<hr>_Example: Consider a dataset from a multilingual country like Switzerland, with the original `stops.stop_name` field populated with stop names in different languages. Each stop name is written according to the dominant language in that stop’s geographic location, e.g. `Genève` for the French-speaking city of Geneva, `Zürich` for the German-speaking city of Zurich, and `Biel/Bienne` for the bilingual city of Biel/Bienne. The dataset `feed_lang` should be `mul` and translations would be provided in `translations.txt`, in German: `Genf`, `Zürich` and `Biel`; in French: `Genève`, `Zurich` and `Bienne`; in Italian: `Ginevra`, `Zurigo` and `Bienna`; and in English: `Geneva`, `Zurich` and `Biel/Bienne`._ |
+|  `default_lang` | Language code | Optional | Defines the language that should be used when the data consumer doesn’t know the language of the rider. It will often be `en` (English). |
+|  `feed_start_date` | Date | Optional | The dataset provides complete and reliable schedule information for service in the period from the beginning of the `feed_start_date` day to the end of the `feed_end_date` day. Both days can be left empty if unavailable. The `feed_end_date` date must not precede the `feed_start_date` date if both are given. Dataset providers are encouraged to give schedule data outside this period to advise of likely future service, but dataset consumers should treat it mindful of its non-authoritative status. If `feed_start_date` or `feed_end_date` extend beyond the active calendar dates defined in [calendar.txt](#calendartxt) and [calendar_dates.txt](#calendar_datestxt), the dataset is making an explicit assertion that there is no service for dates within the `feed_start_date` or `feed_end_date` range but not included in the active calendar dates. |
+|  `feed_end_date` | Date | Optional | (see above) |
+|  `feed_version` | Text | Optional | String that indicates the current version of their GTFS dataset. GTFS-consuming applications can display this value to help dataset publishers determine whether the latest dataset has been incorporated. |
+|  `feed_contact_email` | Email | Optional | Email address for communication regarding the GTFS dataset and data publishing practices. `feed_contact_email` is a technical contact for GTFS-consuming applications. Provide customer service contact information through [agency.txt](#agencytxt). |
+|  `feed_contact_url` | URL | Optional | URL for contact information, a web-form, support desk, or other tools for communication regarding the GTFS dataset and data publishing practices. `feed_contact_url` is a technical contact for GTFS-consuming applications. Provide customer service contact information through [agency.txt](#agencytxt). |
+
+
+
+### Best Practices for feed_info.txt
+
+<feedinfo> </feedinfo>
+
+## Frequencies.txt: (optional file)
+
+[Frequencies.txt](#frequenciestxt) represents trips that operate on regular headways (time between trips). This file can be used to represent two different types of service.
+
+* Frequency-based service (`exact_times`=`0`) in which service does not follow a fixed schedule throughout the day. Instead, operators attempt to strictly maintain predetermined headways for trips.
+* A compressed representation of schedule-based service (`exact_times`=`1`) that has the exact same headway for trips over specified time period(s). In schedule-based service operators try to strictly adhere to a schedule.
+
+
+|  Field Name | Type | Required | Description |
+|  ------ | ------ | ------ | ------ |
+|  `trip_id` | ID referencing `trips.trip_id` | **Required** | Identifies a trip to which the specified headway of service applies. |
+|  `start_time` | Time | **Required** | Time at which the first vehicle departs from the first stop of the trip with the specified headway. |
+|  `end_time` | Time | **Required** | Time at which service changes to a different headway (or ceases) at the first stop in the trip. |
+|  `headway_secs` | Non-negative integer | **Required** | Time, in seconds, between departures from the same stop (headway) for the trip, during the time interval specified by `start_time` and `end_time`. Multiple headways for the same trip are allowed, but may not overlap. New headways may start at the exact time the previous headway ends.  |
+|  `exact_times` | Enum | Optional | Indicates the type of service for a trip. See the file description for more information. Valid options are:<br><br>`0` or empty - Frequency-based trips.<br>`1` - Schedule-based trips with the exact same headway throughout the day. In this case the `end_time` value must be greater than the last desired trip `start_time` but less than the last desired trip start_time + `headway_secs`. |
+
+
+### Best Practices for frequencies.txt
+
+<frequencies></frequencies>
+
 ## Levels.txt (optional file)
 
 Describes the different levels of a station. Is mostly useful when used in conjunction with `pathways.txt`, and is required for elevator (`pathway_mode=5`) to ask the user to take the elevator to the “Mezzanine” or the “Platform” level.

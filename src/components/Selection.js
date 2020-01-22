@@ -122,5 +122,3 @@ export default class Selection extends React.Component {
 
     }
 }
-// feed_info.txt
-// frequencies.txt

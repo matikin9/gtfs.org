@@ -20,6 +20,9 @@ import FareAttributes from "../components/FareAttributes";
 import FareRules from "../components/FareRules";
 import Shapes from "../components/Shapes";
 import Transfers from "../components/Transfers";
+import FeedInfo from "../components/FeedInfo";
+import Frequencies from "../components/Frequencies";
+
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -37,6 +40,9 @@ const renderAst = new rehypeReact({
     "farerules": FareRules,
     "shapes": Shapes,
     "transfers": Transfers,
+    "feedinfo": FeedInfo,
+    "frequencies": Frequencies,
+
   },
 }).Compiler
 

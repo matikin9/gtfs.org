@@ -6,100 +6,33 @@ export default class Selection extends React.Component {
         var x = document.getElementById("multiselect-specification");
         var selectedElements = []
 
-        for (var i = 0; i < x.options.length; i++) {
-
-            if (x.options[i].selected == true) {
-                selectedElements.push(x.options[i].value)
-            }
-
-            if (document.getElementById(x.options[i].value).style.display == 'block') {
-                document.getElementById(x.options[i].value).style.display = 'none';
-            }
-        }
+        // get selected elements in <select> item from documentation/index.md
 
         for (var i = 0; i < x.options.length; i++) {
 
             if (x.options[i].selected == true) {
-                document.getElementById(x.options[i].value).style.display = 'block';
+                selectedElements.push(x.options[i].value);
+                document.getElementById(x.options[i].value).style.display = "none";
             }
+
+            // if element is select then display the related content:
+            // if content is hidden: display it
+            // else: continue display
+
+            // reset all optional files to hidden
+            // if (document.getElementById(x.options[i].value).style.display == 'block') {
+            //     document.getElementById(x.options[i].value).style.display = 'none';
+            // }
         }
 
-        if (selectedElements.indexOf("levels") > -1) {
-            var table = document.getElementById("stops");
-            var row = table.insertRow(-1);
-            var cell0 = row.insertCell(0);
-            var cell1 = row.insertCell(1);
-            var cell2 = row.insertCell(2);
-            var cell3 = row.insertCell(3);
+        // if fare rule is selected, alert(fare attributes is required in this case) and display fare_attributes
 
-            cell0.innerHTML = " `level_id` ";
-            cell1.innerHTML = "ID referencing `levels.level_id` ";
-            cell2.innerHTML = "Optional";
-            cell3.innerHTML = "Level of the location. The same level can be used by multiple unlinked stations.";
-        }
+        // if levels is selected AND pathways is not selected : then recommend to display pathways
 
-        if (selectedElements.indexOf("fare_r") > -1) {
-            var table = document.getElementById("stops");
-            var row = table.insertRow(-1);
-            var cell0 = row.insertCell(0);
-            var cell1 = row.insertCell(1);
-            var cell2 = row.insertCell(2);
-            var cell3 = row.insertCell(3);
+        // if translation is selected and feed_info is not selected: display both and alert that feed_info was required therefore has been added to the generated documentation
 
-            cell0.innerHTML = " `zone_id` ";
-            cell1.innerHTML = "ID";
-            cell2.innerHTML = "Conditionally Required";
-            cell3.innerHTML = "Identifies the fare zone for a stop. This field is required if providing fare information using [fare_rules.txt](#fare_rulestxt), otherwise it is optional. If this record represents a station or station entrance, the `zone_id` is ignored.";
-        }
+        // if calendar only selected: adapt trips, same avec calendar_Dates, or both selected
 
-        if ((selectedElements.indexOf("calendar") > -1) && (selectedElements.indexOf("calendar_d") > -1)) {
-            document.getElementById("trips").style.display = 'block';
-            // document.getElementById("trips_calendar").style.display = 'none';
-            // document.getElementById("trips_calendar_dates").style.display = 'block';
-            //
-        }
-        //
-        // if ((selectedElements.indexOf("calendar") > -1) && (selectedElements.indexOf("calendar_d") <= -1)){
-        //     alert("calendar selected and calendar date non selected")
-        //     document.getElementById("trips_calendar_dates").style.display = 'none';
-        //     document.getElementById("trips_calendar_d").style.display = 'none';
-        //     document.getElementById("trips_calendar").style.display = 'block';
-        // }
-        //
-        // if ((selectedElements.indexOf("calendar") <= -1) && (selectedElements.indexOf("calendar_d") > -1)){
-        //     alert("calendar date selected and calendar non selected")
-        //     document.getElementById("trips_calendar_dates").style.display = 'none';
-        //     document.getElementById("trips_calendar").style.display = 'none';
-        //     document.getElementById("trips_calendar_d").style.display = 'block';
-        // }
-
-        //
-        // var table = document.getElementById("calendar_");
-        // var row = table.insertRow(0);
-        // var cell0 = row.insertCell(0);
-        // var cell1 = row.insertCell(1);
-        // var cell2 = row.insertCell(2);
-        // var cell3 = row.insertCell(3);
-        //
-        // cell0.innerHTML = " service_id ";
-        // cell1.innerHTML = "ID referencing `calendar.service_id`";
-        // cell2.innerHTML = "Required";
-        // cell3.innerHTML = "Identifies a set of dates when service is available for one or more routes.";
-        //
-
-        //
-        // for (var i = 0; i < x.options.length; i++) {
-        //     if (document.getElementById(x.options[i].value).style.display == 'block') {
-        //         document.getElementById(x.options[i].value).style.display = 'none';
-        //     }
-        // }
-        //
-        // for (var i = 0; i < x.options.length; i++) {
-        //
-        //     if (x.options[i].selected == true) {
-        //         document.getElementById(x.options[i].value).style.display = 'block';
-        //     }
-        // }
     }
 
     render() {
@@ -118,6 +51,7 @@ export default class Selection extends React.Component {
             <option value="pathways">Pathways.txt</option>
             <option value="shapes">Shapes.txt</option>
             <option value="transfers">Transfers.txt</option>
+            <option value="translations">Translations.txt</option>
         </select>
 
     }

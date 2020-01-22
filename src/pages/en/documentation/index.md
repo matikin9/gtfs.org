@@ -105,7 +105,6 @@ The following example demonstrates how a field value would appear in a comma-del
 
 <div id="blank"></div>
 
-<p id="ref" style="display: block;">
 
 <br>
 
@@ -247,16 +246,11 @@ Notes on above table:
  
 <stoptimes> </stoptimes>
 
-<p id="attributions" style="display: block;"> 
-
-</p>
-
-
 <p id="calendar" style="display: block;">
 
 <br>
 
-## Calendar.txt (conditionnaly required file)
+## Calendar.txt (conditionally required file)
 
 |  Field Name | Type | Required | Description |
 |  ------ | ------ | ------ |------ |
@@ -282,7 +276,7 @@ Notes on above table:
 
 <br>
 
-## Calendar_date.txt (conditionnaly required file)
+## Calendar_date.txt (conditionally required file)
 
 
 The [calendar_dates.txt](#calendar_datestxt) table can explicitly activate or disable service by date. It can be used in two ways.
@@ -302,9 +296,33 @@ The [calendar_dates.txt](#calendar_datestxt) table can explicitly activate or di
 
 </p>
 
-<p id="fare_a" style="display: block;">
+<br>
+
+<p id="attributions" style="display:none;">
+
+## Attributions.txt (optional file)
+
+The file defines the attributions applied to the dataset.
+
+|  Field Name | Type | Required | Description |
+|  ------ | ------ | ------ | ------ |
+|  `attribution_id` | ID | Optional | Identifies an attribution for the dataset or a subset of it. This is mostly useful for translations. |
+|  `agency_id` | ID referencing `agency.agency_id` | Optional | Agency to which the attribution applies.<br><br>If one `agency_id`, `route_id`, or `trip_id` attribution is defined, the other ones must be empty. If none of them is specified, the attribution will apply to the whole dataset. |
+|  `route_id` |  ID referencing `routes.route_id`  | Optional | Functions in the same way as `agency_id` except the attribution applies to a route. Multiple attributions can apply to the same route. |
+|  `trip_id` |  ID referencing `trips.trip_id`  | Optional | Functions in the same way as `agency_id` except the attribution applies to a trip. Multiple attributions can apply to the same trip. |
+|  `organization_name` | Text | **Required** | Name of the organization that the dataset is attributed to. |
+|  `is_producer` | Enum | Optional | The role of the organization is producer. Valid options are:<br><br>`0` or empty - Organization doesn’t have this role.<br>`1` - Organization does have this role.<br><br>At least one of the fields `is_producer`, `is_operator`, or `is_authority` should be set at `1`. |
+|  `is_operator` | Enum | Optional | Functions in the same way as `is_producer` except the role of the organization is operator. |
+|  `is_authority` | Enum | Optional | Functions in the same way as `is_producer` except the role of the organization is authority. |
+|  `attribution_url` | URL | Optional | URL of the organization. |
+|  `attribution_email` | Email | Optional | Email of the organization. |
+|  `attribution_phone` | Phone number | Optional | Phone number of the organization. |
+
+</p>
 
 <br>
+
+<p id="fare_a" style="display: block;">
 
 ## Fare_attributes.txt (optional file)
 
@@ -328,7 +346,6 @@ The [calendar_dates.txt](#calendar_datestxt) table can explicitly activate or di
 <p id="fare_r" style="display: block;">
 
 ## Fare_rules.txt (optional file)
-
 
 The [fare_rules.txt](#farerulestxt) table specifies how fares in [fare_attributes.txt](#fare_attributestxt) apply to an itinerary. Most fare structures use some combination of the following rules:
 
@@ -356,6 +373,8 @@ For examples that demonstrate how to specify a fare structure with [fare_rules.t
 
 <br>
 
+<p id="feed_info" style="display: block;">
+
 ## Feed_info (optional file)
 
 **This file is required if translation.txt is provided**
@@ -380,7 +399,11 @@ The file contains information about the dataset itself, rather than the services
 
 <feedinfo> </feedinfo>
 
-## Frequencies.txt: (optional file)
+</p>
+
+<p id="frequencies" style="display: block;">
+
+## Frequencies.txt (optional file)
 
 [Frequencies.txt](#frequenciestxt) represents trips that operate on regular headways (time between trips). This file can be used to represent two different types of service.
 
@@ -401,6 +424,8 @@ The file contains information about the dataset itself, rather than the services
 
 <frequencies></frequencies>
 
+<p id="levels" style="display: block;">
+
 ## Levels.txt (optional file)
 
 Describes the different levels of a station. Is mostly useful when used in conjunction with `pathways.txt`, and is required for elevator (`pathway_mode=5`) to ask the user to take the elevator to the “Mezzanine” or the “Platform” level.
@@ -410,7 +435,6 @@ Describes the different levels of a station. Is mostly useful when used in conju
 |  `level_id` | ID | **Required** | Id of the level that can be referenced from `stops.txt`.|
 |  `level_index` | Float | **Required** | Numeric index of the level that indicates relative position of this level in relation to other levels (levels with higher indices are assumed to be located above levels with lower indices).<br><br>Ground level should have index 0, with levels above ground indicated by positive indices and levels below ground by negative indices.|
 |  `level_name` | Text | Optional | Optional name of the level (that matches level lettering/numbering used inside the building or the station). Is useful for elevator routing (e.g. “take the elevator to level “Mezzanine” or “Platforms” or “-1”).|
-
 
 </p>
 
@@ -442,7 +466,6 @@ To go from the entrance (which is a node represented as a location with location
 | `signposted_as` | Text | Optional | String of text from physical signage visible to transit riders. The string can be used to provide text directions to users, such as 'follow signs to '. The language text should appear in this field exactly how it is printed on the signs - it should not be translated.|
 | `reversed_signposted_as` | Text | Optional | Same than the `signposted_as` field, but when the pathways is used backward, i.e. from the `to_stop_id` to the `from_stop_id`.|
 
-
 </p>
 
 <p id="shapes" style="display: block;">
@@ -466,7 +489,6 @@ Shapes describe the path that a vehicle travels along a route alignment, and are
 <shapes></shapes>
 </p>
 
-
 <p id="transfers" style="display:none;">
 
 <br>
@@ -486,8 +508,27 @@ When calculating an itinerary, GTFS-consuming applications interpolate transfers
 ### Best Practices for transfers.txt:
 
 <transfers></transfers>
+
 </p>
- 
+
+<p id="translations" style="display: block;">
+
+## Translations.txt (optional file)
+
+In regions that have multiple official languages, transit agencies/operators typically have language-specific names and web pages. In order to best serve riders in those regions, it is useful for the dataset to include these language-dependent values.
+
+|  Field Name | Type | Required | Description |
+|  ------ | ------ | ------ | ------ |
+|  `table_name` | Enum | **Required** | Defines the table that contains the field to be translated. Allowed values are: `agency`, `stops`, `routes`, `trips`, `stop_times`, `levels` and `feed_info` (do not include the `.txt` file extension). If a table with a new file name is added by another proposal in the future, the table name is the name of the filename without the `.txt` file extension. |
+|  `field_name` | Text | **Required** | Name of the field to be translated. Fields with type `Text` can be translated, fields with type `URL`, `Email` and `Phone number` can also be “translated” to provide resources in the correct language. Fields with other types should not be translated. |
+|  `language` | Language code | **Required** | Language of translation.<br><br>If the language is the same as in `feed_info.feed_lang`, the original value of the field will be assumed to be the default value to use in languages without specific translations (if `default_lang` doesn't specify otherwise).<br><br>Example: In Switzerland, a city in an officially bilingual canton is officially called “Biel/Bienne”, but would simply be called “Bienne” in French and “Biel” in German. |
+|  `translation` | Text or URL or Email or Phone number | **Required** | Translated value. |
+|  `record_id` | ID | **Conditionally Required** | Defines the record that corresponds to the field to be translated. The value in `record_id` should be a main ID of the table, as defined below:<br>• `agency_id` for `agency.txt`;<br>• `stop_id` for `stops.txt`;<br>• `route_id` for `routes.txt`;<br>• `trip_id` for `trips.txt`;<br>• `trip_id` for `stop_times.txt`.<br><br>No field should be translated in the other tables. However producers sometimes add extra fields that are outside the official specification and these unofficial fields may need to be translated. Below is the recommended way to use `record_id` for those tables:<br>• `service_id` for `calendar.txt`;<br>• `service_id` for `calendar_dates.txt`;<br>• `fare_id` for `fare_attributes.txt`;<br>• `fare_id` for `fare_rules.txt`;<br>• `shape_id` for `shapes.txt`;<br>• `trip_id` for `frequencies.txt`;<br>• `from_stop_id` for `transfers.txt`;<br>• `pathway_id` for `pathways.txt`;<br>• `level_id` for `levels.txt`.<br><br>**Conditionally Required:**<br>- **forbidden** if `table_name` is `feed_info`;<br>- **forbidden** if `field_value` is defined;<br>- **required** if `field_value` is empty. |
+|  `record_sub_id` | ID | **Conditionally Required** | Helps the record that contains the field to be translated when the table doesn’t have a unique ID. Therefore, the value in `record_sub_id` is the secondary ID of the table, as defined by the table below:<br>• None for `agency.txt`;<br>• None for `stops.txt`;<br>• None for `routes.txt`;<br>• None for `trips.txt`;<br>• `stop_sequence` for `stop_times.txt`;<br><br>No field should be translated in the other tables. However producers sometimes add extra fields that are outside the official specification and these unofficial fields may need to be translated. Below is the recommended way to use `record_sub_id` for those tables:<br>• None for `calendar.txt`;<br>• `date` for `calendar_dates.txt`;<br>• None for `fare_attributes.txt`;<br>• `route_id` for `fare_rules.txt`;<br>• None for `shapes.txt`;<br>• `start_time` for `frequencies.txt`;<br>• `to_stop_id` for `transfers.txt`;<br>• None for `pathways.txt`;<br>• None for `levels.txt`.<br><br>**Conditionally Required:**<br>- **forbidden** if `table_name` is `feed_info`;<br>- **forbidden** if `field_value` is defined;<br>- **required** if `table_name=stop_times` and `record_id` is defined. |
+|  `field_value` | Text or URL or Email or Phone number | **Conditionally Required** | Instead of defining which record should be translated by using `record_id` and `record_sub_id`, this field can be used to define the value which should be translated. When used, the translation will be applied when the fields identified by `table_name` and `field_name` contains the exact same value defined in field_value.<br><br>The field must have **exactly** the value defined in `field_value`. If only a subset of the value matches `field_value`, the translation won’t be applied.<br><br>If two translation rules match the same record (one with `field_value`, and the other one with `record_id`), then the rule with `record_id` is the one which should be used.<br><br>**Conditionally Required:**<br>- **forbidden** if `table_name` is `feed_info`;<br>- **forbidden** if `record_id` is defined;<br>- **required** if `record_id` is empty. |
+
+</p>
+
 </details>
 
 <br>

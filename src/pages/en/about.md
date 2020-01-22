@@ -3,7 +3,6 @@ path: /about/
 lang: en
 ---
 
-
 # About GTFS.org & Site Credits
 
 Some content on GTFS.org is based on Google’s <a href="https://developers.google.com/transit/gtfs/">GTFS site at developers.google.com</a>.

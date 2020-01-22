@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 import {useTranslation} from 'react-i18next';
 import {getPathForLanguage} from '../lib/i18n';
 import Counter from "../components/Counter";
-import Button from "../components/Button";
+import Selection from "../components/Selection";
 import Agency from "../components/Agency";
 import Stops from "../components/Stops";
 import Routes from "../components/Routes";
@@ -25,7 +25,7 @@ const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     "interactive-counter": Counter,
-    "button": Button,
+    "selection": Selection,
     "agency": Agency,
     "stops": Stops,
     "routes": Routes,

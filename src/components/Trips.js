@@ -6,7 +6,7 @@ const ReactMarkdown = require('react-markdown')
 const Trips = () => {
     const data = useStaticQuery(graphql`
     {
-      markdownRemark(frontmatter: {path: {eq: "/agency/"}}) {
+      markdownRemark(frontmatter: {path: {eq: "/trips/"}}) {
         html
       }
     }`)

@@ -1,5 +1,6 @@
 import React from "react";
-export default class Button extends React.Component {
+
+export default class Selection extends React.Component {
 
     handleChange = () => {
         var x = document.getElementById("multiselect-specification");
@@ -104,12 +105,15 @@ export default class Button extends React.Component {
     render() {
 
         return <select id="multiselect-specification" onChange={this.handleChange} multiple searchable="Search here..">
-            <option value="blank" disabled selected>Choose extensions (hold cmd or ctrl for multiple selection)</option>
+            <option value="blank" disabled selected>Choose optional files (hold cmd or ctrl for multiple selection)
+            </option>
             <option value="attributions">Attributions.txt</option>
-            <option value="calendar">Calendar.txt</option>
-            <option value="calendar_d">Calendar_dates.txt</option>
+            <option value="calendar">Calendar.txt (conditionally required)</option>
+            <option value="calendar_d">Calendar_dates.txt (conditionally required)</option>
             <option value="fare_a">Fare_attributes.txt</option>
             <option value="fare_r">Fare_rules.txt</option>
+            <option value="feed_info">Feed_info.txt</option>
+            <option value="frequencies">Frequencies.txt</option>
             <option value="levels">Levels.txt</option>
             <option value="pathways">Pathways.txt</option>
             <option value="shapes">Shapes.txt</option>
@@ -118,3 +122,5 @@ export default class Button extends React.Component {
 
     }
 }
+// feed_info.txt
+// frequencies.txt

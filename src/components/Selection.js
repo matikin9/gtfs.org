@@ -12,33 +12,51 @@ export default class Selection extends React.Component {
 
             if (x.options[i].selected == true) {
                 selectedElements.push(x.options[i].value);
-                document.getElementById(x.options[i].value).style.display = "none";
             }
-
-            // if element is select then display the related content:
-            // if content is hidden: display it
-            // else: continue display
-
-            // reset all optional files to hidden
-            // if (document.getElementById(x.options[i].value).style.display == 'block') {
-            //     document.getElementById(x.options[i].value).style.display = 'none';
-            // }
         }
 
-        // if fare rule is selected, alert(fare attributes is required in this case) and display fare_attributes
+        if (selectedElements.includes('calendar') & selectedElements.includes('calendar_d')) {
+            document.getElementById('trips').style.display = 'block';
+            // document.getElementById('trips_calendar_dates').style.display = 'none';
+            document.getElementById('trips_calendar').style.display = 'none';
+            alert('you selected both calendar and calendar dates');
+        } else if (selectedElements.includes('calendar') & !(selectedElements.includes('calendar_d'))) {
+            document.getElementById('trips').style.display = 'none';
+            // document.getElementById('trips_calendar_dates').style.display = 'none';
+            document.getElementById('trips_calendar').style.display = 'block';
+            alert('you only selected calendar');
+        } else if (!(selectedElements.includes('calendar')) & selectedElements.includes('calendar_d')) {
+            document.getElementById('trips').style.display = 'none';
+            document.getElementById('trips_calendar_dates').style.display = 'block';
+            // document.getElementById('trips_calendar').style.display = 'none';
+            alert('you only selected calendar dates');
+        }
 
-        // if levels is selected AND pathways is not selected : then recommend to display pathways
+        if (selectedElements.includes('translations')) {
+            document.getElementById('feed_info').style.display = 'block';
+            alert('translations requires feed_info.txt');
+        }
 
-        // if translation is selected and feed_info is not selected: display both and alert that feed_info was required therefore has been added to the generated documentation
+        if (selectedElements.includes('levels')) {
+            document.getElementById('pathways').style.display = 'block';
+            alert('levels.txt is recommended to be used in conjunction with pathways');
+            document.getElementById('stops_level').style.display = 'block';
+            alert('levels affect stops.txt file also');
+            document.getElementById('stops').style.display = 'none';
+        }
 
-        // if calendar only selected: adapt trips, same avec calendar_Dates, or both selected
-
+        if (!(selectedElements.includes('fare_a')) & selectedElements.includes('fare_r')) {
+            document.getElementById('fare_r').style.display = 'block';
+            alert('fare_rules requires fare_Attributes to be added to the spec');
+        }
+        // to be updated
     }
+
 
     render() {
 
-        return <select id="multiselect-specification" onChange={this.handleChange} multiple searchable="Search here..">
-            <option value="blank" disabled selected>Choose optional files (hold cmd or ctrl for multiple selection)
+        return <select id="multiselect-specification" onChange={this.handleChange} multiple>
+            <option disabled>Choose optional files (hold cmd or ctrl for multiple selection)
             </option>
             <option value="attributions">Attributions.txt</option>
             <option value="calendar">Calendar.txt (conditionally required)</option>

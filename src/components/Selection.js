@@ -47,7 +47,7 @@ export default class Selection extends React.Component {
 
         if (!(selectedElements.includes('fare_a')) & selectedElements.includes('fare_r')) {
             document.getElementById('fare_r').style.display = 'block';
-            alert('fare_rules requires fare_Attributes to be added to the spec');
+            alert('fare_rules requires fare_attributes to be added to the spec');
         }
         // to be updated
     }

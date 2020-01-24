@@ -4,7 +4,7 @@ export default class Selection extends React.Component {
 
     handleChange = () => {
         var x = document.getElementById("multiselect-specification");
-        var selectedElements = []
+        var selectedElements = [];
 
         // get selected elements in <select> item from documentation/index.md
 
@@ -55,7 +55,8 @@ export default class Selection extends React.Component {
 
     render() {
 
-        return <select id="multiselect-specification" onChange={this.handleChange} multiple>
+        return <div class="button dropdown"><select id="multiselect-specification" onChange={this.handleChange}
+                                                    multiple>
             <option disabled>Choose optional files (hold cmd or ctrl for multiple selection)
             </option>
             <option value="attributions">Attributions.txt</option>
@@ -71,6 +72,6 @@ export default class Selection extends React.Component {
             <option value="transfers">Transfers.txt</option>
             <option value="translations">Translations.txt</option>
         </select>
-
+        </div>
     }
 }

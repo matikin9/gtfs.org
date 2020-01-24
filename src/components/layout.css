@@ -92,3 +92,40 @@ tr:hover {
 #testagency {
     display: none;
 }
+
+
+/* This is the native select, we're making everything the text invisible so we can see the button styles in the wrapper */
+.dropdown select {
+    width: 100%;
+    margin: 0;
+    background: none;
+    border: 1px solid transparent;
+    outline: none;
+    /* Prefixed box-sizing rules necessary for older browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Remove select styling */
+    appearance: none;
+    -webkit-appearance: none;
+    /* Magic font size number to prevent iOS text zoom */
+    font-size: 1.25em;
+    /* General select styles: change as needed */
+    /* font-weight: bold; */
+    color: #444;
+    padding: .6em 1.9em .5em .8em;
+    line-height: 1.3;
+}
+
+.dropdown select,
+label {
+    font-family: AvenirNextCondensed-DemiBold, Corbel, "Lucida Grande", "Trebuchet Ms", sans-serif;
+}
+
+/* These are just demo button-y styles, style as you like */
+.button {
+    border: 1px solid #bbb;
+    border-radius: .3em;
+}
+
+

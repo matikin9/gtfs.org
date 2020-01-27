@@ -89,11 +89,6 @@ tr:hover {
     background-color: rgb(179, 179, 179);
 }
 
-#testagency {
-    display: none;
-}
-
-
 /* This is the native select, we're making everything the text invisible so we can see the button styles in the wrapper */
 .dropdown select {
     width: 100%;
@@ -129,3 +124,6 @@ label {
 }
 
 
+#testagency {
+    background-color: #f8d7da;
+}

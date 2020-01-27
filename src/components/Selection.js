@@ -1,5 +1,5 @@
 import React from "react";
-
+import $ from 'jquery';
 export default class Selection extends React.Component {
 
     handleChange = () => {
@@ -13,6 +13,14 @@ export default class Selection extends React.Component {
             if (x.options[i].selected == true) {
                 selectedElements.push(x.options[i].value);
             }
+        }
+
+        if (selectedElements.includes('levels')) {
+            var doc = document.getElementById("trips");
+            // if (doc.style.display === "block") {
+            doc.style.display = 'none';
+
+            // }
         }
 
         if (selectedElements.includes('calendar') & selectedElements.includes('calendar_d')) {
@@ -38,19 +46,22 @@ export default class Selection extends React.Component {
         }
 
         if (selectedElements.includes('levels')) {
-            document.getElementById('pathways').style.display = 'block';
             alert('levels.txt is recommended to be used in conjunction with pathways');
-            document.getElementById('stops_level').style.display = 'block';
             alert('levels affect stops.txt file also');
-            document.getElementById('stops').style.display = 'none';
+            // document.getElementById("testagency").style.display = 'none';
+            // document.getElementById('pathways').style.display = 'block';
+            // document.getElementById('stops_level').style.display = 'block';
+            // document.getElementById('testagency').style.display = 'none';
+            // document.getElementById('stops').style.display = 'none';
         }
 
         if (!(selectedElements.includes('fare_a')) & selectedElements.includes('fare_r')) {
             document.getElementById('fare_r').style.display = 'block';
             alert('fare_rules requires fare_attributes to be added to the spec');
         }
-        // to be updated
     }
+
+    // to be updated
 
 
     render() {

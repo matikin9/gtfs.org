@@ -22,6 +22,26 @@ import Shapes from "../components/Shapes";
 import Transfers from "../components/Transfers";
 import FeedInfo from "../components/FeedInfo";
 import Frequencies from "../components/Frequencies";
+import AgencySpec from "../components/AgencySpec";
+import StopsSpec from "../components/StopsSpec";
+import StopsSpecLevel from "../components/StopsSpecLevel";
+import RoutesSpec from "../components/RoutesSpec";
+import TripsSpecCalendarDates from "../components/TripsSpecCalendarDates";
+import TripsSpecCalendar from "../components/TripsSpecCalendar";
+import TripsSpec from "../components/TripsSpec";
+import StopTimesSpec from "../components/StopTimesSpec";
+import CalendarSpec from "../components/CalendarSpec";
+import CalendarDatesSpec from "../components/CalendarDatesSpec";
+import AttributionsSpec from "../components/AttributionsSpec";
+import FareAttributesSpec from "../components/FareAttributesSpec";
+import FareRulesSpec from "../components/FareRulesSpec";
+import FeedInfoSpec from "../components/FeedInfoSpec";
+import FrequenciesSpec from "../components/FrequenciesSpec";
+import LevelsSpec from "../components/LevelsSpec";
+import PathwaysSpec from "../components/PathwaysSpec";
+import ShapeSpec from "../components/ShapesSpec";
+import TransfersSpec from "../components/TransfersSpec";
+import TranslationsSpec from "../components/TranslationsSpec";
 
 
 const renderAst = new rehypeReact({
@@ -42,6 +62,27 @@ const renderAst = new rehypeReact({
     "transfers": Transfers,
     "feedinfo": FeedInfo,
     "frequencies": Frequencies,
+    "agencyspec": AgencySpec,
+    "stopsspec": StopsSpec,
+    "stopsspeclevel": StopsSpecLevel,
+    "routesspec": RoutesSpec,
+    "tripsspeccalendardates": TripsSpecCalendarDates,
+    "tripsspec": TripsSpec,
+    "tripsspeccalendar": TripsSpecCalendar,
+    "stoptimesspec": StopTimesSpec,
+    "calendarspec": CalendarSpec,
+    "calendardatesspec": CalendarDatesSpec,
+    "attributionsspec": AttributionsSpec,
+    "fareattributesspec": FareAttributesSpec,
+    "farerulesspec": FareRulesSpec,
+    "feedinfospec": FeedInfoSpec,
+    "frequenciesspec": FrequenciesSpec,
+    "levelsspec": LevelsSpec,
+    "pathwaysspec": PathwaysSpec,
+    "shapesspec": ShapeSpec,
+    "transfersspec": TransfersSpec,
+    "translationsspec": TranslationsSpec,
+
 
   },
 }).Compiler

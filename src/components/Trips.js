@@ -3,7 +3,7 @@ import {useStaticQuery, graphql} from "gatsby"
 
 const ReactMarkdown = require('react-markdown')
 
-const Trips = () => {
+const Trips = props => {
     const data = useStaticQuery(graphql`
     {
       markdownRemark(frontmatter: {path: {eq: "/trips/"}}) {

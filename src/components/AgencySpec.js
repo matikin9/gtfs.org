@@ -3,17 +3,17 @@ import {useStaticQuery, graphql} from "gatsby"
 
 const ReactMarkdown = require('react-markdown')
 
-const Agency = () => {
+const AgencySpec = () => {
     const data = useStaticQuery(graphql`
-    {
-      markdownRemark(frontmatter: {path: {eq: "/agency/"}}) {
-        html
+  {
+      markdownRemark(frontmatter: {path: {eq: "/agencyspec/"}}) {
+        rawMarkdownBody
       }
     }`)
     return <ReactMarkdown
-        source={data.markdownRemark.html}
+        source={data.markdownRemark.rawMarkdownBody}
         escapeHtml={false}
     />
 }
 
-export default Agency
+export default AgencySpec

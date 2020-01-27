@@ -107,10 +107,9 @@ The following example demonstrates how a field value would appear in a comma-del
 
 <br>
 
-
 <p id="stopsspec"><stopsspec></stopsspec></p>
 
-<p id="stopsspeclevel"><stopsspeclevel></stopsspeclevel></p>
+<p id="stopsspeclevel" style="display:none;"><stopsspeclevel></stopsspeclevel></p>
 
 <stops></stops>
 
@@ -118,17 +117,18 @@ The following example demonstrates how a field value would appear in a comma-del
 
 <p id="routesspec"><routesspec></routesspec></p>
 
-<routes> </routes>
+<routes></routes>
 
 <br>
 
-<p id="tripsspec"><tripsspec></tripsspec></p>
+<p id="tripsspec" style="display:none;"><tripsspec></tripsspec></p>
 
-<p id="tripsspeccalendar"><tripsspeccalendar></tripsspeccalendar></p>
+<p id="tripsspeccalendar" style="display: none;"><tripsspeccalendar></tripsspeccalendar></p>
 
-<p id="tripscalendardates"><tripsspeccalendardates></tripsspeccalendardates></p>
+<p id="tripsspeccalendardates style=display:none;"> <tripsspeccalendardates></tripsspeccalendardates> </p>
 
 <trips></trips>
+
 
 <br>
 
@@ -150,7 +150,7 @@ The following example demonstrates how a field value would appear in a comma-del
 
 <br>
 
-<p id="attrinbutionsspec"><attributionsspec></attributionsspec></p>
+<p id="attributionsspec"><attributionsspec></attributionsspec></p>
 
 <br>
 

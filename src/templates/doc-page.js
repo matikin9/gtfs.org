@@ -31,7 +31,7 @@ import TripsSpecCalendar from "../components/TripsSpecCalendar";
 import TripsSpec from "../components/TripsSpec";
 import StopTimesSpec from "../components/StopTimesSpec";
 import CalendarSpec from "../components/CalendarSpec";
-import CalendarDatesSpec from "../components/CalendarDatesSpec";
+// import CalendarDatesSpec from "../components/CalendarDatesSpec";
 import AttributionsSpec from "../components/AttributionsSpec";
 import FareAttributesSpec from "../components/FareAttributesSpec";
 import FareRulesSpec from "../components/FareRulesSpec";
@@ -71,7 +71,7 @@ const renderAst = new rehypeReact({
     "tripsspeccalendar": TripsSpecCalendar,
     "stoptimesspec": StopTimesSpec,
     "calendarspec": CalendarSpec,
-    "calendardatesspec": CalendarDatesSpec,
+    // "calendardatesspec": CalendarDatesSpec,
     "attributionsspec": AttributionsSpec,
     "fareattributesspec": FareAttributesSpec,
     "farerulesspec": FareRulesSpec,

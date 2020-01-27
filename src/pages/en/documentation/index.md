@@ -107,81 +107,97 @@ The following example demonstrates how a field value would appear in a comma-del
 
 <br>
 
-<stopsspec></stopsspec>
-<stopsspeclevel></stopsspeclevels>
+
+<p id="stopsspec"><stopsspec></stopsspec></p>
+
+<p id="stopsspeclevel"><stopsspeclevel></stopsspeclevel></p>
+
 <stops></stops>
 
 <br>
 
-<routesspec></routesspec>
+<p id="routesspec"><routesspec></routesspec></p>
+
 <routes> </routes>
 
 <br>
 
-<tripsspec></tripsspec>
-<tripsspeccalendar></tripsspeccalendar>
-<tripsspeccalendardates></tripsspeccalendardates>
+<p id="tripsspec"><tripsspec></tripsspec></p>
+
+<p id="tripsspeccalendar"><tripsspeccalendar></tripsspeccalendar></p>
+
+<p id="tripscalendardates"><tripsspeccalendardates></tripsspeccalendardates></p>
+
 <trips></trips>
 
 <br>
 
-<stoptimesspec></stoptimesspec>
+<p id="stoptimesspec"><stoptimesspec></stoptimesspec></p>
+
 <stoptimes></stoptimes>
 
 <br>
 
-<calendarspec></calendarspec>
+<p id="calendarspec"><calendarspec></calendarspec></p>
+
 <calendar></calendar>
 
 <br>
 
-<calendardatesspec></calendardatesspec>
+<p id="calendardatesspec"><calendardatesspec></calendardatesspec></p>
+
 <calendardates></calendardates>
 
 <br>
 
-<attributionsspec></attributionsspec>
+<p id="attrinbutionsspec"><attributionsspec></attributionsspec></p>
 
 <br>
 
-<fareattributesspec></fareattributesspec>
-<fareattributes> </fareattributes>
+<p id="fareattributesspec"><fareattributesspec></fareattributesspec></p>
+
+<p id="fareattributes"><fareattributes> </fareattributes></p>
 
 <br>
 
-<farerulesspec></farerulesspec>
-<farerules> </farerules>
+<p id="farerulesspec"><farerulesspec></farerulesspec></p>
+
+<p id="farerules"><farerules> </farerules></p>
 
 <br>
 
-<feedinfospec></feedinfospec>
-<feedinfo></feedinfo>
+<p id="feedinfosspec"><feedinfospec></feedinfospec></p>
+
+<p id="feedinfo"><feedinfo></feedinfo></p>
 
 <br>
 
-<frequeciesspec></frequeciesspec>
-<frequencies></frequencies>
+<p id="frequenciesspec"><frequeciesspec></frequeciesspec></p>
+
+<p id="frequencies"><frequencies></frequencies></p>
 
 <br>
 
-<levelsspec></levelsspec>
+<p id="levelspec"><levelsspec></levelsspec></p>
 
 <br>
 
-<pathwaysspec></pathwaysspec>
+<p id="pathwaysspec"><pathwaysspec></pathwaysspec></p>
 
 <br>
 
-<shapesspec></shapesspec>
-<shapes></shapes>
+<p id="shapesspec"><shapesspec></shapesspec></p>
+
+<p id="shapes"><shapes></shapes></p>
 
 <br>
 
-<transfersspec></transfersspec>
-<transfers></transfers>
+<p id="transfersspec"><transfersspec></transfersspec></p>
+
+<p id="transfers"><transfers></transfers></p>
 
 
-<translationsspec></translationsspec>
+<p id="translationsspec"><translationsspec></translationsspec></p>
 
 </details>
 

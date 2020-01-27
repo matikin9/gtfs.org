@@ -16,9 +16,11 @@ export default class Selection extends React.Component {
         }
 
         if (selectedElements.includes('levels')) {
-            var doc = document.getElementById("trips");
+            var doc = document.getElementById("stopsspeclevel");
             // if (doc.style.display === "block") {
-            doc.style.display = 'none';
+            doc.style.display = 'block';
+            document.getElementById("stopsspec").style.display = 'none';
+
 
             // }
         }

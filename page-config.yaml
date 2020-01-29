@@ -1,14 +1,15 @@
 nav:
   - display: Home
     link: /
+  - display: Specification
+    link: /specification/
   - display: Documentation
-    link: /documentation/
-  - display: Datasets
     link: /datasets/
-  - display: Guides & Tools
+  - display: Tools
     link: /guides/
   - display: About
     link: /about/
+
 
 
 pages:
@@ -333,12 +334,19 @@ pages:
       - name: Validation Warnings
       - name: Validation Errors
 
-  - title: documentation
-    path: /documentation/
+  - title: specification
+    path: /specification/
     sidemenu:
       - name: General Transit Feed Specification Reference
+        children:
+          - name: Definitions
+          - name: Core specification and extensions
       - name: GTFS Realtime feed (GTFS-RT)
-      - name: Extensions
-      - name: Changing GTFS
+        children:
+          - name: Definitions
+          - name: TripUpdates
+          - name: VehiclePositions
+          - name: ServiceAlerts
+      - name: Projects
 
 

@@ -1,5 +1,5 @@
 ---
-path: /documentation/
+path: /specification/
 lang: en
 template: doc-page
 ---
@@ -9,11 +9,12 @@ template: doc-page
 
 This document defines the format and structure of the files that comprise a GTFS dataset.
 
-<details > 
-<summary>Term Definitions</summary>
+## Definitions
 
 This section defines terms that are used throughout this document.
 
+<details > 
+<summary>Term Definitions</summary>
 
 * **Dataset** - A complete set of files defined by this specification reference. Altering the dataset creates a new version of the dataset. Datasets should be published at a public, permanent URL, including the zip file name. (e.g., https://www.agency.org/gtfs/gtfs.zip).
 * **Record** - A basic data structure comprised of a number of different field values describing a single entity (e.g. transit agency, stop, route, etc.). Represented, in a table, as a row.
@@ -93,25 +94,51 @@ The following example demonstrates how a field value would appear in a comma-del
 * Each line must end with a CRLF or LF linebreak character.
 * Files should be encoded in UTF-8 to support all Unicode characters. Files that include the Unicode byte-order mark (BOM) character are acceptable. See [http://unicode.org/faq/utf_bom.html#BOM](http://unicode.org/faq/utf_bom.html#BOM) for more information on the BOM character and UTF-8.
 * All dataset files must be zipped together.
-
- 
 </details>
 
-<details open> 
-<summary>Field Definitions</summary>
+## Core specification and extensions
 
-<selection></selection>
+<div class="ui info message">
+  <div class="content">
+    <div class="header">Select the extensions you wish to use<div>
+  </div>
+</div>
+</div>
+</div>
 
-<agencyspec></agencyspec>
-<agency></agency>
 
-<br>
+<corebutton></corebutton>
 
-<p id="stopsspec"><stopsspec></stopsspec></p>
+<attributionbutton></attributionbutton>
+<fareattributesbutton></fareattributesbutton>
+<farerulesbutton></farerulesbutton>
+<feedinfobutton></feedinfobutton>
 
-<p id="stopsspeclevel" style="display:none;"><stopsspeclevel></stopsspeclevel></p>
+<frequenciesbutton></frequenciesbutton>
+<levelsbutton></levelsbutton>
+<pathwaysbutton></pathwaysbutton>
+<shapesbutton></shapesbutton>
 
-<stops></stops>
+<transfersbutton></transfersbutton>
+<translationsbutton></translationsbutton>
+
+
+<div id="requiredFiles" style="display:none;">
+
+### agency.txt (required file)                    Display best practices<agencycheckbox id='agencyslider'></checkbox>
+
+
+<div id="agencyspec" style="display: block"><agencyspec></agencyspec></div>
+
+<div id="agencyspecbp" style="display:none"><agency></agency></div>
+
+### stops.txt (required file)                     Display best practices<stopscheckbox id='stopsslider'></checkbox>
+<div id="stops" style="display: block"><stopsspec></stopsspec></div>
+<div id="stopsbp" style="display:none"><stops></stops></div>
+
+<div id="stopslevel" style="display:none;"><stopsspeclevel></stopsspeclevel><stops></stops></div>
+
+
 
 <br>
 
@@ -149,57 +176,61 @@ The following example demonstrates how a field value would appear in a comma-del
 <calendardates></calendardates>
 
 <br>
+</div>
 
-<p id="attributionsspec"><attributionsspec></attributionsspec></p>
+<div id="optionalFiles" style="display: block;">
 
-<br>
-
-<p id="fareattributesspec"><fareattributesspec></fareattributesspec></p>
-
-<p id="fareattributes"><fareattributes> </fareattributes></p>
+<div id="attributions"><attributionsspec></attributionsspec></div>
 
 <br>
 
-<p id="farerulesspec"><farerulesspec></farerulesspec></p>
+<div id="fareattributes"><fareattributesspec></fareattributesspec>
 
-<p id="farerules"><farerules> </farerules></p>
-
-<br>
-
-<p id="feedinfosspec"><feedinfospec></feedinfospec></p>
-
-<p id="feedinfo"><feedinfo></feedinfo></p>
+<fareattributes> </fareattributes></div>
 
 <br>
 
-<p id="frequenciesspec"><frequeciesspec></frequeciesspec></p>
+<div id="farerules"><farerulesspec></farerulesspec>
 
-<p id="frequencies"><frequencies></frequencies></p>
-
-<br>
-
-<p id="levelspec"><levelsspec></levelsspec></p>
+<farerules> </farerules></div>
 
 <br>
 
-<p id="pathwaysspec"><pathwaysspec></pathwaysspec></p>
+<div id="feedinfo"><feedinfospec></feedinfospec>
+
+<feedinfo></feedinfo></div>
 
 <br>
 
-<p id="shapesspec"><shapesspec></shapesspec></p>
+<div id="frequencies"><frequeciesspec></frequeciesspec>
 
-<p id="shapes"><shapes></shapes></p>
+<frequencies></frequencies></div>
 
 <br>
 
-<p id="transfersspec"><transfersspec></transfersspec></p>
+<div id="levels"><levelsspec></levelsspec></div>
 
-<p id="transfers"><transfers></transfers></p>
+<br>
+
+<div id="pathways"><pathwaysspec></pathwaysspec></div>
+
+<br>
+
+<div id="shapes"><shapesspec></shapesspec>
+
+<shapes></shapes></div>
+
+<br>
+
+<div id="transfers"><transfersspec></transfersspec>
+
+<transfers></transfers></div>
 
 
-<p id="translationsspec"><translationsspec></translationsspec></p>
+<div id="translations"><translationsspec></translationsspec></div>
 
-</details>
+</div>
+
 
 <br>
 
@@ -208,9 +239,6 @@ The following example demonstrates how a field value would appear in a comma-del
 <details> 
 <summary> Overview of GTFS Realtime feeds</summary>
 
-GTFS Realtime is a feed specification that allows public transportation agencies to provide realtime updates about their fleet to application developers. It is an extension to [GTFS](https://developers.google.com/transit/gtfs/reference) (General Transit Feed Specification), an open data format for public transportation schedules and associated geographic information. GTFS Realtime was designed around ease of implementation, good GTFS interoperability and a focus on passenger information.
-
-The specification was designed through a partnership of the initial [Live Transit Updates](https://developers.google.com/transit/google-transit#LiveTransitUpdates) partner agencies, a number of transit developers and Google. The specification is published under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
 
 ## How do I start?
 

@@ -13,10 +13,19 @@ export default class Selection extends React.Component {
                 selectedElements.push(x.options[i].value);
             }
         }
+
+        if (selectedElements.includes('levels')) {
+            document.getElementById('stopslevel').style.display = 'block';
+            document.getElementById('stops').style.display = 'none';
+            alert('you chose to generate a documentation with only "levels.txt" as an optional file');
+        }
+
+
         //
         // for (var i = 0; i < pList.length; i++) {
         //     document.getElementById(pList[i]).style.display = "none";
         // }
+
 
         // for (var i = 0; i < x.options.length; i++) {
         //     if (x.options[i].selected == true) {

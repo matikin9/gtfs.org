@@ -2,8 +2,6 @@
 path: /stopsspec/
 lang: en
 ---
-## Stops.txt (required file)
-
 |  Field Name | Type | Required | Description |
 |  ------ | ------ | ------ | ------ |
 |  `stop_id` | ID | **Required** | Identifies a stop, station, or station entrance. <br><br> The term "station entrance" refers to both station entrances and station exits. Stops, stations or station entrances are collectively referred to as locations. Multiple routes may use the same stop. |

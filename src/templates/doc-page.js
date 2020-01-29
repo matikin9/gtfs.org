@@ -42,6 +42,24 @@ import PathwaysSpec from "../components/PathwaysSpec";
 import ShapeSpec from "../components/ShapesSpec";
 import TransfersSpec from "../components/TransfersSpec";
 import TranslationsSpec from "../components/TranslationsSpec";
+import CoreButton from "../components/CoreButton";
+import AttributionButton from "../components/AttributionButton";
+import FareAttributesButton from "../components/FareAttributesButton";
+import FareRulesButton from "../components/FareRulesButton";
+import FeedInfoButton from "../components/FeedInfoButton";
+import LevelsButton from "../components/LevelsButton";
+import PathwaysButton from "../components/PathwaysButton";
+import ShapesButton from "../components/ShapesButton";
+import TransfersButton from "../components/TransfersButton";
+import TranslationsButton from "../components/TranslationsButton";
+import FrequenciesButton from "../components/FrequenciesButton";
+import AgencyCheckBox from "../components/AgencyCheckBox";
+import StopsCheckbox from "../components/StopsCheckbox";
+
+const styleLink = document.createElement("link");
+styleLink.rel = "stylesheet";
+styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
+document.head.appendChild(styleLink);
 
 
 const renderAst = new rehypeReact({
@@ -82,8 +100,19 @@ const renderAst = new rehypeReact({
     "shapesspec": ShapeSpec,
     "transfersspec": TransfersSpec,
     "translationsspec": TranslationsSpec,
-
-
+    "corebutton": CoreButton,
+    "attributionbutton": AttributionButton,
+    "farerulesbutton": FareRulesButton,
+    "fareattributesbutton": FareAttributesButton,
+    "feedinfobutton": FeedInfoButton,
+    "levelsbutton": LevelsButton,
+    "pathwaysbutton": PathwaysButton,
+    "shapesbutton": ShapesButton,
+    "transfersbutton": TransfersButton,
+    "translationsbutton": TranslationsButton,
+    "frequenciesbutton": FrequenciesButton,
+    "agencycheckbox": AgencyCheckBox,
+    "stopscheckbox": StopsCheckbox,
   },
 }).Compiler
 

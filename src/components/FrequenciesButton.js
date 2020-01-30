@@ -13,7 +13,7 @@ export default class FrequenciesButton extends React.Component {
 
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">Add frequencies.txt</Button>
+        return <Button onClick={this.handleClick} className="ui button">GTFS-Pathways</Button>
     }
 }
 

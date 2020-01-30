@@ -112,6 +112,9 @@ The following example demonstrates how a field value would appear in a comma-del
 <fareattributesbutton></fareattributesbutton>
 <farerulesbutton></farerulesbutton>
 <feedinfobutton></feedinfobutton>
+<frequenciesbutton></frequenciesbutton>
+<pathwaysbutton></pathwaysbutton>
+<shapesbutton></shapesbutton>
 
 
 ### agency.txt (required file)                    Display best practices<agencycheckbox id='agencyslider'></agencycheckbox>

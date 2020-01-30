@@ -13,6 +13,6 @@ export default class FeedInfoButton extends React.Component {
 
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">Show extension 4</Button>
+        return <Button onClick={this.handleClick} className="ui button">GTFS-Vehicles</Button>
     }
 }

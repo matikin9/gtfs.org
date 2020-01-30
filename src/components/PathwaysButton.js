@@ -13,6 +13,6 @@ export default class PathwaysButton extends React.Component {
 
 
     render() {
-        return <button onClick={this.handleClick} className="ui button">Add pathways.txt</button>
+        return <button onClick={this.handleClick} className="ui button">GTFS-Ticketing</button>
     }
 }

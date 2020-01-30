@@ -6,7 +6,7 @@ export default class AttributionButton extends React.Component {
     }        // document.getElementById("multiselect-specification");
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">Show extension 1</Button>
+        return <Button onClick={this.handleClick} className="ui button">GTFS-Fares</Button>
     }
 }
 

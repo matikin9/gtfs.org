@@ -12,6 +12,6 @@ export default class ShapesButton extends React.Component {
     }
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">Add shapes.txt</Button>
+        return <Button onClick={this.handleClick} className="ui button">GTFS-ServiceChanges</Button>
     }
 }

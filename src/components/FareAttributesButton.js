@@ -12,6 +12,6 @@ export default class FareAttributesButton extends React.Component {
     }
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">Show extension 2</Button>
+        return <Button onClick={this.handleClick} className="ui button">GTFS-Flex</Button>
     }
 }

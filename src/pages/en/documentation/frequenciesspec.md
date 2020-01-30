@@ -2,8 +2,6 @@
 path: /frequenciesspec/
 lang: en
 ---
-## Frequencies.txt (optional file)
-
 [Frequencies.txt](#frequenciestxt) represents trips that operate on regular headways (time between trips). This file can be used to represent two different types of service.
 
 * Frequency-based service (`exact_times`=`0`) in which service does not follow a fixed schedule throughout the day. Instead, operators attempt to strictly maintain predetermined headways for trips.

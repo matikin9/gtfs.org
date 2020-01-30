@@ -2,8 +2,6 @@
 path: /levelsspec/
 lang: en
 ---
-## Levels.txt (optional file)
-
 Describes the different levels of a station. Is mostly useful when used in conjunction with `pathways.txt`, and is required for elevator (`pathway_mode=5`) to ask the user to take the elevator to the “Mezzanine” or the “Platform” level.
 
 |  Field Name | Type | Required | Description |

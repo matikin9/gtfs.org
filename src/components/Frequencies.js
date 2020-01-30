@@ -14,9 +14,6 @@ const Frequencies = () => {
         source={data.markdownRemark.html}
         escapeHtml={false}
     />
-
-    // <data.markdownRemark.html
-    // JSON.stringify(data.markdownRemark.html, null, 4)
 }
 
 export default Frequencies

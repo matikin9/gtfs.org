@@ -2,8 +2,6 @@
 path: /calendardatesspec/
 lang: en
 ---
-## Calendar_date.txt (conditionally required file)
-
 The [calendar_dates.txt](#calendar_datestxt) table can explicitly activate or disable service by date. It can be used in two ways.
 
 * Recommended: Use [calendar_dates.txt](#calendar_datestxt) in conjunction with [calendar.txt](#calendartxt) to define exceptions to the default service patterns defined in [calendar.txt](#calendartxt). If service is generally regular, with a few changes on explicit dates (for instance, to accommodate special event services, or a school schedule), this is a good approach. In this case `calendar_dates.service_id` is an ID referencing `calendar.service_id`.

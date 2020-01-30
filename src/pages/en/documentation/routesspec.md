@@ -2,8 +2,6 @@
 path: /routesspec/
 lang: en
 ---
-## Routes.txt (required file)
-
 |  Field Name | Type | Required | Description |
 |  ------ | ------ | ------ | ------ |
 |  `route_id` | ID | **Required** | Identifies a route. |

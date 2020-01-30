@@ -2,8 +2,6 @@
 path: /feedinfospec/
 lang: en
 ---
-## Feed_info (optional file)
-
 **This file is required if translation.txt is provided**
 
 The file contains information about the dataset itself, rather than the services that the dataset describes. Note that, in some cases, the publisher of the dataset is a different entity than any of the agencies.

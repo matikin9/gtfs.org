@@ -8,11 +8,11 @@ export default class FeedInfoButton extends React.Component {
             content.style.display = 'none'
         } else {
             content.style.display = 'block'
-        }        // document.getElementById("multiselect-specification");
+        }
     }
 
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">Add feed_info.txt</Button>
+        return <Button onClick={this.handleClick} className="ui button">Show extension 4</Button>
     }
 }

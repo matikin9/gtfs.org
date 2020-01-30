@@ -12,7 +12,7 @@ export default class FareRulesButton extends React.Component {
     }
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">Add fare_rules.txt</Button>
+        return <Button onClick={this.handleClick} className="ui button">show extension 3</Button>
     }
 }
 

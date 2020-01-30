@@ -2,8 +2,6 @@
 path: /farerulesspec/
 lang: en
 ---
-## Fare_rules.txt (optional file)
-
 The [fare_rules.txt](#farerulestxt) table specifies how fares in [fare_attributes.txt](#fare_attributestxt) apply to an itinerary. Most fare structures use some combination of the following rules:
 
 * Fare depends on origin or destination stations.

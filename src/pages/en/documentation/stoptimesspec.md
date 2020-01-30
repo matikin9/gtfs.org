@@ -2,8 +2,6 @@
 path: /stoptimesspec/
 lang: en
 ---
-## Stop_times.txt (required file)
-
 |  Field Name | Type | Required | Description |
 |  ------ | ------ | ------ | ------ |
 |  `trip_id` | ID referencing `trips.trip_id` | **Required** | Identifies a trip.  |

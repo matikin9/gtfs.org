@@ -31,7 +31,7 @@ import TripsSpecCalendar from "../components/TripsSpecCalendar";
 import TripsSpec from "../components/TripsSpec";
 import StopTimesSpec from "../components/StopTimesSpec";
 import CalendarSpec from "../components/CalendarSpec";
-// import CalendarDatesSpec from "../components/CalendarDatesSpec";
+import CalendarDatesSpec from "../components/CalendarDatesSpec";
 import AttributionsSpec from "../components/AttributionsSpec";
 import FareAttributesSpec from "../components/FareAttributesSpec";
 import FareRulesSpec from "../components/FareRulesSpec";
@@ -55,6 +55,17 @@ import TranslationsButton from "../components/TranslationsButton";
 import FrequenciesButton from "../components/FrequenciesButton";
 import AgencyCheckBox from "../components/AgencyCheckBox";
 import StopsCheckbox from "../components/StopsCheckbox";
+import RoutesCheckbox from "../components/RoutesCheckbox";
+import TripsCheckbox from "../components/TripsCheckbox";
+import StopTimesCheckbox from "../components/StopTimesCheckbox";
+import CalendarCheckbox from "../components/CalendarCheckbox";
+import CalendarDatesCheckbox from "../components/CalendarDatesCheckbox";
+import FareAttributesCheckbox from "../components/FareAttributesCheckbox";
+import FareRulesCheckbox from "../components/FareRulesCheckbox";
+import FeedInfoCheckbox from "../components/FeedInfoCheckbox";
+import FrequenciesCheckbox from "../components/FrequenciesCheckbox";
+import TransfersCheckbox from "../components/TransfersCheckbox";
+import ShapesCheckbox from "../components/ShapesCheckbox";
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -89,7 +100,7 @@ const renderAst = new rehypeReact({
     "tripsspeccalendar": TripsSpecCalendar,
     "stoptimesspec": StopTimesSpec,
     "calendarspec": CalendarSpec,
-    // "calendardatesspec": CalendarDatesSpec,
+    "calendardatesspec": CalendarDatesSpec,
     "attributionsspec": AttributionsSpec,
     "fareattributesspec": FareAttributesSpec,
     "farerulesspec": FareRulesSpec,
@@ -113,6 +124,17 @@ const renderAst = new rehypeReact({
     "frequenciesbutton": FrequenciesButton,
     "agencycheckbox": AgencyCheckBox,
     "stopscheckbox": StopsCheckbox,
+    "routescheckbox": RoutesCheckbox,
+    "tripscheckbox": TripsCheckbox,
+    "stoptimescheckbox": StopTimesCheckbox,
+    "calendarcheckbox": CalendarCheckbox,
+    "calendardatescheckbox": CalendarDatesCheckbox,
+    "fareattributescheckbox": FareAttributesCheckbox,
+    "farerulescheckbox": FareRulesCheckbox,
+    "feedinfocheckbox": FeedInfoCheckbox,
+    "frequenciescheckbox": FrequenciesCheckbox,
+    "transferscheckbox": TransfersCheckbox,
+    "shapescheckbox": ShapesCheckbox
   },
 }).Compiler
 

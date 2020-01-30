@@ -2,8 +2,6 @@
 path: /transfersspec/
 lang: en
 ---
-## Transfers.txt (optional file)
-
 When calculating an itinerary, GTFS-consuming applications interpolate transfers based on allowable time and stop proximity. [Transfers.txt](#transferstxt) specifies additional rules and overrides for selected transfers.
 
 |  Field Name | Type | Required | Description |

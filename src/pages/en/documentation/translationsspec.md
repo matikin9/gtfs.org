@@ -2,8 +2,6 @@
 path: /translationsspec/
 lang: en
 ---
-## Translations.txt (optional file)
-
 In regions that have multiple official languages, transit agencies/operators typically have language-specific names and web pages. In order to best serve riders in those regions, it is useful for the dataset to include these language-dependent values.
 
 |  Field Name | Type | Required | Description |

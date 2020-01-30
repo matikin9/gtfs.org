@@ -2,8 +2,6 @@
 path: /tripsspec/
 lang: en
 ---
-### Trips.txt (required file)
-
 |  Field Name | Type | Required | Description |
 |  ------ | ------ | ------ | ------ |
 |  `route_id` | ID referencing `routes.route_id` | **Required** | Identifies a route. |
@@ -17,7 +15,7 @@ lang: en
 |  `wheelchair_accessible` | Enum | Optional | Indicates wheelchair accessibility. Valid options are:<br><br>`0` or empty - No accessibility information for the trip.<br>`1` - Vehicle being used on this particular trip can accommodate at least one rider in a wheelchair.<br>`2` - No riders in wheelchairs can be accommodated on this trip. |
 |  `bikes_allowed` | Enum | Optional | Indicates whether bikes are allowed. Valid options are:<br><br>`0` or empty - No bike information for the trip.<br>`1` - Vehicle being used on this particular trip can accommodate at least one bicycle.<br>`2` - No bicycles are allowed on this trip. |
 
-### Example: Blocks and service day
+#### Example: Blocks and service day
 
 The example below is valid, with distinct blocks every day of the week.
 

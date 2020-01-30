@@ -2,8 +2,6 @@
 path: /calendarspec/
 lang: en
 ---
-## Calendar.txt (conditionally required file)
-
 |  Field Name | Type | Required | Description |
 |  ------ | ------ | ------ |------ |
 |  `service_id` | ID | **Required** | Uniquely identifies a set of dates when service is available for one or more routes. Each `service_id` value can appear at most once in a [calendar.txt](#calendartxt) file. |

@@ -114,119 +114,80 @@ The following example demonstrates how a field value would appear in a comma-del
 <farerulesbutton></farerulesbutton>
 <feedinfobutton></feedinfobutton>
 
-<frequenciesbutton></frequenciesbutton>
-<levelsbutton></levelsbutton>
-<pathwaysbutton></pathwaysbutton>
-<shapesbutton></shapesbutton>
-
-<transfersbutton></transfersbutton>
-<translationsbutton></translationsbutton>
 
 
 <div id="requiredFiles" style="display:none;">
 
-### agency.txt (required file)                    Display best practices<agencycheckbox id='agencyslider'></checkbox>
-
+### agency.txt (required file)                    Display best practices<agencycheckbox id='agencyslider'></agencycheckbox>
 
 <div id="agencyspec" style="display: block"><agencyspec></agencyspec></div>
-
 <div id="agencyspecbp" style="display:none"><agency></agency></div>
 
-### stops.txt (required file)                     Display best practices<stopscheckbox id='stopsslider'></checkbox>
+### stops.txt (required file)                     Display best practices<stopscheckbox id='stopsslider'></stopscheckbox>
 <div id="stops" style="display: block"><stopsspec></stopsspec></div>
 <div id="stopsbp" style="display:none"><stops></stops></div>
 
 <div id="stopslevel" style="display:none;"><stopsspeclevel></stopsspeclevel><stops></stops></div>
 
+### routes.txt (required file)  Display best practices<routescheckbox id='routesslider'></routescheckbox>
+<div id="routes" style="display: block;"><routesspec></routesspec></div>
+<div id="routesbp" style="display: none"><routes></routes></div>
 
 
-<br>
+### trips.txt (required file) Display best practices<tripscheckbox id='tripsslider'></tripscheckbox>
+<div id="trips" style="display:block;"><tripsspec></tripsspec></div>
+<div id="tripsbp" style="display: none;"><trips></trips></div>
 
-<p id="routesspec"><routesspec></routesspec></p>
+### stop_times.txt (required file) Display best practices<stoptimescheckbox id='stoptimeslsider'></stoptimescheckbox>
+<div id="stoptimes" style="display: block;"><stoptimesspec></stoptimesspec></div>
+<div id="stoptimesbp" style="display: none;"><stoptimes></stoptimes></div>
 
-<routes></routes>
+### calendar.txt (conditionally required file) Display best practices<calendarcheckbox id='calendarslider'></calendarcheckbox>
+<div id="calendar" style="display: block;"><calendarspec></calendarspec></div>
+<div id="calendarbp" style="display: none;"><calendar></calendar></div>
 
-<br>
+### calendar_dates.txt (conditionally required file) Display best practices <calendardatescheckbox id='calendardatesslider'></calendardatescheckbox>
+<div id="calendardates" style="display: block;"><calendardatesspec></calendardatesspec></div>
+<div id="calendardatesbp" style="display: none;"><calendardates></calendardates></div>
 
-<p id="tripsspec" style="display:none;"><tripsspec></tripsspec></p>
-
-<p id="tripsspeccalendar" style="display: none;"><tripsspeccalendar></tripsspeccalendar></p>
-
-<p id="tripsspeccalendardates style=display:none;"> <tripsspeccalendardates></tripsspeccalendardates> </p>
-
-<trips></trips>
-
-
-<br>
-
-<p id="stoptimesspec"><stoptimesspec></stoptimesspec></p>
-
-<stoptimes></stoptimes>
-
-<br>
-
-<p id="calendarspec"><calendarspec></calendarspec></p>
-
-<calendar></calendar>
-
-<br>
-
-<p id="calendardatesspec"><calendardatesspec></calendardatesspec></p>
-
-<calendardates></calendardates>
-
-<br>
 </div>
 
 <div id="optionalFiles" style="display: block;">
 
-<div id="attributions"><attributionsspec></attributionsspec></div>
+### attributions.txt (optional file)
+<div id="attributions" style="display: block;"><attributionsspec></attributionsspec></div>
 
-<br>
+### fare_attributes.txt (optional file) Display best practices <fareattributescheckbox id='fareattributesslider'></fareattributescheckbox>
+<div id="fareattributes" style="display:block;"><fareattributesspec></fareattributesspec></div>
+<div id="fareattributesbp" style="display: block;"><fareattributes></fareattributes></div>
 
-<div id="fareattributes"><fareattributesspec></fareattributesspec>
+### fare_rules.txt (optional file) Display best practices <farerulescheckbox id='farerulesslider'></farerulescheckbox>
+<div id="farerules" style="display: block;"><farerulesspec></farerulesspec></div>
+<div id="farerulesbp" style="display:none;"><farerules> </farerules></div>
 
-<fareattributes> </fareattributes></div>
+### feed_info.txt (optional file) Display best practices <feedinfocheckbox id='feedinfoslider'></feedinfocheckbox>
+<div id="feedinfo" style="display: block"><feedinfospec></feedinfospec></div>
+<div id="feedinfobp" style="display: none;"><feedinfo></feedinfo></div>
 
-<br>
+### frequencies.txt (optional file) Display best practices <frequenciescheckbox id='frequenciesslider'></frequenciescheckbox>
+<div id="frequencies" style="display:block;"><frequenciesspec></frequenciesspec></div>
+<div id="frequenciesbp" style="display: block;"><frequencies></frequencies></div>
 
-<div id="farerules"><farerulesspec></farerulesspec>
+### levels.txt (optional file)
+<div id="levels" style="display:block;"><levelsspec></levelsspec></div>
 
-<farerules> </farerules></div>
+### pathways.txt (optional file)
+<div id="pathways" style="display: block"><pathwaysspec></pathwaysspec></div>
 
-<br>
+### shapes.txt (optional file) Display best practices <shapescheckbox id='shapesslider'></shapescheckbox>
+<div id="shapes" style="display: block"><shapesspec></shapesspec></div>
+<div id="shapesbp" style="display: none"><shapes></shapes></div>
 
-<div id="feedinfo"><feedinfospec></feedinfospec>
+### transfers.txt (optional file) Display best practices <transferscheckbox id='transfersslider'></transferscheckbox>
+<div id="transfers" style="display:block;"><transfersspec></transfersspec></div>
+<div id="transfersbp" style="display: none;"><transfers></transfers></div>
 
-<feedinfo></feedinfo></div>
-
-<br>
-
-<div id="frequencies"><frequeciesspec></frequeciesspec>
-
-<frequencies></frequencies></div>
-
-<br>
-
-<div id="levels"><levelsspec></levelsspec></div>
-
-<br>
-
-<div id="pathways"><pathwaysspec></pathwaysspec></div>
-
-<br>
-
-<div id="shapes"><shapesspec></shapesspec>
-
-<shapes></shapes></div>
-
-<br>
-
-<div id="transfers"><transfersspec></transfersspec>
-
-<transfers></transfers></div>
-
-
+### translations.txt (optional file)
 <div id="translations"><translationsspec></translationsspec></div>
 
 </div>

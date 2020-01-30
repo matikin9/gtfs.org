@@ -6,7 +6,7 @@ const ReactMarkdown = require('react-markdown')
 const FareAttributes = () => {
     const data = useStaticQuery(graphql`
     {
-      markdownRemark(frontmatter: {path: {eq: "/fare_attributes/"}}) {
+      markdownRemark(frontmatter: {path: {eq: "/fareattributes/"}}) {
         html
       }
     }`)
@@ -14,9 +14,6 @@ const FareAttributes = () => {
         source={data.markdownRemark.html}
         escapeHtml={false}
     />
-
-    // <data.markdownRemark.html
-    // JSON.stringify(data.markdownRemark.html, null, 4)
 }
 
 export default FareAttributes

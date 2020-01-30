@@ -108,15 +108,13 @@ The following example demonstrates how a field value would appear in a comma-del
 
 
 <corebutton></corebutton>
+<div id="requiredFiles" style="display:none;">
 
 <attributionbutton></attributionbutton>
 <fareattributesbutton></fareattributesbutton>
 <farerulesbutton></farerulesbutton>
 <feedinfobutton></feedinfobutton>
 
-
-
-<div id="requiredFiles" style="display:none;">
 
 ### agency.txt (required file)                    Display best practices<agencycheckbox id='agencyslider'></agencycheckbox>
 
@@ -150,9 +148,7 @@ The following example demonstrates how a field value would appear in a comma-del
 <div id="calendardates" style="display: block;"><calendardatesspec></calendardatesspec></div>
 <div id="calendardatesbp" style="display: none;"><calendardates></calendardates></div>
 
-</div>
 
-<div id="optionalFiles" style="display: block;">
 
 ### attributions.txt (optional file)
 <div id="attributions" style="display: block;"><attributionsspec></attributionsspec></div>

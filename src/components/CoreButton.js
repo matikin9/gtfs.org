@@ -8,9 +8,9 @@ export default class CoreButton extends React.Component {
         countCore += 1
         // alert(countCore);
         if (countCore % 2 == 0) {
-            document.getElementById('corebutton').innerHTML = 'Show Core Specification';
+            document.getElementById('corebutton').innerHTML = 'Show Specification';
         } else {
-            document.getElementById('corebutton').innerHTML = 'Hide Core Specification';
+            document.getElementById('corebutton').innerHTML = 'Hide Specification';
         }
 
         var requiredFiles = document.getElementById('requiredFiles')
@@ -22,7 +22,7 @@ export default class CoreButton extends React.Component {
     }
 
     render() {
-        return <Button id="corebutton" fluid onClick={this.handleClick} color='blue'>Show Core Specification</Button>
+        return <Button id="corebutton" fluid onClick={this.handleClick} color='blue'>Show Specifications</Button>
     }
 }
 

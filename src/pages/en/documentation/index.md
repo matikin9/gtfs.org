@@ -98,17 +98,15 @@ The following example demonstrates how a field value would appear in a comma-del
 
 ## Core specification and extensions
 
-<div class="ui info message">
+<corebutton></corebutton>
+<div id="requiredFiles" style="display:none;">
+<div class="ui warning message">
   <div class="content">
     <div class="header">Select the extensions you wish to use<div>
   </div>
 </div>
 </div>
 </div>
-
-
-<corebutton></corebutton>
-<div id="requiredFiles" style="display:none;">
 
 <attributionbutton></attributionbutton>
 <fareattributesbutton></fareattributesbutton>

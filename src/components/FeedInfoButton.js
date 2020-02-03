@@ -1,18 +1,25 @@
 import React from "react";
 import {Button} from 'semantic-ui-react'
+import $ from "jquery";
+import {selector, updateDisplay} from "./CoreButton";
 
-export default class FeedInfoButton extends React.Component {
+var count = 0;
+export default class PathwaysButton extends React.Component {
     handleClick = () => {
-        var content = document.getElementById('feedinfo')
-        if (content.style.display == 'block') {
-            content.style.display = 'none'
+        count += 1;
+        if (count % 2 == 1) {
+            document.getElementById('feedinfobutton').innerHTML = 'Hide GTFS-FeedInfo';
+            selector.feedinfo = 1;
         } else {
-            content.style.display = 'block'
+            document.getElementById('feedinfobutton').innerHTML = 'Show GTFS-FeedInfo';
+            selector.feedinfo = 0;
         }
+        updateDisplay();
     }
-
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">GTFS-Vehicles</Button>
+        return <Button id='feedinfobutton' onClick={this.handleClick} className="ui button">Show GTFS-FeedInfo</Button>
     }
 }
+
+export {selector};

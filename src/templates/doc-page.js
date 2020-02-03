@@ -7,8 +7,6 @@ import SideNav from "../components/side-nav";
 import Footer from '../components/footer';
 import {useTranslation} from 'react-i18next';
 import {getPathForLanguage} from '../lib/i18n';
-import Counter from "../components/Counter";
-import Selection from "../components/Selection";
 import Agency from "../components/Agency";
 import Stops from "../components/Stops";
 import Routes from "../components/Routes";
@@ -76,8 +74,6 @@ document.head.appendChild(styleLink);
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    "interactive-counter": Counter,
-    "selection": Selection,
     "agency": Agency,
     "stops": Stops,
     "routes": Routes,

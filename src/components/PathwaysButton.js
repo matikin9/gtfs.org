@@ -1,18 +1,25 @@
 import React from "react";
 import {Button} from 'semantic-ui-react'
+import $ from "jquery";
+import {selector, updateDisplay} from "./CoreButton";
 
+var count = 0;
 export default class PathwaysButton extends React.Component {
     handleClick = () => {
-        var content = document.getElementById('pathways')
-        if (content.style.display == 'block') {
-            content.style.display = 'none'
+        count += 1;
+        if (count % 2 == 1) {
+            document.getElementById('pathwaysbutton').innerHTML = 'Hide GTFS-Pathways';
+            selector.pathways = 1;
         } else {
-            content.style.display = 'block'
-        }        // document.getElementById("multiselect-specification");
+            document.getElementById('pathwaysbutton').innerHTML = 'Show GTFS-Pathways';
+            selector.pathways = 0;
+        }
+        updateDisplay();
     }
-
 
     render() {
-        return <button onClick={this.handleClick} className="ui button">GTFS-Ticketing</button>
+        return <Button id='pathwaysbutton' onClick={this.handleClick} className="ui button">Show GTFS-Pathways</Button>
     }
 }
+
+export {selector};

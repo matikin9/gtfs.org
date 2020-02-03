@@ -1,19 +1,26 @@
 import React from "react";
 import {Button} from 'semantic-ui-react'
+import $ from "jquery";
+import {selector, updateDisplay} from "./CoreButton";
 
-export default class TranslationsButton extends React.Component {
+var count = 0;
+export default class PathwaysButton extends React.Component {
     handleClick = () => {
-        var content = document.getElementById('translations')
-        if (content.style.display == 'block') {
-            content.style.display = 'none'
+        count += 1;
+        if (count % 2 == 1) {
+            document.getElementById('translationsbutton').innerHTML = 'Hide GTFS-Translations';
+            selector.translations = 1;
         } else {
-            content.style.display = 'block'
-        }        // document.getElementById("multiselect-specification");
+            document.getElementById('translationsbutton').innerHTML = 'Show GTFS-Translations';
+            selector.translations = 0;
+        }
+        updateDisplay();
     }
 
-
     render() {
-        return <Button onClick={this.handleClick} className="ui button">Add translations.txt</Button>
+        return <Button id='translationsbutton' onClick={this.handleClick} className="ui button">Show
+            GTFS-Translations</Button>
     }
 }
 
+export {selector};

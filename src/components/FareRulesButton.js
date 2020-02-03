@@ -12,7 +12,7 @@ export default class FareRulesButton extends React.Component {
     }
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">GTFS-BordingRestrictions</Button>
+        return <Button onClick={this.handleClick} className="ui button">GTFS-Pathways</Button>
     }
 }
 

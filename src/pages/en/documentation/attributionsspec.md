@@ -2,6 +2,8 @@
 path: /attributionsspec/
 lang: en
 ---
+### attributions.txt (optional file)
+
 The file defines the attributions applied to the dataset.
 
 |  Field Name | Type | Required | Description |

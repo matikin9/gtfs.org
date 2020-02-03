@@ -99,23 +99,37 @@ The following example demonstrates how a field value would appear in a comma-del
 ## Core specification and extensions
 
 <corebutton></corebutton>
-<div id="requiredFiles" style="display:none;">
-<div class="ui warning message">
+
+
+<div class="ui warning message"> 
   <div class="content">
-    <div class="header">Select the extensions you wish to use<div>
+    <div class="header">Select the extensions you wish to use</div>
   </div>
 </div>
-</div>
+
+
+<div class="ui four buttons">
+    <attributionbutton></attributionbutton>
+    <shapesbutton></shapesbutton>
+    <fareattributesbutton></fareattributesbutton>
+    <frequenciesbutton></frequenciesbutton>
 </div>
 
-<attributionbutton></attributionbutton>
-<fareattributesbutton></fareattributesbutton>
-<farerulesbutton></farerulesbutton>
-<feedinfobutton></feedinfobutton>
-<frequenciesbutton></frequenciesbutton>
-<pathwaysbutton></pathwaysbutton>
-<shapesbutton></shapesbutton>
+<br>
+<br>
 
+<div class="ui five buttons">
+    <transfersbutton></transfersbutton>
+    <pathwaysbutton></pathwaysbutton>
+    <levelsbutton></levelsbutton>
+    <feedinfobutton></feedinfobutton>
+    <translationsbutton></translationsbutton>
+</div>
+
+<br>
+<br>
+
+<div id="core">
 
 ### agency.txt (required file)                    Display best practices<agencycheckbox id='agencyslider'></agencycheckbox>
 
@@ -131,7 +145,6 @@ The following example demonstrates how a field value would appear in a comma-del
 ### routes.txt (required file)  Display best practices<routescheckbox id='routesslider'></routescheckbox>
 <div id="routes" style="display: block;"><routesspec></routesspec></div>
 <div id="routesbp" style="display: none"><routes></routes></div>
-
 
 ### trips.txt (required file) Display best practices<tripscheckbox id='tripsslider'></tripscheckbox>
 <div id="trips" style="display:block;"><tripsspec></tripsspec></div>
@@ -149,46 +162,67 @@ The following example demonstrates how a field value would appear in a comma-del
 <div id="calendardates" style="display: block;"><calendardatesspec></calendardatesspec></div>
 <div id="calendardatesbp" style="display: none;"><calendardates></calendardates></div>
 
-
-
-### attributions.txt (optional file)
-<div id="attributions" style="display: block;"><attributionsspec></attributionsspec></div>
-
-### fare_attributes.txt (optional file) Display best practices <fareattributescheckbox id='fareattributesslider'></fareattributescheckbox>
-<div id="fareattributes" style="display:block;"><fareattributesspec></fareattributesspec></div>
-<div id="fareattributesbp" style="display: block;"><fareattributes></fareattributes></div>
-
-### fare_rules.txt (optional file) Display best practices <farerulescheckbox id='farerulesslider'></farerulescheckbox>
-<div id="farerules" style="display: block;"><farerulesspec></farerulesspec></div>
-<div id="farerulesbp" style="display:none;"><farerules> </farerules></div>
-
-### feed_info.txt (optional file) Display best practices <feedinfocheckbox id='feedinfoslider'></feedinfocheckbox>
-<div id="feedinfo" style="display: block"><feedinfospec></feedinfospec></div>
-<div id="feedinfobp" style="display: none;"><feedinfo></feedinfo></div>
-
-### frequencies.txt (optional file) Display best practices <frequenciescheckbox id='frequenciesslider'></frequenciescheckbox>
-<div id="frequencies" style="display:block;"><frequenciesspec></frequenciesspec></div>
-<div id="frequenciesbp" style="display: block;"><frequencies></frequencies></div>
-
-### levels.txt (optional file)
-<div id="levels" style="display:block;"><levelsspec></levelsspec></div>
-
-### pathways.txt (optional file)
-<div id="pathways" style="display: block"><pathwaysspec></pathwaysspec></div>
-
-### shapes.txt (optional file) Display best practices <shapescheckbox id='shapesslider'></shapescheckbox>
-<div id="shapes" style="display: block"><shapesspec></shapesspec></div>
-<div id="shapesbp" style="display: none"><shapes></shapes></div>
-
-### transfers.txt (optional file) Display best practices <transferscheckbox id='transfersslider'></transferscheckbox>
-<div id="transfers" style="display:block;"><transfersspec></transfersspec></div>
-<div id="transfersbp" style="display: none;"><transfers></transfers></div>
-
-### translations.txt (optional file)
-<div id="translations"><translationsspec></translationsspec></div>
-
 </div>
 
+<div id="extensions" class="extensions">
+
+<div class="extensions" id="attributions" style="display: block;"><attributionsspec></attributionsspec></div>
+
+<div id="fares">
+
+### fare_attributes.txt (optional file) Display best practices <fareattributescheckbox id='fareattributesslider'></fareattributescheckbox>
+<div class="extensions" id="fares" style="display:block;"><fareattributesspec></fareattributesspec></div>
+<div class="extensions" id="fareattributesbp" style="display: none;"><fareattributes></fareattributes></div>
+</div>
+
+<div id="feedinfo">
+
+### feed_info.txt (optional file) Display best practices <feedinfocheckbox id='feedinfoslider'></feedinfocheckbox>
+<div class="extensions" id="feedinfo" style="display: block"><feedinfospec></feedinfospec></div>
+<div class="extensions" id="feedinfobp" style="display: none;"><feedinfo></feedinfo></div>
+</div>
+
+<div id="frequencies">
+
+### frequencies.txt (optional file) Display best practices <frequenciescheckbox id='frequenciesslider'></frequenciescheckbox>
+<div class="extensions" id="frequencies" style="display:block;"><frequenciesspec></frequenciesspec></div>
+<div class="extensions" id="frequenciesbp" style="display: none;"><frequencies></frequencies></div>
+</div>
+
+<div id="levels">
+
+### levels.txt (optional file)
+<div class="extensions" id="levels" style="display:block;"><levelsspec></levelsspec></div>
+</div>
+
+<div id="pathways">
+
+### pathways.txt (optional file)
+<div class="extensions" id="pathways" style="display: block"><pathwaysspec></pathwaysspec></div>
+</div>
+
+
+<div id="shapes">
+
+### shapes.txt (optional file) Display best practices <shapescheckbox id='shapesslider'></shapescheckbox>
+<div class="extensions" id="shapes" style="display: block"><shapesspec></shapesspec></div>
+<div class="extensions" id="shapesbp" style="display: none"><shapes></shapes></div>
+</div>
+
+<div id="translations">
+
+### translations.txt (optional file)
+<div class="extensions" id="translations"><translationsspec></translationsspec></div>
+</div>
+
+<div id="transfers">
+
+### transfers.txt (optional file) Display best practices <transferscheckbox id='transfersslider'></transferscheckbox>
+<div class="extensions" id="transfers" style="display:block;"><transfersspec></transfersspec></div>
+<div class="extensions" id="transfersbp" style="display: none;"><transfers></transfers></div>
+</div>
+
+</div>
 
 <br>
 

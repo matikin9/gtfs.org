@@ -1,21 +1,25 @@
 import React from "react";
 import {Button} from 'semantic-ui-react'
+import $ from "jquery";
+import {selector, updateDisplay} from "./CoreButton";
 
-var textToDisplay = 'Add levels.txt';
 var count = 0;
-
 export default class LevelsButton extends React.Component {
     handleClick = () => {
-        var content = document.getElementById('levels')
-        if (content.style.display == 'block') {
-            content.style.display = 'none'
+        count += 1;
+        if (count % 2 == 1) {
+            document.getElementById('levelsbutton').innerHTML = 'Hide GTFS-Levels';
+            selector.levels = 1;
         } else {
-            content.style.display = 'block'
-        }        // document.getElementById("multiselect-specification");
+            document.getElementById('levelsbutton').innerHTML = 'Show GTFS-Levels';
+            selector.levels = 0;
+        }
+        updateDisplay();
     }
-
 
     render() {
-        return <Button onClick={this.handleClick} className="ui button">Add levels.txt</Button>
+        return <Button id='levelsbutton' onClick={this.handleClick} className="ui button">Show GTFS-Levels</Button>
     }
 }
+
+export {selector};
